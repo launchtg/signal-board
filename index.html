@@ -56,16 +56,8 @@
     }
 
     .logo-mark {
-      width: 32px;
-      height: 32px;
-      background: var(--primary);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--deep-green);
+      height: 28px;
+      width: auto;
     }
 
     .header h1 {
@@ -182,17 +174,18 @@
 
     /* Cards */
     .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+      background: var(--warm-ivory);
+      border: 1px solid #E0D9CE;
       border-radius: var(--radius);
       padding: 1rem;
       cursor: grab;
       transition: all 0.15s ease;
+      color: var(--deep-green);
     }
 
     .card:hover {
-      background: var(--bg-card-hover);
-      border-color: rgba(232, 134, 42, 0.3);
+      background: #EDE8DF;
+      border-color: var(--primary);
       transform: translateY(-1px);
     }
 
@@ -205,11 +198,12 @@
       font-weight: 600;
       margin-bottom: 0.375rem;
       letter-spacing: -0.01em;
+      color: var(--deep-green);
     }
 
     .card-pain {
       font-size: 0.775rem;
-      color: var(--text-muted);
+      color: var(--slate);
       line-height: 1.5;
       margin-bottom: 0.75rem;
     }
@@ -226,21 +220,21 @@
       font-size: 0.625rem;
       padding: 0.2rem 0.5rem;
       border-radius: 4px;
-      background: rgba(232, 134, 42, 0.08);
-      color: var(--primary);
-      border: 1px solid rgba(232, 134, 42, 0.15);
+      background: rgba(11, 61, 46, 0.08);
+      color: var(--deep-green);
+      border: 1px solid rgba(11, 61, 46, 0.15);
     }
 
     .tag.api {
-      background: rgba(91, 164, 217, 0.08);
-      color: var(--info);
-      border-color: rgba(91, 164, 217, 0.15);
+      background: rgba(27, 42, 74, 0.08);
+      color: var(--navy);
+      border-color: rgba(27, 42, 74, 0.15);
     }
 
     .tag.market {
-      background: rgba(245, 158, 11, 0.08);
-      color: var(--warning);
-      border-color: rgba(245, 158, 11, 0.15);
+      background: rgba(232, 134, 42, 0.1);
+      color: #B8651A;
+      border-color: rgba(232, 134, 42, 0.2);
     }
 
     .card-footer {
@@ -248,7 +242,7 @@
       align-items: center;
       justify-content: space-between;
       padding-top: 0.625rem;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid #D5CEC3;
     }
 
     .score {
@@ -260,7 +254,7 @@
     .score-bar {
       width: 60px;
       height: 4px;
-      background: var(--border);
+      background: #D5CEC3;
       border-radius: 2px;
       overflow: hidden;
     }
@@ -274,19 +268,19 @@
     .score-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
-      color: var(--text-muted);
+      color: var(--slate);
     }
 
     .mvp-time {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
-      color: var(--text-dim);
+      color: var(--slate);
     }
 
     .card-pricing {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
-      color: var(--primary);
+      color: #B8651A;
       margin-top: 0.375rem;
     }
 
@@ -316,14 +310,14 @@
       display: none;
       margin-top: 0.75rem;
       padding-top: 0.75rem;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid #D5CEC3;
       font-size: 0.75rem;
-      color: var(--text-muted);
+      color: var(--slate);
       line-height: 1.6;
     }
 
     .card-expand h4 {
-      color: var(--text);
+      color: var(--deep-green);
       font-size: 0.725rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -342,7 +336,7 @@
     .expand-btn {
       background: none;
       border: none;
-      color: var(--text-dim);
+      color: var(--slate);
       font-size: 0.7rem;
       cursor: pointer;
       padding: 0.25rem 0;
@@ -360,7 +354,7 @@
       gap: 0.375rem;
       margin-top: 0.625rem;
       padding-top: 0.625rem;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid #D5CEC3;
     }
 
     .asset-link {
@@ -371,35 +365,35 @@
       font-size: 0.65rem;
       padding: 0.3rem 0.6rem;
       border-radius: 4px;
-      background: rgba(232, 134, 42, 0.1);
-      color: var(--primary);
-      border: 1px solid rgba(232, 134, 42, 0.2);
+      background: var(--deep-green);
+      color: var(--warm-ivory);
+      border: 1px solid var(--pine-green);
       text-decoration: none;
       transition: all 0.15s ease;
     }
 
     .asset-link:hover {
-      background: rgba(232, 134, 42, 0.2);
+      background: var(--pine-green);
       border-color: var(--primary);
     }
 
     .asset-link.logo-link {
-      background: rgba(240, 160, 80, 0.08);
-      color: var(--primary-bright);
-      border-color: rgba(240, 160, 80, 0.15);
+      background: var(--primary);
+      color: var(--deep-green);
+      border-color: #B8651A;
     }
 
     .asset-link.ui-link {
-      background: rgba(91, 164, 217, 0.08);
-      color: var(--info);
-      border-color: rgba(91, 164, 217, 0.15);
+      background: var(--navy);
+      color: var(--warm-ivory);
+      border-color: #2A3F66;
     }
 
     .card-logo-preview {
       width: 100%;
       margin-top: 0.5rem;
       border-radius: 0.5rem;
-      border: 1px solid var(--border);
+      border: 1px solid #D5CEC3;
     }
 
     /* Modal */
@@ -656,7 +650,7 @@
 <body>
   <div class="header">
     <div class="header-left">
-      <div class="logo-mark">LT</div>
+      <img src="https://raw.githubusercontent.com/launchtg/signal-board/main/assets/ltg-icon.png" alt="LTG" class="logo-mark">
       <h1><span>Signal</span> Board</h1>
     </div>
     <div class="header-right">
