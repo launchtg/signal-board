@@ -887,6 +887,21 @@
     </div>
   </div>
 
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-title"></div>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-footer">
+        <button class="modal-btn modal-btn-secondary" id="modal-copy-btn" onclick="copyModalContent()">COPY</button>
+        <a class="modal-btn modal-btn-primary" id="modal-open-external" href="#" target="_blank">OPEN IN NEW TAB</a>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Drag and drop
     const cards = document.querySelectorAll('.card');
@@ -1088,20 +1103,5 @@
       });
     }
   </script>
-
-  <!-- Modal -->
-  <div class="modal-overlay" id="modal-overlay">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-title" id="modal-title"></div>
-        <button class="modal-close" onclick="closeModal()">&times;</button>
-      </div>
-      <div class="modal-body" id="modal-body"></div>
-      <div class="modal-footer">
-        <button class="modal-btn modal-btn-secondary" id="modal-copy-btn" onclick="copyModalContent()">COPY</button>
-        <a class="modal-btn modal-btn-primary" id="modal-open-external" href="#" target="_blank">OPEN IN NEW TAB</a>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
