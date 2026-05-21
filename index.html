@@ -395,6 +395,256 @@
       border-radius: 0.5rem;
       border: 1px solid var(--border);
     }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      max-width: 900px;
+      width: 100%;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .modal-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .modal-title .tag {
+      font-size: 0.6rem;
+    }
+
+    .modal-close {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      transition: all 0.15s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--bg-card-hover);
+      color: var(--text);
+      border-color: var(--primary);
+    }
+
+    .modal-body {
+      padding: 1.25rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-body img {
+      max-width: 100%;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .modal-body.markdown {
+      font-size: 0.825rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .modal-body.markdown h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 0.75rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .modal-body.markdown h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem;
+      color: var(--primary);
+      letter-spacing: -0.01em;
+    }
+
+    .modal-body.markdown h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 1.25rem 0 0.375rem;
+      color: var(--text);
+    }
+
+    .modal-body.markdown h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin: 1rem 0 0.25rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .modal-body.markdown p {
+      margin: 0.5rem 0;
+    }
+
+    .modal-body.markdown ul, .modal-body.markdown ol {
+      padding-left: 1.25rem;
+      margin: 0.375rem 0;
+    }
+
+    .modal-body.markdown li {
+      margin: 0.2rem 0;
+    }
+
+    .modal-body.markdown code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: var(--bg-card);
+      padding: 0.15rem 0.375rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .modal-body.markdown pre {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 0.75rem 0;
+    }
+
+    .modal-body.markdown pre code {
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .modal-body.markdown table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0;
+      font-size: 0.775rem;
+    }
+
+    .modal-body.markdown th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 2px solid var(--border);
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .modal-body.markdown td {
+      padding: 0.4rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-body.markdown hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.25rem 0;
+    }
+
+    .modal-body.markdown strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .modal-body.markdown a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .modal-body.markdown a:hover {
+      text-decoration: underline;
+    }
+
+    .modal-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .modal-footer {
+      padding: 0.75rem 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .modal-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+
+    .modal-btn-secondary {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .modal-btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--text);
+    }
+
+    .modal-btn-primary {
+      background: rgba(124, 184, 0, 0.15);
+      border: 1px solid rgba(124, 184, 0, 0.3);
+      color: var(--primary);
+    }
+
+    .modal-btn-primary:hover {
+      background: rgba(124, 184, 0, 0.25);
+    }
   </style>
 </head>
 <body>
@@ -597,10 +847,10 @@
           </div>
           <div class="card-pricing">$39-79/mo per state</div>
           <div class="card-assets">
-            <a href="https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/logo.png" target="_blank" class="asset-link logo-link">LOGO</a>
-            <a href="https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/ui-mockup.png" target="_blank" class="asset-link ui-link">UI MOCKUP</a>
-            <a href="https://github.com/launchtg/signal-board/blob/main/licensewatch/PRD.md" target="_blank" class="asset-link">PRD</a>
-            <a href="https://github.com/launchtg/signal-board/blob/main/licensewatch/meta-prompt.md" target="_blank" class="asset-link">META PROMPT</a>
+            <a href="#" onclick="openModal('LicenseWatch — Logo','image','https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/logo.png');return false" class="asset-link logo-link">LOGO</a>
+            <a href="#" onclick="openModal('LicenseWatch — UI Mockup','image','https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/ui-mockup.png');return false" class="asset-link ui-link">UI MOCKUP</a>
+            <a href="#" onclick="openModal('LicenseWatch — PRD','markdown','https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/PRD.md');return false" class="asset-link">PRD</a>
+            <a href="#" onclick="openModal('LicenseWatch — Meta Prompt','markdown','https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/meta-prompt.md');return false" class="asset-link">META PROMPT</a>
           </div>
           <img src="https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/logo.png" alt="LicenseWatch logo" class="card-logo-preview">
         </div>
@@ -702,6 +952,156 @@
       card.classList.toggle('expanded');
       btn.textContent = card.classList.contains('expanded') ? '- collapse' : '+ details';
     }
+
+    // Modal system
+    const overlay = document.getElementById('modal-overlay');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    const modalOpenBtn = document.getElementById('modal-open-external');
+
+    let currentUrl = '';
+
+    function openModal(title, type, url) {
+      currentUrl = url;
+      modalTitle.textContent = title;
+      modalBody.className = 'modal-body';
+      modalOpenBtn.href = url;
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      if (type === 'image') {
+        modalBody.innerHTML = '<div class="modal-loading">Loading image...</div>';
+        const img = new Image();
+        img.onload = () => { modalBody.innerHTML = ''; modalBody.appendChild(img); };
+        img.onerror = () => { modalBody.innerHTML = '<div class="modal-loading">Failed to load image</div>'; };
+        img.src = url;
+      } else if (type === 'markdown') {
+        modalBody.innerHTML = '<div class="modal-loading">Loading document...</div>';
+        modalBody.classList.add('markdown');
+        fetch(url)
+          .then(r => r.text())
+          .then(md => { modalBody.innerHTML = renderMarkdown(md); })
+          .catch(() => { modalBody.innerHTML = '<div class="modal-loading">Failed to load document</div>'; });
+      }
+    }
+
+    function closeModal() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      modalBody.innerHTML = '';
+    }
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Simple markdown renderer
+    function renderMarkdown(md) {
+      let html = md
+        // Code blocks (``` ... ```)
+        .replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) =>
+          `<pre><code>${escapeHtml(code.trim())}</code></pre>`)
+        // Inline code
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        // Headers
+        .replace(/^#### (.+)$/gm, '<h4>$1</h4>')
+        .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+        .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+        // Bold
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        // Italic
+        .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+        // Horizontal rules
+        .replace(/^---+$/gm, '<hr>')
+        // Links
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+        // Tables
+        .replace(/^\|(.+)\|$/gm, (match) => {
+          const cells = match.split('|').filter(c => c.trim());
+          if (cells.every(c => /^[\s-:]+$/.test(c))) return '<!--sep-->';
+          return cells.map(c => `<td>${c.trim()}</td>`).join('');
+        });
+
+      // Process tables
+      const lines = html.split('\n');
+      let inTable = false;
+      let isHeader = true;
+      let result = [];
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        if (line.includes('<td>') && !inTable) {
+          inTable = true;
+          isHeader = true;
+          result.push('<table>');
+          result.push('<tr>' + line.replace(/<td>/g, '<th>').replace(/<\/td>/g, '</th>') + '</tr>');
+        } else if (line === '<!--sep-->') {
+          continue;
+        } else if (line.includes('<td>') && inTable) {
+          result.push('<tr>' + line + '</tr>');
+        } else if (inTable && !line.includes('<td>')) {
+          inTable = false;
+          result.push('</table>');
+          result.push(line);
+        } else {
+          result.push(line);
+        }
+      }
+      if (inTable) result.push('</table>');
+
+      html = result.join('\n');
+
+      // Unordered lists
+      html = html.replace(/(^|\n)(- .+(\n- .+)*)/g, (match) => {
+        const items = match.trim().split('\n').map(l =>
+          `<li>${l.replace(/^- /, '')}</li>`
+        ).join('');
+        return `<ul>${items}</ul>`;
+      });
+
+      // Paragraphs (lines not already tagged)
+      html = html.split('\n').map(line => {
+        const trimmed = line.trim();
+        if (!trimmed) return '';
+        if (/^<[a-z]/.test(trimmed)) return trimmed;
+        return `<p>${trimmed}</p>`;
+      }).join('\n');
+
+      return html;
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function copyModalContent() {
+      const text = modalBody.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('modal-copy-btn');
+        btn.textContent = 'COPIED';
+        setTimeout(() => { btn.textContent = 'COPY'; }, 1500);
+      });
+    }
   </script>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-title"></div>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-footer">
+        <button class="modal-btn modal-btn-secondary" id="modal-copy-btn" onclick="copyModalContent()">COPY</button>
+        <a class="modal-btn modal-btn-primary" id="modal-open-external" href="#" target="_blank">OPEN IN NEW TAB</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
