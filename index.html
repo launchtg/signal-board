@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signal Board | Launch Technology Group</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #7CB800;
+      --primary-bright: #CCFF00;
+      --bg: #0a0a12;
+      --bg-surface: #12121c;
+      --bg-card: #1a1a28;
+      --bg-card-hover: #222234;
+      --border: #2a2a3c;
+      --text: #e8e8f0;
+      --text-muted: #6b6b80;
+      --text-dim: #4a4a5c;
+      --destructive: #ef4444;
+      --warning: #f59e0b;
+      --success: #22c55e;
+      --info: #3b82f6;
+      --radius: 0.75rem;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: auto;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-surface);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #0a0a12;
+    }
+
+    .header h1 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .header h1 span {
+      color: var(--primary);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.625rem;
+      border-radius: 999px;
+      background: rgba(124, 184, 0, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(124, 184, 0, 0.2);
+    }
+
+    .date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Board */
+    .board {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.5rem 2rem;
+      min-height: calc(100vh - 70px);
+      overflow-x: auto;
+    }
+
+    /* Columns */
+    .column {
+      min-width: 340px;
+      max-width: 340px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .column-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .column-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+
+    .column-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .column-dot.ideas { background: var(--primary-bright); }
+    .column-dot.design { background: var(--info); }
+    .column-dot.build { background: var(--warning); }
+    .column-dot.live { background: var(--success); }
+
+    .column-title {
+      font-size: 0.825rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .column-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+    }
+
+    .column-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      flex: 1;
+      min-height: 200px;
+      padding: 0.75rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      border-style: dashed;
+    }
+
+    .column-cards.has-cards {
+      border-style: solid;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      cursor: grab;
+      transition: all 0.15s ease;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(124, 184, 0, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .card:active {
+      cursor: grabbing;
+    }
+
+    .card-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.375rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card-pain {
+      font-size: 0.775rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+      margin-bottom: 0.625rem;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.625rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(124, 184, 0, 0.08);
+      color: var(--primary);
+      border: 1px solid rgba(124, 184, 0, 0.15);
+    }
+
+    .tag.api {
+      background: rgba(59, 130, 246, 0.08);
+      color: var(--info);
+      border-color: rgba(59, 130, 246, 0.15);
+    }
+
+    .tag.market {
+      background: rgba(245, 158, 11, 0.08);
+      color: var(--warning);
+      border-color: rgba(245, 158, 11, 0.15);
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.625rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .score {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+
+    .score-bar {
+      width: 60px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .score-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--primary);
+    }
+
+    .score-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    .mvp-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-dim);
+    }
+
+    .card-pricing {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--primary);
+      margin-top: 0.375rem;
+    }
+
+    /* Drag styles */
+    .card.dragging {
+      opacity: 0.4;
+    }
+
+    .column-cards.drag-over {
+      background: rgba(124, 184, 0, 0.03);
+      border-color: var(--primary);
+    }
+
+    /* Empty state */
+    .empty-state {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      font-style: italic;
+    }
+
+    /* Expand */
+    .card-expand {
+      display: none;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .card-expand h4 {
+      color: var(--text);
+      font-size: 0.725rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0.5rem 0 0.25rem;
+    }
+
+    .card-expand h4:first-child {
+      margin-top: 0;
+    }
+
+    .card.expanded .card-expand {
+      display: block;
+    }
+
+    .expand-btn {
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      cursor: pointer;
+      padding: 0.25rem 0;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .expand-btn:hover {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <div class="logo-mark">LT</div>
+      <h1><span>Signal</span> Board</h1>
+    </div>
+    <div class="header-right">
+      <span class="badge">v1.0 SIGNAL ENGINE</span>
+      <span class="date">2026-05-21</span>
+    </div>
+  </div>
+
+  <div class="board">
+    <!-- IDEAS -->
+    <div class="column" id="col-ideas">
+      <div class="column-header">
+        <div class="column-header-left">
+          <div class="column-dot ideas"></div>
+          <span class="column-title">Ideas</span>
+        </div>
+        <span class="column-count" id="count-ideas">5</span>
+      </div>
+      <div class="column-cards has-cards" id="cards-ideas">
+
+        <!-- CARD 1 -->
+        <div class="card" draggable="true" data-id="1">
+          <div class="card-name">ReviewPulse</div>
+          <div class="card-pain">Auto-monitor Google/Yelp reviews across all business locations. Alert on negative reviews instantly. No more manually checking each listing.</div>
+          <div class="card-meta">
+            <span class="tag market">Local Biz / Agencies</span>
+            <span class="tag">Monitoring</span>
+            <span class="tag api">Google Maps API</span>
+          </div>
+          <div class="card-footer">
+            <div class="score">
+              <div class="score-bar"><div class="score-fill" style="width:90%"></div></div>
+              <span class="score-label">9/10</span>
+            </div>
+            <span class="mvp-time">~2 days MVP</span>
+          </div>
+          <div class="card-pricing">$29-79/mo per location cluster</div>
+          <button class="expand-btn" onclick="toggleExpand(this)">+ details</button>
+          <div class="card-expand">
+            <h4>Current Manual Workflow</h4>
+            Agency account managers open Google Maps, Yelp, and Facebook for each client location daily. Copy negative reviews into spreadsheet. Alert client via email. 15-30 min per client, per day.
+            <h4>Workflow Friction</h4>
+            Tab-switching across 3+ platforms per location. Missed reviews lead to unresponded 1-star ratings sitting public for days. No centralized alert system.
+            <h4>Evidence</h4>
+            Reddit r/marketing and r/smallbusiness: repeated threads about review monitoring pain. G2 reviews of Birdeye/Podium cite high cost ($300+/mo) as barrier for SMBs. Agencies managing 10+ clients describe it as their most tedious recurring task.
+            <h4>Relevant Apify Actors</h4>
+            Google Maps Scraper (361K users, 4.76&#9733;), Yelp Scraper, Facebook Reviews Scraper
+            <h4>Relevant APIs</h4>
+            Google Business Profile API, Yelp Fusion API, OpenAI (sentiment analysis)
+            <h4>Why They'd Pay</h4>
+            Unresponded negative reviews directly cost revenue. Agencies can charge clients for this. Clear ROI: save 30 min/day/client, protect reputation.
+            <h4>Existing Bad Solutions</h4>
+            Birdeye ($300+/mo), Podium (enterprise pricing), manual spreadsheet tracking. All either too expensive for SMBs or too manual.
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card" draggable="true" data-id="2">
+          <div class="card-name">PriceShift</div>
+          <div class="card-pain">Monitor competitor pricing pages daily. Get alerts when competitors change prices, add products, or modify tiers. Stop manually checking.</div>
+          <div class="card-meta">
+            <span class="tag market">E-Commerce / SaaS</span>
+            <span class="tag">Change Detection</span>
+            <span class="tag api">Firecrawl</span>
+          </div>
+          <div class="card-footer">
+            <div class="score">
+              <div class="score-bar"><div class="score-fill" style="width:85%"></div></div>
+              <span class="score-label">8.5/10</span>
+            </div>
+            <span class="mvp-time">~2 days MVP</span>
+          </div>
+          <div class="card-pricing">$19-49/mo per 20 competitors</div>
+          <button class="expand-btn" onclick="toggleExpand(this)">+ details</button>
+          <div class="card-expand">
+            <h4>Current Manual Workflow</h4>
+            Product managers bookmark 10-30 competitor pricing pages. Check weekly by opening each tab, screenshotting, comparing to last week's screenshots in a Google Doc. 1-2 hours weekly.
+            <h4>Workflow Friction</h4>
+            Tedious tab-switching. Easy to miss small changes. No historical record. Screenshots get disorganized. Often falls off the priority list entirely.
+            <h4>Evidence</h4>
+            Multiple Reddit r/SaaS and r/ecommerce threads asking for affordable competitor price monitoring. Existing tools (Prisync, Competera) are enterprise-priced ($200+/mo). Indie Hackers discussions confirm this as a recurring pain.
+            <h4>Relevant Apify Actors</h4>
+            Website Content Crawler (117K users), Web Scraper (113K users), specific e-commerce scrapers
+            <h4>Relevant APIs</h4>
+            Firecrawl, Apify Website Content Crawler, OpenAI (diff summarization), SendGrid/Postmark (alerts)
+            <h4>Why They'd Pay</h4>
+            Pricing intelligence directly impacts revenue decisions. Missing a competitor price drop can cost thousands in lost sales. Clear time savings.
+            <h4>Existing Bad Solutions</h4>
+            Prisync ($200+/mo), Competera (enterprise), manual screenshots, Google Alerts (unreliable for pricing pages).
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card" draggable="true" data-id="3">
+          <div class="card-name">LeadForge</div>
+          <div class="card-pain">Enter a business type + city. Get enriched leads with email, phone, LinkedIn, and tech stack. Stop copy-pasting from Google Maps into spreadsheets.</div>
+          <div class="card-meta">
+            <span class="tag market">Agencies / Sales</span>
+            <span class="tag">Enrichment</span>
+            <span class="tag api">Apollo + Maps</span>
+          </div>
+          <div class="card-footer">
+            <div class="score">
+              <div class="score-bar"><div class="score-fill" style="width:92%"></div></div>
+              <span class="score-label">9.2/10</span>
+            </div>
+            <span class="mvp-time">~3 days MVP</span>
+          </div>
+          <div class="card-pricing">$49-99/mo per 500 leads</div>
+          <button class="expand-btn" onclick="toggleExpand(this)">+ details</button>
+          <div class="card-expand">
+            <h4>Current Manual Workflow</h4>
+            Sales reps search Google Maps for "plumbers in Austin". Click each listing. Copy business name, phone, website into spreadsheet. Then visit each website to find email. Then check LinkedIn for owner. 3-5 min per lead, 50+ leads = hours.
+            <h4>Workflow Friction</h4>
+            Extreme tab-switching. Copy-paste between Maps, websites, LinkedIn, spreadsheet. Data gets stale. Duplicates accumulate. No enrichment layer.
+            <h4>Evidence</h4>
+            Google Maps Scraper is the #1 Apify actor (361K users) specifically because of this use case. Reddit r/sales, r/marketing full of threads about lead gen workflows. Apollo/Clay are popular but expensive ($99-199/mo).
+            <h4>Relevant Apify Actors</h4>
+            Google Maps Scraper (361K users, 4.76&#9733;), Google Search Scraper, LinkedIn Profile Scraper
+            <h4>Relevant APIs</h4>
+            Apollo (enrichment), Proxycurl (LinkedIn), Google Maps API, Clearbit, Hunter.io (email finding)
+            <h4>Why They'd Pay</h4>
+            Leads = revenue. Every minute spent copy-pasting is a minute not selling. Agencies charge clients per lead. Direct ROI.
+            <h4>Existing Bad Solutions</h4>
+            Apollo ($99+/mo), Clay ($149+/mo for meaningful usage), manual Maps scraping, ZoomInfo (enterprise). All either too expensive or too complex for small agency/sales teams.
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="card" draggable="true" data-id="4">
+          <div class="card-name">LicenseWatch</div>
+          <div class="card-pain">Monitor state business license filings daily. Get alerted when new businesses register in your target category + geography. First-mover lead gen.</div>
+          <div class="card-meta">
+            <span class="tag market">Insurance / B2B Sales</span>
+            <span class="tag">Monitoring</span>
+            <span class="tag api">State APIs + Scraping</span>
+          </div>
+          <div class="card-footer">
+            <div class="score">
+              <div class="score-bar"><div class="score-fill" style="width:88%"></div></div>
+              <span class="score-label">8.8/10</span>
+            </div>
+            <span class="mvp-time">~3 days MVP</span>
+          </div>
+          <div class="card-pricing">$39-79/mo per state</div>
+          <button class="expand-btn" onclick="toggleExpand(this)">+ details</button>
+          <div class="card-expand">
+            <h4>Current Manual Workflow</h4>
+            Insurance agents, accountants, and B2B sales reps manually check state Secretary of State websites weekly for new business filings. Filter by type, copy into CRM. 30-60 min per state per week.
+            <h4>Workflow Friction</h4>
+            State websites are clunky, slow, and inconsistent. No alert system. Easy to miss new filings. Competitive advantage goes to whoever finds new businesses first.
+            <h4>Evidence</h4>
+            Reddit r/insurance, r/sales: agents describe checking state sites as tedious but essential. First contact with a new business owner has highest conversion. Multiple threads asking for automated monitoring.
+            <h4>Relevant Apify Actors</h4>
+            Web Scraper (113K users), Website Content Crawler, custom scrapers for state sites
+            <h4>Relevant APIs</h4>
+            State SOS APIs (where available), Apify scrapers, Apollo/Clearbit (enrichment), SendGrid (alerts)
+            <h4>Why They'd Pay</h4>
+            First-mover advantage on new business leads. Insurance agents, POS companies, accountants, payroll companies all compete to be first contact. Directly tied to closed deals.
+            <h4>Existing Bad Solutions</h4>
+            Manual state website checking, expensive data providers (InfoUSA, D&B), inconsistent scraping scripts. No dedicated affordable tool for this.
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="card" draggable="true" data-id="5">
+          <div class="card-name">StackSniff</div>
+          <div class="card-pain">Enter a URL, get the full tech stack: CMS, analytics, payments, email provider, hosting, frameworks. Bulk scan prospect lists to find your ICP.</div>
+          <div class="card-meta">
+            <span class="tag market">SaaS Sales / Dev Tools</span>
+            <span class="tag">Lookup</span>
+            <span class="tag api">Wappalyzer + Enrichment</span>
+          </div>
+          <div class="card-footer">
+            <div class="score">
+              <div class="score-bar"><div class="score-fill" style="width:82%"></div></div>
+              <span class="score-label">8.2/10</span>
+            </div>
+            <span class="mvp-time">~2 days MVP</span>
+          </div>
+          <div class="card-pricing">$29-59/mo per 1000 lookups</div>
+          <button class="expand-btn" onclick="toggleExpand(this)">+ details</button>
+          <div class="card-expand">
+            <h4>Current Manual Workflow</h4>
+            SaaS sales reps use BuiltWith or Wappalyzer browser extension one site at a time. Check if prospect uses competitor or complementary tech. Copy findings into spreadsheet. 2-3 min per prospect site.
+            <h4>Workflow Friction</h4>
+            One-at-a-time browser extension usage. Can't bulk scan a prospect list. No integration with CRM. Manual data entry of findings.
+            <h4>Evidence</h4>
+            BuiltWith charges $295+/mo for bulk access. Wappalyzer free tier is single-URL only. Reddit r/sales and r/SaaS: SDRs describe tech stack research as time-consuming but critical for personalized outreach.
+            <h4>Relevant Apify Actors</h4>
+            Website Content Crawler, Technology Profiler actors, Web Scraper
+            <h4>Relevant APIs</h4>
+            Wappalyzer API, BuiltWith API, Clearbit (enrichment), custom header/script analysis
+            <h4>Why They'd Pay</h4>
+            Knowing a prospect's tech stack enables hyper-personalized outreach. "I see you're on Shopify + Klaviyo" converts way better than generic cold email. Bulk access saves hours.
+            <h4>Existing Bad Solutions</h4>
+            BuiltWith ($295+/mo), Wappalyzer (limited free, $250+/mo for API), manual browser extension one-by-one. Price gap is huge for small teams.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DESIGN -->
+    <div class="column" id="col-design">
+      <div class="column-header">
+        <div class="column-header-left">
+          <div class="column-dot design"></div>
+          <span class="column-title">Design</span>
+        </div>
+        <span class="column-count" id="count-design">0</span>
+      </div>
+      <div class="column-cards" id="cards-design">
+        <div class="empty-state">Drag ideas here to trigger design phase</div>
+      </div>
+    </div>
+
+    <!-- BUILD -->
+    <div class="column" id="col-build">
+      <div class="column-header">
+        <div class="column-header-left">
+          <div class="column-dot build"></div>
+          <span class="column-title">Build</span>
+        </div>
+        <span class="column-count" id="count-build">0</span>
+      </div>
+      <div class="column-cards" id="cards-build">
+        <div class="empty-state">PRD + meta prompt ready for Loveable / Claude Code</div>
+      </div>
+    </div>
+
+    <!-- LIVE -->
+    <div class="column" id="col-live">
+      <div class="column-header">
+        <div class="column-header-left">
+          <div class="column-dot live"></div>
+          <span class="column-title">Live</span>
+        </div>
+        <span class="column-count" id="count-live">0</span>
+      </div>
+      <div class="column-cards" id="cards-live">
+        <div class="empty-state">Deployed and generating revenue</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Drag and drop
+    const cards = document.querySelectorAll('.card');
+    const columns = document.querySelectorAll('.column-cards');
+
+    cards.forEach(card => {
+      card.addEventListener('dragstart', (e) => {
+        card.classList.add('dragging');
+        e.dataTransfer.setData('text/plain', card.dataset.id);
+      });
+      card.addEventListener('dragend', () => {
+        card.classList.remove('dragging');
+        document.querySelectorAll('.column-cards').forEach(c => c.classList.remove('drag-over'));
+        updateCounts();
+      });
+    });
+
+    columns.forEach(col => {
+      col.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        col.classList.add('drag-over');
+      });
+      col.addEventListener('dragleave', () => {
+        col.classList.remove('drag-over');
+      });
+      col.addEventListener('drop', (e) => {
+        e.preventDefault();
+        col.classList.remove('drag-over');
+        const dragging = document.querySelector('.dragging');
+        if (dragging) {
+          // Remove empty state if present
+          const empty = col.querySelector('.empty-state');
+          if (empty) empty.remove();
+          col.appendChild(dragging);
+          col.classList.add('has-cards');
+          updateCounts();
+        }
+      });
+    });
+
+    function updateCounts() {
+      ['ideas', 'design', 'build', 'live'].forEach(id => {
+        const count = document.querySelectorAll(`#cards-${id} .card`).length;
+        document.getElementById(`count-${id}`).textContent = count;
+        const container = document.getElementById(`cards-${id}`);
+        if (count === 0) {
+          container.classList.remove('has-cards');
+          if (!container.querySelector('.empty-state')) {
+            const empty = document.createElement('div');
+            empty.className = 'empty-state';
+            empty.textContent = id === 'ideas' ? 'Waiting for Signal research' :
+                               id === 'design' ? 'Drag ideas here to trigger design phase' :
+                               id === 'build' ? 'PRD + meta prompt ready for Loveable / Claude Code' :
+                               'Deployed and generating revenue';
+            container.appendChild(empty);
+          }
+        }
+      });
+    }
+
+    function toggleExpand(btn) {
+      const card = btn.closest('.card');
+      card.classList.toggle('expanded');
+      btn.textContent = card.classList.contains('expanded') ? '- collapse' : '+ details';
+    }
+  </script>
+</body>
+</html>
