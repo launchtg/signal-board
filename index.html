@@ -4,25 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Signal Board | Launch Technology Group</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --primary: #7CB800;
-      --primary-bright: #CCFF00;
-      --bg: #0a0a12;
-      --bg-surface: #12121c;
-      --bg-card: #1a1a28;
-      --bg-card-hover: #222234;
-      --border: #2a2a3c;
-      --text: #e8e8f0;
-      --text-muted: #6b6b80;
-      --text-dim: #4a4a5c;
+      --primary: #E8862A;
+      --primary-bright: #F0A050;
+      --deep-green: #0B3D2E;
+      --pine-green: #1A5C45;
+      --warm-ivory: #F5F0E8;
+      --navy: #1B2A4A;
+      --slate: #64748B;
+      --bg: #0B3D2E;
+      --bg-surface: #0D4A36;
+      --bg-card: #10573F;
+      --bg-card-hover: #146B4D;
+      --border: #1A7A58;
+      --text: #F5F0E8;
+      --text-muted: #A8C4B8;
+      --text-dim: #6B9E88;
       --destructive: #ef4444;
       --warning: #f59e0b;
       --success: #22c55e;
-      --info: #3b82f6;
+      --info: #5BA4D9;
       --radius: 0.75rem;
     }
 
@@ -60,12 +65,13 @@
       justify-content: center;
       font-weight: 700;
       font-size: 14px;
-      color: #0a0a12;
+      color: var(--deep-green);
     }
 
     .header h1 {
-      font-size: 1.125rem;
-      font-weight: 600;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
       letter-spacing: -0.02em;
     }
 
@@ -84,9 +90,9 @@
       font-size: 0.7rem;
       padding: 0.25rem 0.625rem;
       border-radius: 999px;
-      background: rgba(124, 184, 0, 0.1);
+      background: rgba(232, 134, 42, 0.1);
       color: var(--primary);
-      border: 1px solid rgba(124, 184, 0, 0.2);
+      border: 1px solid rgba(232, 134, 42, 0.2);
     }
 
     .date {
@@ -136,9 +142,9 @@
       border-radius: 50%;
     }
 
-    .column-dot.ideas { background: var(--primary-bright); }
+    .column-dot.ideas { background: var(--primary); }
     .column-dot.design { background: var(--info); }
-    .column-dot.build { background: var(--warning); }
+    .column-dot.build { background: var(--primary-bright); }
     .column-dot.live { background: var(--success); }
 
     .column-title {
@@ -186,7 +192,7 @@
 
     .card:hover {
       background: var(--bg-card-hover);
-      border-color: rgba(124, 184, 0, 0.3);
+      border-color: rgba(232, 134, 42, 0.3);
       transform: translateY(-1px);
     }
 
@@ -220,15 +226,15 @@
       font-size: 0.625rem;
       padding: 0.2rem 0.5rem;
       border-radius: 4px;
-      background: rgba(124, 184, 0, 0.08);
+      background: rgba(232, 134, 42, 0.08);
       color: var(--primary);
-      border: 1px solid rgba(124, 184, 0, 0.15);
+      border: 1px solid rgba(232, 134, 42, 0.15);
     }
 
     .tag.api {
-      background: rgba(59, 130, 246, 0.08);
+      background: rgba(91, 164, 217, 0.08);
       color: var(--info);
-      border-color: rgba(59, 130, 246, 0.15);
+      border-color: rgba(91, 164, 217, 0.15);
     }
 
     .tag.market {
@@ -290,7 +296,7 @@
     }
 
     .column-cards.drag-over {
-      background: rgba(124, 184, 0, 0.03);
+      background: rgba(232, 134, 42, 0.03);
       border-color: var(--primary);
     }
 
@@ -365,28 +371,28 @@
       font-size: 0.65rem;
       padding: 0.3rem 0.6rem;
       border-radius: 4px;
-      background: rgba(124, 184, 0, 0.1);
+      background: rgba(232, 134, 42, 0.1);
       color: var(--primary);
-      border: 1px solid rgba(124, 184, 0, 0.2);
+      border: 1px solid rgba(232, 134, 42, 0.2);
       text-decoration: none;
       transition: all 0.15s ease;
     }
 
     .asset-link:hover {
-      background: rgba(124, 184, 0, 0.2);
+      background: rgba(232, 134, 42, 0.2);
       border-color: var(--primary);
     }
 
     .asset-link.logo-link {
-      background: rgba(204, 255, 0, 0.08);
+      background: rgba(240, 160, 80, 0.08);
       color: var(--primary-bright);
-      border-color: rgba(204, 255, 0, 0.15);
+      border-color: rgba(240, 160, 80, 0.15);
     }
 
     .asset-link.ui-link {
-      background: rgba(59, 130, 246, 0.08);
+      background: rgba(91, 164, 217, 0.08);
       color: var(--info);
-      border-color: rgba(59, 130, 246, 0.15);
+      border-color: rgba(91, 164, 217, 0.15);
     }
 
     .card-logo-preview {
@@ -637,13 +643,13 @@
     }
 
     .modal-btn-primary {
-      background: rgba(124, 184, 0, 0.15);
-      border: 1px solid rgba(124, 184, 0, 0.3);
+      background: rgba(232, 134, 42, 0.15);
+      border: 1px solid rgba(232, 134, 42, 0.3);
       color: var(--primary);
     }
 
     .modal-btn-primary:hover {
-      background: rgba(124, 184, 0, 0.25);
+      background: rgba(232, 134, 42, 0.25);
     }
   </style>
 </head>
