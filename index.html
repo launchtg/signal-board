@@ -346,6 +346,55 @@
     .expand-btn:hover {
       color: var(--primary);
     }
+
+    /* Asset links */
+    .card-assets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+      margin-top: 0.625rem;
+      padding-top: 0.625rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .asset-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      background: rgba(124, 184, 0, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(124, 184, 0, 0.2);
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .asset-link:hover {
+      background: rgba(124, 184, 0, 0.2);
+      border-color: var(--primary);
+    }
+
+    .asset-link.logo-link {
+      background: rgba(204, 255, 0, 0.08);
+      color: var(--primary-bright);
+      border-color: rgba(204, 255, 0, 0.15);
+    }
+
+    .asset-link.ui-link {
+      background: rgba(59, 130, 246, 0.08);
+      color: var(--info);
+      border-color: rgba(59, 130, 246, 0.15);
+    }
+
+    .card-logo-preview {
+      width: 100%;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
   </style>
 </head>
 <body>
@@ -368,7 +417,7 @@
           <div class="column-dot ideas"></div>
           <span class="column-title">Ideas</span>
         </div>
-        <span class="column-count" id="count-ideas">5</span>
+        <span class="column-count" id="count-ideas">4</span>
       </div>
       <div class="column-cards has-cards" id="cards-ideas">
 
@@ -480,42 +529,6 @@
           </div>
         </div>
 
-        <!-- CARD 4 -->
-        <div class="card" draggable="true" data-id="4">
-          <div class="card-name">LicenseWatch</div>
-          <div class="card-pain">Monitor state business license filings daily. Get alerted when new businesses register in your target category + geography. First-mover lead gen.</div>
-          <div class="card-meta">
-            <span class="tag market">Insurance / B2B Sales</span>
-            <span class="tag">Monitoring</span>
-            <span class="tag api">State APIs + Scraping</span>
-          </div>
-          <div class="card-footer">
-            <div class="score">
-              <div class="score-bar"><div class="score-fill" style="width:88%"></div></div>
-              <span class="score-label">8.8/10</span>
-            </div>
-            <span class="mvp-time">~3 days MVP</span>
-          </div>
-          <div class="card-pricing">$39-79/mo per state</div>
-          <button class="expand-btn" onclick="toggleExpand(this)">+ details</button>
-          <div class="card-expand">
-            <h4>Current Manual Workflow</h4>
-            Insurance agents, accountants, and B2B sales reps manually check state Secretary of State websites weekly for new business filings. Filter by type, copy into CRM. 30-60 min per state per week.
-            <h4>Workflow Friction</h4>
-            State websites are clunky, slow, and inconsistent. No alert system. Easy to miss new filings. Competitive advantage goes to whoever finds new businesses first.
-            <h4>Evidence</h4>
-            Reddit r/insurance, r/sales: agents describe checking state sites as tedious but essential. First contact with a new business owner has highest conversion. Multiple threads asking for automated monitoring.
-            <h4>Relevant Apify Actors</h4>
-            Web Scraper (113K users), Website Content Crawler, custom scrapers for state sites
-            <h4>Relevant APIs</h4>
-            State SOS APIs (where available), Apify scrapers, Apollo/Clearbit (enrichment), SendGrid (alerts)
-            <h4>Why They'd Pay</h4>
-            First-mover advantage on new business leads. Insurance agents, POS companies, accountants, payroll companies all compete to be first contact. Directly tied to closed deals.
-            <h4>Existing Bad Solutions</h4>
-            Manual state website checking, expensive data providers (InfoUSA, D&B), inconsistent scraping scripts. No dedicated affordable tool for this.
-          </div>
-        </div>
-
         <!-- CARD 5 -->
         <div class="card" draggable="true" data-id="5">
           <div class="card-name">StackSniff</div>
@@ -562,10 +575,36 @@
           <div class="column-dot design"></div>
           <span class="column-title">Design</span>
         </div>
-        <span class="column-count" id="count-design">0</span>
+        <span class="column-count" id="count-design">1</span>
       </div>
-      <div class="column-cards" id="cards-design">
-        <div class="empty-state">Drag ideas here to trigger design phase</div>
+      <div class="column-cards has-cards" id="cards-design">
+
+        <!-- LICENSEWATCH — DESIGN PHASE -->
+        <div class="card" draggable="true" data-id="4">
+          <div class="card-name">LicenseWatch</div>
+          <div class="card-pain">Monitor state business license filings daily. Get alerted when new businesses register in your target category + geography. First-mover lead gen.</div>
+          <div class="card-meta">
+            <span class="tag market">Insurance / B2B Sales</span>
+            <span class="tag">Monitoring</span>
+            <span class="tag api">State APIs + Scraping</span>
+          </div>
+          <div class="card-footer">
+            <div class="score">
+              <div class="score-bar"><div class="score-fill" style="width:88%"></div></div>
+              <span class="score-label">8.8/10</span>
+            </div>
+            <span class="mvp-time">~3 days MVP</span>
+          </div>
+          <div class="card-pricing">$39-79/mo per state</div>
+          <div class="card-assets">
+            <a href="https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/logo.png" target="_blank" class="asset-link logo-link">LOGO</a>
+            <a href="https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/ui-mockup.png" target="_blank" class="asset-link ui-link">UI MOCKUP</a>
+            <a href="https://github.com/launchtg/signal-board/blob/main/licensewatch/PRD.md" target="_blank" class="asset-link">PRD</a>
+            <a href="https://github.com/launchtg/signal-board/blob/main/licensewatch/meta-prompt.md" target="_blank" class="asset-link">META PROMPT</a>
+          </div>
+          <img src="https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/logo.png" alt="LicenseWatch logo" class="card-logo-preview">
+        </div>
+
       </div>
     </div>
 
