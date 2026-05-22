@@ -667,7 +667,7 @@
           <div class="column-dot ideas"></div>
           <span class="column-title">Ideas</span>
         </div>
-        <span class="column-count" id="count-ideas">4</span>
+        <span class="column-count" id="count-ideas">9</span>
       </div>
       <div class="column-cards has-cards" id="cards-ideas">
 
@@ -812,6 +812,176 @@
             Knowing a prospect's tech stack enables hyper-personalized outreach. "I see you're on Shopify + Klaviyo" converts way better than generic cold email. Bulk access saves hours.
             <h4>Existing Bad Solutions</h4>
             BuiltWith ($295+/mo), Wappalyzer (limited free, $250+/mo for API), manual browser extension one-by-one. Price gap is huge for small teams.
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="card" draggable="true" data-id="6">
+          <div class="card-name">AISearchRank <span style="font-family:'JetBrains Mono';font-size:0.55rem;color:var(--slate);font-weight:400">aisearchrank.com</span></div>
+          <div class="card-pain">Track if your brand appears in ChatGPT, Perplexity, Claude, and Google AI Overviews. Get alerted when AI search mentions change. No affordable tool exists.</div>
+          <div class="card-meta">
+            <span class="tag market">Marketing / SEO</span>
+            <span class="tag">Monitoring</span>
+            <span class="tag api">OpenAI + Anthropic + Perplexity APIs</span>
+          </div>
+          <div class="card-footer">
+            <div class="score">
+              <div class="score-bar"><div class="score-fill" style="width:90%"></div></div>
+              <span class="score-label">9.0/10</span>
+            </div>
+            <span class="mvp-time">~3 days MVP</span>
+          </div>
+          <div class="card-pricing">$29-59/mo per brand</div>
+          <button class="expand-btn" onclick="toggleExpand(this)">+ details</button>
+          <div class="card-expand">
+            <h4>Current Manual Workflow</h4>
+            Marketers manually type brand-related queries into ChatGPT, Perplexity, and Google to check if their brand appears in AI-generated answers. No systematic tracking, no history, no alerts. 30-60 min per brand per week.
+            <h4>Workflow Friction</h4>
+            No tool consolidates AI search visibility. Gartner says 25% of search shifting to AI chatbots. Brands are flying blind on whether AI recommends them or competitors.
+            <h4>Evidence</h4>
+            Otterly.ai raised funding for this exact use case but charges $100+/mo. Reddit r/SEO and r/marketing full of threads asking how to track AI search visibility. Completely uncontested at the SMB price point.
+            <h4>Relevant APIs</h4>
+            OpenAI API (submit prompts, parse responses), Anthropic API, Perplexity API, Google Gemini API, Resend (alerts)
+            <h4>Why They'd Pay</h4>
+            AI search is replacing traditional search. If your brand doesn't appear in ChatGPT answers, you're invisible to a growing segment. Direct impact on lead flow.
+            <h4>Existing Bad Solutions</h4>
+            Otterly ($100+/mo), manual checking, no SMB-priced alternative exists. Wide open market.
+          </div>
+        </div>
+
+        <!-- CARD 7 -->
+        <div class="card" draggable="true" data-id="7">
+          <div class="card-name">ExpiryAlert <span style="font-family:'JetBrains Mono';font-size:0.55rem;color:var(--slate);font-weight:400">expiryalert.com</span></div>
+          <div class="card-pain">Monitor daily domain drops. Get alerted when high-value expired domains match your keywords, niche, or authority thresholds. Stop manually checking lists.</div>
+          <div class="card-meta">
+            <span class="tag market">Domain Investors / SEO</span>
+            <span class="tag">Monitoring</span>
+            <span class="tag api">WHOIS + Moz APIs</span>
+          </div>
+          <div class="card-footer">
+            <div class="score">
+              <div class="score-bar"><div class="score-fill" style="width:82%"></div></div>
+              <span class="score-label">8.2/10</span>
+            </div>
+            <span class="mvp-time">~2 days MVP</span>
+          </div>
+          <div class="card-pricing">$19-49/mo</div>
+          <button class="expand-btn" onclick="toggleExpand(this)">+ details</button>
+          <div class="card-expand">
+            <h4>Current Manual Workflow</h4>
+            Domain investors check ExpiredDomains.net, DomCop, and auction sites daily. Filter thousands of domains by metrics (DA, backlinks, age). Copy interesting ones to spreadsheets. 1-2 hours daily.
+            <h4>Workflow Friction</h4>
+            Existing tools are clunky and expensive (DomCop $50-300/mo, SpamZilla $37/mo). No simple alert-based system. Must manually browse long lists daily.
+            <h4>Evidence</h4>
+            ExpiredDomains.net processes 350K+ domains daily. Active Reddit communities (r/Domains, r/juststart) full of domain investors seeking better filtering and alerts.
+            <h4>Relevant APIs</h4>
+            WHOIS APIs, Moz API (domain authority), Majestic API (backlink data), ExpiredDomains.net scraping, Resend (alerts)
+            <h4>Why They'd Pay</h4>
+            A single good expired domain can be worth $500-50,000. Missing a drop by hours means losing it. Alert speed directly = money.
+            <h4>Existing Bad Solutions</h4>
+            DomCop ($50-300/mo), SpamZilla ($37/mo), manual ExpiredDomains.net browsing. All require active browsing, none do smart keyword alerts well.
+          </div>
+        </div>
+
+        <!-- CARD 8 -->
+        <div class="card" draggable="true" data-id="8">
+          <div class="card-name">ScreenshotDiff <span style="font-family:'JetBrains Mono';font-size:0.55rem;color:var(--slate);font-weight:400">screenshotdiff.com</span></div>
+          <div class="card-pain">Daily visual screenshots of any webpage. Pixel-diff comparison highlights changes. Alert when competitor pages, pricing, or layouts change. Catches what uptime monitors miss.</div>
+          <div class="card-meta">
+            <span class="tag market">E-Commerce / Agencies</span>
+            <span class="tag">Change Detection</span>
+            <span class="tag api">Puppeteer + OpenAI Vision</span>
+          </div>
+          <div class="card-footer">
+            <div class="score">
+              <div class="score-bar"><div class="score-fill" style="width:85%"></div></div>
+              <span class="score-label">8.5/10</span>
+            </div>
+            <span class="mvp-time">~2 days MVP</span>
+          </div>
+          <div class="card-pricing">$19-39/mo per 50 pages</div>
+          <button class="expand-btn" onclick="toggleExpand(this)">+ details</button>
+          <div class="card-expand">
+            <h4>Current Manual Workflow</h4>
+            Product managers and agency teams manually screenshot competitor pages, save to Google Drive, and visually compare to previous versions. Uptime monitors only check if a page loads, not if it looks right.
+            <h4>Workflow Friction</h4>
+            Manual screenshots are tedious and inconsistent. No historical archive. Easy to miss subtle changes (pricing updates, CTA changes, new features). Uptime tools miss visual regressions entirely.
+            <h4>Evidence</h4>
+            VisualPing charges $79+/mo for visual monitoring. Multiple Reddit threads asking for affordable visual change detection. Agencies managing 10+ client sites describe this as a recurring pain.
+            <h4>Relevant APIs</h4>
+            Puppeteer/Playwright (screenshots), Apify Web Scraper, OpenAI Vision API (smart diff descriptions), pixelmatch (pixel comparison), Resend (alerts)
+            <h4>Why They'd Pay</h4>
+            Missing a competitor price change costs revenue. Broken layouts on client sites cost reputation. Visual monitoring catches what text-based tools miss.
+            <h4>Existing Bad Solutions</h4>
+            VisualPing ($79+/mo), ChangeTower ($29+/mo but limited), manual screenshots. Price gap for SMBs is wide open.
+          </div>
+        </div>
+
+        <!-- CARD 9 -->
+        <div class="card" draggable="true" data-id="9">
+          <div class="card-name">PostingWatch <span style="font-family:'JetBrains Mono';font-size:0.55rem;color:var(--slate);font-weight:400">postingwatch.com</span></div>
+          <div class="card-pain">Monitor target companies' career pages and job boards. Get alerted when they post new roles. Hiring signals = buying signals for B2B sales.</div>
+          <div class="card-meta">
+            <span class="tag market">B2B Sales / Recruiters</span>
+            <span class="tag">Monitoring</span>
+            <span class="tag api">Apify + LinkedIn Jobs</span>
+          </div>
+          <div class="card-footer">
+            <div class="score">
+              <div class="score-bar"><div class="score-fill" style="width:87%"></div></div>
+              <span class="score-label">8.7/10</span>
+            </div>
+            <span class="mvp-time">~3 days MVP</span>
+          </div>
+          <div class="card-pricing">$29-59/mo per 100 companies</div>
+          <button class="expand-btn" onclick="toggleExpand(this)">+ details</button>
+          <div class="card-expand">
+            <h4>Current Manual Workflow</h4>
+            B2B sales reps manually check target companies' careers pages and LinkedIn job postings to detect growth signals. A company hiring 5 engineers = they're building something = they need tools. 20-40 min daily.
+            <h4>Workflow Friction</h4>
+            No centralized view across targets. Must visit each company's site individually. LinkedIn job alerts are noisy and not filterable by company watchlists. No CRM integration.
+            <h4>Evidence</h4>
+            Hiring intent data is a top sales intelligence signal. Bombora and 6sense sell this data for $1000+/mo. Reddit r/sales: SDRs describe monitoring careers pages as tedious but high-converting.
+            <h4>Relevant APIs</h4>
+            Apify LinkedIn Jobs Scraper, company careers page scrapers, Apollo (enrichment), Clearbit, Resend (alerts)
+            <h4>Why They'd Pay</h4>
+            Hiring signals are among the strongest buying intent indicators. Companies hiring = growing = spending on tools. First to reach them wins. Directly tied to closed deals.
+            <h4>Existing Bad Solutions</h4>
+            Bombora ($1000+/mo), 6sense (enterprise), manual careers page checking, LinkedIn job alerts (not filterable enough). No SMB-priced hiring intent tool.
+          </div>
+        </div>
+
+        <!-- CARD 10 -->
+        <div class="card" draggable="true" data-id="10">
+          <div class="card-name">CloudBurnAlert <span style="font-family:'JetBrains Mono';font-size:0.55rem;color:var(--slate);font-weight:400">cloudburnalert.com</span></div>
+          <div class="card-pain">Simple cloud cost alerts for AWS/GCP/Azure. Set budget thresholds, get warned before you get burned. No enterprise pricing, no complex dashboards.</div>
+          <div class="card-meta">
+            <span class="tag market">Startups / Dev Teams</span>
+            <span class="tag">Alerts</span>
+            <span class="tag api">AWS/GCP/Azure Cost APIs</span>
+          </div>
+          <div class="card-footer">
+            <div class="score">
+              <div class="score-bar"><div class="score-fill" style="width:80%"></div></div>
+              <span class="score-label">8.0/10</span>
+            </div>
+            <span class="mvp-time">~4 days MVP</span>
+          </div>
+          <div class="card-pricing">$9-29/mo</div>
+          <button class="expand-btn" onclick="toggleExpand(this)">+ details</button>
+          <div class="card-expand">
+            <h4>Current Manual Workflow</h4>
+            Dev teams check AWS/GCP billing dashboards periodically. Often discover cost spikes days or weeks late. Set native alerts but they're poorly configured or buried in notification noise.
+            <h4>Workflow Friction</h4>
+            Native cloud billing alerts are hard to configure. No cross-cloud unified view. Cost dashboards are complex. Small teams don't have a dedicated FinOps person.
+            <h4>Evidence</h4>
+            Reddit r/aws, r/devops: horror stories of surprise $5K-$50K bills are constant. Vantage and CloudHealth charge $100-500+/mo. Most startups have no cost monitoring until they get burned.
+            <h4>Relevant APIs</h4>
+            AWS Cost Explorer API, GCP Billing API, Azure Cost Management API, Resend (alerts), Slack webhooks
+            <h4>Why They'd Pay</h4>
+            One surprise cloud bill pays for years of this tool. $29/mo to prevent a $5,000 surprise is an obvious ROI.
+            <h4>Existing Bad Solutions</h4>
+            Vantage ($100+/mo), CloudHealth (enterprise), native cloud alerts (poorly designed, hard to configure). No simple, cheap "just alert me" tool.
           </div>
         </div>
 
