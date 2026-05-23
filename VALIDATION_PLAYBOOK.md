@@ -85,12 +85,20 @@ For Validation-stage cards, keep these fields current:
 
 A qualified signup is not just any email.
 
-A stronger signup usually means the person:
-- fits the target buyer profile
-- clearly understands the problem
-- is likely to use the product
-- optionally shares workflow context
-- optionally shows urgency or willingness to pay
+Use this practical standard:
+
+A signup is usually **qualified** if most of the following are true:
+- the person fits the intended buyer profile
+- the use case matches the product promise
+- they appear likely to use or evaluate the product seriously
+- they show contextual understanding of the problem
+- they share workflow details, urgency, or willingness-to-pay signals
+
+A signup is usually **not qualified** if:
+- the audience is wrong
+- the interest is vague curiosity only
+- the use case does not match the target workflow
+- there is no evidence of real intent
 
 ## Strong Validation Signals
 

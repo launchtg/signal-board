@@ -17,6 +17,7 @@ These are enough for a new agent to understand and operate the system:
 Use these when performing specific tasks:
 - `RESEARCH_PLAYBOOK.md` — how ideas are discovered and researched
 - `VALIDATION_PLAYBOOK.md` — how demand is tested before build
+- `INTAKE_CHECKLIST.md` — exact intake and stage-update procedure
 - `PROJECT_TEMPLATE.json` — reusable template for new project records
 
 ### Tier 3 — Reference when needed
@@ -33,6 +34,7 @@ Helpful, but not required up front:
 - **Do not create or use `master`**
 - **`projects.json` is the board source of truth**
 - `index.html` is the renderer/UI for GitHub Pages
+- **browser drag/drop is visual only unless `projects.json` is changed and pushed**
 - After any board change, **commit and push to `main` immediately** so the live board matches the repo
 
 ## Idea Creation System
@@ -132,6 +134,10 @@ Each product folder should contain, when available:
 - `ui-mockup.png`
 - optional landing page assets later
 
+Folder rule:
+- Ideas-stage records usually do **not** need a folder yet
+- create a folder once the project enters Design or real assets need a home
+
 ## Project Record Schema
 
 When creating a new record, start from `PROJECT_TEMPLATE.json` and then adapt it to the actual project stage.
@@ -203,6 +209,7 @@ Each project in `projects.json` should follow this general shape:
 - Add `validation` when a project is in Design or later
 - Keep values explicit; avoid hidden assumptions
 - Prefer updating an existing record over inventing alternate structures
+- Update `meta.lastUpdated` whenever project data changes meaningfully
 
 ## Workflow Rules
 

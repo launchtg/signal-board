@@ -50,9 +50,10 @@ When updating Signal Board:
 1. edit `projects.json` first
 2. only edit `index.html` if the renderer or layout needs to change
 3. keep stage, assets, and validation state aligned
-4. if in Validation, update validation metrics fields
-5. commit with a literal message describing the change
-6. push to `main`
+4. update `meta.lastUpdated` when data changes meaningfully
+5. if in Validation, update validation metrics fields
+6. commit with a literal message describing the change
+7. push to `main`
 
 ## Stage Intent
 
@@ -98,6 +99,10 @@ Per-project folders may include:
 - `ui-mockup.png`
 - later: landing page assets if needed
 
+Folder creation rule:
+- do not create folders for every Ideas-stage card by default
+- create a folder once the project enters Design or real assets need to be stored
+
 Keep naming straightforward.
 Avoid mystery files.
 
@@ -111,19 +116,21 @@ Avoid mystery files.
 ### Read when needed
 4. `RESEARCH_PLAYBOOK.md`
 5. `VALIDATION_PLAYBOOK.md`
-6. `PROJECT_TEMPLATE.json`
+6. `INTAKE_CHECKLIST.md`
+7. `PROJECT_TEMPLATE.json`
 
 ### Reference only
-7. `SCORING_RUBRIC.md`
-8. `KILL_CRITERIA.md`
-9. `EXAMPLES.md`
-10. `SAMPLE_VALIDATION_CASE.md`
+8. `SCORING_RUBRIC.md`
+9. `KILL_CRITERIA.md`
+10. `EXAMPLES.md`
+11. `SAMPLE_VALIDATION_CASE.md`
 
 ## Default Agent Behavior
 
 If asked to update Signal Board:
 - make the smallest clear change that preserves readability
 - prefer explicit labels over hidden logic
+- remember that browser drag/drop is visual only unless `projects.json` changes
 - push your changes unless explicitly told not to
 - verify branch/repo cleanliness after structural changes
 - if workflow logic is missing from docs, add it
