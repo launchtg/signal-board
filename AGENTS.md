@@ -118,12 +118,15 @@ Avoid mystery files.
 5. `VALIDATION_PLAYBOOK.md`
 6. `INTAKE_CHECKLIST.md`
 7. `PROJECT_TEMPLATE.json`
+8. `tools/validate_projects.py`
+9. `tools/new_project.py`
+10. `tools/publish_board.sh`
 
 ### Reference only
-8. `SCORING_RUBRIC.md`
-9. `KILL_CRITERIA.md`
-10. `EXAMPLES.md`
-11. `SAMPLE_VALIDATION_CASE.md`
+11. `SCORING_RUBRIC.md`
+12. `KILL_CRITERIA.md`
+13. `EXAMPLES.md`
+14. `SAMPLE_VALIDATION_CASE.md`
 
 ## Default Agent Behavior
 
@@ -131,6 +134,8 @@ If asked to update Signal Board:
 - make the smallest clear change that preserves readability
 - prefer explicit labels over hidden logic
 - remember that browser drag/drop is visual only unless `projects.json` changes
+- run `python3 tools/validate_projects.py` before publishing
+- use `tools/new_project.py` instead of inventing new record structure by hand when practical
 - push your changes unless explicitly told not to
 - verify branch/repo cleanliness after structural changes
 - if workflow logic is missing from docs, add it

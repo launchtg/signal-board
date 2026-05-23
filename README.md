@@ -20,6 +20,11 @@ Use these when performing specific tasks:
 - `INTAKE_CHECKLIST.md` — exact intake and stage-update procedure
 - `PROJECT_TEMPLATE.json` — reusable template for new project records
 
+### Tier 2.5 — Use the toolkit when editing
+- `tools/validate_projects.py` — validate `projects.json`, stages, and asset paths
+- `tools/new_project.py` — generate a new project record safely
+- `tools/publish_board.sh` — validate, commit, and push from `main`
+
 ### Tier 3 — Reference when needed
 Helpful, but not required up front:
 - `SCORING_RUBRIC.md` — how to score opportunities more consistently
@@ -217,9 +222,38 @@ Each project in `projects.json` should follow this general shape:
 2. Only update `index.html` when the renderer/UI itself needs changes
 3. Keep card stage and asset state aligned
 4. If a card moves stages, update any relevant validation tracking fields
-5. Commit clearly
-6. Push to `main`
-7. Verify GitHub Pages reflects the change
+5. Run `python3 tools/validate_projects.py`
+6. Commit clearly
+7. Push to `main`
+8. Verify GitHub Pages reflects the change
+
+## Operator Toolkit
+
+### Validate the board data
+```bash
+python3 tools/validate_projects.py
+```
+
+### Create a new project record
+```bash
+python3 tools/new_project.py --name "Example Project" --domain example.com
+```
+
+Create a Design-stage project and scaffold its folder:
+```bash
+python3 tools/new_project.py --name "Example Project" --domain example.com --stage design --with-folder
+```
+
+### Publish safely
+```bash
+tools/publish_board.sh "Your commit message"
+```
+
+This script:
+- checks you are on `main`
+- validates the board data
+- commits all current changes
+- pushes to `main`
 
 ## Commit Style
 
