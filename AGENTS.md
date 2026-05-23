@@ -102,6 +102,30 @@ Move when there is real signal:
 - demo/pilot interest
 - willingness-to-pay evidence
 
+## Project Data Expectations
+
+`projects.json` is the primary editing surface.
+
+Each record should usually include:
+- `id`
+- `name`
+- `domain`
+- `stage`
+- `pain`
+- `tags`
+- `score`
+- `scorePercent`
+- `mvpTime`
+- `pricing`
+
+Optional but common sections:
+- `details` — research context for Ideas-stage cards
+- `assets` — for Design+ cards with logo/mockup/PRD/meta prompt
+- `validation` — for demand-tracking once a project reaches Design/Validation
+
+Do not invent alternate ad hoc structures when the existing schema is sufficient.
+Extend the schema only when there is a clear repeated need.
+
 ## Folder Expectations
 
 Per-project folders may include:

@@ -168,6 +168,76 @@ Each product folder should contain, when available:
 - `ui-mockup.png`
 - optional landing page assets later
 
+## Project Record Schema
+
+Each project in `projects.json` should follow this general shape:
+
+```json
+{
+  "id": "short-stable-id",
+  "name": "ProjectName",
+  "domain": "projectname.com",
+  "stage": "ideas|design|validation|build|live",
+  "pain": "One clear sentence describing the pain/opportunity.",
+  "tags": [
+    { "text": "Market / Buyer", "class": "market" },
+    { "text": "Category" },
+    { "text": "API / Source", "class": "api" }
+  ],
+  "score": "8.8/10",
+  "scorePercent": 88,
+  "mvpTime": "~3 days MVP",
+  "pricing": "$29-79/mo",
+  "details": [
+    { "title": "Current Manual Workflow", "text": "..." },
+    { "title": "Workflow Friction", "text": "..." },
+    { "title": "Evidence", "text": "..." },
+    { "title": "Relevant APIs", "text": "..." },
+    { "title": "Why They'd Pay", "text": "..." },
+    { "title": "Existing Bad Solutions", "text": "..." }
+  ],
+  "assets": {
+    "folder": "project-folder",
+    "logo": "project-folder/logo.png",
+    "uiMockup": "project-folder/ui-mockup.png",
+    "prd": "project-folder/PRD.md",
+    "metaPrompt": "project-folder/meta-prompt.md"
+  },
+  "validation": {
+    "lpUrl": "not live",
+    "signups": "0",
+    "qualified": "0",
+    "conversion": "—",
+    "trafficSource": "—",
+    "lastCheck": "not launched",
+    "status": "NOT LIVE"
+  }
+}
+```
+
+### Field guidance
+
+- `id` — short, stable, lowercase identifier used by the UI
+- `name` — public-facing product name
+- `domain` — preferred domain if known
+- `stage` — current board column
+- `pain` — the shortest useful description of the pain/opportunity
+- `tags` — usually market, category, and API/source
+- `score` / `scorePercent` — internal attractiveness score + display bar width
+- `mvpTime` — rough time-to-first-version estimate
+- `pricing` — rough pricing hypothesis
+- `details` — used mainly for Ideas-stage research context
+- `assets` — used when a project has entered Design or beyond
+- `validation` — used for Design/Validation/Build/Live stage tracking when demand testing matters
+
+### Practical rules
+
+- Use `details` for research-backed idea context
+- Use `assets` only when files actually exist or are about to exist
+- Add `validation` when a project is in Design or later
+- Keep values explicit; avoid hidden assumptions
+- Prefer updating an existing record over inventing alternate structures
+
 ## Workflow Rules
 
 1. Update `projects.json` first
