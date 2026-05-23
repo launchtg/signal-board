@@ -10,21 +10,77 @@ Repo: `launchtg/signal-board`
 - **Branch:** `main`
 - **GitHub Pages serves from:** `main`
 - **Do not create or use `master`**
+- **`projects.json` is the board source of truth**
+- `index.html` is the renderer/UI for GitHub Pages
 - After any board change, **commit and push to `main` immediately** so the live board matches the repo
+
+## Idea Creation System
+
+Ideas do not come from vibes alone.
+
+They should be created from repeated evidence that a real market has a painful, recurring, monetizable problem.
+
+### Primary idea sources
+
+Look for ideas in places where people describe workarounds, frustration, or missing tools:
+- Reddit threads
+- niche forums
+- Facebook groups
+- Slack / Discord communities
+- Indie Hackers
+- G2 / Capterra reviews
+- product comparison threads
+- job descriptions that reveal tedious workflows
+- popular scraper/API usage patterns that signal demand
+
+### Good signals
+
+Strong idea signals include:
+- people explicitly asking for a solution
+- repeated complaints about manual workflows
+- screenshots, spreadsheets, copy/paste, browser bookmark routines
+- existing tools being too expensive, too bloated, or too enterprise
+- people hacking together ugly partial solutions
+- strong urgency or financial impact
+- clear buyer identity
+
+### Weak signals
+
+Avoid adding ideas based only on:
+- personal curiosity
+- generic AI hype
+- problems with no clear buyer
+- one-off pain with low repeat frequency
+- markets where free/native tools already solve it well
+
+## Research Standard for Adding an Idea
+
+Before a project is added to Signal Board, aim to have:
+- a clear pain summary
+- target buyer hypothesis
+- current manual workflow
+- workflow friction
+- evidence of real people describing the pain
+- existing solutions and why they fail
+- rough monetization angle
+- rough MVP scope
+
+The goal is to add **evidence-backed opportunities**, not random brainstorms.
 
 ## What the Board Means
 
 ### 1. Ideas
-Raw opportunities worth researching.
+Raw but evidence-backed opportunities worth tracking.
 
 A card belongs here when we have:
 - a clear pain point
 - evidence of demand signals
 - target buyer hypothesis
 - rough monetization idea
+- enough research to justify tracking it on the board
 
 ### 2. Design
-The idea has been packaged.
+The idea has been packaged into something testable.
 
 A card belongs here when we have:
 - name
@@ -68,8 +124,38 @@ A card belongs here when:
 - public URL exists
 - we are monitoring traction/revenue
 
+## Stage Promotion Criteria
+
+### Ideas → Design
+Move when:
+- research is strong enough to justify packaging the opportunity
+- buyer and pain are clear
+- the market gap is real enough to test
+
+### Design → Validation
+Move when:
+- creative assets exist
+- positioning is clear
+- landing page is ready or live
+- there is a concrete CTA to measure demand
+
+### Validation → Build
+Move when there is real signal, such as:
+- qualified signups
+- strong replies from target users
+- repeated positive feedback
+- demo/pilot requests
+- willingness-to-pay signals
+
+### Build → Live
+Move when:
+- the product is deployed
+- there is a public/live URL
+- the project is now in execution/traction mode instead of concept mode
+
 ## Repo Structure
 
+- `projects.json` — source of truth for all project/stage data
 - `index.html` — the live board UI used by GitHub Pages
 - `assets/` — shared board assets
 - `aisearchrank/` — product assets for AISearchRank
@@ -84,12 +170,13 @@ Each product folder should contain, when available:
 
 ## Workflow Rules
 
-1. Update the board in `index.html`
-2. Keep card stage and asset state aligned
-3. If a card moves stages, update counts and any relevant tracking fields
-4. Commit clearly
-5. Push to `main`
-6. Verify GitHub Pages reflects the change
+1. Update `projects.json` first
+2. Only update `index.html` when the renderer/UI itself needs changes
+3. Keep card stage and asset state aligned
+4. If a card moves stages, update any relevant validation tracking fields
+5. Commit clearly
+6. Push to `main`
+7. Verify GitHub Pages reflects the change
 
 ## Commit Style
 
@@ -97,12 +184,15 @@ Use direct commit messages like:
 - `Move AISearchRank to Design on Signal Board`
 - `Add Validation stage and tracking fields to Signal Board`
 - `Update NewFilings validation metrics`
+- `Document Signal Board idea creation workflow`
 
 ## Agent Notes
 
 If you are an agent opening this repo:
 - assume `main` is canonical
 - assume the GitHub Pages site should match the repo exactly
+- assume `projects.json` is the primary editing surface
 - prefer clarity over cleverness
 - leave the board cleaner than you found it
 - if you edit the board, push the change unless explicitly told not to
+- ideas should be evidence-backed, not just clever-sounding
