@@ -136,6 +136,7 @@
 
     .column-dot.ideas { background: var(--primary); }
     .column-dot.design { background: var(--info); }
+    .column-dot.validation { background: var(--warning); }
     .column-dot.build { background: var(--primary-bright); }
     .column-dot.live { background: var(--success); }
 
@@ -394,6 +395,54 @@
       margin-top: 0.5rem;
       border-radius: 0.5rem;
       border: 1px solid #D5CEC3;
+    }
+
+    .validation-tracker {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #D5CEC3;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem;
+    }
+
+    .validation-item {
+      background: rgba(11, 61, 46, 0.04);
+      border: 1px solid rgba(11, 61, 46, 0.1);
+      border-radius: 6px;
+      padding: 0.45rem 0.5rem;
+    }
+
+    .validation-label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.58rem;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.15rem;
+    }
+
+    .validation-value {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--deep-green);
+      word-break: break-word;
+    }
+
+    .validation-status {
+      margin-top: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.12);
+      color: #B45309;
+      border: 1px solid rgba(245, 158, 11, 0.22);
     }
 
     /* Modal */
@@ -990,6 +1039,15 @@
             <a href="#" onclick="openModal('NewFilings — PRD','markdown','https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/PRD.md');return false" class="asset-link">PRD</a>
             <a href="#" onclick="openModal('NewFilings — Meta Prompt','markdown','https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/meta-prompt.md');return false" class="asset-link">META PROMPT</a>
           </div>
+          <div class="validation-tracker">
+            <div class="validation-item"><span class="validation-label">LP URL</span><span class="validation-value">not live</span></div>
+            <div class="validation-item"><span class="validation-label">Signups</span><span class="validation-value">0</span></div>
+            <div class="validation-item"><span class="validation-label">Qualified</span><span class="validation-value">0</span></div>
+            <div class="validation-item"><span class="validation-label">Conversion</span><span class="validation-value">—</span></div>
+            <div class="validation-item"><span class="validation-label">Traffic Source</span><span class="validation-value">—</span></div>
+            <div class="validation-item"><span class="validation-label">Last Check</span><span class="validation-value">not launched</span></div>
+          </div>
+          <div class="validation-status">VALIDATION STATUS: NOT LIVE</div>
           <img src="https://raw.githubusercontent.com/launchtg/signal-board/main/licensewatch/logo.png" alt="NewFilings logo" class="card-logo-preview">
         </div>
 
@@ -1016,9 +1074,32 @@
             <a href="#" onclick="openModal('AISearchRank — PRD','markdown','https://raw.githubusercontent.com/launchtg/signal-board/main/aisearchrank/PRD.md');return false" class="asset-link">PRD</a>
             <a href="#" onclick="openModal('AISearchRank — Meta Prompt','markdown','https://raw.githubusercontent.com/launchtg/signal-board/main/aisearchrank/meta-prompt.md');return false" class="asset-link">META PROMPT</a>
           </div>
+          <div class="validation-tracker">
+            <div class="validation-item"><span class="validation-label">LP URL</span><span class="validation-value">not live</span></div>
+            <div class="validation-item"><span class="validation-label">Signups</span><span class="validation-value">0</span></div>
+            <div class="validation-item"><span class="validation-label">Qualified</span><span class="validation-value">0</span></div>
+            <div class="validation-item"><span class="validation-label">Conversion</span><span class="validation-value">—</span></div>
+            <div class="validation-item"><span class="validation-label">Traffic Source</span><span class="validation-value">—</span></div>
+            <div class="validation-item"><span class="validation-label">Last Check</span><span class="validation-value">not launched</span></div>
+          </div>
+          <div class="validation-status">VALIDATION STATUS: NOT LIVE</div>
           <img src="https://raw.githubusercontent.com/launchtg/signal-board/main/aisearchrank/logo.png" alt="AISearchRank logo" class="card-logo-preview">
         </div>
 
+      </div>
+    </div>
+
+    <!-- VALIDATION -->
+    <div class="column" id="col-validation">
+      <div class="column-header">
+        <div class="column-header-left">
+          <div class="column-dot validation"></div>
+          <span class="column-title">Validation</span>
+        </div>
+        <span class="column-count" id="count-validation">0</span>
+      </div>
+      <div class="column-cards" id="cards-validation">
+        <div class="empty-state">Landing page live, traffic running, signups tracked here</div>
       </div>
     </div>
 
@@ -1032,7 +1113,7 @@
         <span class="column-count" id="count-build">0</span>
       </div>
       <div class="column-cards" id="cards-build">
-        <div class="empty-state">PRD + meta prompt ready for Loveable / Claude Code</div>
+        <div class="empty-state">Validated demand, ready to build</div>
       </div>
     </div>
 
@@ -1107,7 +1188,7 @@
     });
 
     function updateCounts() {
-      ['ideas', 'design', 'build', 'live'].forEach(id => {
+      ['ideas', 'design', 'validation', 'build', 'live'].forEach(id => {
         const count = document.querySelectorAll(`#cards-${id} .card`).length;
         document.getElementById(`count-${id}`).textContent = count;
         const container = document.getElementById(`cards-${id}`);
@@ -1118,7 +1199,8 @@
             empty.className = 'empty-state';
             empty.textContent = id === 'ideas' ? 'Waiting for Signal research' :
                                id === 'design' ? 'Drag ideas here to trigger design phase' :
-                               id === 'build' ? 'PRD + meta prompt ready for Loveable / Claude Code' :
+                               id === 'validation' ? 'Landing page live, traffic running, signups tracked here' :
+                               id === 'build' ? 'Validated demand, ready to build' :
                                'Deployed and generating revenue';
             container.appendChild(empty);
           }
