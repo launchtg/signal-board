@@ -14,6 +14,9 @@ Read these in order if you are new to the repo:
 - `VALIDATION_PLAYBOOK.md` — how demand is tested before build
 - `SCORING_RUBRIC.md` — how to score opportunities more consistently
 - `KILL_CRITERIA.md` — when to kill, hold, or deprioritize ideas
+- `EXAMPLES.md` — good vs bad card patterns and decision examples
+- `SAMPLE_VALIDATION_CASE.md` — what a completed validation review should look like
+- `PROJECT_TEMPLATE.json` — reusable template for new project records
 - `AGENTS.md` — agent-specific behavior and editing rules
 
 ## Source of Truth
@@ -180,6 +183,8 @@ Each product folder should contain, when available:
 - optional landing page assets later
 
 ## Project Record Schema
+
+When creating a new record, start from `PROJECT_TEMPLATE.json` and then adapt it to the actual project stage.
 
 Each project in `projects.json` should follow this general shape:
 

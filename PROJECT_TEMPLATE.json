@@ -1,0 +1,40 @@
+{
+  "id": "new-project-id",
+  "name": "NewProjectName",
+  "domain": "newproject.com",
+  "stage": "ideas",
+  "pain": "One clear sentence describing the pain/opportunity.",
+  "tags": [
+    { "text": "Market / Buyer", "class": "market" },
+    { "text": "Category" },
+    { "text": "API / Source", "class": "api" }
+  ],
+  "score": "0.0/10",
+  "scorePercent": 0,
+  "mvpTime": "~X days MVP",
+  "pricing": "$0-0/mo",
+  "details": [
+    { "title": "Current Manual Workflow", "text": "Describe the current workflow in plain language." },
+    { "title": "Workflow Friction", "text": "Explain why the current workflow is painful, slow, costly, or error-prone." },
+    { "title": "Evidence", "text": "Summarize evidence from Reddit, forums, reviews, or other market signals." },
+    { "title": "Relevant APIs", "text": "List the APIs, scrapers, or data sources that make the MVP feasible." },
+    { "title": "Why They'd Pay", "text": "Explain the ROI or why a buyer would pay for this." },
+    { "title": "Existing Bad Solutions", "text": "List current alternatives and why they are insufficient." }
+  ],
+  "assets": {
+    "folder": "new-project-folder",
+    "logo": "new-project-folder/logo.png",
+    "uiMockup": "new-project-folder/ui-mockup.png",
+    "prd": "new-project-folder/PRD.md",
+    "metaPrompt": "new-project-folder/meta-prompt.md"
+  },
+  "validation": {
+    "lpUrl": "not live",
+    "signups": "0",
+    "qualified": "0",
+    "conversion": "—",
+    "trafficSource": "—",
+    "lastCheck": "not launched",
+    "status": "NOT LIVE"
+  }
+}

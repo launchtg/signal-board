@@ -105,6 +105,7 @@ Move when there is real signal:
 ## Project Data Expectations
 
 `projects.json` is the primary editing surface.
+Start from `PROJECT_TEMPLATE.json` when creating a new record.
 
 Each record should usually include:
 - `id`
@@ -147,7 +148,9 @@ If you are new to this repo, read in this order:
 4. `VALIDATION_PLAYBOOK.md`
 5. `SCORING_RUBRIC.md`
 6. `KILL_CRITERIA.md`
-7. `AGENTS.md`
+7. `EXAMPLES.md`
+8. `SAMPLE_VALIDATION_CASE.md`
+9. `AGENTS.md`
 
 ## Default Agent Behavior
 
