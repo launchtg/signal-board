@@ -25,20 +25,13 @@ It is the decision system for moving ideas through:
 
 Do not add ideas just because they sound interesting.
 
-Signal Board ideas should come from researched pain signals such as:
-- Reddit posts asking for solutions
-- forum threads describing recurring frustration
-- expensive or bloated incumbents creating price gaps
-- repeated manual workflows using spreadsheets, screenshots, or copy/paste
-- evidence that people are already trying to solve the problem badly
-- API/scraper usage patterns that reveal strong demand
+Ideas should come from researched pain signals:
+- people asking for solutions
+- repeated manual workflows
+- expensive or weak incumbents
+- evidence of recurring buyer pain
 
-A good idea usually has:
-- a clear buyer
-- recurring pain
-- a specific workflow problem
-- a monetization path
-- a reason existing solutions are not good enough
+If you need the full research standard, read `RESEARCH_PLAYBOOK.md`.
 
 ## What “Clean” Means Here
 
@@ -63,44 +56,13 @@ When updating Signal Board:
 
 ## Stage Intent
 
-### Ideas
-Evidence-backed opportunities worth tracking.
+- **Ideas** — evidence-backed opportunities worth tracking
+- **Design** — packaged concepts with name, positioning, mockup, and build brief
+- **Validation** — landing page and demand-testing phase
+- **Build** — validated demand exists; not just finished assets
+- **Live** — shipped and publicly accessible
 
-### Design
-Packaged concepts with name, positioning, mockup, and build brief.
-
-### Validation
-Landing page and demand testing phase.
-
-Use it to track:
-- LP URL
-- Signups
-- Qualified signups
-- Conversion
-- Traffic source
-- Last check
-- Validation status
-
-### Build
-Build should mean **validated demand**, not just "assets are done."
-
-### Live
-Shipped and publicly accessible.
-
-## Promotion Logic
-
-### Ideas → Design
-Move when the research is strong enough to justify packaging the opportunity.
-
-### Design → Validation
-Move when the product can be tested with a landing page or demand capture flow.
-
-### Validation → Build
-Move when there is real signal:
-- qualified signups
-- strong replies
-- demo/pilot interest
-- willingness-to-pay evidence
+For the full stage logic, read `HOW_IT_WORKS.md` and `VALIDATION_PLAYBOOK.md`.
 
 ## Project Data Expectations
 
@@ -141,16 +103,21 @@ Avoid mystery files.
 
 ## Reading Order for Agents
 
-If you are new to this repo, read in this order:
+### Minimum to operate
 1. `README.md`
 2. `HOW_IT_WORKS.md`
-3. `RESEARCH_PLAYBOOK.md`
-4. `VALIDATION_PLAYBOOK.md`
-5. `SCORING_RUBRIC.md`
-6. `KILL_CRITERIA.md`
-7. `EXAMPLES.md`
-8. `SAMPLE_VALIDATION_CASE.md`
-9. `AGENTS.md`
+3. `AGENTS.md`
+
+### Read when needed
+4. `RESEARCH_PLAYBOOK.md`
+5. `VALIDATION_PLAYBOOK.md`
+6. `PROJECT_TEMPLATE.json`
+
+### Reference only
+7. `SCORING_RUBRIC.md`
+8. `KILL_CRITERIA.md`
+9. `EXAMPLES.md`
+10. `SAMPLE_VALIDATION_CASE.md`
 
 ## Default Agent Behavior
 

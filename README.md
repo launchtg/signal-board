@@ -5,19 +5,26 @@ Signal Board is Launch Technology Group's visual pipeline for moving product ide
 GitHub Pages URL: <https://launchtg.github.io/signal-board/>
 Repo: `launchtg/signal-board`
 
-## Core Docs
+## Doc Map
 
-Read these in order if you are new to the repo:
-- `README.md` — repo overview, workflow, schema
+### Tier 1 — Read first
+These are enough for a new agent to understand and operate the system:
+- `README.md` — repo overview, source of truth, workflow, schema
 - `HOW_IT_WORKS.md` — the operating system / stage logic
+- `AGENTS.md` — agent-specific editing rules and behavior
+
+### Tier 2 — Read when doing the work
+Use these when performing specific tasks:
 - `RESEARCH_PLAYBOOK.md` — how ideas are discovered and researched
 - `VALIDATION_PLAYBOOK.md` — how demand is tested before build
+- `PROJECT_TEMPLATE.json` — reusable template for new project records
+
+### Tier 3 — Reference when needed
+Helpful, but not required up front:
 - `SCORING_RUBRIC.md` — how to score opportunities more consistently
 - `KILL_CRITERIA.md` — when to kill, hold, or deprioritize ideas
 - `EXAMPLES.md` — good vs bad card patterns and decision examples
 - `SAMPLE_VALIDATION_CASE.md` — what a completed validation review should look like
-- `PROJECT_TEMPLATE.json` — reusable template for new project records
-- `AGENTS.md` — agent-specific behavior and editing rules
 
 ## Source of Truth
 
@@ -32,54 +39,17 @@ Read these in order if you are new to the repo:
 
 Ideas do not come from vibes alone.
 
-They should be created from repeated evidence that a real market has a painful, recurring, monetizable problem.
+Add ideas only when there is repeated evidence that a real market has a painful, recurring, monetizable problem.
 
-### Primary idea sources
-
-Look for ideas in places where people describe workarounds, frustration, or missing tools:
-- Reddit threads
-- niche forums
-- Facebook groups
-- Slack / Discord communities
-- Indie Hackers
-- G2 / Capterra reviews
-- product comparison threads
-- job descriptions that reveal tedious workflows
-- popular scraper/API usage patterns that signal demand
-
-### Good signals
-
-Strong idea signals include:
-- people explicitly asking for a solution
-- repeated complaints about manual workflows
-- screenshots, spreadsheets, copy/paste, browser bookmark routines
-- existing tools being too expensive, too bloated, or too enterprise
-- people hacking together ugly partial solutions
-- strong urgency or financial impact
-- clear buyer identity
-
-### Weak signals
-
-Avoid adding ideas based only on:
-- personal curiosity
-- generic AI hype
-- problems with no clear buyer
-- one-off pain with low repeat frequency
-- markets where free/native tools already solve it well
-
-## Research Standard for Adding an Idea
-
-Before a project is added to Signal Board, aim to have:
+At minimum, an idea should have:
 - a clear pain summary
-- target buyer hypothesis
-- current manual workflow
-- workflow friction
+- a target buyer hypothesis
+- a current manual workflow
 - evidence of real people describing the pain
-- existing solutions and why they fail
-- rough monetization angle
-- rough MVP scope
+- a rough monetization angle
+- a rough MVP scope
 
-The goal is to add **evidence-backed opportunities**, not random brainstorms.
+For the full research standard, read `RESEARCH_PLAYBOOK.md`.
 
 ## What the Board Means
 
@@ -140,32 +110,12 @@ A card belongs here when:
 
 ## Stage Promotion Criteria
 
-### Ideas → Design
-Move when:
-- research is strong enough to justify packaging the opportunity
-- buyer and pain are clear
-- the market gap is real enough to test
+- **Ideas → Design** when the research is strong enough to justify packaging the opportunity
+- **Design → Validation** when the product can be tested with a landing page or demand capture flow
+- **Validation → Build** when there is real signal from the right audience
+- **Build → Live** when the product is deployed and publicly accessible
 
-### Design → Validation
-Move when:
-- creative assets exist
-- positioning is clear
-- landing page is ready or live
-- there is a concrete CTA to measure demand
-
-### Validation → Build
-Move when there is real signal, such as:
-- qualified signups
-- strong replies from target users
-- repeated positive feedback
-- demo/pilot requests
-- willingness-to-pay signals
-
-### Build → Live
-Move when:
-- the product is deployed
-- there is a public/live URL
-- the project is now in execution/traction mode instead of concept mode
+For fuller stage logic, read `HOW_IT_WORKS.md` and `VALIDATION_PLAYBOOK.md`.
 
 ## Repo Structure
 
