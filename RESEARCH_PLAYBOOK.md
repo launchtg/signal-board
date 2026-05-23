@@ -1,0 +1,129 @@
+# RESEARCH_PLAYBOOK.md
+
+This document explains how to research ideas for Signal Board.
+
+## Goal
+
+The goal of research is to determine whether a problem is:
+- real
+- recurring
+- monetizable
+- painful enough to deserve a board slot
+
+## Where to Look
+
+Search places where people describe real workflows and real frustration:
+- Reddit
+- niche forums
+- Indie Hackers
+- Facebook groups
+- Slack/Discord communities
+- G2 / Capterra reviews
+- app comparison threads
+- API marketplaces / scraper popularity
+- job descriptions that reveal repeated manual operations
+
+## What to Look For
+
+### Strong evidence
+
+Strong evidence includes:
+- explicit requests for a tool or solution
+- multiple people describing the same manual workflow
+- complaints about cost, complexity, or missing features in incumbents
+- obvious spreadsheet/screenshot/copy-paste behavior
+- urgency tied to money, leads, reputation, or operational pain
+- evidence that people are already paying for a bad version of the solution
+
+### Weak evidence
+
+Weak evidence includes:
+- generic trend discussion
+- aspirational or theoretical interest
+- curiosity without urgency
+- one-time problems
+- no clear buyer
+- no evidence of repeated behavior
+
+## Research Questions
+
+For every candidate idea, answer these questions:
+
+1. **Who is the buyer?**
+2. **What exact workflow is painful?**
+3. **How often does this pain happen?**
+4. **What is the current workaround?**
+5. **Why is the workaround bad?**
+6. **What tools already exist?**
+7. **Why are those tools insufficient?**
+8. **Why would someone pay for a better version?**
+9. **How simple could an MVP be?**
+10. **Can we realistically reach this audience for validation?**
+
+## Minimum Standard Before Adding an Idea
+
+Before adding an idea to `projects.json`, try to have:
+- 3+ real examples of pain evidence
+- a clear target buyer
+- a current manual workflow summary
+- a friction summary
+- a rough pricing hypothesis
+- an MVP framing
+
+If the evidence is weak, do not force it onto the board.
+
+## How to Write a Good Idea Card
+
+A strong Ideas-stage record usually includes:
+- short pain summary
+- meaningful tags
+- score + rough time-to-MVP
+- pricing hypothesis
+- `details` entries for:
+  - Current Manual Workflow
+  - Workflow Friction
+  - Evidence
+  - Relevant APIs / actors
+  - Why They'd Pay
+  - Existing Bad Solutions
+
+## Scoring Guidance
+
+Use the score as an internal judgment call, not fake precision.
+
+High scores usually mean:
+- buyer is obvious
+- pain is recurring
+- workaround is ugly
+- existing tools are weak/expensive
+- MVP is small enough
+- distribution is accessible
+
+Low scores usually mean:
+- buyer is fuzzy
+- pain is infrequent
+- market gap is weak
+- MVP is too big
+- go-to-market is unclear
+
+See `SCORING_RUBRIC.md` for a more formal rubric.
+
+## Practical Research Standard
+
+Prefer depth over volume.
+
+A well-researched idea with:
+- clear buyer
+- strong pain evidence
+- obvious monetization
+
+is more valuable than ten vague brainstorms.
+
+## Research Output Standard
+
+When finished, the result should make it easy for another agent to answer:
+- why this idea exists
+- who it is for
+- why it matters
+- why existing options are not good enough
+- why it deserves to move to Design

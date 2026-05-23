@@ -5,6 +5,17 @@ Signal Board is Launch Technology Group's visual pipeline for moving product ide
 GitHub Pages URL: <https://launchtg.github.io/signal-board/>
 Repo: `launchtg/signal-board`
 
+## Core Docs
+
+Read these in order if you are new to the repo:
+- `README.md` — repo overview, workflow, schema
+- `HOW_IT_WORKS.md` — the operating system / stage logic
+- `RESEARCH_PLAYBOOK.md` — how ideas are discovered and researched
+- `VALIDATION_PLAYBOOK.md` — how demand is tested before build
+- `SCORING_RUBRIC.md` — how to score opportunities more consistently
+- `KILL_CRITERIA.md` — when to kill, hold, or deprioritize ideas
+- `AGENTS.md` — agent-specific behavior and editing rules
+
 ## Source of Truth
 
 - **Branch:** `main`

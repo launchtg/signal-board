@@ -138,6 +138,17 @@ Per-project folders may include:
 Keep naming straightforward.
 Avoid mystery files.
 
+## Reading Order for Agents
+
+If you are new to this repo, read in this order:
+1. `README.md`
+2. `HOW_IT_WORKS.md`
+3. `RESEARCH_PLAYBOOK.md`
+4. `VALIDATION_PLAYBOOK.md`
+5. `SCORING_RUBRIC.md`
+6. `KILL_CRITERIA.md`
+7. `AGENTS.md`
+
 ## Default Agent Behavior
 
 If asked to update Signal Board:
@@ -145,4 +156,5 @@ If asked to update Signal Board:
 - prefer explicit labels over hidden logic
 - push your changes unless explicitly told not to
 - verify branch/repo cleanliness after structural changes
-- if idea-generation logic is missing from docs, add it
+- if workflow logic is missing from docs, add it
+- if schema changes, update docs in the same pass
