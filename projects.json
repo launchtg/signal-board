@@ -2,7 +2,7 @@
   "meta": {
     "version": "v2.0",
     "label": "SIGNAL ENGINE",
-    "lastUpdated": "2026-05-22",
+    "lastUpdated": "2026-05-26",
     "stages": [
       {
         "id": "ideas",
@@ -44,22 +44,51 @@
       "stage": "ideas",
       "pain": "Auto-monitor Google/Yelp reviews across all business locations. Alert on negative reviews instantly. No more manually checking each listing.",
       "tags": [
-        { "text": "Local Biz / Agencies", "class": "market" },
-        { "text": "Monitoring" },
-        { "text": "Google Maps API", "class": "api" }
+        {
+          "text": "Local Biz / Agencies",
+          "class": "market"
+        },
+        {
+          "text": "Monitoring"
+        },
+        {
+          "text": "Google Maps API",
+          "class": "api"
+        }
       ],
       "score": "9/10",
       "scorePercent": 90,
       "mvpTime": "~2 days MVP",
       "pricing": "$29-79/mo per location cluster",
       "details": [
-        { "title": "Current Manual Workflow", "text": "Agency account managers open Google Maps, Yelp, and Facebook for each client location daily. Copy negative reviews into spreadsheet. Alert client via email. 15-30 min per client, per day." },
-        { "title": "Workflow Friction", "text": "Tab-switching across 3+ platforms per location. Missed reviews lead to unresponded 1-star ratings sitting public for days. No centralized alert system." },
-        { "title": "Evidence", "text": "Reddit r/marketing and r/smallbusiness: repeated threads about review monitoring pain. G2 reviews of Birdeye/Podium cite high cost ($300+/mo) as barrier for SMBs. Agencies managing 10+ clients describe it as their most tedious recurring task." },
-        { "title": "Relevant Apify Actors", "text": "Google Maps Scraper (361K users, 4.76★), Yelp Scraper, Facebook Reviews Scraper" },
-        { "title": "Relevant APIs", "text": "Google Business Profile API, Yelp Fusion API, OpenAI (sentiment analysis)" },
-        { "title": "Why They'd Pay", "text": "Unresponded negative reviews directly cost revenue. Agencies can charge clients for this. Clear ROI: save 30 min/day/client, protect reputation." },
-        { "title": "Existing Bad Solutions", "text": "Birdeye ($300+/mo), Podium (enterprise pricing), manual spreadsheet tracking. All either too expensive for SMBs or too manual." }
+        {
+          "title": "Current Manual Workflow",
+          "text": "Agency account managers open Google Maps, Yelp, and Facebook for each client location daily. Copy negative reviews into spreadsheet. Alert client via email. 15-30 min per client, per day."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "Tab-switching across 3+ platforms per location. Missed reviews lead to unresponded 1-star ratings sitting public for days. No centralized alert system."
+        },
+        {
+          "title": "Evidence",
+          "text": "Reddit r/marketing and r/smallbusiness: repeated threads about review monitoring pain. G2 reviews of Birdeye/Podium cite high cost ($300+/mo) as barrier for SMBs. Agencies managing 10+ clients describe it as their most tedious recurring task."
+        },
+        {
+          "title": "Relevant Apify Actors",
+          "text": "Google Maps Scraper (361K users, 4.76\u2605), Yelp Scraper, Facebook Reviews Scraper"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Google Business Profile API, Yelp Fusion API, OpenAI (sentiment analysis)"
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Unresponded negative reviews directly cost revenue. Agencies can charge clients for this. Clear ROI: save 30 min/day/client, protect reputation."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Birdeye ($300+/mo), Podium (enterprise pricing), manual spreadsheet tracking. All either too expensive for SMBs or too manual."
+        }
       ]
     },
     {
@@ -69,22 +98,51 @@
       "stage": "ideas",
       "pain": "Monitor competitor pricing pages daily. Get alerts when competitors change prices, add products, or modify tiers. Stop manually checking.",
       "tags": [
-        { "text": "E-Commerce / SaaS", "class": "market" },
-        { "text": "Change Detection" },
-        { "text": "Firecrawl", "class": "api" }
+        {
+          "text": "E-Commerce / SaaS",
+          "class": "market"
+        },
+        {
+          "text": "Change Detection"
+        },
+        {
+          "text": "Firecrawl",
+          "class": "api"
+        }
       ],
       "score": "8.5/10",
       "scorePercent": 85,
       "mvpTime": "~2 days MVP",
       "pricing": "$19-49/mo per 20 competitors",
       "details": [
-        { "title": "Current Manual Workflow", "text": "Product managers bookmark 10-30 competitor pricing pages. Check weekly by opening each tab, screenshotting, comparing to last week's screenshots in a Google Doc. 1-2 hours weekly." },
-        { "title": "Workflow Friction", "text": "Tedious tab-switching. Easy to miss small changes. No historical record. Screenshots get disorganized. Often falls off the priority list entirely." },
-        { "title": "Evidence", "text": "Multiple Reddit r/SaaS and r/ecommerce threads asking for affordable competitor price monitoring. Existing tools (Prisync, Competera) are enterprise-priced ($200+/mo). Indie Hackers discussions confirm this as a recurring pain." },
-        { "title": "Relevant Apify Actors", "text": "Website Content Crawler (117K users), Web Scraper (113K users), specific e-commerce scrapers" },
-        { "title": "Relevant APIs", "text": "Firecrawl, Apify Website Content Crawler, OpenAI (diff summarization), SendGrid/Postmark (alerts)" },
-        { "title": "Why They'd Pay", "text": "Pricing intelligence directly impacts revenue decisions. Missing a competitor price drop can cost thousands in lost sales. Clear time savings." },
-        { "title": "Existing Bad Solutions", "text": "Prisync ($200+/mo), Competera (enterprise), manual screenshots, Google Alerts (unreliable for pricing pages)." }
+        {
+          "title": "Current Manual Workflow",
+          "text": "Product managers bookmark 10-30 competitor pricing pages. Check weekly by opening each tab, screenshotting, comparing to last week's screenshots in a Google Doc. 1-2 hours weekly."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "Tedious tab-switching. Easy to miss small changes. No historical record. Screenshots get disorganized. Often falls off the priority list entirely."
+        },
+        {
+          "title": "Evidence",
+          "text": "Multiple Reddit r/SaaS and r/ecommerce threads asking for affordable competitor price monitoring. Existing tools (Prisync, Competera) are enterprise-priced ($200+/mo). Indie Hackers discussions confirm this as a recurring pain."
+        },
+        {
+          "title": "Relevant Apify Actors",
+          "text": "Website Content Crawler (117K users), Web Scraper (113K users), specific e-commerce scrapers"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Firecrawl, Apify Website Content Crawler, OpenAI (diff summarization), SendGrid/Postmark (alerts)"
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Pricing intelligence directly impacts revenue decisions. Missing a competitor price drop can cost thousands in lost sales. Clear time savings."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Prisync ($200+/mo), Competera (enterprise), manual screenshots, Google Alerts (unreliable for pricing pages)."
+        }
       ]
     },
     {
@@ -94,22 +152,51 @@
       "stage": "ideas",
       "pain": "Enter a business type + city. Get enriched leads with email, phone, LinkedIn, and tech stack. Stop copy-pasting from Google Maps into spreadsheets.",
       "tags": [
-        { "text": "Agencies / Sales", "class": "market" },
-        { "text": "Enrichment" },
-        { "text": "Apollo + Maps", "class": "api" }
+        {
+          "text": "Agencies / Sales",
+          "class": "market"
+        },
+        {
+          "text": "Enrichment"
+        },
+        {
+          "text": "Apollo + Maps",
+          "class": "api"
+        }
       ],
       "score": "9.2/10",
       "scorePercent": 92,
       "mvpTime": "~3 days MVP",
       "pricing": "$49-99/mo per 500 leads",
       "details": [
-        { "title": "Current Manual Workflow", "text": "Sales reps search Google Maps for \"plumbers in Austin\". Click each listing. Copy business name, phone, website into spreadsheet. Then visit each website to find email. Then check LinkedIn for owner. 3-5 min per lead, 50+ leads = hours." },
-        { "title": "Workflow Friction", "text": "Extreme tab-switching. Copy-paste between Maps, websites, LinkedIn, spreadsheet. Data gets stale. Duplicates accumulate. No enrichment layer." },
-        { "title": "Evidence", "text": "Google Maps Scraper is the #1 Apify actor (361K users) specifically because of this use case. Reddit r/sales, r/marketing full of threads about lead gen workflows. Apollo/Clay are popular but expensive ($99-199/mo)." },
-        { "title": "Relevant Apify Actors", "text": "Google Maps Scraper (361K users, 4.76★), Google Search Scraper, LinkedIn Profile Scraper" },
-        { "title": "Relevant APIs", "text": "Apollo (enrichment), Proxycurl (LinkedIn), Google Maps API, Clearbit, Hunter.io (email finding)" },
-        { "title": "Why They'd Pay", "text": "Leads = revenue. Every minute spent copy-pasting is a minute not selling. Agencies charge clients per lead. Direct ROI." },
-        { "title": "Existing Bad Solutions", "text": "Apollo ($99+/mo), Clay ($149+/mo for meaningful usage), manual Maps scraping, ZoomInfo (enterprise). All either too expensive or too complex for small agency/sales teams." }
+        {
+          "title": "Current Manual Workflow",
+          "text": "Sales reps search Google Maps for \"plumbers in Austin\". Click each listing. Copy business name, phone, website into spreadsheet. Then visit each website to find email. Then check LinkedIn for owner. 3-5 min per lead, 50+ leads = hours."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "Extreme tab-switching. Copy-paste between Maps, websites, LinkedIn, spreadsheet. Data gets stale. Duplicates accumulate. No enrichment layer."
+        },
+        {
+          "title": "Evidence",
+          "text": "Google Maps Scraper is the #1 Apify actor (361K users) specifically because of this use case. Reddit r/sales, r/marketing full of threads about lead gen workflows. Apollo/Clay are popular but expensive ($99-199/mo)."
+        },
+        {
+          "title": "Relevant Apify Actors",
+          "text": "Google Maps Scraper (361K users, 4.76\u2605), Google Search Scraper, LinkedIn Profile Scraper"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Apollo (enrichment), Proxycurl (LinkedIn), Google Maps API, Clearbit, Hunter.io (email finding)"
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Leads = revenue. Every minute spent copy-pasting is a minute not selling. Agencies charge clients per lead. Direct ROI."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Apollo ($99+/mo), Clay ($149+/mo for meaningful usage), manual Maps scraping, ZoomInfo (enterprise). All either too expensive or too complex for small agency/sales teams."
+        }
       ]
     },
     {
@@ -119,22 +206,51 @@
       "stage": "ideas",
       "pain": "Enter a URL, get the full tech stack: CMS, analytics, payments, email provider, hosting, frameworks. Bulk scan prospect lists to find your ICP.",
       "tags": [
-        { "text": "SaaS Sales / Dev Tools", "class": "market" },
-        { "text": "Lookup" },
-        { "text": "Wappalyzer + Enrichment", "class": "api" }
+        {
+          "text": "SaaS Sales / Dev Tools",
+          "class": "market"
+        },
+        {
+          "text": "Lookup"
+        },
+        {
+          "text": "Wappalyzer + Enrichment",
+          "class": "api"
+        }
       ],
       "score": "8.2/10",
       "scorePercent": 82,
       "mvpTime": "~2 days MVP",
       "pricing": "$29-59/mo per 1000 lookups",
       "details": [
-        { "title": "Current Manual Workflow", "text": "SaaS sales reps use BuiltWith or Wappalyzer browser extension one site at a time. Check if prospect uses competitor or complementary tech. Copy findings into spreadsheet. 2-3 min per prospect site." },
-        { "title": "Workflow Friction", "text": "One-at-a-time browser extension usage. Can't bulk scan a prospect list. No integration with CRM. Manual data entry of findings." },
-        { "title": "Evidence", "text": "BuiltWith charges $295+/mo for bulk access. Wappalyzer free tier is single-URL only. Reddit r/sales and r/SaaS: SDRs describe tech stack research as time-consuming but critical for personalized outreach." },
-        { "title": "Relevant Apify Actors", "text": "Website Content Crawler, Technology Profiler actors, Web Scraper" },
-        { "title": "Relevant APIs", "text": "Wappalyzer API, BuiltWith API, Clearbit (enrichment), custom header/script analysis" },
-        { "title": "Why They'd Pay", "text": "Knowing a prospect's tech stack enables hyper-personalized outreach. \"I see you're on Shopify + Klaviyo\" converts way better than generic cold email. Bulk access saves hours." },
-        { "title": "Existing Bad Solutions", "text": "BuiltWith ($295+/mo), Wappalyzer (limited free, $250+/mo for API), manual browser extension one-by-one. Price gap is huge for small teams." }
+        {
+          "title": "Current Manual Workflow",
+          "text": "SaaS sales reps use BuiltWith or Wappalyzer browser extension one site at a time. Check if prospect uses competitor or complementary tech. Copy findings into spreadsheet. 2-3 min per prospect site."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "One-at-a-time browser extension usage. Can't bulk scan a prospect list. No integration with CRM. Manual data entry of findings."
+        },
+        {
+          "title": "Evidence",
+          "text": "BuiltWith charges $295+/mo for bulk access. Wappalyzer free tier is single-URL only. Reddit r/sales and r/SaaS: SDRs describe tech stack research as time-consuming but critical for personalized outreach."
+        },
+        {
+          "title": "Relevant Apify Actors",
+          "text": "Website Content Crawler, Technology Profiler actors, Web Scraper"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Wappalyzer API, BuiltWith API, Clearbit (enrichment), custom header/script analysis"
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Knowing a prospect's tech stack enables hyper-personalized outreach. \"I see you're on Shopify + Klaviyo\" converts way better than generic cold email. Bulk access saves hours."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "BuiltWith ($295+/mo), Wappalyzer (limited free, $250+/mo for API), manual browser extension one-by-one. Price gap is huge for small teams."
+        }
       ]
     },
     {
@@ -144,21 +260,47 @@
       "stage": "ideas",
       "pain": "Monitor daily domain drops. Get alerted when high-value expired domains match your keywords, niche, or authority thresholds. Stop manually checking lists.",
       "tags": [
-        { "text": "Domain Investors / SEO", "class": "market" },
-        { "text": "Monitoring" },
-        { "text": "WHOIS + Moz APIs", "class": "api" }
+        {
+          "text": "Domain Investors / SEO",
+          "class": "market"
+        },
+        {
+          "text": "Monitoring"
+        },
+        {
+          "text": "WHOIS + Moz APIs",
+          "class": "api"
+        }
       ],
       "score": "8.2/10",
       "scorePercent": 82,
       "mvpTime": "~2 days MVP",
       "pricing": "$19-49/mo",
       "details": [
-        { "title": "Current Manual Workflow", "text": "Domain investors check ExpiredDomains.net, DomCop, and auction sites daily. Filter thousands of domains by metrics (DA, backlinks, age). Copy interesting ones to spreadsheets. 1-2 hours daily." },
-        { "title": "Workflow Friction", "text": "Existing tools are clunky and expensive (DomCop $50-300/mo, SpamZilla $37/mo). No simple alert-based system. Must manually browse long lists daily." },
-        { "title": "Evidence", "text": "ExpiredDomains.net processes 350K+ domains daily. Active Reddit communities (r/Domains, r/juststart) full of domain investors seeking better filtering and alerts." },
-        { "title": "Relevant APIs", "text": "WHOIS APIs, Moz API (domain authority), Majestic API (backlink data), ExpiredDomains.net scraping, Resend (alerts)" },
-        { "title": "Why They'd Pay", "text": "A single good expired domain can be worth $500-50,000. Missing a drop by hours means losing it. Alert speed directly = money." },
-        { "title": "Existing Bad Solutions", "text": "DomCop ($50-300/mo), SpamZilla ($37/mo), manual ExpiredDomains.net browsing. All require active browsing, none do smart keyword alerts well." }
+        {
+          "title": "Current Manual Workflow",
+          "text": "Domain investors check ExpiredDomains.net, DomCop, and auction sites daily. Filter thousands of domains by metrics (DA, backlinks, age). Copy interesting ones to spreadsheets. 1-2 hours daily."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "Existing tools are clunky and expensive (DomCop $50-300/mo, SpamZilla $37/mo). No simple alert-based system. Must manually browse long lists daily."
+        },
+        {
+          "title": "Evidence",
+          "text": "ExpiredDomains.net processes 350K+ domains daily. Active Reddit communities (r/Domains, r/juststart) full of domain investors seeking better filtering and alerts."
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "WHOIS APIs, Moz API (domain authority), Majestic API (backlink data), ExpiredDomains.net scraping, Resend (alerts)"
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "A single good expired domain can be worth $500-50,000. Missing a drop by hours means losing it. Alert speed directly = money."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "DomCop ($50-300/mo), SpamZilla ($37/mo), manual ExpiredDomains.net browsing. All require active browsing, none do smart keyword alerts well."
+        }
       ]
     },
     {
@@ -168,21 +310,47 @@
       "stage": "ideas",
       "pain": "Daily visual screenshots of any webpage. Pixel-diff comparison highlights changes. Alert when competitor pages, pricing, or layouts change. Catches what uptime monitors miss.",
       "tags": [
-        { "text": "E-Commerce / Agencies", "class": "market" },
-        { "text": "Change Detection" },
-        { "text": "Puppeteer + OpenAI Vision", "class": "api" }
+        {
+          "text": "E-Commerce / Agencies",
+          "class": "market"
+        },
+        {
+          "text": "Change Detection"
+        },
+        {
+          "text": "Puppeteer + OpenAI Vision",
+          "class": "api"
+        }
       ],
       "score": "8.5/10",
       "scorePercent": 85,
       "mvpTime": "~2 days MVP",
       "pricing": "$19-39/mo per 50 pages",
       "details": [
-        { "title": "Current Manual Workflow", "text": "Product managers and agency teams manually screenshot competitor pages, save to Google Drive, and visually compare to previous versions. Uptime monitors only check if a page loads, not if it looks right." },
-        { "title": "Workflow Friction", "text": "Manual screenshots are tedious and inconsistent. No historical archive. Easy to miss subtle changes (pricing updates, CTA changes, new features). Uptime tools miss visual regressions entirely." },
-        { "title": "Evidence", "text": "VisualPing charges $79+/mo for visual monitoring. Multiple Reddit threads asking for affordable visual change detection. Agencies managing 10+ client sites describe this as a recurring pain." },
-        { "title": "Relevant APIs", "text": "Puppeteer/Playwright (screenshots), Apify Web Scraper, OpenAI Vision API (smart diff descriptions), pixelmatch (pixel comparison), Resend (alerts)" },
-        { "title": "Why They'd Pay", "text": "Missing a competitor price change costs revenue. Broken layouts on client sites cost reputation. Visual monitoring catches what text-based tools miss." },
-        { "title": "Existing Bad Solutions", "text": "VisualPing ($79+/mo), ChangeTower ($29+/mo but limited), manual screenshots. Price gap for SMBs is wide open." }
+        {
+          "title": "Current Manual Workflow",
+          "text": "Product managers and agency teams manually screenshot competitor pages, save to Google Drive, and visually compare to previous versions. Uptime monitors only check if a page loads, not if it looks right."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "Manual screenshots are tedious and inconsistent. No historical archive. Easy to miss subtle changes (pricing updates, CTA changes, new features). Uptime tools miss visual regressions entirely."
+        },
+        {
+          "title": "Evidence",
+          "text": "VisualPing charges $79+/mo for visual monitoring. Multiple Reddit threads asking for affordable visual change detection. Agencies managing 10+ client sites describe this as a recurring pain."
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Puppeteer/Playwright (screenshots), Apify Web Scraper, OpenAI Vision API (smart diff descriptions), pixelmatch (pixel comparison), Resend (alerts)"
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Missing a competitor price change costs revenue. Broken layouts on client sites cost reputation. Visual monitoring catches what text-based tools miss."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "VisualPing ($79+/mo), ChangeTower ($29+/mo but limited), manual screenshots. Price gap for SMBs is wide open."
+        }
       ]
     },
     {
@@ -192,21 +360,47 @@
       "stage": "ideas",
       "pain": "Monitor target companies' career pages and job boards. Get alerted when they post new roles. Hiring signals = buying signals for B2B sales.",
       "tags": [
-        { "text": "B2B Sales / Recruiters", "class": "market" },
-        { "text": "Monitoring" },
-        { "text": "Apify + LinkedIn Jobs", "class": "api" }
+        {
+          "text": "B2B Sales / Recruiters",
+          "class": "market"
+        },
+        {
+          "text": "Monitoring"
+        },
+        {
+          "text": "Apify + LinkedIn Jobs",
+          "class": "api"
+        }
       ],
       "score": "8.7/10",
       "scorePercent": 87,
       "mvpTime": "~3 days MVP",
       "pricing": "$29-59/mo per 100 companies",
       "details": [
-        { "title": "Current Manual Workflow", "text": "B2B sales reps manually check target companies' careers pages and LinkedIn job postings to detect growth signals. A company hiring 5 engineers = they're building something = they need tools. 20-40 min daily." },
-        { "title": "Workflow Friction", "text": "No centralized view across targets. Must visit each company's site individually. LinkedIn job alerts are noisy and not filterable by company watchlists. No CRM integration." },
-        { "title": "Evidence", "text": "Hiring intent data is a top sales intelligence signal. Bombora and 6sense sell this data for $1000+/mo. Reddit r/sales: SDRs describe monitoring careers pages as tedious but high-converting." },
-        { "title": "Relevant APIs", "text": "Apify LinkedIn Jobs Scraper, company careers page scrapers, Apollo (enrichment), Clearbit, Resend (alerts)" },
-        { "title": "Why They'd Pay", "text": "Hiring signals are among the strongest buying intent indicators. Companies hiring = growing = spending on tools. First to reach them wins. Directly tied to closed deals." },
-        { "title": "Existing Bad Solutions", "text": "Bombora ($1000+/mo), 6sense (enterprise), manual careers page checking, LinkedIn job alerts (not filterable enough). No SMB-priced hiring intent tool." }
+        {
+          "title": "Current Manual Workflow",
+          "text": "B2B sales reps manually check target companies' careers pages and LinkedIn job postings to detect growth signals. A company hiring 5 engineers = they're building something = they need tools. 20-40 min daily."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "No centralized view across targets. Must visit each company's site individually. LinkedIn job alerts are noisy and not filterable by company watchlists. No CRM integration."
+        },
+        {
+          "title": "Evidence",
+          "text": "Hiring intent data is a top sales intelligence signal. Bombora and 6sense sell this data for $1000+/mo. Reddit r/sales: SDRs describe monitoring careers pages as tedious but high-converting."
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Apify LinkedIn Jobs Scraper, company careers page scrapers, Apollo (enrichment), Clearbit, Resend (alerts)"
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Hiring signals are among the strongest buying intent indicators. Companies hiring = growing = spending on tools. First to reach them wins. Directly tied to closed deals."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Bombora ($1000+/mo), 6sense (enterprise), manual careers page checking, LinkedIn job alerts (not filterable enough). No SMB-priced hiring intent tool."
+        }
       ]
     },
     {
@@ -216,21 +410,47 @@
       "stage": "ideas",
       "pain": "Simple cloud cost alerts for AWS/GCP/Azure. Set budget thresholds, get warned before you get burned. No enterprise pricing, no complex dashboards.",
       "tags": [
-        { "text": "Startups / Dev Teams", "class": "market" },
-        { "text": "Alerts" },
-        { "text": "AWS/GCP/Azure Cost APIs", "class": "api" }
+        {
+          "text": "Startups / Dev Teams",
+          "class": "market"
+        },
+        {
+          "text": "Alerts"
+        },
+        {
+          "text": "AWS/GCP/Azure Cost APIs",
+          "class": "api"
+        }
       ],
       "score": "8.0/10",
       "scorePercent": 80,
       "mvpTime": "~4 days MVP",
       "pricing": "$9-29/mo",
       "details": [
-        { "title": "Current Manual Workflow", "text": "Dev teams check AWS/GCP billing dashboards periodically. Often discover cost spikes days or weeks late. Set native alerts but they're poorly configured or buried in notification noise." },
-        { "title": "Workflow Friction", "text": "Native cloud billing alerts are hard to configure. No cross-cloud unified view. Cost dashboards are complex. Small teams don't have a dedicated FinOps person." },
-        { "title": "Evidence", "text": "Reddit r/aws, r/devops: horror stories of surprise $5K-$50K bills are constant. Vantage and CloudHealth charge $100-500+/mo. Most startups have no cost monitoring until they get burned." },
-        { "title": "Relevant APIs", "text": "AWS Cost Explorer API, GCP Billing API, Azure Cost Management API, Resend (alerts), Slack webhooks" },
-        { "title": "Why They'd Pay", "text": "One surprise cloud bill pays for years of this tool. $29/mo to prevent a $5,000 surprise is an obvious ROI." },
-        { "title": "Existing Bad Solutions", "text": "Vantage ($100+/mo), CloudHealth (enterprise), native cloud alerts (poorly designed, hard to configure). No simple, cheap \"just alert me\" tool." }
+        {
+          "title": "Current Manual Workflow",
+          "text": "Dev teams check AWS/GCP billing dashboards periodically. Often discover cost spikes days or weeks late. Set native alerts but they're poorly configured or buried in notification noise."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "Native cloud billing alerts are hard to configure. No cross-cloud unified view. Cost dashboards are complex. Small teams don't have a dedicated FinOps person."
+        },
+        {
+          "title": "Evidence",
+          "text": "Reddit r/aws, r/devops: horror stories of surprise $5K-$50K bills are constant. Vantage and CloudHealth charge $100-500+/mo. Most startups have no cost monitoring until they get burned."
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "AWS Cost Explorer API, GCP Billing API, Azure Cost Management API, Resend (alerts), Slack webhooks"
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "One surprise cloud bill pays for years of this tool. $29/mo to prevent a $5,000 surprise is an obvious ROI."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Vantage ($100+/mo), CloudHealth (enterprise), native cloud alerts (poorly designed, hard to configure). No simple, cheap \"just alert me\" tool."
+        }
       ]
     },
     {
@@ -240,9 +460,17 @@
       "stage": "design",
       "pain": "Monitor state business license filings daily. Get alerted when new businesses register in your target category + geography. First-mover lead gen.",
       "tags": [
-        { "text": "Insurance / B2B Sales", "class": "market" },
-        { "text": "Monitoring" },
-        { "text": "State APIs + Scraping", "class": "api" }
+        {
+          "text": "Insurance / B2B Sales",
+          "class": "market"
+        },
+        {
+          "text": "Monitoring"
+        },
+        {
+          "text": "State APIs + Scraping",
+          "class": "api"
+        }
       ],
       "score": "8.8/10",
       "scorePercent": 88,
@@ -259,40 +487,8 @@
         "lpUrl": "not live",
         "signups": "0",
         "qualified": "0",
-        "conversion": "—",
-        "trafficSource": "—",
-        "lastCheck": "not launched",
-        "status": "NOT LIVE"
-      }
-    },
-    {
-      "id": "aisearchrank",
-      "name": "AISearchRank",
-      "domain": "aisearchrank.com",
-      "stage": "design",
-      "pain": "Track if your brand appears in ChatGPT, Perplexity, Claude, and Google AI Overviews. Get alerted when AI search mentions change. No affordable tool exists.",
-      "tags": [
-        { "text": "Marketing / SEO", "class": "market" },
-        { "text": "Monitoring" },
-        { "text": "OpenAI + Anthropic + Perplexity APIs", "class": "api" }
-      ],
-      "score": "9.0/10",
-      "scorePercent": 90,
-      "mvpTime": "~3 days MVP",
-      "pricing": "$29-59/mo per brand",
-      "assets": {
-        "folder": "aisearchrank",
-        "logo": "aisearchrank/logo.png",
-        "uiMockup": "aisearchrank/ui-mockup.png",
-        "prd": "aisearchrank/PRD.md",
-        "metaPrompt": "aisearchrank/meta-prompt.md"
-      },
-      "validation": {
-        "lpUrl": "not live",
-        "signups": "0",
-        "qualified": "0",
-        "conversion": "—",
-        "trafficSource": "—",
+        "conversion": "\u2014",
+        "trafficSource": "\u2014",
         "lastCheck": "not launched",
         "status": "NOT LIVE"
       }
