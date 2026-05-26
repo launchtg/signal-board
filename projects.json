@@ -228,7 +228,10 @@
         "uiMockup": "newfilings/ui-mockup.png",
         "prd": "newfilings/PRD.md",
         "metaPrompt": "newfilings/meta-prompt.md",
-        "brandGuide": "newfilings/brand-guide.png"
+        "brandGuide": "newfilings/brand-guide.png",
+        "pendingApproval": [
+          "logo"
+        ]
       },
       "validation": {
         "lpUrl": "https://launchtg.github.io/signal-board/newfilings/",
