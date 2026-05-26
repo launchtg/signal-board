@@ -50,11 +50,15 @@ The purpose of Validation is to answer:
 **Do enough real people care enough to justify building this?**
 
 This stage usually includes:
-- a landing page
-- a CTA
+- a live landing page
+- a live CTA
 - distribution to relevant communities or channels
 - signup tracking
 - quality-of-interest tracking
+
+Operator rule:
+- when Heather says "validate this idea," interpret that as a request for full live validation by default
+- that means the page should be built, deployed, reachable at a live URL, and connected to a real capture flow unless she explicitly asks for a draft/prep-only pass
 
 Validation matters more than polish.
 

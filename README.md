@@ -90,6 +90,10 @@ A card belongs here when we have:
 - traffic being sent
 - validation data being tracked on-card
 
+Default operator rule:
+- if Heather says "validate this idea," treat that as a full live validation request, not a draft-prep request
+- build the landing page, deploy it, connect the live link, wire the CTA/capture flow, and update the card to Validation unless she explicitly says not to publish yet
+
 Validation fields to maintain:
 - LP URL
 - Signups
@@ -222,10 +226,11 @@ Each project in `projects.json` should follow this general shape:
 2. Only update `index.html` when the renderer/UI itself needs changes
 3. Keep card stage and asset state aligned
 4. If a card moves stages, update any relevant validation tracking fields
-5. Run `python3 tools/validate_projects.py`
-6. Commit clearly
-7. Push to `main`
-8. Verify GitHub Pages reflects the change
+5. For any move into Validation requested as "validate this idea," the default expectation is a real live deployment, not just a stage change
+6. Run `python3 tools/validate_projects.py`
+7. Commit clearly
+8. Push to `main`
+9. Verify GitHub Pages reflects the change
 
 ## Operator Toolkit
 

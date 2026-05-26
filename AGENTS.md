@@ -59,9 +59,14 @@ When updating Signal Board:
 
 - **Ideas** — evidence-backed opportunities worth tracking
 - **Design** — packaged concepts with name, positioning, mockup, and build brief
-- **Validation** — landing page and demand-testing phase
+- **Validation** — live landing page + active demand-testing phase
 - **Build** — validated demand exists; not just finished assets
 - **Live** — shipped and publicly accessible
+
+Default instruction for Heather requests:
+- if Heather says "validate this idea," treat it as a full deployment request by default
+- do not interpret it as "just move the card"
+- build the landing page, deploy it, connect the live URL, wire the CTA/capture flow, update validation tracking fields, then push the board update unless she explicitly says not to publish yet
 
 For the full stage logic, read `HOW_IT_WORKS.md` and `VALIDATION_PLAYBOOK.md`.
 

@@ -19,6 +19,11 @@ A project should not enter Validation unless it has:
 - a way to capture signups or replies
 - a target audience for distribution
 
+Default rule for Heather requests:
+- if Heather says "validate this idea," that means full live validation by default
+- the expected output is a built and deployed landing page, reachable at a live URL, with the CTA/capture flow wired and the Signal Board updated to reflect the live test
+- only keep it draft-only if she explicitly says prep-only, draft-only, or do not publish yet
+
 ## Minimum Landing Page Components
 
 A validation page should usually have:
