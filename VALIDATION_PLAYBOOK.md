@@ -46,6 +46,12 @@ Landing page style rules:
 - do not say the page is "just validating" or otherwise frame it as unfinished research
 - present it like an active waitlist / early access page for a real product
 - keep the copy light; these are small, focused tools, so the page should be simple and easy to scan
+- pages must feel like high-conviction product demand pages, not templates
+- design for anticipation, exclusivity, and perceived momentum
+- every page should include: a strong hero, believable product UI, a clear product mechanism section, a differentiation section, real use-case/outcome framing, pre-launch credibility signals, and a strong final CTA
+- avoid giant paragraphs, generic feature grids, fake analytics dashboards, random gradients, and assembled-looking layouts
+- the product UI should demonstrate actual workflow, system behavior, outputs, transformations, or before/after states — never decorative nonsense
+- the desired reaction is: "I don't fully understand this yet, but this feels important, polished, and ahead of the market."
 
 ## Good CTAs
 

@@ -3,72 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NewFilings — Get new business filing alerts before everyone else</title>
-  <meta name="description" content="Track newly registered businesses by state, category, and geography. Join the NewFilings waitlist for early access." />
+  <title>NewFilings — First look at new businesses, before the market catches up</title>
+  <meta name="description" content="NewFilings gives operators a faster way to spot newly filed businesses by state, category, and watchlist — before everyone else gets the same lead." />
   <style>
     :root {
-      --bg: #0a0a12;
-      --surface: #13131d;
-      --surface-2: #1a1a27;
-      --border: #2a2a3b;
-      --text: #edf0f4;
-      --muted: #9ca3b2;
-      --dim: #6f7687;
-      --primary: #7cb800;
-      --primary-bright: #d7ff49;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      --bg: #080a0c;
+      --panel: #0f1316;
+      --panel-2: #141a1e;
+      --line: rgba(255,255,255,0.09);
+      --line-2: rgba(255,255,255,0.05);
+      --text: #eef2f4;
+      --muted: #98a3aa;
+      --dim: #6f7a81;
+      --acid: #c8ff3d;
+      --green: #89d330;
+      --shadow: 0 30px 80px rgba(0,0,0,0.45);
       --max: 1180px;
-      --radius: 24px;
+      --radius: 28px;
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(124, 184, 0, 0.14), transparent 26%),
-        radial-gradient(circle at top right, rgba(215, 255, 73, 0.09), transparent 22%),
-        var(--bg);
       color: var(--text);
-      line-height: 1.45;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(137,211,48,0.12), transparent 25%),
+        radial-gradient(circle at 88% 8%, rgba(200,255,61,0.08), transparent 22%),
+        linear-gradient(180deg, #090b0d 0%, #07090b 100%);
+      letter-spacing: -0.01em;
     }
 
+    a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
-    a { color: inherit; }
-
     .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
 
     .nav {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: rgba(10, 10, 18, 0.78);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      z-index: 30;
+      background: rgba(8, 10, 12, 0.78);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line-2);
     }
 
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      padding: 18px 0;
+      gap: 18px;
+      padding: 16px 0;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      text-decoration: none;
       font-weight: 800;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
+      font-size: 18px;
     }
 
     .brand img {
       width: 38px;
       height: 38px;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.08);
+      background: #0d1114;
     }
 
     .nav-links {
@@ -78,167 +80,291 @@
       font-size: 14px;
     }
 
-    .nav-links a {
-      text-decoration: none;
-    }
-
-    .button,
+    .cta,
     button {
-      appearance: none;
       border: 0;
       cursor: pointer;
-      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       padding: 14px 18px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-bright));
-      color: #10140a;
+      border-radius: 15px;
       font-weight: 800;
+      font-size: 14px;
+      color: #111508;
+      background: linear-gradient(135deg, var(--green), var(--acid));
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.22);
     }
 
-    .button.secondary {
+    .cta.alt {
       background: rgba(255,255,255,0.03);
       color: var(--text);
-      border: 1px solid var(--border);
+      border: 1px solid var(--line);
       box-shadow: none;
     }
 
     .hero {
-      padding: 56px 0 34px;
+      padding: 56px 0 28px;
     }
 
-    .hero-grid {
+    .hero-shell {
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        rgba(10, 14, 17, 0.88);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-top {
       display: grid;
       grid-template-columns: 0.92fr 1.08fr;
-      gap: 32px;
-      align-items: center;
+      gap: 0;
+    }
+
+    .hero-copy {
+      padding: 34px 34px 28px;
+      border-right: 1px solid var(--line-2);
+      min-width: 0;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 12px;
+      color: var(--acid);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
       border-radius: 999px;
-      border: 1px solid rgba(215,255,73,0.18);
-      background: rgba(215,255,73,0.06);
-      color: var(--primary-bright);
-      font-size: 13px;
-      font-weight: 700;
+      background: var(--acid);
+      box-shadow: 0 0 18px rgba(200,255,61,0.4);
     }
 
     h1 {
       margin: 18px 0 16px;
-      font-size: clamp(42px, 6vw, 72px);
-      line-height: 0.96;
-      letter-spacing: -0.055em;
-      max-width: 700px;
+      font-size: clamp(44px, 6.4vw, 78px);
+      line-height: 0.94;
+      letter-spacing: -0.065em;
+      max-width: 640px;
     }
 
     .lede {
-      max-width: 560px;
-      font-size: 18px;
+      max-width: 520px;
+      margin: 0 0 22px;
       color: var(--muted);
-      margin: 0 0 24px;
+      font-size: 18px;
+      line-height: 1.55;
     }
 
     .hero-cta {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
-    .mini-proof {
+    .signal-row {
       display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .signal {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--line-2);
+    }
+
+    .signal strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      letter-spacing: -0.02em;
+    }
+
+    .signal span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .hero-visual {
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(200,255,61,0.04), transparent 26%);
+      min-width: 0;
+    }
+
+    .hero-visual img {
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.4);
+    }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      border-top: 1px solid var(--line-2);
+    }
+
+    .momentum,
+    .operators {
+      padding: 22px 28px;
+    }
+
+    .momentum {
+      border-right: 1px solid var(--line-2);
+    }
+
+    .strip-title {
+      margin: 0 0 12px;
+      color: var(--dim);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
+    }
+
+    .chip {
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.025);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .operators p,
+    .momentum p {
+      margin: 0;
       color: var(--muted);
       font-size: 14px;
-    }
-
-    .mini-proof strong { color: var(--text); }
-
-    .shot {
-      padding: 16px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025));
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .shot img {
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.06);
+      line-height: 1.5;
     }
 
     .section {
-      padding: 28px 0;
+      padding: 24px 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
 
     .panel {
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid var(--border);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
       box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+    .panel-inner {
+      padding: 26px;
     }
 
-    .card h3,
     .panel h2 {
       margin: 0 0 8px;
-      letter-spacing: -0.03em;
+      font-size: clamp(26px, 3vw, 40px);
+      letter-spacing: -0.05em;
+      line-height: 1.02;
     }
 
-    .panel h2 {
-      font-size: clamp(24px, 3vw, 38px);
-    }
-
-    .card {
-      background: rgba(255,255,255,0.025);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 20px;
-    }
-
-    .card p,
     .panel p,
     .panel li,
-    .signup-card p {
+    .panel span {
       color: var(--muted);
     }
 
-    .problem-grid {
+    .stack {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 14px;
+      margin-top: 18px;
     }
 
-    .bullets {
-      margin: 0;
-      padding-left: 18px;
+    .step,
+    .case,
+    .proof {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid var(--line-2);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .step strong,
+    .case strong,
+    .proof strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
     }
 
     .signup-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 24px;
-      align-items: start;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 18px;
     }
 
-    .signup-card form {
+    .left-card,
+    .form-card {
+      padding: 28px;
+    }
+
+    .left-card {
+      border-right: 1px solid var(--line-2);
+      background: linear-gradient(180deg, rgba(200,255,61,0.035), transparent 65%);
+    }
+
+    .mini-list {
       display: grid;
       gap: 12px;
-      margin-top: 14px;
+      margin-top: 20px;
+    }
+
+    .mini-item {
+      padding: 15px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line-2);
+    }
+
+    .mini-item strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
     }
 
     .field {
@@ -247,68 +373,81 @@
     }
 
     label {
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--dim);
     }
 
     input, select, textarea {
       width: 100%;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 14px;
+      background: rgba(255,255,255,0.025);
       color: var(--text);
-      border-radius: 14px;
-      padding: 13px 14px;
       font: inherit;
       outline: none;
     }
 
-    input::placeholder,
-    textarea::placeholder { color: var(--dim); }
-    textarea { min-height: 110px; resize: vertical; }
+    textarea { min-height: 116px; resize: vertical; }
+    input::placeholder, textarea::placeholder { color: var(--dim); }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: rgba(215,255,73,0.5);
-      box-shadow: 0 0 0 4px rgba(215,255,73,0.08);
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(200,255,61,0.55);
+      box-shadow: 0 0 0 4px rgba(200,255,61,0.08);
     }
 
     .fineprint {
+      margin-top: 8px;
       color: var(--dim);
       font-size: 12px;
-      margin-top: 8px;
+      line-height: 1.45;
     }
 
-    .faq {
-      display: grid;
-      gap: 14px;
+    .close-cta {
+      text-align: center;
+      padding: 30px 24px 40px;
     }
 
-    .faq-item {
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 18px;
-      background: rgba(255,255,255,0.02);
+    .close-cta h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: -0.05em;
     }
 
-    .faq-item strong {
-      display: block;
-      margin-bottom: 6px;
+    .close-cta p {
+      margin: 0 auto 18px;
+      color: var(--muted);
+      max-width: 640px;
     }
 
     footer {
-      padding: 28px 0 54px;
+      padding: 0 0 56px;
       text-align: center;
       color: var(--dim);
       font-size: 13px;
     }
 
     @media (max-width: 980px) {
-      .hero-grid,
-      .grid-3,
-      .problem-grid,
-      .signup-grid {
+      .hero-top,
+      .hero-bottom,
+      .grid-2,
+      .signup-grid,
+      .proof-grid,
+      .signal-row {
         grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .momentum,
+      .left-card {
+        border-right: 0;
+      }
+
+      .hero-bottom > * {
+        border-top: 1px solid var(--line-2);
       }
 
       .nav-links { display: none; }
@@ -323,99 +462,159 @@
         <span>NewFilings</span>
       </a>
       <div class="nav-links">
-        <a href="#why">Why it matters</a>
-        <a href="#how">How it works</a>
-        <a href="#waitlist">Waitlist</a>
+        <a href="#mechanism">Mechanism</a>
+        <a href="#difference">Why this wins</a>
+        <a href="#access">Early access</a>
       </div>
-      <a class="button" href="#waitlist">Join the waitlist</a>
+      <a class="cta" href="#access">Request access</a>
     </div>
   </nav>
 
   <main id="top">
     <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow">Early access open</div>
-          <h1>Get new business filing alerts before everyone else.</h1>
-          <p class="lede">
-            NewFilings helps insurance agents, accountants, payroll providers, and B2B sales teams spot newly registered businesses fast — by state, business type, and geography.
-          </p>
-          <div class="hero-cta">
-            <a class="button" href="#waitlist">Get early access</a>
-            <a class="button secondary" href="#how">See how it works</a>
+      <div class="wrap hero-shell">
+        <div class="hero-top">
+          <div class="hero-copy">
+            <div class="eyebrow">Private rollout • Priority queue open</div>
+            <h1>See new businesses while everyone else is still checking portals.</h1>
+            <p class="lede">NewFilings turns fresh business registrations into a cleaner, faster outreach advantage for insurance, accounting, payroll, and SMB sales teams.</p>
+            <div class="hero-cta">
+              <a class="cta" href="#access">Join waitlist</a>
+              <a class="cta alt" href="#mechanism">How it works</a>
+            </div>
+            <div class="signal-row">
+              <div class="signal">
+                <strong>Spot the filing first</strong>
+                <span>Catch new registrations before they disappear into stale lead lists.</span>
+              </div>
+              <div class="signal">
+                <strong>Filter the noise</strong>
+                <span>Watch the states, categories, and business types that actually matter to your funnel.</span>
+              </div>
+              <div class="signal">
+                <strong>Move while intent is fresh</strong>
+                <span>Turn formation data into earlier conversations and a faster first touch.</span>
+              </div>
+            </div>
           </div>
-          <div class="mini-proof">
-            <div><strong>No more daily portal checking.</strong> Stop digging through clunky filing sites and spreadsheets.</div>
-            <div><strong>Reach businesses earlier.</strong> Fresh filings are one of the cleanest outreach triggers there is.</div>
-            <div><strong>Built for focused teams.</strong> Simple alerts, clear watchlists, fast action.</div>
+          <div class="hero-visual">
+            <img src="ui-mockup.png" alt="NewFilings product preview" />
           </div>
         </div>
-        <div class="shot">
-          <img src="ui-mockup.png" alt="NewFilings dashboard preview" />
+        <div class="hero-bottom">
+          <div class="momentum">
+            <div class="strip-title">Built for operators who monetize speed</div>
+            <div class="chip-row">
+              <div class="chip">Commercial insurance</div>
+              <div class="chip">Bookkeeping & tax</div>
+              <div class="chip">Payroll & HR</div>
+              <div class="chip">Payments & merchant services</div>
+              <div class="chip">SMB sales teams</div>
+            </div>
+          </div>
+          <div class="operators">
+            <div class="strip-title">Why people want in early</div>
+            <p>The earlier you know a business exists, the earlier you can quote it, route it, enrich it, or sell into it. NewFilings is designed around that exact timing edge.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="why">
+    <section class="section" id="mechanism">
+      <div class="wrap grid-2">
+        <div class="panel">
+          <div class="panel-inner">
+            <h2>The mechanism is simple.</h2>
+            <p>No bloated “sales intelligence suite.” Just a faster path from filing activity to action.</p>
+            <div class="stack">
+              <div class="step">
+                <strong>1. Build your watch surface</strong>
+                <span>Choose the states, entity types, and business patterns you care about most.</span>
+              </div>
+              <div class="step">
+                <strong>2. Surface high-signal filings</strong>
+                <span>NewFilings highlights the registrations that fit your targeting logic instead of dumping raw lists on you.</span>
+              </div>
+              <div class="step">
+                <strong>3. Reach out while the window is still open</strong>
+                <span>Use fresh formation data as an earlier outreach trigger than your competitors are used to working from.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="difference">
+          <div class="panel-inner">
+            <h2>Most alternatives are late, noisy, or expensive.</h2>
+            <div class="stack">
+              <div class="case">
+                <strong>Manual checking is slow</strong>
+                <span>State portals are clunky, inconsistent, and easy to ignore when the day gets busy.</span>
+              </div>
+              <div class="case">
+                <strong>Lead databases are stale</strong>
+                <span>By the time the record gets packaged and sold back to you, the timing edge is already gone.</span>
+              </div>
+              <div class="case">
+                <strong>Enterprise data vendors overshoot the job</strong>
+                <span>You do not need a giant intelligence stack just to know which new businesses showed up today.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="wrap panel">
-        <h2>The fastest path to a new customer usually starts with being first.</h2>
-        <div class="problem-grid" style="margin-top:18px;">
-          <div class="card">
-            <h3>What happens now</h3>
-            <ul class="bullets">
-              <li>Check state filing sites manually</li>
-              <li>Copy names into a spreadsheet</li>
-              <li>Miss filings when nobody checks that day</li>
-              <li>Start outreach too late</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>What NewFilings does</h3>
-            <ul class="bullets">
-              <li>Watches your target states</li>
-              <li>Filters by the business types you care about</li>
-              <li>Highlights new opportunities faster</li>
-              <li>Keeps your outreach queue fresh</li>
-            </ul>
+        <div class="panel-inner">
+          <h2>What this unlocks in the real world</h2>
+          <div class="proof-grid">
+            <div class="proof">
+              <strong>Insurance teams</strong>
+              <span>Quote new businesses before another broker reaches them first.</span>
+            </div>
+            <div class="proof">
+              <strong>Accounting & payroll</strong>
+              <span>Find newly formed businesses before they already have a provider in place.</span>
+            </div>
+            <div class="proof">
+              <strong>SMB sales operators</strong>
+              <span>Turn business formation into a high-intent trigger instead of waiting on slower lists.</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="how">
-      <div class="wrap grid-3">
-        <div class="card">
-          <h3>1. Set your watchlist</h3>
-          <p>Pick states, business types, and simple targeting rules that match your ideal customer.</p>
-        </div>
-        <div class="card">
-          <h3>2. Track new filings</h3>
-          <p>NewFilings keeps an eye on fresh registrations and surfaces the ones that matter to you.</p>
-        </div>
-        <div class="card">
-          <h3>3. Move first</h3>
-          <p>Get a cleaner, faster path from new filing to first outreach.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="waitlist">
+    <section class="section" id="access">
       <div class="wrap panel signup-grid">
-        <div class="signup-card">
-          <h2>Join the waitlist</h2>
-          <p>Tell us what you want to monitor and we’ll prioritize launch access for the best-fit teams.</p>
-          <div class="card" style="margin-top:16px;">
-            <h3 style="margin-top:0;">Best fit</h3>
-            <p>Insurance, accounting, payroll, payments, and SMB-focused B2B sales teams that win by reaching new businesses early.</p>
+        <div class="left-card">
+          <div class="strip-title">Selective onboarding</div>
+          <h2 style="margin-top:0;">Request early access</h2>
+          <p>We’re prioritizing teams with a clear use case, clear states of interest, and a real reason to move early.</p>
+          <div class="mini-list">
+            <div class="mini-item">
+              <strong>Best fit</strong>
+              <span>Operators who sell into newly formed businesses and care about speed more than dashboards.</span>
+            </div>
+            <div class="mini-item">
+              <strong>What to share</strong>
+              <span>Your target states, ideal business type, and where fresh filing alerts would fit into your workflow.</span>
+            </div>
+            <div class="mini-item">
+              <strong>What happens next</strong>
+              <span>Priority queue for early access plus product updates as rollout expands.</span>
+            </div>
           </div>
         </div>
 
-        <div class="card">
+        <div class="form-card">
           <form action="https://formsubmit.co/heather@launchtg.com" method="POST">
-            <input type="hidden" name="_subject" value="NewFilings waitlist signup" />
+            <input type="hidden" name="_subject" value="NewFilings priority access request" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="https://launchtg.github.io/signal-board/newfilings/?submitted=1#waitlist" />
+            <input type="hidden" name="_next" value="https://launchtg.github.io/signal-board/newfilings/?submitted=1#access" />
 
             <div class="field">
               <label for="name">Full name</label>
@@ -429,57 +628,45 @@
 
             <div class="field">
               <label for="company">Company</label>
-              <input id="company" name="company" type="text" placeholder="Acme Insurance" required />
+              <input id="company" name="company" type="text" placeholder="Acme Commercial Insurance" required />
             </div>
 
             <div class="field">
-              <label for="role">What best describes you?</label>
+              <label for="role">Role</label>
               <select id="role" name="role" required>
                 <option value="">Select one</option>
                 <option>Insurance agent / broker</option>
                 <option>Accountant / bookkeeper</option>
                 <option>Payroll provider</option>
+                <option>Merchant services / payments</option>
                 <option>B2B sales team</option>
-                <option>Agency</option>
+                <option>Agency / operator</option>
                 <option>Other</option>
               </select>
             </div>
 
             <div class="field">
-              <label for="states">Which states matter most?</label>
+              <label for="states">Target states</label>
               <input id="states" name="states" type="text" placeholder="Texas, Florida, California" required />
             </div>
 
             <div class="field">
-              <label for="interest">What would you want alerts for?</label>
-              <textarea id="interest" name="interest" placeholder="Example: New LLC filings in Texas for restaurants, trades, and home services." required></textarea>
+              <label for="workflow">What would you want NewFilings to catch for you?</label>
+              <textarea id="workflow" name="workflow" placeholder="Example: New LLCs in Texas tied to trades, home services, hospitality, or restaurant formation activity." required></textarea>
             </div>
 
-            <button type="submit">Request early access</button>
-            <div class="fineprint">You’re joining the NewFilings waitlist. We may follow up with launch updates or a short fit question.</div>
+            <button type="submit">Request priority access</button>
+            <div class="fineprint">Join the queue for early access, launch updates, and rollout priority.</div>
           </form>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="wrap panel">
-        <h2>Simple by design.</h2>
-        <p>This is a focused tool for one job: turning new business registrations into a faster, cleaner outreach workflow.</p>
-        <div class="faq" style="margin-top:18px;">
-          <div class="faq-item">
-            <strong>What will I get?</strong>
-            <span>Fresh filing alerts, watchlists by state and business type, and a better queue for first-touch outreach.</span>
-          </div>
-          <div class="faq-item">
-            <strong>Who is this for first?</strong>
-            <span>Teams that sell to newly formed businesses and care about being early more than being fancy.</span>
-          </div>
-          <div class="faq-item">
-            <strong>How do I get access?</strong>
-            <span>Join the waitlist and tell us what you want to monitor. We’ll use that to prioritize the first rollout.</span>
-          </div>
-        </div>
+      <div class="wrap close-cta">
+        <h2>Fresh filings are one of the cleanest signals in the market.</h2>
+        <p>If they matter to your business, you should probably not be discovering them the same way everyone else does.</p>
+        <a class="cta" href="#access">Join the waitlist</a>
       </div>
     </section>
   </main>
@@ -491,17 +678,17 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     if (params.get('submitted') === '1') {
-      const formCard = document.querySelector('#waitlist .card:last-child');
+      const target = document.querySelector('.form-card');
       const note = document.createElement('div');
       note.style.marginTop = '14px';
       note.style.padding = '14px';
-      note.style.border = '1px solid rgba(124,184,0,0.32)';
-      note.style.borderRadius = '14px';
-      note.style.background = 'rgba(124,184,0,0.09)';
-      note.style.color = '#e7f8c4';
-      note.textContent = 'You’re on the waitlist. We may follow up with launch details or a quick fit question.';
-      formCard.appendChild(note);
-      history.replaceState({}, '', window.location.pathname + '#waitlist');
+      note.style.borderRadius = '16px';
+      note.style.border = '1px solid rgba(200,255,61,0.32)';
+      note.style.background = 'rgba(200,255,61,0.08)';
+      note.style.color = '#ecf7c1';
+      note.textContent = 'You’re on the list. We’ll keep you posted as priority access opens.';
+      target.appendChild(note);
+      history.replaceState({}, '', window.location.pathname + '#access');
     }
   </script>
 </body>
