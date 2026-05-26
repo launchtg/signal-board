@@ -58,7 +58,7 @@ When updating Signal Board:
 ## Stage Intent
 
 - **Ideas** — evidence-backed opportunities worth tracking
-- **Design** — packaged concepts with name, positioning, mockup, and build brief
+- **Design** — packaged concepts with name, positioning, complete brand guide, mockup, build brief, and board-based asset review
 - **Validation** — live landing page + active demand-testing phase
 - **Build** — validated demand exists; not just finished assets
 - **Live** — shipped and publicly accessible
@@ -67,12 +67,13 @@ Default instruction for Heather requests:
 - if Heather says "validate this idea," treat it as a full deployment request by default
 - do not interpret it as "just move the card"
 - build the landing page, deploy it, connect the live URL, wire the CTA/capture flow, update validation tracking fields, then push the board update unless she explicitly says not to publish yet
-- for validation pages, use OpenAI image generation v2 for the mockup, make it unique and brandable, do not make it look AI-generated, do not mention that the idea is merely being validated, and keep the copy light because these products are small focused tools
+- for validation pages, use OpenAI image generation v2 for the mockup with model flag `gpt-image-2`, make it unique and brandable, do not make it look AI-generated, do not mention that the idea is merely being validated, and keep the copy light because these products are small focused tools
 - waitlist pages must be built as high-conviction product demand pages: premium, opinionated, product-led, visually differentiated, and believable as real startups with momentum
 - never ship generic SaaS template pages, fake filler copy, generic feature grids, meaningless charts, or decorative dashboard UI
 - the UI preview must sell the product through believable workflows, outputs, transformations, automation, and product-specific utility
 - use exclusivity and momentum framing like early access, private beta, priority queue, founder access, and selective onboarding
 - every page should have a strong hero, believable product mechanism, differentiation, real use-case/outcome framing, pre-launch credibility signals, and a final waitlist CTA
+- for Signal Board visual review, publish draft assets to the board/repo first and let Heather review them there; use chat for approval/changes, not temp-file-only previews
 
 For the full stage logic, read `HOW_IT_WORKS.md` and `VALIDATION_PLAYBOOK.md`.
 

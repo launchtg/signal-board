@@ -53,6 +53,11 @@ It should usually define:
 - tone of voice
 - visual references or layout principles
 
+Design review rule:
+- draft visual assets should be published to the Signal Board/repo for review
+- Heather reviews them on the board and approves or requests changes in chat
+- do not rely on temp-file previews as the primary review path
+
 Design does **not** mean the product deserves to be built.
 It means the idea is ready to be tested with a real identity instead of generic placeholder design.
 

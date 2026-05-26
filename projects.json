@@ -201,7 +201,7 @@
       "id": "newfilings",
       "name": "NewFilings",
       "domain": "newfilings.com",
-      "stage": "validation",
+      "stage": "design",
       "competition": "LOW",
       "topCompetitors": "NewFilingAlerts.com (29 states, only direct competitor). Enigma/Middesk focus on compliance, not lead gen.",
       "pain": "Monitor state business license filings daily. Get alerted when new businesses register in your target category + geography. First-mover lead gen.",
@@ -237,7 +237,7 @@
         "conversion": "\u2014",
         "trafficSource": "Direct / manual validation outreach",
         "lastCheck": "2026-05-26",
-        "status": "LIVE \u2014 WAITING FOR TRAFFIC"
+        "status": "BACK IN DESIGN"
       }
     }
   ]

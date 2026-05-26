@@ -86,6 +86,7 @@ Design-stage rule:
 - every project moved into Design should get a real brand system from the beginning
 - use what we already know about the target buyer, pain, and market tone to create a distinctive identity
 - the brand guide should define the visual language before validation pages are built, so landing pages do not feel generic or AI-assembled
+- visual assets should be reviewed on the Signal Board itself; publish draft assets to the repo/board first, then wait for Heather's approval in chat before treating them as final
 
 ### 3. Validation
 The idea is being market-tested before build.
