@@ -76,10 +76,16 @@ The idea has been packaged into something testable.
 A card belongs here when we have:
 - name
 - positioning
-- logo
+- complete brand guide
+- logo system
 - UI mockup
 - PRD
 - meta prompt / build brief
+
+Design-stage rule:
+- every project moved into Design should get a real brand system from the beginning
+- use what we already know about the target buyer, pain, and market tone to create a distinctive identity
+- the brand guide should define the visual language before validation pages are built, so landing pages do not feel generic or AI-assembled
 
 ### 3. Validation
 The idea is being market-tested before build.

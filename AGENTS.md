@@ -106,6 +106,7 @@ Extend the schema only when there is a clear repeated need.
 Per-project folders may include:
 - `PRD.md`
 - `meta-prompt.md`
+- `brand-guide.png`
 - `logo.png`
 - `ui-mockup.png`
 - later: landing page assets if needed
@@ -151,3 +152,4 @@ If asked to update Signal Board:
 - verify branch/repo cleanliness after structural changes
 - if workflow logic is missing from docs, add it
 - if schema changes, update docs in the same pass
+s

@@ -35,13 +35,26 @@ The purpose of Design is to turn a researched problem into something testable.
 That usually means:
 - naming the product
 - clarifying the positioning
-- creating a logo
+- creating a full brand guide
+- creating a logo system
 - creating a UI mockup
 - writing the PRD
 - writing the meta prompt / build brief
 
+The brand guide should be complete enough to drive all downstream design work.
+It should usually define:
+- brand promise / positioning angle
+- logo direction
+- color palette
+- typography
+- buttons / UI primitives
+- iconography direction
+- imagery direction
+- tone of voice
+- visual references or layout principles
+
 Design does **not** mean the product deserves to be built.
-It means the idea is ready to be tested.
+It means the idea is ready to be tested with a real identity instead of generic placeholder design.
 
 ### 3. Validation
 This is the market test.

@@ -23,6 +23,7 @@
   ],
   "assets": {
     "folder": "new-project-folder",
+    "brandGuide": "new-project-folder/brand-guide.png",
     "logo": "new-project-folder/logo.png",
     "uiMockup": "new-project-folder/ui-mockup.png",
     "prd": "new-project-folder/PRD.md",
