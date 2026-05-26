@@ -18,13 +18,18 @@ Use this file when adding or updating a project in Signal Board.
    - likely CTA
    - likely first traffic source
    - likely live deployment path + capture method
-4. Score the opportunity using `SCORING_RUBRIC.md`
-5. Start from `PROJECT_TEMPLATE.json`
-6. Add the project to `projects.json`
-7. Set `stage` to `ideas` unless the project has already been packaged further
-8. Update `meta.lastUpdated` in `projects.json`
-9. Commit and push to `main`
-10. Verify GitHub Pages still loads correctly
+4. **Competition gate** (hard rule):
+   - Research the competitive landscape before scoring
+   - If the market has 10+ funded competitors, multiple unicorns, or well-funded incumbents with no clear wedge → **kill the idea**
+   - Only proceed if competition is LOW or there is a sharp, defensible wedge for a micro app
+   - Document competition level (LOW / MEDIUM / HIGH) and top 3 competitors on the card
+5. Score the opportunity using `SCORING_RUBRIC.md`
+6. Start from `PROJECT_TEMPLATE.json`
+7. Add the project to `projects.json`
+8. Set `stage` to `ideas` unless the project has already been packaged further
+9. Update `meta.lastUpdated` in `projects.json`
+10. Commit and push to `main`
+11. Verify GitHub Pages still loads correctly
 
 ## When to Create a Project Folder
 

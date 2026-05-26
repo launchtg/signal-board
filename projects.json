@@ -38,64 +38,12 @@
   },
   "projects": [
     {
-      "id": "repalert",
-      "name": "RepAlert",
-      "domain": "repalert.com",
-      "stage": "ideas",
-      "pain": "Auto-monitor Google/Yelp reviews across all business locations. Alert on negative reviews instantly. No more manually checking each listing.",
-      "tags": [
-        {
-          "text": "Local Biz / Agencies",
-          "class": "market"
-        },
-        {
-          "text": "Monitoring"
-        },
-        {
-          "text": "Google Maps API",
-          "class": "api"
-        }
-      ],
-      "score": "9/10",
-      "scorePercent": 90,
-      "mvpTime": "~2 days MVP",
-      "pricing": "$29-79/mo per location cluster",
-      "details": [
-        {
-          "title": "Current Manual Workflow",
-          "text": "Agency account managers open Google Maps, Yelp, and Facebook for each client location daily. Copy negative reviews into spreadsheet. Alert client via email. 15-30 min per client, per day."
-        },
-        {
-          "title": "Workflow Friction",
-          "text": "Tab-switching across 3+ platforms per location. Missed reviews lead to unresponded 1-star ratings sitting public for days. No centralized alert system."
-        },
-        {
-          "title": "Evidence",
-          "text": "Reddit r/marketing and r/smallbusiness: repeated threads about review monitoring pain. G2 reviews of Birdeye/Podium cite high cost ($300+/mo) as barrier for SMBs. Agencies managing 10+ clients describe it as their most tedious recurring task."
-        },
-        {
-          "title": "Relevant Apify Actors",
-          "text": "Google Maps Scraper (361K users, 4.76\u2605), Yelp Scraper, Facebook Reviews Scraper"
-        },
-        {
-          "title": "Relevant APIs",
-          "text": "Google Business Profile API, Yelp Fusion API, OpenAI (sentiment analysis)"
-        },
-        {
-          "title": "Why They'd Pay",
-          "text": "Unresponded negative reviews directly cost revenue. Agencies can charge clients for this. Clear ROI: save 30 min/day/client, protect reputation."
-        },
-        {
-          "title": "Existing Bad Solutions",
-          "text": "Birdeye ($300+/mo), Podium (enterprise pricing), manual spreadsheet tracking. All either too expensive for SMBs or too manual."
-        }
-      ]
-    },
-    {
       "id": "priceshift",
       "name": "PriceShift",
       "domain": "priceshift.com",
       "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Prisync ($99/mo), Competera ($4.5M), Price2Spy. Crowded at enterprise, SMB niche possible.",
       "pain": "Monitor competitor pricing pages daily. Get alerts when competitors change prices, add products, or modify tiers. Stop manually checking.",
       "tags": [
         {
@@ -150,6 +98,8 @@
       "name": "ExpiryAlert",
       "domain": "expiryalert.com",
       "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "ExpiredDomains.net (free, dominant), DomCop ($49/mo), SpamZilla ($37/mo). Gap in alert-first UX.",
       "pain": "Monitor daily domain drops. Get alerted when high-value expired domains match your keywords, niche, or authority thresholds. Stop manually checking lists.",
       "tags": [
         {
@@ -200,6 +150,8 @@
       "name": "PostingWatch",
       "domain": "postingwatch.com",
       "stage": "ideas",
+      "competition": "LOW",
+      "topCompetitors": "Signum.AI ($630K), LoneScale ($1.1M), PredictLeads ($18M API-only). No dominant SMB self-serve tool.",
       "pain": "Monitor target companies' career pages and job boards. Get alerted when they post new roles. Hiring signals = buying signals for B2B sales.",
       "tags": [
         {
@@ -250,6 +202,8 @@
       "name": "NewFilings",
       "domain": "newfilings.com",
       "stage": "validation",
+      "competition": "LOW",
+      "topCompetitors": "NewFilingAlerts.com (29 states, only direct competitor). Enigma/Middesk focus on compliance, not lead gen.",
       "pain": "Monitor state business license filings daily. Get alerted when new businesses register in your target category + geography. First-mover lead gen.",
       "tags": [
         {

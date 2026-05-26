@@ -40,6 +40,13 @@ Optional but useful:
 - current workaround question
 - willingness-to-pay indicator
 
+Landing page style rules:
+- use OpenAI image generation v2 for the landing page mockup, then code the page around it
+- the mockup should feel unique, brandable, and product-like — not obviously AI-generated
+- do not say the page is "just validating" or otherwise frame it as unfinished research
+- present it like an active waitlist / early access page for a real product
+- keep the copy light; these are small, focused tools, so the page should be simple and easy to scan
+
 ## Good CTAs
 
 Better CTAs focus on intent, not vague interest.

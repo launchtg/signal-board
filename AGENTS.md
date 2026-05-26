@@ -67,6 +67,7 @@ Default instruction for Heather requests:
 - if Heather says "validate this idea," treat it as a full deployment request by default
 - do not interpret it as "just move the card"
 - build the landing page, deploy it, connect the live URL, wire the CTA/capture flow, update validation tracking fields, then push the board update unless she explicitly says not to publish yet
+- for validation pages, use OpenAI image generation v2 for the mockup, make it unique and brandable, do not make it look AI-generated, do not mention that the idea is merely being validated, and keep the copy light because these products are small focused tools
 
 For the full stage logic, read `HOW_IT_WORKS.md` and `VALIDATION_PLAYBOOK.md`.
 
