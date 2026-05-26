@@ -3,454 +3,368 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NewFilings — First look at new businesses, before the market catches up</title>
-  <meta name="description" content="NewFilings gives operators a faster way to spot newly filed businesses by state, category, and watchlist — before everyone else gets the same lead." />
+  <title>NewFilings — Reach new businesses before your competitors do</title>
+  <meta name="description" content="NewFilings alerts you to newly filed businesses so you can reach them first — before the lead goes stale and before they pick someone else." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #080a0c;
-      --panel: #0f1316;
-      --panel-2: #141a1e;
-      --line: rgba(255,255,255,0.09);
-      --line-2: rgba(255,255,255,0.05);
-      --text: #eef2f4;
-      --muted: #98a3aa;
-      --dim: #6f7a81;
-      --acid: #c8ff3d;
-      --green: #89d330;
-      --shadow: 0 30px 80px rgba(0,0,0,0.45);
-      --max: 1180px;
-      --radius: 28px;
+      --bg: #fafaf8;
+      --surface: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --border-strong: rgba(0,0,0,0.12);
+      --text: #1a1a1a;
+      --text-secondary: #5a5a5a;
+      --text-dim: #8a8a8a;
+      --accent: #2b6b3e;
+      --accent-light: #e8f5ec;
+      --accent-bg: #f0faf3;
+      --max: 960px;
+      --radius: 20px;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; }
     html { scroll-behavior: smooth; }
+
     body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at 18% 0%, rgba(137,211,48,0.12), transparent 25%),
-        radial-gradient(circle at 88% 8%, rgba(200,255,61,0.08), transparent 22%),
-        linear-gradient(180deg, #090b0d 0%, #07090b 100%);
+      background: var(--bg);
       letter-spacing: -0.01em;
+      -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
-    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
 
+    /* — Nav — */
     .nav {
       position: sticky;
       top: 0;
       z-index: 30;
-      background: rgba(8, 10, 12, 0.78);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line-2);
+      background: rgba(250,250,248,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      padding: 16px 0;
+      padding: 14px 0;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       font-weight: 800;
       letter-spacing: -0.04em;
-      font-size: 18px;
+      font-size: 17px;
     }
 
     .brand img {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #0d1114;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .cta,
-    button {
+    .cta-btn {
       border: 0;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 14px 18px;
-      border-radius: 15px;
-      font-weight: 800;
+      padding: 11px 22px;
+      border-radius: 12px;
+      font-weight: 700;
       font-size: 14px;
-      color: #111508;
-      background: linear-gradient(135deg, var(--green), var(--acid));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.22);
+      color: #fff;
+      background: var(--accent);
+      transition: background 0.15s;
     }
+    .cta-btn:hover { background: #225532; }
 
-    .cta.alt {
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      border: 1px solid var(--line);
-      box-shadow: none;
-    }
-
+    /* — Hero — */
     .hero {
-      padding: 56px 0 28px;
+      padding: 80px 0 0;
+      text-align: center;
     }
 
-    .hero-shell {
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
-        rgba(10, 14, 17, 0.88);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .hero-top {
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 0;
-    }
-
-    .hero-copy {
-      padding: 34px 34px 28px;
-      border-right: 1px solid var(--line-2);
-      min-width: 0;
-    }
-
-    .eyebrow {
+    .hero .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--acid);
+      color: var(--accent);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
     }
 
-    .eyebrow::before {
+    .hero .eyebrow::before {
       content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--acid);
-      box-shadow: 0 0 18px rgba(200,255,61,0.4);
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
     }
 
     h1 {
-      margin: 18px 0 16px;
-      font-size: clamp(44px, 6.4vw, 78px);
-      line-height: 0.94;
-      letter-spacing: -0.065em;
-      max-width: 640px;
+      font-size: clamp(38px, 5.5vw, 62px);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-weight: 800;
+      max-width: 720px;
+      margin: 0 auto 20px;
     }
 
-    .lede {
-      max-width: 520px;
-      margin: 0 0 22px;
-      color: var(--muted);
+    .hero .sub {
       font-size: 18px;
-      line-height: 1.55;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 540px;
+      margin: 0 auto 32px;
     }
 
     .hero-cta {
       display: flex;
       gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
+      justify-content: center;
+      margin-bottom: 56px;
     }
 
-    .signal-row {
+    .hero-cta .cta-btn {
+      padding: 14px 28px;
+      font-size: 15px;
+      border-radius: 14px;
+    }
+
+    /* — Product visual — */
+    .mockup-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .mockup-wrap img {
+      border-radius: 16px;
+      border: 1px solid var(--border-strong);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    /* — Benefits — */
+    .benefits {
+      padding: 80px 0 0;
+    }
+
+    .benefits-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    .signal {
-      padding: 14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.025);
-      border: 1px solid var(--line-2);
+    .benefit {
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
     }
 
-    .signal strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 13px;
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .benefit h3 {
+      font-size: 16px;
+      font-weight: 700;
       letter-spacing: -0.02em;
+      margin-bottom: 8px;
     }
 
-    .signal span {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.45;
+    .benefit p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.55;
     }
 
-    .hero-visual {
-      padding: 18px;
-      background: linear-gradient(180deg, rgba(200,255,61,0.04), transparent 26%);
-      min-width: 0;
+    /* — Audience strip — */
+    .audience {
+      padding: 64px 0 0;
+      text-align: center;
     }
 
-    .hero-visual img {
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 28px 80px rgba(0,0,0,0.4);
-    }
-
-    .hero-bottom {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      border-top: 1px solid var(--line-2);
-    }
-
-    .momentum,
-    .operators {
-      padding: 22px 28px;
-    }
-
-    .momentum {
-      border-right: 1px solid var(--line-2);
-    }
-
-    .strip-title {
-      margin: 0 0 12px;
-      color: var(--dim);
-      font-size: 11px;
-      letter-spacing: 0.14em;
+    .audience .label {
+      font-size: 12px;
+      font-weight: 700;
       text-transform: uppercase;
-      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      margin-bottom: 16px;
     }
 
-    .chip-row {
+    .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      justify-content: center;
     }
 
-    .chip {
-      padding: 10px 12px;
+    .tag {
+      padding: 10px 18px;
       border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.025);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .operators p,
-    .momentum p {
-      margin: 0;
-      color: var(--muted);
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
       font-size: 14px;
-      line-height: 1.5;
+      font-weight: 500;
+      color: var(--text-secondary);
     }
 
-    .section {
-      padding: 24px 0;
+    /* — Form section — */
+    .signup {
+      padding: 80px 0 40px;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .panel {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-      box-shadow: var(--shadow);
+    .signup-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
       overflow: hidden;
-    }
-
-    .panel-inner {
-      padding: 26px;
-    }
-
-    .panel h2 {
-      margin: 0 0 8px;
-      font-size: clamp(26px, 3vw, 40px);
-      letter-spacing: -0.05em;
-      line-height: 1.02;
-    }
-
-    .panel p,
-    .panel li,
-    .panel span {
-      color: var(--muted);
-    }
-
-    .stack {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .step,
-    .case,
-    .proof {
-      padding: 18px;
-      border-radius: 20px;
-      border: 1px solid var(--line-2);
-      background: rgba(255,255,255,0.02);
-    }
-
-    .step strong,
-    .case strong,
-    .proof strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 15px;
-      color: var(--text);
-      letter-spacing: -0.03em;
-    }
-
-    .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.04);
     }
 
     .signup-grid {
       display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 18px;
+      grid-template-columns: 1fr 1fr;
     }
 
-    .left-card,
-    .form-card {
-      padding: 28px;
+    .signup-left {
+      padding: 40px 36px;
+      background: var(--accent-bg);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .left-card {
-      border-right: 1px solid var(--line-2);
-      background: linear-gradient(180deg, rgba(200,255,61,0.035), transparent 65%);
+    .signup-left h2 {
+      font-size: clamp(26px, 3.2vw, 36px);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 14px;
     }
 
-    .mini-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 20px;
+    .signup-left p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 380px;
     }
 
-    .mini-item {
-      padding: 15px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--line-2);
-    }
-
-    .mini-item strong {
-      display: block;
-      margin-bottom: 5px;
-      font-size: 14px;
-      letter-spacing: -0.02em;
+    .signup-right {
+      padding: 36px;
     }
 
     form {
       display: grid;
-      gap: 12px;
-      margin-top: 8px;
+      gap: 14px;
     }
 
     .field {
       display: grid;
-      gap: 7px;
+      gap: 6px;
     }
 
     label {
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--dim);
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
     }
 
     input, select, textarea {
       width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px 14px;
-      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: var(--bg);
       color: var(--text);
       font: inherit;
+      font-size: 14px;
       outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
     }
 
-    textarea { min-height: 116px; resize: vertical; }
-    input::placeholder, textarea::placeholder { color: var(--dim); }
+    textarea { min-height: 90px; resize: vertical; }
+    input::placeholder, textarea::placeholder { color: var(--text-dim); }
 
     input:focus, select:focus, textarea:focus {
-      border-color: rgba(200,255,61,0.55);
-      box-shadow: 0 0 0 4px rgba(200,255,61,0.08);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(43,107,62,0.1);
+    }
+
+    form .cta-btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 15px;
+      border-radius: 12px;
+      margin-top: 4px;
     }
 
     .fineprint {
-      margin-top: 8px;
-      color: var(--dim);
+      color: var(--text-dim);
       font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .close-cta {
       text-align: center;
-      padding: 30px 24px 40px;
     }
 
-    .close-cta h2 {
-      margin: 0 0 10px;
-      font-size: clamp(28px, 4vw, 44px);
-      letter-spacing: -0.05em;
+    /* — Closing CTA — */
+    .close-section {
+      text-align: center;
+      padding: 40px 0 80px;
     }
 
-    .close-cta p {
-      margin: 0 auto 18px;
-      color: var(--muted);
-      max-width: 640px;
+    .close-section h2 {
+      font-size: clamp(24px, 3.4vw, 38px);
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
     }
 
+    .close-section p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      max-width: 500px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+
+    /* — Footer — */
     footer {
-      padding: 0 0 56px;
+      padding: 0 0 48px;
       text-align: center;
-      color: var(--dim);
+      color: var(--text-dim);
       font-size: 13px;
     }
 
-    @media (max-width: 980px) {
-      .hero-top,
-      .hero-bottom,
-      .grid-2,
-      .signup-grid,
-      .proof-grid,
-      .signal-row {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy,
-      .momentum,
-      .left-card {
-        border-right: 0;
-      }
-
-      .hero-bottom > * {
-        border-top: 1px solid var(--line-2);
-      }
-
-      .nav-links { display: none; }
+    /* — Mobile — */
+    @media (max-width: 740px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+      .signup-grid { grid-template-columns: 1fr; }
+      .signup-left { border-right: 0; border-bottom: 1px solid var(--border); }
+      .hero { padding: 56px 0 0; }
     }
   </style>
 </head>
@@ -461,212 +375,136 @@
         <img src="logo.png" alt="NewFilings logo" />
         <span>NewFilings</span>
       </a>
-      <div class="nav-links">
-        <a href="#mechanism">Mechanism</a>
-        <a href="#difference">Why this wins</a>
-        <a href="#access">Early access</a>
-      </div>
-      <a class="cta" href="#access">Request access</a>
+      <a class="cta-btn" href="#access">Get early access</a>
     </div>
   </nav>
 
   <main id="top">
+    <!-- Hero -->
     <section class="hero">
-      <div class="wrap hero-shell">
-        <div class="hero-top">
-          <div class="hero-copy">
-            <div class="eyebrow">Private rollout • Priority queue open</div>
-            <h1>See new businesses while everyone else is still checking portals.</h1>
-            <p class="lede">NewFilings turns fresh business registrations into a cleaner, faster outreach advantage for insurance, accounting, payroll, and SMB sales teams.</p>
-            <div class="hero-cta">
-              <a class="cta" href="#access">Join waitlist</a>
-              <a class="cta alt" href="#mechanism">How it works</a>
-            </div>
-            <div class="signal-row">
-              <div class="signal">
-                <strong>Spot the filing first</strong>
-                <span>Catch new registrations before they disappear into stale lead lists.</span>
-              </div>
-              <div class="signal">
-                <strong>Filter the noise</strong>
-                <span>Watch the states, categories, and business types that actually matter to your funnel.</span>
-              </div>
-              <div class="signal">
-                <strong>Move while intent is fresh</strong>
-                <span>Turn formation data into earlier conversations and a faster first touch.</span>
-              </div>
-            </div>
-          </div>
-          <div class="hero-visual">
-            <img src="ui-mockup.png" alt="NewFilings product preview" />
-          </div>
+      <div class="wrap">
+        <div class="eyebrow">Early access open</div>
+        <h1>Reach new businesses before your competitors do.</h1>
+        <p class="sub">Every day, businesses file for the first time. The ones who reach them first win the account. NewFilings makes sure that's you.</p>
+        <div class="hero-cta">
+          <a class="cta-btn" href="#access">Get early access</a>
         </div>
-        <div class="hero-bottom">
-          <div class="momentum">
-            <div class="strip-title">Built for operators who monetize speed</div>
-            <div class="chip-row">
-              <div class="chip">Commercial insurance</div>
-              <div class="chip">Bookkeeping & tax</div>
-              <div class="chip">Payroll & HR</div>
-              <div class="chip">Payments & merchant services</div>
-              <div class="chip">SMB sales teams</div>
+      </div>
+      <div class="mockup-wrap">
+        <img src="ui-mockup.png" alt="NewFilings product preview" />
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+      <div class="wrap">
+        <div class="benefits-grid">
+          <div class="benefit">
+            <div class="benefit-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="8"/><line x1="10" y1="6" x2="10" y2="10"/><line x1="10" y1="10" x2="13" y2="12"/></svg>
             </div>
+            <h3>Get there first</h3>
+            <p>See new filings as they happen. Not after they've been packaged, resold, and picked over.</p>
           </div>
-          <div class="operators">
-            <div class="strip-title">Why people want in early</div>
-            <p>The earlier you know a business exists, the earlier you can quote it, route it, enrich it, or sell into it. NewFilings is designed around that exact timing edge.</p>
+          <div class="benefit">
+            <div class="benefit-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h14v14H3z"/><path d="M3 9h14"/><path d="M9 3v14"/></svg>
+            </div>
+            <h3>Only what matters</h3>
+            <p>Filter by state, entity type, and category. No noise. Just the businesses you actually want to reach.</p>
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 14 8 10 12 13 18 6"/></svg>
+            </div>
+            <h3>Close earlier</h3>
+            <p>Contact businesses before they've chosen a provider. Earlier conversations convert better.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="mechanism">
-      <div class="wrap grid-2">
-        <div class="panel">
-          <div class="panel-inner">
-            <h2>The mechanism is simple.</h2>
-            <p>No bloated “sales intelligence suite.” Just a faster path from filing activity to action.</p>
-            <div class="stack">
-              <div class="step">
-                <strong>1. Build your watch surface</strong>
-                <span>Choose the states, entity types, and business patterns you care about most.</span>
-              </div>
-              <div class="step">
-                <strong>2. Surface high-signal filings</strong>
-                <span>NewFilings highlights the registrations that fit your targeting logic instead of dumping raw lists on you.</span>
-              </div>
-              <div class="step">
-                <strong>3. Reach out while the window is still open</strong>
-                <span>Use fresh formation data as an earlier outreach trigger than your competitors are used to working from.</span>
-              </div>
-            </div>
-          </div>
+    <!-- Audience -->
+    <section class="audience">
+      <div class="wrap">
+        <div class="label">Built for teams who sell into new businesses</div>
+        <div class="tags">
+          <div class="tag">Insurance agents</div>
+          <div class="tag">Accountants</div>
+          <div class="tag">Payroll providers</div>
+          <div class="tag">Merchant services</div>
+          <div class="tag">SMB sales teams</div>
         </div>
+      </div>
+    </section>
 
-        <div class="panel" id="difference">
-          <div class="panel-inner">
-            <h2>Most alternatives are late, noisy, or expensive.</h2>
-            <div class="stack">
-              <div class="case">
-                <strong>Manual checking is slow</strong>
-                <span>State portals are clunky, inconsistent, and easy to ignore when the day gets busy.</span>
+    <!-- Signup -->
+    <section class="signup" id="access">
+      <div class="wrap signup-card">
+        <div class="signup-grid">
+          <div class="signup-left">
+            <h2>The best leads are the ones nobody else has yet.</h2>
+            <p>Tell us who you're trying to reach. We'll make sure you see them first.</p>
+          </div>
+          <div class="signup-right">
+            <form action="https://formsubmit.co/heather@launchtg.com" method="POST">
+              <input type="hidden" name="_subject" value="NewFilings early access request" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_next" value="https://launchtg.github.io/signal-board/newfilings/?submitted=1#access" />
+
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Jane Smith" required />
               </div>
-              <div class="case">
-                <strong>Lead databases are stale</strong>
-                <span>By the time the record gets packaged and sold back to you, the timing edge is already gone.</span>
+
+              <div class="field">
+                <label for="email">Work email</label>
+                <input id="email" name="email" type="email" placeholder="jane@company.com" required />
               </div>
-              <div class="case">
-                <strong>Enterprise data vendors overshoot the job</strong>
-                <span>You do not need a giant intelligence stack just to know which new businesses showed up today.</span>
+
+              <div class="field">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" placeholder="Acme Insurance" required />
               </div>
-            </div>
+
+              <div class="field">
+                <label for="role">Role</label>
+                <select id="role" name="role" required>
+                  <option value="">Select one</option>
+                  <option>Insurance agent / broker</option>
+                  <option>Accountant / bookkeeper</option>
+                  <option>Payroll provider</option>
+                  <option>Merchant services / payments</option>
+                  <option>B2B sales team</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="states">Target states</label>
+                <input id="states" name="states" type="text" placeholder="Texas, Florida, California" required />
+              </div>
+
+              <div class="field">
+                <label for="workflow">What types of new businesses do you want to see?</label>
+                <textarea id="workflow" name="workflow" placeholder="E.g. New LLCs in Texas — trades, restaurants, home services." required></textarea>
+              </div>
+
+              <button type="submit" class="cta-btn">Get early access</button>
+              <div class="fineprint">We'll reach out when your spot opens.</div>
+            </form>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap panel">
-        <div class="panel-inner">
-          <h2>What this unlocks in the real world</h2>
-          <div class="proof-grid">
-            <div class="proof">
-              <strong>Insurance teams</strong>
-              <span>Quote new businesses before another broker reaches them first.</span>
-            </div>
-            <div class="proof">
-              <strong>Accounting & payroll</strong>
-              <span>Find newly formed businesses before they already have a provider in place.</span>
-            </div>
-            <div class="proof">
-              <strong>SMB sales operators</strong>
-              <span>Turn business formation into a high-intent trigger instead of waiting on slower lists.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="access">
-      <div class="wrap panel signup-grid">
-        <div class="left-card">
-          <div class="strip-title">Selective onboarding</div>
-          <h2 style="margin-top:0;">Request early access</h2>
-          <p>We’re prioritizing teams with a clear use case, clear states of interest, and a real reason to move early.</p>
-          <div class="mini-list">
-            <div class="mini-item">
-              <strong>Best fit</strong>
-              <span>Operators who sell into newly formed businesses and care about speed more than dashboards.</span>
-            </div>
-            <div class="mini-item">
-              <strong>What to share</strong>
-              <span>Your target states, ideal business type, and where fresh filing alerts would fit into your workflow.</span>
-            </div>
-            <div class="mini-item">
-              <strong>What happens next</strong>
-              <span>Priority queue for early access plus product updates as rollout expands.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-card">
-          <form action="https://formsubmit.co/heather@launchtg.com" method="POST">
-            <input type="hidden" name="_subject" value="NewFilings priority access request" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="https://launchtg.github.io/signal-board/newfilings/?submitted=1#access" />
-
-            <div class="field">
-              <label for="name">Full name</label>
-              <input id="name" name="name" type="text" placeholder="Jane Smith" required />
-            </div>
-
-            <div class="field">
-              <label for="email">Work email</label>
-              <input id="email" name="email" type="email" placeholder="jane@company.com" required />
-            </div>
-
-            <div class="field">
-              <label for="company">Company</label>
-              <input id="company" name="company" type="text" placeholder="Acme Commercial Insurance" required />
-            </div>
-
-            <div class="field">
-              <label for="role">Role</label>
-              <select id="role" name="role" required>
-                <option value="">Select one</option>
-                <option>Insurance agent / broker</option>
-                <option>Accountant / bookkeeper</option>
-                <option>Payroll provider</option>
-                <option>Merchant services / payments</option>
-                <option>B2B sales team</option>
-                <option>Agency / operator</option>
-                <option>Other</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="states">Target states</label>
-              <input id="states" name="states" type="text" placeholder="Texas, Florida, California" required />
-            </div>
-
-            <div class="field">
-              <label for="workflow">What would you want NewFilings to catch for you?</label>
-              <textarea id="workflow" name="workflow" placeholder="Example: New LLCs in Texas tied to trades, home services, hospitality, or restaurant formation activity." required></textarea>
-            </div>
-
-            <button type="submit">Request priority access</button>
-            <div class="fineprint">Join the queue for early access, launch updates, and rollout priority.</div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap close-cta">
-        <h2>Fresh filings are one of the cleanest signals in the market.</h2>
-        <p>If they matter to your business, you should probably not be discovering them the same way everyone else does.</p>
-        <a class="cta" href="#access">Join the waitlist</a>
+    <!-- Closing -->
+    <section class="close-section">
+      <div class="wrap">
+        <h2>The filing happened today. Your competitors will find out next week.</h2>
+        <p>Get there first.</p>
+        <a class="cta-btn" href="#access">Join the waitlist</a>
       </div>
     </section>
   </main>
@@ -678,16 +516,10 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     if (params.get('submitted') === '1') {
-      const target = document.querySelector('.form-card');
-      const note = document.createElement('div');
-      note.style.marginTop = '14px';
-      note.style.padding = '14px';
-      note.style.borderRadius = '16px';
-      note.style.border = '1px solid rgba(200,255,61,0.32)';
-      note.style.background = 'rgba(200,255,61,0.08)';
-      note.style.color = '#ecf7c1';
-      note.textContent = 'You’re on the list. We’ll keep you posted as priority access opens.';
-      target.appendChild(note);
+      const form = document.querySelector('.signup-right form');
+      if (form) {
+        form.innerHTML = '<div style="padding:32px 0;text-align:center;"><p style="font-size:18px;font-weight:700;margin-bottom:8px;color:#1a1a1a;">You\u2019re on the list.</p><p style="color:#5a5a5a;font-size:14px;">We\u2019ll reach out when your spot opens.</p></div>';
+      }
       history.replaceState({}, '', window.location.pathname + '#access');
     }
   </script>
