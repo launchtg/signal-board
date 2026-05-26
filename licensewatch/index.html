@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NewFilings — New business filing alerts for first-mover outreach</title>
+  <meta name="description" content="Get alerted when new businesses register in your target state, category, and geography. NewFilings helps insurance agents, payroll providers, accountants, and B2B sales teams reach new businesses before competitors." />
+  <style>
+    :root {
+      --bg: #0a0a12;
+      --surface: #12121c;
+      --card: #171726;
+      --card-2: #1d1d30;
+      --border: #2a2a3c;
+      --text: #ececf3;
+      --muted: #9b9bb0;
+      --dim: #6d6d84;
+      --primary: #7cb800;
+      --primary-bright: #ccff00;
+      --danger: #ff6b6b;
+      --success: #8bdc65;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(124,184,0,0.16), transparent 28%),
+        radial-gradient(circle at top left, rgba(204,255,0,0.08), transparent 22%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(204,255,0,0.22);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--primary-bright);
+      background: rgba(204,255,0,0.06);
+    }
+
+    .nav {
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(10, 10, 18, 0.82);
+      z-index: 20;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand img {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 11px 16px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-bright));
+      color: #10130d;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 72px 0 32px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    h1 {
+      margin: 18px 0 18px;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      max-width: 720px;
+    }
+
+    .lede {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 28px;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 28px 0 0;
+    }
+
+    .point {
+      padding: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      border-radius: 16px;
+    }
+
+    .point strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .point span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.22);
+    }
+
+    .form-card h2,
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .form-card p,
+    .section p,
+    .section li {
+      color: var(--muted);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 14px 14px;
+      font: inherit;
+      outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder { color: var(--dim); }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(204,255,0,0.5);
+      box-shadow: 0 0 0 4px rgba(204,255,0,0.08);
+    }
+
+    textarea { min-height: 110px; resize: vertical; }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 15px 18px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--primary-bright));
+      color: #11150b;
+    }
+
+    .fineprint {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    .proof-strip {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: grid;
+      gap: 10px;
+    }
+
+    .proof-strip div {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .proof-strip strong { color: var(--text); }
+
+    .section {
+      padding: 34px 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.025);
+    }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .mockup {
+      overflow: hidden;
+    }
+
+    .mockup img {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .comparison ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+
+    .comparison .bad {
+      border: 1px solid rgba(255,107,107,0.22);
+      background: rgba(255,107,107,0.05);
+    }
+
+    .comparison .good {
+      border: 1px solid rgba(124,184,0,0.28);
+      background: rgba(124,184,0,0.08);
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .cta-band {
+      margin: 24px 0 80px;
+    }
+
+    .cta-band .card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .muted-list {
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 28px 0 60px;
+      color: var(--dim);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .comparison,
+      .cta-band .card {
+        grid-template-columns: 1fr;
+      }
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <img src="logo.png" alt="NewFilings logo" />
+        <span>NewFilings</span>
+      </a>
+      <div class="nav-links">
+        <a href="#problem">Problem</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#fit">Who it's for</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="nav-cta" href="#signup">Get early access</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="pill">Validation page • NewFilings by Launch Technology Group</div>
+          <h1>Know about new business filings before your competitors do.</h1>
+          <p class="lede">
+            NewFilings monitors state business registrations and alerts you when new businesses appear in your target state, category, and geography — so insurance agents, accountants, payroll providers, and B2B sales teams can reach them first.
+          </p>
+          <a class="nav-cta" href="#signup">Join the early access list</a>
+          <div class="hero-points">
+            <div class="point">
+              <strong>Stop checking state sites manually</strong>
+              <span>No more bouncing across clunky Secretary of State portals every morning.</span>
+            </div>
+            <div class="point">
+              <strong>Catch filings faster</strong>
+              <span>Get alerted when new businesses show up in the states and categories you actually care about.</span>
+            </div>
+            <div class="point">
+              <strong>Reach businesses first</strong>
+              <span>Early outreach wins. Delay means somebody else gets there first.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card form-card" id="signup">
+          <h2>Get early access</h2>
+          <p>If this would save you time or help you close more business, tell us what you want to monitor. We’ll use this list to prioritize launch users and validation calls.</p>
+
+          <form action="https://formsubmit.co/heather@launchtg.com" method="POST">
+            <input type="hidden" name="_subject" value="NewFilings early access signup" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://launchtg.github.io/signal-board/licensewatch/?submitted=1#signup" />
+
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Jane Smith" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Work email</label>
+              <input id="email" name="email" type="email" placeholder="jane@company.com" required />
+            </div>
+
+            <div class="field">
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" placeholder="Acme Insurance" required />
+            </div>
+
+            <div class="field">
+              <label for="role">Best fit</label>
+              <select id="role" name="role" required>
+                <option value="">Select one</option>
+                <option>Insurance agent / broker</option>
+                <option>Accountant / bookkeeper</option>
+                <option>Payroll provider</option>
+                <option>B2B sales team</option>
+                <option>Marketing agency</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="states">States or regions you care about</label>
+              <input id="states" name="states" type="text" placeholder="Texas, Florida, California" required />
+            </div>
+
+            <div class="field">
+              <label for="use_case">What would you want alerts for?</label>
+              <textarea id="use_case" name="use_case" placeholder="Example: New LLC filings in Texas for restaurants, trades, and home services." required></textarea>
+            </div>
+
+            <button class="btn" type="submit">Get on the list</button>
+            <div class="fineprint">No spam. This is a validation list for early access and short customer discovery follow-up.</div>
+          </form>
+
+          <div class="proof-strip">
+            <div><strong>Why this matters:</strong> the first outreach often gets the meeting.</div>
+            <div><strong>Current workaround:</strong> manual SOS checks, spreadsheets, stale list vendors.</div>
+            <div><strong>Who this is for:</strong> people who monetize new business formation faster than their competitors.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="wrap grid-2">
+        <div class="card">
+          <h2>The problem</h2>
+          <p>New businesses are one of the cleanest buying signals in local and SMB outreach.</p>
+          <ul class="muted-list">
+            <li>Insurance agents need to quote new businesses before another broker does.</li>
+            <li>Accountants and bookkeepers want fresh business owners before they already have a provider.</li>
+            <li>Payroll, payments, and B2B sales teams need a faster path to high-intent prospects.</li>
+          </ul>
+          <p>Right now, the workflow is still ugly: check state websites, click around broken public portals, copy names into a spreadsheet, then manually start enrichment and outreach.</p>
+        </div>
+        <div class="card comparison">
+          <div class="feature bad">
+            <h3>What teams do now</h3>
+            <ul>
+              <li>Open state filing portals one by one</li>
+              <li>Filter manually by date, type, or county</li>
+              <li>Copy names into spreadsheets</li>
+              <li>Miss filings when nobody checks that day</li>
+              <li>Buy stale lead lists later at enterprise prices</li>
+            </ul>
+          </div>
+          <div class="feature good">
+            <h3>What NewFilings does</h3>
+            <ul>
+              <li>Watch target states automatically</li>
+              <li>Filter by business type, keyword, and geography</li>
+              <li>Send fresh alert summaries</li>
+              <li>Give you a prioritized queue instead of raw noise</li>
+              <li>Help you reach new businesses first</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="wrap grid-2">
+        <div class="card">
+          <h2>How it works</h2>
+          <div class="feature">
+            <h3>1. Set your watchlist</h3>
+            <p>Choose states, business types, geographies, and keywords that match your ideal customer profile.</p>
+          </div>
+          <div class="feature" style="margin-top: 14px;">
+            <h3>2. We monitor new filings</h3>
+            <p>NewFilings checks public filing sources and looks for matches that fit your watchlist.</p>
+          </div>
+          <div class="feature" style="margin-top: 14px;">
+            <h3>3. You get the lead faster</h3>
+            <p>Instead of checking government websites manually, you get a usable alert workflow built around speed.</p>
+          </div>
+        </div>
+        <div class="card mockup">
+          <img src="ui-mockup.png" alt="NewFilings UI mockup" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fit">
+      <div class="wrap grid-2">
+        <div class="card">
+          <h2>Best fit for</h2>
+          <div class="feature">
+            <h3>Insurance agents & brokers</h3>
+            <p>Commercial lines, BOP, GL, WC, and specialty teams that want to quote new business formations earlier.</p>
+          </div>
+          <div class="feature" style="margin-top: 14px;">
+            <h3>Accountants, payroll, and compliance providers</h3>
+            <p>Professionals who sell recurring services to new business owners and need a cleaner, faster top-of-funnel source.</p>
+          </div>
+          <div class="feature" style="margin-top: 14px;">
+            <h3>B2B sales teams targeting SMBs</h3>
+            <p>Especially teams where “newly formed business” is a strong trigger for outreach.</p>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Early validation questions we care about</h2>
+          <ul class="muted-list">
+            <li>Which states matter most first?</li>
+            <li>Which business types are highest value?</li>
+            <li>Do buyers want daily digest, instant alerts, or both?</li>
+            <li>How much enrichment is necessary before the lead is useful?</li>
+            <li>What makes somebody switch from manual checking to paying monthly?</li>
+          </ul>
+          <p>If you join the list, we may follow up with a short question or invite you to see the first version.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="faq">
+          <div class="faq-item">
+            <strong>Is this live yet?</strong>
+            <span>This page is a validation page. We’re confirming demand, priority states, and the best first use cases before the product build moves forward.</span>
+          </div>
+          <div class="faq-item">
+            <strong>What would the product actually deliver?</strong>
+            <span>At minimum: new filing alerts by state + type + keyword, a dashboard of matched businesses, and a workflow that is much faster than manually checking filing portals.</span>
+          </div>
+          <div class="faq-item">
+            <strong>How much would it cost?</strong>
+            <span>Likely starting around $39/mo for a basic plan, with higher tiers for more states and more advanced alerting.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <div class="card">
+          <div>
+            <h2 style="margin-bottom:8px;">If new business filings matter to your pipeline, this is for you.</h2>
+            <p style="margin:0;">Join the validation list and tell us what you want to monitor first.</p>
+          </div>
+          <a class="nav-cta" href="#signup">Join early access</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    NewFilings validation page • Built by Launch Technology Group
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('submitted') === '1') {
+      const card = document.querySelector('.form-card');
+      const note = document.createElement('div');
+      note.style.marginTop = '16px';
+      note.style.padding = '14px';
+      note.style.borderRadius = '14px';
+      note.style.border = '1px solid rgba(124,184,0,0.35)';
+      note.style.background = 'rgba(124,184,0,0.08)';
+      note.style.color = '#dff6be';
+      note.textContent = 'Thanks — your interest was submitted. We may follow up with a couple of short questions or an early access invite.';
+      card.appendChild(note);
+      history.replaceState({}, '', window.location.pathname + '#signup');
+    }
+  </script>
+</body>
+</html>

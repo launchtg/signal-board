@@ -249,7 +249,7 @@
       "id": "newfilings",
       "name": "NewFilings",
       "domain": "newfilings.com",
-      "stage": "design",
+      "stage": "validation",
       "pain": "Monitor state business license filings daily. Get alerted when new businesses register in your target category + geography. First-mover lead gen.",
       "tags": [
         {
@@ -276,13 +276,13 @@
         "metaPrompt": "licensewatch/meta-prompt.md"
       },
       "validation": {
-        "lpUrl": "not live",
+        "lpUrl": "https://launchtg.github.io/signal-board/licensewatch/",
         "signups": "0",
         "qualified": "0",
         "conversion": "\u2014",
-        "trafficSource": "\u2014",
-        "lastCheck": "not launched",
-        "status": "NOT LIVE"
+        "trafficSource": "Direct / manual validation outreach",
+        "lastCheck": "2026-05-26",
+        "status": "LIVE \u2014 WAITING FOR TRAFFIC"
       }
     }
   ]
