@@ -269,14 +269,14 @@
       "mvpTime": "~3 days MVP",
       "pricing": "$39-79/mo per state",
       "assets": {
-        "folder": "licensewatch",
-        "logo": "licensewatch/logo.png",
-        "uiMockup": "licensewatch/ui-mockup.png",
-        "prd": "licensewatch/PRD.md",
-        "metaPrompt": "licensewatch/meta-prompt.md"
+        "folder": "newfilings",
+        "logo": "newfilings/logo.png",
+        "uiMockup": "newfilings/ui-mockup.png",
+        "prd": "newfilings/PRD.md",
+        "metaPrompt": "newfilings/meta-prompt.md"
       },
       "validation": {
-        "lpUrl": "https://launchtg.github.io/signal-board/licensewatch/",
+        "lpUrl": "https://launchtg.github.io/signal-board/newfilings/",
         "signups": "0",
         "qualified": "0",
         "conversion": "\u2014",
