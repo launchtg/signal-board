@@ -764,6 +764,7 @@
     function renderAssets(project) {
       return `
         <div class="card-assets">
+          ${project.assets.brandGuide ? `<a href="#" onclick="openModal('${escapeJs(project.name)} — Brand Guide','image','${rawUrl(project.assets.brandGuide)}');return false" class="asset-link">BRAND GUIDE</a>` : ''}
           ${project.assets.logo ? `<a href="#" onclick="openModal('${escapeJs(project.name)} — Logo','image','${rawUrl(project.assets.logo)}');return false" class="asset-link logo-link">LOGO</a>` : ''}
           ${project.assets.uiMockup ? `<a href="#" onclick="openModal('${escapeJs(project.name)} — UI Mockup','image','${rawUrl(project.assets.uiMockup)}');return false" class="asset-link ui-link">UI MOCKUP</a>` : ''}
           ${project.assets.prd ? `<a href="#" onclick="openModal('${escapeJs(project.name)} — PRD','markdown','${rawUrl(project.assets.prd)}');return false" class="asset-link">PRD</a>` : ''}
