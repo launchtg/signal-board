@@ -86,6 +86,14 @@ The page should answer:
 - generous whitespace
 - clear typography hierarchy
 - product-first composition
+- every visual choice should feel designed, not assembled
+
+### Logo direction
+- primary mark should feel bold, geometric, and intentional at small sizes
+- prefer a strong contained symbol over busy illustrative detail
+- the icon should communicate filing + motion + advantage without feeling clip-art-like
+- avoid glows, cheesy gradients, decorative stripes, or overly complex document metaphors
+- the wordmark should feel clean, premium, and commercially sharp
 
 ### Reference qualities
 Think:
