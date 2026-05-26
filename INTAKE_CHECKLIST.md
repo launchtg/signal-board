@@ -11,7 +11,13 @@ Use this file when adding or updating a project in Signal Board.
    - painful workflow
    - workaround
    - why existing solutions are weak
+   - competition level and main competitors
+   - whether competition is low enough or the wedge is strong enough
    - why someone would pay
+   - rough validation promise / landing page angle
+   - likely CTA
+   - likely first traffic source
+   - likely live deployment path + capture method
 4. Score the opportunity using `SCORING_RUBRIC.md`
 5. Start from `PROJECT_TEMPLATE.json`
 6. Add the project to `projects.json`

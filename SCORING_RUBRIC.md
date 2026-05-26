@@ -48,14 +48,21 @@ How weak are current alternatives?
 - 7-8: gap is real
 - 9-10: market is wide open or badly served
 
-### 7. MVP Simplicity
+### 7. Competition / Wedge
+How favorable is the competitive landscape?
+- 1-3: crowded market, strong incumbents, no clear wedge
+- 4-6: competition exists, wedge possible but not yet convincing
+- 7-8: moderate competition, defensible angle exists
+- 9-10: low competition or a very sharp obvious wedge
+
+### 8. MVP Simplicity
 How quickly could a meaningful MVP exist?
 - 1-3: large / complex build
 - 4-6: moderate scope
 - 7-8: focused MVP possible
 - 9-10: very tight MVP possible
 
-### 8. Distribution Accessibility
+### 9. Distribution Accessibility
 How reachable is the audience for validation?
 - 1-3: hard to reach or opaque
 - 4-6: possible but expensive/difficult
@@ -80,5 +87,6 @@ Examples:
 - great pain but no reachable buyer
 - nice concept but weak willingness to pay
 - interesting workflow but incumbent solutions already good enough
+- strong category but competition is too crowded and we do not have a sharp wedge
 
 Use judgment, not blind arithmetic.

@@ -56,9 +56,16 @@ For every candidate idea, answer these questions:
 5. **Why is the workaround bad?**
 6. **What tools already exist?**
 7. **Why are those tools insufficient?**
-8. **Why would someone pay for a better version?**
-9. **How simple could an MVP be?**
-10. **Can we realistically reach this audience for validation?**
+8. **How crowded is the market, really?**
+9. **Is competition low enough, or do we have a truly sharp wedge?**
+10. **Why would someone pay for a better version?**
+11. **How simple could an MVP be?**
+12. **Can we realistically reach this audience for validation?**
+13. **What would the validation page actually promise?**
+14. **What CTA would we test first?**
+15. **How would we capture signups or replies on a live page?**
+16. **What live URL / deployment path would we use if we validated this tomorrow?**
+17. **What traffic source would we realistically send first?**
 
 ## Minimum Standard Before Adding an Idea
 
@@ -69,8 +76,13 @@ Before adding an idea to `projects.json`, try to have:
 - a friction summary
 - a rough pricing hypothesis
 - an MVP framing
+- a rough validation angle (what the landing page would say)
+- a rough CTA hypothesis
+- an initial thought on how we would get a live page and capture demand
+- a basic competition read: who already exists, how strong they are, and whether the opportunity is actually low-competition
 
 If the evidence is weak, do not force it onto the board.
+If competition is high, do not force it onto the board unless there is a clear and credible wedge.
 
 ## How to Write a Good Idea Card
 
@@ -96,6 +108,7 @@ High scores usually mean:
 - pain is recurring
 - workaround is ugly
 - existing tools are weak/expensive
+- competition is low or the wedge is unusually strong
 - MVP is small enough
 - distribution is accessible
 
@@ -103,6 +116,7 @@ Low scores usually mean:
 - buyer is fuzzy
 - pain is infrequent
 - market gap is weak
+- competition is crowded with no sharp wedge
 - MVP is too big
 - go-to-market is unclear
 
