@@ -87,9 +87,11 @@ The page should answer:
 - clear typography hierarchy
 - product-first composition
 - every visual choice should feel designed, not assembled
+- directional, modern, and commercially sharp rather than decorative
 
 ### Logo direction
-- primary mark should feel bold, geometric, and intentional at small sizes
+- primary mark should use a clean up-right directional geometry that suggests first-mover advantage
+- small-size readability matters: the icon must still read clearly on a board card or favicon
 - prefer a strong contained symbol over busy illustrative detail
 - the icon should communicate filing + motion + advantage without feeling clip-art-like
 - avoid glows, cheesy gradients, decorative stripes, or overly complex document metaphors
