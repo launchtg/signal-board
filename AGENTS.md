@@ -30,6 +30,9 @@ Ideas should come from researched pain signals:
 - repeated manual workflows
 - expensive or weak incumbents
 - evidence of recurring buyer pain
+- direct source links showing real people explicitly describing the pain or asking for a solution
+
+If direct evidence links are missing, do not keep the idea alive on the board.
 
 If you need the full research standard, read `RESEARCH_PLAYBOOK.md`.
 

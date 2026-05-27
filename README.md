@@ -53,8 +53,12 @@ At minimum, an idea should have:
 - a target buyer hypothesis
 - a current manual workflow
 - evidence of real people describing the pain
+- direct source links where people are explicitly asking about the pain or solution
 - a rough monetization angle
 - a rough MVP scope
+
+Hard rule:
+- if we cannot show real links to real people asking for the solution or clearly describing the pain, the idea should not stay on the board
 
 For the full research standard, read `RESEARCH_PLAYBOOK.md`.
 

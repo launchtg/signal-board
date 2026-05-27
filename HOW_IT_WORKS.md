@@ -27,6 +27,11 @@ A project enters Ideas only when there is evidence that:
 
 Ideas should be evidence-backed, not vibe-backed.
 
+Hard rule:
+- every idea must be anchored in real pain evidence from real people
+- the research must include direct links to posts, threads, discussions, reviews, or other primary-source evidence where the pain or desired solution is explicitly described
+- if those links do not exist, kill or remove the idea instead of carrying it forward on inference alone
+
 ### 2. Design
 This is packaging.
 

@@ -198,52 +198,6 @@
       ]
     },
     {
-      "id": "newfilings",
-      "name": "NewFilings",
-      "domain": "newfilings.com",
-      "stage": "design",
-      "competition": "LOW",
-      "topCompetitors": "NewFilingAlerts.com (29 states, only direct competitor). Enigma/Middesk focus on compliance, not lead gen.",
-      "pain": "Monitor state business license filings daily. Get alerted when new businesses register in your target category + geography. First-mover lead gen.",
-      "tags": [
-        {
-          "text": "Insurance / B2B Sales",
-          "class": "market"
-        },
-        {
-          "text": "Monitoring"
-        },
-        {
-          "text": "State APIs + Scraping",
-          "class": "api"
-        }
-      ],
-      "score": "8.8/10",
-      "scorePercent": 88,
-      "mvpTime": "~3 days MVP",
-      "pricing": "$39-79/mo per state",
-      "assets": {
-        "folder": "newfilings",
-        "logo": "newfilings/logo.png",
-        "uiMockup": "newfilings/ui-mockup.png",
-        "prd": "newfilings/PRD.md",
-        "metaPrompt": "newfilings/meta-prompt.md",
-        "brandGuide": "newfilings/brand-guide.png",
-        "pendingApproval": [
-          "brandGuide"
-        ]
-      },
-      "validation": {
-        "lpUrl": "https://launchtg.github.io/signal-board/newfilings/",
-        "signups": "0",
-        "qualified": "0",
-        "conversion": "\u2014",
-        "trafficSource": "Direct / manual validation outreach",
-        "lastCheck": "2026-05-26",
-        "status": "BACK IN DESIGN"
-      }
-    },
-    {
       "id": "certping",
       "name": "CertPing",
       "domain": "certping.com",
