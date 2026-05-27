@@ -38,158 +38,158 @@
   },
   "projects": [
     {
-      "id": "receiveloop",
-      "name": "ReceiveLoop",
-      "domain": "receiveloop.com",
+      "id": "polabel",
+      "name": "POLabel",
+      "domain": "polabel.app",
       "stage": "ideas",
       "competition": "MEDIUM",
-      "topCompetitors": "Stocky (sunsetting), SKUSavvy, Fabrikator, Katana, NetSuite / Brightpearl / other ERPs. Clear wedge: lightweight Shopify-native receiving + open-PO ops instead of full ERP replacement.",
-      "pain": "Shopify retailers are losing a workable purchase-order receiving workflow as Stocky sunsets, and small teams do not want to buy an ERP just to receive POs, print labels, and reconcile inbound stock.",
+      "topCompetitors": "FyreTrail, Multi-Label Barcodes, SKUSavvy receiving flows, and full inventory suites like Fabrikator/Katana. The wedge is not generic label printing; it is printing labels directly from open Shopify purchase orders and received quantities.",
+      "pain": "Shopify merchants lost the simple Stocky-era ability to print barcode labels straight from a purchase order while receiving inventory, forcing cross-checking and separate label runs every shipment.",
       "tags": [
         {
           "text": "Retail Ops",
           "class": "market"
         },
         {
-          "text": "Purchase Orders"
+          "text": "PO Receiving"
         },
         {
-          "text": "Shopify Admin + Labels",
+          "text": "Shopify Admin",
           "class": "api"
         }
       ],
-      "score": "8.8/10",
-      "scorePercent": 88,
-      "mvpTime": "~5 days MVP",
-      "pricing": "$79-249/mo",
+      "score": "9.0/10",
+      "scorePercent": 90,
+      "mvpTime": "~3 days MVP",
+      "pricing": "$29-79/mo",
       "details": [
         {
           "title": "Current Manual Workflow",
-          "text": "Merchants create POs, receive inventory against them, compare vendor invoices, update supplier cost, print barcode labels, and chase open discrepancies. Today that workflow is splintering across Shopify native POs, spreadsheets, manual label printing, and in some cases handwritten vendor paperwork."
+          "text": "Receiver opens a Shopify PO, checks items off as they arrive, then has to switch into a separate barcode-label workflow or third-party app, manually match SKUs/quantities, and print labels after the fact instead of directly from the PO they are actively receiving."
         },
         {
           "title": "Workflow Friction",
-          "text": "The pain is not theoretical. It recurs on every inbound shipment. Stocky is going away, native Shopify PO receiving changed unexpectedly, key receiving context is missing at scan-time, and stores are being pushed toward overbuilt ERPs or brittle manual workarounds."
+          "text": "This happens on every inbound shipment. The operator already has the PO context in front of them, but the system breaks the moment they need labels. That creates context switching, quantity mistakes, and extra clicks at the exact point where speed matters."
         },
         {
           "title": "Evidence",
-          "text": "IDEA NAME: ReceiveLoop\nONE-LINE OPPORTUNITY: A Shopify-native receiving workspace for small retailers that replaces the ugly middle ground between disappearing Stocky workflows and expensive ERP suites.\nTARGET BUYER: Shopify merchants with physical inventory, especially boutiques and multi-SKU retail teams receiving POs weekly.\nEXACT PAINFUL WORKFLOW: receive PO -> compare invoice -> update landed cost / cost basis -> print barcode labels for exactly received items -> close or partially receive open lines -> reconcile discrepancies.\nWHY IT RECURS: Every shipment repeats it; the workflow compounds with more vendors, SKUs, and partial receipts.\nDIRECT EVIDENCE LINKS:\n1) New Purchase Order Process \u2014 https://community.shopify.com/t/new-purchase-order-process/629542\n2) Stocky App Going Away after August 31 2026 \u2014 https://community.shopify.com/t/stocky-app-going-away-after-august-31-2026/587292\n3) API endpoint coming soon for Purchase Orders, with Stocky sunset? \u2014 https://community.shopify.com/t/api-endpoint-coming-soon-for-purchase-orders-with-stocky-sunset/587136\n4) Feature Request: Print Barcode Labels Directly from Purchase Orders (like Stocky) \u2014 https://community.shopify.com/t/feature-request-print-barcode-labels-directly-from-purchase-orders-like-stocky/622687\n5) Feature Request: Add Cost/Price/Margin Display to Purchase Order Receiving \u2014 https://community.shopify.com/t/feature-request-add-cost-price-margin-display-to-purchase-order-receiving/587455\nEXACT QUOTES / EXCERPTS:\n- \"Shopify has completely changed the process to receive a purchase order and complicated it for no apparently reason.\"\n- \"I am concerned about hearing that the Stocky App is going away this year... create and receive purchase orders, adjust our costs when receiving... print price labels directly from the PO...\"\n- \"the only resolution at this point is to go pay for an ERP... I am not going back to an external ERP\"\n- \"One critical feature missing... is the ability to print barcode labels directly from a purchase order... Without it, you have to cross-reference the PO manually and print labels separately\"\n- \"This information is critical for my receiving workflow\" (re: cost / price / margin visibility while receiving).\nCURRENT WORKAROUND: Native Shopify PO + transfer flow, spreadsheets, separate label tools, handwritten vendor paperwork, or moving up to ERP.\nWHY WORKAROUND IS BAD: More clicks, context switching, manual cross-referencing, higher receiving error rate, and much higher software cost if forced into ERP.\nCOMPETITORS: Stocky (sunsetting), SKUSavvy, Fabrikator, Katana, NetSuite, Brightpearl.\nCOMPETITOR PRICING IF FINDABLE: SKUSavvy and ERP-style tools typically push stores into materially higher monthly spend than a single-purpose receiving layer; NetSuite / Brightpearl are quote-based enterprise buys.\nWHY NOW: Stocky sunset + Shopify PO changes created a fresh migration window and visible frustration in 2026.\nWEDGE / WHY THIS COULD STILL WIN: Do not replace all inventory ops. Own the receiving station: open PO queue, partial receipt workflow, invoice match, delta alerts, cost capture, and print labels for exactly received units.\nVALIDATION ANGLE: Concierge MVP for 5-10 Stocky-dependent stores; manually map their PO receipt workflow and prove time saved per shipment.\nFIRST TRAFFIC SOURCE: Shopify Community threads + outreach to stores publicly discussing Stocky sunset and PO pain.\nRISK FLAGS: Shopify may improve native PO features; some stores may still choose full inventory suites.\nVERDICT: KEEP"
+          "text": "IDEA NAME: POLabel\nONE-LINE OPPORTUNITY: A tiny Shopify utility that prints barcode labels directly from purchase orders or received quantities.\nTARGET BUYER: Shopify merchants with physical inventory, especially boutiques and multi-SKU retailers receiving stock weekly.\nEXACT PAINFUL WORKFLOW: receive PO -> confirm delivered quantities -> jump to separate barcode flow -> manually find the same items again -> print labels -> walk back to receiving.\nWHY IT RECURS: Every vendor shipment repeats it; the pain scales with SKU count and partial receipts.\nDIRECT EVIDENCE LINKS:\n1) Feature Request: Print Barcode Labels Directly from Purchase Orders (like Stocky) — https://community.shopify.com/t/feature-request-print-barcode-labels-directly-from-purchase-orders-like-stocky/622687\n2) New Purchase Order Process — https://community.shopify.com/t/new-purchase-order-process/629542\n3) Stocky App Going Away after August 31 2026 — https://community.shopify.com/t/stocky-app-going-away-after-august-31-2026/587292\n4) Feature Request: Add Cost/Price/Margin Display to Purchase Order Receiving — https://community.shopify.com/t/feature-request-add-cost-price-margin-display-to-purchase-order-receiving/587455\nQUOTED / SOURCE EXCERPTS:\n- \"One critical feature missing from the new Shopify PO & Transfers experience is the ability to print barcode labels directly from a purchase order.\"\n- \"When receiving inventory, being able to select items from a PO and immediately print labels is a huge time-saver.\"\n- \"Shopify has completely changed the process to receive a purchase order and complicated it for no apparently reason.\"\n- \"I am concerned about hearing that the Stocky App is going away this year... print price labels directly from the PO...\"\n- \"With Stocky being discontinued in August 2026, the native Shopify Purchase Order system needs a critical update to match its functionality.\"\nCURRENT WORKAROUND: open the PO in Shopify, then use a separate barcode app / stock app / manual label run to print labels.\nWHY WORKAROUND IS BAD: duplicate lookup, cross-referencing errors, slower receiving, and lost trust in quantity accuracy.\nCOMPETITORS: FyreTrail, Multi-Label Barcodes, SKUSavvy, Fabrikator/Katana receiving.\nCOMPETITOR PRICING IF FINDABLE: public pricing is inconsistent or buried, and most tools bundle label printing into broader inventory products rather than a single PO-native utility.\nWHY NOW: Stocky sunset plus Shopify PO workflow changes created a fresh migration window in 2026.\nWEDGE: stay brutally narrow — print labels from PO lines and received quantities only.\nVALIDATION ANGLE: recruit 5 stores from the Shopify threads and offer a white-glove pilot that cuts clicks during receiving.\nFIRST TRAFFIC SOURCE: direct outreach to posters in the Shopify Community threads and Shopify app-store keyword traffic around Stocky sunset.\nRISK FLAGS: Shopify could eventually add this natively; hardware/printer variety adds edge cases.\nVERDICT: KEEP"
         },
         {
           "title": "Relevant APIs",
-          "text": "Shopify Admin API, Shopify Flow hooks where available, barcode/label-print integrations, PDF/invoice parsing, vendor CSV import/export. Product shape is an ops overlay, not a full ERP."
+          "text": "Shopify Admin API for purchase orders / inventory context, existing barcode templates / printer integrations, and a tiny app surface inside admin. No dashboard required."
         },
         {
           "title": "Why They'd Pay",
-          "text": "If receiving is weekly or daily, saving even 20-40 minutes per PO and reducing inventory mistakes pays quickly. The emotional ROI is also strong: merchants are explicitly saying they do not want to buy an ERP just to regain basic receiving functionality."
+          "text": "It saves time inside a recurring physical workflow and restores a function merchants are explicitly asking Shopify to bring back. If it shaves even a few minutes per receipt, it earns its keep quickly for stores receiving inventory every week."
         },
         {
           "title": "Existing Bad Solutions",
-          "text": "Manual workaround stack: native Shopify PO changes, spreadsheets, separate label apps, and inbox/PDF juggling. Heavy workaround stack: ERP migration. Neither is attractive for SMB retailers that mainly need a reliable receiving cockpit."
+          "text": "The low end is manual relabeling and cross-reference pain. The high end is buying a broader inventory tool just to regain one missing receiving action. That is exactly the kind of gap a sharp one-function app can fill."
         }
       ]
     },
     {
-      "id": "aprelay",
-      "name": "APRelay",
-      "domain": "aprelay.io",
+      "id": "apforward",
+      "name": "APForward",
+      "domain": "apforward.app",
       "stage": "ideas",
-      "competition": "MEDIUM",
-      "topCompetitors": "Sufio, QuickBooks/Xero connectors, Wholesale Gorilla add-ons, custom Flow/webhook builds, ERP A/R modules. Wedge is Shopify B2B receivables ops for merchants who do not want accounting-suite complexity driving customer reminders.",
-      "pain": "Shopify B2B sellers cannot cleanly manage alternate A/P contacts, partial payments, overdue reminders, and statement-style follow-up inside the operational workflow they already use.",
+      "competition": "LOW-MEDIUM",
+      "topCompetitors": "Sufio, Order Automator, Wholesale Gorilla workarounds, email forwarding hacks, and custom Shopify Flow/webhook builds. The wedge is much narrower: just route invoices and reminder emails to the correct A/P contact per customer.",
+      "pain": "Shopify B2B sellers often send invoices to the buyer who placed the order instead of the payables contact who actually pays, so teams maintain off-platform spreadsheets and manually forward every reminder.",
       "tags": [
         {
           "text": "B2B Commerce",
           "class": "market"
         },
         {
-          "text": "A/R Operations"
+          "text": "Invoice Routing"
         },
         {
           "text": "Shopify + Email",
           "class": "api"
         }
       ],
-      "score": "8.5/10",
-      "scorePercent": 85,
-      "mvpTime": "~4 days MVP",
-      "pricing": "$49-149/mo",
+      "score": "8.8/10",
+      "scorePercent": 88,
+      "mvpTime": "~2-3 days MVP",
+      "pricing": "$19-49/mo",
       "details": [
         {
           "title": "Current Manual Workflow",
-          "text": "A small wholesale team takes orders in Shopify, invoices on net terms, then tracks alternate A/P emails, partial bank-transfer payments, overdue balances, and month-end statements in spreadsheets or ad hoc emails outside Shopify."
+          "text": "Wholesale merchant creates an order in Shopify, Shopify sends the invoice to the purchaser's email, staff checks a spreadsheet for the real A/P contact, then manually forwards invoices and later reminder emails to that separate address."
         },
         {
           "title": "Workflow Friction",
-          "text": "This is recurring collections work, not a one-time setup problem. Every invoice cycle reintroduces follow-up, partial payment reconciliation, and the mismatch between the buyer contact who ordered and the A/P contact who actually pays."
+          "text": "This recurs on every B2B order for customers where purchasing and payables are different people. The work is repetitive, operationally annoying, and easy to mess up, especially when reminders go to the wrong inbox and payment gets delayed."
         },
         {
           "title": "Evidence",
-          "text": "IDEA NAME: APRelay\nONE-LINE OPPORTUNITY: A lightweight Shopify B2B receivables copilot that routes invoices to the right A/P contact, tracks partial payments, and automates sane reminder cadences without spreadsheet glue.\nTARGET BUYER: Shopify Plus / wholesale merchants offering net terms to repeat B2B buyers.\nEXACT PAINFUL WORKFLOW: create invoice -> send to wrong ordering email -> manually forward to A/P -> log alternate A/P address in spreadsheet -> receive partial payment by bank transfer -> manually calculate remaining balance -> send month-end overdue statement and reminders.\nWHY IT RECURS: Every invoice cycle, every late payer, every customer with a separate purchasing contact and payables contact.\nDIRECT EVIDENCE LINKS:\n1) How can I manage partial payments for wholesale customers on Shopify? \u2014 https://community.shopify.com/t/how-can-i-manage-partial-payments-for-wholesale-customers-on-shopify/235601\n2) How to send automatically invoices and payment reminders to alternate A/P email through Shopify? \u2014 https://community.shopify.com/t/how-to-send-automatically-invoices-and-payment-reminders-to-alternate-a-p-email-through-shopify/327432\n3) Tag orders that are 30 days overdue with Flow \u2014 https://community.shopify.com/t/tag-orders-that-are-30-days-overdue-with-flow/295506\n4) Shopify Flow: daily \u201cuntil paid\u201d reminders + 5-days-before due \u2014 https://community.shopify.com/t/shopify-flow-daily-until-paid-reminders-5-days-before-due-loops-scheduled-time-order-context/572816\nEXACT QUOTES / EXCERPTS:\n- \"They require that I send them statements at month end with the amounts overdue and reflecting the amounts paid.\"\n- \"I don\u2019t understand why Shopify does not have a very basic feature where I can input the amount that was paid on an invoice and it reflects the outstanding amount\"\n- \"We have to track the alternate email addresses with a spreadsheet outside of Shopify and manually send invoices and payment reminders.\"\n- \"Can someone help me configure Flow to tag orders that are past due by 30 days?\"\n- \"It works, but it\u2019s messy... I had to stack a long chain of steps: wait 1 day -> check if paid -> if not, send reminder -> repeat.\"\nCURRENT WORKAROUND: spreadsheets, manual email forwarding, custom Flow chains, outside accounting tools, or custom apps.\nWHY WORKAROUND IS BAD: fragmented customer history, operator error, wrong-recipient reminders, weak visibility into outstanding balances, and brittle automation.\nCOMPETITORS: Sufio, QuickBooks/Xero connectors, ERP A/R modules, bespoke webhooks.\nCOMPETITOR PRICING IF FINDABLE: Sufio and adjacent invoice tools typically start as subscription apps, while ERP/accounting-suite alternatives quickly become much broader and heavier than the narrow collections workflow merchants are describing.\nWHY NOW: Shopify B2B usage is rising, but operational receivables inside Shopify are still visibly underpowered.\nWEDGE / WHY THIS COULD STILL WIN: Focus narrowly on operational collections inside Shopify: alternate A/P routing, partial payment ledger, reminder cadence, and statement sending. Do not try to replace the accounting system.\nVALIDATION ANGLE: Pilot with 5 wholesale stores using net terms; measure DSO improvement and hours saved at month-end.\nFIRST TRAFFIC SOURCE: Shopify Community B2B / wholesale threads and direct outreach to merchants using Wholesale Gorilla or net terms.\nRISK FLAGS: Some merchants may prefer to push everything into QuickBooks/Xero; payment-term volume may be concentrated in larger stores.\nVERDICT: KEEP"
+          "text": "IDEA NAME: APForward\nONE-LINE OPPORTUNITY: A tiny Shopify B2B app that stores an alternate A/P email per customer and automatically routes invoice + reminder emails there.\nTARGET BUYER: Shopify Plus / wholesale merchants using net terms with repeat B2B buyers.\nEXACT PAINFUL WORKFLOW: order placed by buyer -> invoice sent to buyer email -> staff checks off-platform sheet for A/P email -> manually forwards invoice -> manually forwards every reminder again.\nWHY IT RECURS: Every net-terms order repeats the same routing mistake because the buyer and payables contact are often different humans.\nDIRECT EVIDENCE LINKS:\n1) How to send automatically invoices and payment reminders to alternate A/P email through Shopify? — https://community.shopify.com/t/how-to-send-automatically-invoices-and-payment-reminders-to-alternate-a-p-email-through-shopify/327432\n2) How can I manage partial payments for wholesale customers on Shopify? — https://community.shopify.com/t/how-can-i-manage-partial-payments-for-wholesale-customers-on-shopify/235601\n3) Tag orders that are 30 days overdue with Flow — https://community.shopify.com/t/tag-orders-that-are-30-days-overdue-with-flow/295506\nQUOTED / SOURCE EXCERPTS:\n- \"Shopify currently sends invoices and payment reminders to the email address used for order placement. However, some customers have a different A/P email address.\"\n- \"We have to track the alternate email addresses with a spreadsheet outside of Shopify and manually send invoices and payment reminders.\"\n- \"They require that I send them statements at month end with the amounts overdue and reflecting the amounts paid.\"\n- \"I want to filter those orders by a tag on the orders page so our accounts receivable team can easily know which are 30 days past due.\"\nCURRENT WORKAROUND: spreadsheet of alternate payables emails, inbox forwarding, manual reminders, or custom scripts/flows.\nWHY WORKAROUND IS BAD: wrong-recipient reminders, duplicated labor, stale contact data, and slower collections.\nCOMPETITORS: Sufio, Order Automator, custom Flow/webhook builds, accounting suite syncs.\nCOMPETITOR PRICING IF FINDABLE: pricing is usually bundled into broader invoicing/automation products rather than sold as a single routing utility; public pricing varies and is not the core wedge here.\nWHY NOW: Shopify B2B adoption is up, but this basic routing gap is still unresolved in core.\nWEDGE: one job only — store the A/P address and send the invoice/reminder to the right inbox every time.\nVALIDATION ANGLE: install for 5 wholesale stores, import current A/P contacts, and measure reduction in manual forwards and payment lag.\nFIRST TRAFFIC SOURCE: Shopify Community B2B threads plus outreach to stores using Wholesale Gorilla or net terms.\nRISK FLAGS: some merchants may solve it in accounting tools; buyer records may need clean customer-company mapping.\nVERDICT: KEEP"
         },
         {
           "title": "Relevant APIs",
-          "text": "Shopify Admin API, webhooks, Shopify Flow, email sending, optional QuickBooks/Xero sync, customer-company metafields for A/P contacts, internal ledger for partial-payment state."
+          "text": "Shopify Admin API for orders/customers/companies, metafields for alternate A/P email storage, and transactional email sending. Feasible without building a broader receivables product."
         },
         {
           "title": "Why They'd Pay",
-          "text": "Collections friction hits cash flow directly. A merchant with even a modest wholesale book can justify a focused tool if it reduces overdue balances, manual follow-up time, and misrouted invoices."
+          "text": "Collections speed touches cash flow directly. If a small app removes repetitive forwarding and gets reminders to the person who can actually approve payment, the ROI is obvious for wholesale teams."
         },
         {
           "title": "Existing Bad Solutions",
-          "text": "Today the options are spreadsheet glue, brittle Flow chains, or migrating the whole problem into accounting/ERP systems. That is too much overhead for merchants who simply want their invoices to go to the right person and outstanding balances to stay accurate."
+          "text": "Today merchants use spreadsheets, forwarding rules, or bloated invoicing suites. None of those are a clean answer to the single missing action they keep describing: send the invoice to the right payables inbox automatically."
         }
       ]
     },
     {
-      "id": "returnradar",
-      "name": "ReturnRadar",
-      "domain": "returnradar.app",
+      "id": "net30ping",
+      "name": "Net30Ping",
+      "domain": "net30ping.com",
       "stage": "ideas",
-      "competition": "MEDIUM-HIGH",
-      "topCompetitors": "Loop Returns, AfterShip Returns, ParcelPanel/ParcelWILL, Frate, Rich Returns. Wedge is internal ops control: SLA queue, exception tracking, and manual-workflow cleanup for brands not ready to re-platform returns.",
-      "pain": "Growing Shopify brands often still run returns through email + spreadsheet + manual refund/restock work, and things fall through the cracks long before they are willing to buy a full customer-facing returns suite.",
+      "competition": "MEDIUM",
+      "topCompetitors": "Shopify Flow DIY setups, generic dunning apps, Sufio reminders, and accounting-suite reminder tooling. The wedge is specifically overdue monitoring/reminders for Shopify payment-terms orders without Flow gymnastics.",
+      "pain": "Merchants using Shopify payment terms want a simple way to tag overdue invoices and send repeat reminders until paid, but today they stitch together brittle Flow chains or check overdue orders manually.",
       "tags": [
         {
-          "text": "E-Commerce Ops",
+          "text": "B2B Commerce",
           "class": "market"
         },
         {
-          "text": "Returns Workflow"
+          "text": "Overdue Monitor"
         },
         {
-          "text": "Shopify + Email + 3PL",
+          "text": "Shopify Flow",
           "class": "api"
         }
       ],
-      "score": "8.1/10",
-      "scorePercent": 81,
-      "mvpTime": "~4 days MVP",
-      "pricing": "$39-129/mo",
+      "score": "8.6/10",
+      "scorePercent": 86,
+      "mvpTime": "~2 days MVP",
+      "pricing": "$15-39/mo",
       "details": [
         {
           "title": "Current Manual Workflow",
-          "text": "Customers email return requests, staff looks up orders, creates labels one by one, tracks return state in a spreadsheet, manually restocks inventory, and issues refunds manually. Teams then chase open returns that are stuck in progress or broken by 3PL limitations."
+          "text": "Merchant sends a payment-terms invoice, waits for due date, then either manually checks for overdue orders or builds a long Shopify Flow stack with waits, tags, checks, and repeat reminder steps to keep nudging until payment arrives."
         },
         {
           "title": "Workflow Friction",
-          "text": "The problem compounds with volume. As order count rises, the internal exception queue grows faster than the team can reliably manage, causing slow response times, wrong-item refunds, missed restocks, and ugly customer support follow-up."
+          "text": "The pain recurs on every overdue invoice. It is not strategic work; it is repetitive collections hygiene. The current DIY automation is brittle, hard to maintain, and still leaves teams asking how to identify and act on overdue orders cleanly."
         },
         {
           "title": "Evidence",
-          "text": "IDEA NAME: ReturnRadar\nONE-LINE OPPORTUNITY: An internal return-ops dashboard for Shopify brands that are not ready for a full returns platform but urgently need SLA tracking, exception queues, and spreadsheet-free follow-up.\nTARGET BUYER: Apparel and consumer brands on Shopify with growing return volume and a still-manual back office.\nEXACT PAINFUL WORKFLOW: inbox return request -> manual order lookup -> create label -> spreadsheet log -> wait for package -> manually restock -> manually refund -> chase stuck returns / 3PL mismatches.\nWHY IT RECURS: Returns are operationally repetitive and spike with order volume, seasons, sizing issues, and 3PL handoffs.\nDIRECT EVIDENCE LINKS:\n1) Return management workflow - looking for advice \u2014 https://community.shopify.com/t/return-management-workflow-looking-for-advice/586883\n2) Creating a flow to email me when a return has been open for two weeks \u2014 https://community.shopify.com/t/creating-a-flow-to-email-me-when-a-return-has-been-open-for-two-weeks/272361\n3) How are you handling exchanges when your 3PL doesn\u2019t support Shopify Exchange API? \u2014 https://community.shopify.com/t/how-are-you-handling-exchanges-when-your-3pl-doesn-t-support-shopify-exchange-api/590580\n4) I need the best and most affordable return and exchange app for our store. \u2014 https://community.shopify.com/t/i-need-the-best-and-most-affordable-return-and-exchange-app-for-our-store/374315\nEXACT QUOTES / EXCERPTS:\n- \"Our return volume has grown significantly ... and our manual process is becoming unsustainable.\"\n- \"Creates return labels one by one\" / \"Tracks returns in spreadsheet\" / \"Taking 10-15 hours per week\" / \"Prone to errors\"\n- \"I want to automate it to make sure nothing falls through the cracks.\"\n- \"Our 3PL does not support Shopify\u2019s Exchange API.\"\n- \"I\u2019m looking for the best and most affordable return and exchange app for our store.\"\nCURRENT WORKAROUND: internal email inbox, spreadsheets, DIY Flow alerts, and piecemeal customer-facing return apps layered over manual ops.\nWHY WORKAROUND IS BAD: returns get stuck, support gets slower, refunds or restocks are missed, and operators still need a manual exception list even after buying front-end tooling.\nCOMPETITORS: Loop Returns, AfterShip Returns, ParcelPanel/ParcelWILL, Frate, Rich Returns.\nCOMPETITOR PRICING IF FINDABLE: ParcelWILL/ParcelPanel was cited in-thread at free for up to 6 returns per month and $29/month for 50 returns; bigger suites like Loop / AfterShip typically move upmarket quickly as volume grows.\nWHY NOW: More brands have grown into meaningful return volume, but many still are not ready for a full migration to enterprise-grade returns software.\nWEDGE / WHY THIS COULD STILL WIN: Sell the internal ops layer, not the whole customer portal: SLA aging, stuck-return alerts, refund/restock checklist, 3PL exception notes, and per-return accountability.\nVALIDATION ANGLE: Start with a Gmail/Shopify hybrid MVP that turns return emails plus order state into an aging queue; prove reduction in hours per week and unresolved returns.\nFIRST TRAFFIC SOURCE: Shopify Community threads about manual returns, plus outreach to apparel stores with visible support-driven return workflows.\nRISK FLAGS: Competitive category; wedge must stay sharp around internal operations and exception handling.\nVERDICT: KEEP"
+          "text": "IDEA NAME: Net30Ping\nONE-LINE OPPORTUNITY: A one-function Shopify utility that tags overdue payment-term orders and sends repeat reminders until paid.\nTARGET BUYER: Wholesale / B2B Shopify merchants extending net terms.\nEXACT PAINFUL WORKFLOW: invoice sent on terms -> due date passes -> staff manually checks or builds Flow chains -> order gets tagged overdue -> reminders are sent inconsistently until payment lands.\nWHY IT RECURS: Every unpaid net-terms invoice creates the same follow-up problem.\nDIRECT EVIDENCE LINKS:\n1) Tag orders that are 30 days overdue with Flow — https://community.shopify.com/t/tag-orders-that-are-30-days-overdue-with-flow/295506\n2) Shopify Flow: daily “until paid” reminders + 5-days-before due loops / scheduled time / order context — https://community.shopify.com/t/shopify-flow-daily-until-paid-reminders-5-days-before-due-loops-scheduled-time-order-context/572816\n3) How can I manage partial payments for wholesale customers on Shopify? — https://community.shopify.com/t/how-can-i-manage-partial-payments-for-wholesale-customers-on-shopify/235601\nQUOTED / SOURCE EXCERPTS:\n- \"Can someone help me configure Flow to tag orders that are past due by 30 days?\"\n- \"I want to filter those orders by a tag on the orders page so our accounts receivable team can easily know which are 30 days past due.\"\n- \"It works, but it's messy. Because Flow doesn't really 'loop,' I had to stack a long chain of steps: wait 1 day -> check if paid -> if not, send reminder -> repeat.\"\n- \"My plan... Scheduled time (daily) -> fetch up to 100 orders with the overdue tag that are still unpaid...\"\n- \"I also sometimes receive partial payments by bank transfer on some of the invoices.\"\nCURRENT WORKAROUND: manual checks, brittle multi-flow recipes, tags, code steps, and generic reminder tools.\nWHY WORKAROUND IS BAD: operator effort, easy breakage, limited visibility, and recurring maintenance for something that should be trivial.\nCOMPETITORS: Shopify Flow DIY, generic dunning apps, accounting tool reminders.\nCOMPETITOR PRICING IF FINDABLE: market alternatives for basic dunning/reminder apps are often low-cost, which supports a small sharp product; differentiation must come from Shopify payment-terms specificity and dead-simple setup.\nWHY NOW: more merchants are using Shopify B2B/payment terms, while forum threads show the native overdue workflow is still awkward.\nWEDGE: no suite, no ledger, no analytics — just detect overdue orders and keep reminders going until paid.\nVALIDATION ANGLE: offer a plug-and-play install to merchants already struggling with Flow; prove they can replace a multi-step automation with one toggle.\nFIRST TRAFFIC SOURCE: Shopify Community posts about overdue orders and Shopify Flow templates for B2B collections.\nRISK FLAGS: could be imitated by Flow templates or invoicing apps; needs clean guardrails for reminder cadence and opt-outs.\nVERDICT: KEEP"
         },
         {
           "title": "Relevant APIs",
-          "text": "Shopify Admin API, Shopify Flow, email parsing, shipping-label integrations, optional 3PL webhooks, and lightweight internal tasking rather than a full branded portal."
+          "text": "Shopify Admin API / GraphQL payment terms fields, order tags or metafields, scheduled jobs, and transactional email sending. Very small product surface."
         },
         {
           "title": "Why They'd Pay",
-          "text": "A store burning 10-15 hours per week on returns already told us the ROI story. If the tool cuts that in half and reduces refund/restock errors, it pays for itself fast even before improving CX."
+          "text": "It removes a recurring A/R chore and replaces fragile Flow logic with one clear behavior. For stores with even modest wholesale volume, a cheap specialized reminder tool is easier to justify than maintaining custom automation."
         },
         {
           "title": "Existing Bad Solutions",
-          "text": "The low end is spreadsheet chaos. The high end is a full returns platform that can still leave internal exception handling unresolved. The wedge is an internal control tower for teams sitting between those extremes."
+          "text": "The current options are DIY Flow chains, generic reminder products, or pushing the job into accounting software. None are as simple as a purpose-built overdue tagger + reminder engine inside Shopify."
         }
       ]
     }
