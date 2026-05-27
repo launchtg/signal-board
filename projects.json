@@ -38,166 +38,6 @@
   },
   "projects": [
     {
-      "id": "priceshift",
-      "name": "PriceShift",
-      "domain": "priceshift.com",
-      "stage": "ideas",
-      "competition": "MEDIUM",
-      "topCompetitors": "Prisync ($99/mo), Competera ($4.5M), Price2Spy. Crowded at enterprise, SMB niche possible.",
-      "pain": "Monitor competitor pricing pages daily. Get alerts when competitors change prices, add products, or modify tiers. Stop manually checking.",
-      "tags": [
-        {
-          "text": "E-Commerce / SaaS",
-          "class": "market"
-        },
-        {
-          "text": "Change Detection"
-        },
-        {
-          "text": "Firecrawl",
-          "class": "api"
-        }
-      ],
-      "score": "8.5/10",
-      "scorePercent": 85,
-      "mvpTime": "~2 days MVP",
-      "pricing": "$19-49/mo per 20 competitors",
-      "details": [
-        {
-          "title": "Current Manual Workflow",
-          "text": "Product managers bookmark 10-30 competitor pricing pages. Check weekly by opening each tab, screenshotting, comparing to last week's screenshots in a Google Doc. 1-2 hours weekly."
-        },
-        {
-          "title": "Workflow Friction",
-          "text": "Tedious tab-switching. Easy to miss small changes. No historical record. Screenshots get disorganized. Often falls off the priority list entirely."
-        },
-        {
-          "title": "Evidence",
-          "text": "Multiple Reddit r/SaaS and r/ecommerce threads asking for affordable competitor price monitoring. Existing tools (Prisync, Competera) are enterprise-priced ($200+/mo). Indie Hackers discussions confirm this as a recurring pain."
-        },
-        {
-          "title": "Relevant Apify Actors",
-          "text": "Website Content Crawler (117K users), Web Scraper (113K users), specific e-commerce scrapers"
-        },
-        {
-          "title": "Relevant APIs",
-          "text": "Firecrawl, Apify Website Content Crawler, OpenAI (diff summarization), SendGrid/Postmark (alerts)"
-        },
-        {
-          "title": "Why They'd Pay",
-          "text": "Pricing intelligence directly impacts revenue decisions. Missing a competitor price drop can cost thousands in lost sales. Clear time savings."
-        },
-        {
-          "title": "Existing Bad Solutions",
-          "text": "Prisync ($200+/mo), Competera (enterprise), manual screenshots, Google Alerts (unreliable for pricing pages)."
-        }
-      ]
-    },
-    {
-      "id": "expiryalert",
-      "name": "ExpiryAlert",
-      "domain": "expiryalert.com",
-      "stage": "ideas",
-      "competition": "MEDIUM",
-      "topCompetitors": "ExpiredDomains.net (free, dominant), DomCop ($49/mo), SpamZilla ($37/mo). Gap in alert-first UX.",
-      "pain": "Monitor daily domain drops. Get alerted when high-value expired domains match your keywords, niche, or authority thresholds. Stop manually checking lists.",
-      "tags": [
-        {
-          "text": "Domain Investors / SEO",
-          "class": "market"
-        },
-        {
-          "text": "Monitoring"
-        },
-        {
-          "text": "WHOIS + Moz APIs",
-          "class": "api"
-        }
-      ],
-      "score": "8.2/10",
-      "scorePercent": 82,
-      "mvpTime": "~2 days MVP",
-      "pricing": "$19-49/mo",
-      "details": [
-        {
-          "title": "Current Manual Workflow",
-          "text": "Domain investors check ExpiredDomains.net, DomCop, and auction sites daily. Filter thousands of domains by metrics (DA, backlinks, age). Copy interesting ones to spreadsheets. 1-2 hours daily."
-        },
-        {
-          "title": "Workflow Friction",
-          "text": "Existing tools are clunky and expensive (DomCop $50-300/mo, SpamZilla $37/mo). No simple alert-based system. Must manually browse long lists daily."
-        },
-        {
-          "title": "Evidence",
-          "text": "ExpiredDomains.net processes 350K+ domains daily. Active Reddit communities (r/Domains, r/juststart) full of domain investors seeking better filtering and alerts."
-        },
-        {
-          "title": "Relevant APIs",
-          "text": "WHOIS APIs, Moz API (domain authority), Majestic API (backlink data), ExpiredDomains.net scraping, Resend (alerts)"
-        },
-        {
-          "title": "Why They'd Pay",
-          "text": "A single good expired domain can be worth $500-50,000. Missing a drop by hours means losing it. Alert speed directly = money."
-        },
-        {
-          "title": "Existing Bad Solutions",
-          "text": "DomCop ($50-300/mo), SpamZilla ($37/mo), manual ExpiredDomains.net browsing. All require active browsing, none do smart keyword alerts well."
-        }
-      ]
-    },
-    {
-      "id": "postingwatch",
-      "name": "PostingWatch",
-      "domain": "postingwatch.com",
-      "stage": "ideas",
-      "competition": "LOW",
-      "topCompetitors": "Signum.AI ($630K), LoneScale ($1.1M), PredictLeads ($18M API-only). No dominant SMB self-serve tool.",
-      "pain": "Monitor target companies' career pages and job boards. Get alerted when they post new roles. Hiring signals = buying signals for B2B sales.",
-      "tags": [
-        {
-          "text": "B2B Sales / Recruiters",
-          "class": "market"
-        },
-        {
-          "text": "Monitoring"
-        },
-        {
-          "text": "Apify + LinkedIn Jobs",
-          "class": "api"
-        }
-      ],
-      "score": "8.7/10",
-      "scorePercent": 87,
-      "mvpTime": "~3 days MVP",
-      "pricing": "$29-59/mo per 100 companies",
-      "details": [
-        {
-          "title": "Current Manual Workflow",
-          "text": "B2B sales reps manually check target companies' careers pages and LinkedIn job postings to detect growth signals. A company hiring 5 engineers = they're building something = they need tools. 20-40 min daily."
-        },
-        {
-          "title": "Workflow Friction",
-          "text": "No centralized view across targets. Must visit each company's site individually. LinkedIn job alerts are noisy and not filterable by company watchlists. No CRM integration."
-        },
-        {
-          "title": "Evidence",
-          "text": "Hiring intent data is a top sales intelligence signal. Bombora and 6sense sell this data for $1000+/mo. Reddit r/sales: SDRs describe monitoring careers pages as tedious but high-converting."
-        },
-        {
-          "title": "Relevant APIs",
-          "text": "Apify LinkedIn Jobs Scraper, company careers page scrapers, Apollo (enrichment), Clearbit, Resend (alerts)"
-        },
-        {
-          "title": "Why They'd Pay",
-          "text": "Hiring signals are among the strongest buying intent indicators. Companies hiring = growing = spending on tools. First to reach them wins. Directly tied to closed deals."
-        },
-        {
-          "title": "Existing Bad Solutions",
-          "text": "Bombora ($1000+/mo), 6sense (enterprise), manual careers page checking, LinkedIn job alerts (not filterable enough). No SMB-priced hiring intent tool."
-        }
-      ]
-    },
-    {
       "id": "certping",
       "name": "CertPing",
       "domain": "certping.com",
@@ -232,12 +72,12 @@
           "text": "The pain is recurring and operationally dangerous: expirations get missed, cancellations happen without notice, and every renewal triggers another round of inbox searching, follow-ups, and spreadsheet cleanup across dozens or hundreds of vendors."
         },
         {
-          "title": "Evidence",
-          "text": "Multiple vendors market free COI spreadsheets because the default workflow is still manual. Thimble's Certificate Manager literally leads with 'Delete that clunky spreadsheet' and cites users having certificates expire or get cancelled without their knowledge. Search results surface several COI tracking spreadsheet templates and 'why you'll outgrow it' guides, which is a strong signal that spreadsheet-based tracking is common and painful."
+          "title": "Pain Evidence",
+          "text": "Real people are explicitly asking how to track COIs and W-9s, and asking for COI tracking software recommendations instead of spreadsheets/manual systems."
         },
         {
-          "title": "Relevant APIs",
-          "text": "IMAP/Gmail or Outlook ingestion, OCR/document AI for COI parsing, Resend/Postmark for reminder flows, optional carrier/broker data enrichment later."
+          "title": "Direct Evidence Links",
+          "text": "1) How do you track W-9's and COI's? https://www.reddit.com/r/Bookkeeping/comments/16sv40l/how_do_you_track_w9s_and_cois/\n2) Recommendations for COI tracking software for owner/developer https://www.reddit.com/r/CommercialRealEstate/comments/ur5uxv/recommendations_for_coi_tracking_software_for/\n3) Tracking Insurance in Voyager? https://www.reddit.com/r/yardi/comments/1b348qt/tracking_insurance_in_voyager/"
         },
         {
           "title": "Why They'd Pay",
@@ -284,12 +124,12 @@
           "text": "This work is deadline-driven, repetitive, and easy to lose operationally. Evidence often exists but is too generic, late, or poorly organized, which means merchants lose cases they might have won."
         },
         {
-          "title": "Evidence",
-          "text": "Shopify's own help docs emphasize submitting the correct evidence for each dispute type. A 2026 Shopify chargeback guide says most lost chargebacks are not because the merchant was wrong, but because evidence was too generic, too late, or poorly organized. DisputeDesk frames most lost disputes as operational losses, and Dispute Ready markets directly against 'spreadsheets, notes, or manual organization,' which strongly confirms the recurring workflow pain."
+          "title": "Pain Evidence",
+          "text": "Shopify merchants are directly asking how to win chargebacks, whether anyone wins them, and for recommendations on dispute/chargeback analysis \u2014 which is a much stronger signal than generic chargeback content marketing."
         },
         {
-          "title": "Relevant APIs",
-          "text": "Shopify Admin API, Stripe/Shopify Payments event data, carrier tracking APIs, Gmail/Helpdesk integrations, PDF generation, optional LLM summarization for reason-code-matched rebuttals."
+          "title": "Direct Evidence Links",
+          "text": "1) Need Recommendations For Dispute/Chargeback Analysis in Shopify https://www.reddit.com/r/shopify/comments/16fs1xr/need_recommendations_for_disputechargeback/\n2) Best way to dispute & win a chargeback case https://www.reddit.com/r/shopify/comments/ul19jn/best_way_to_dispute_win_a_chargeback_case/\n3) Do you win chargebacks? EVER!? https://www.reddit.com/r/shopify/comments/167fq5f/do_you_win_chargebacks_ever/\n4) Customer submitted chargeback and won, even after I gave evidence of delivery https://www.reddit.com/r/shopify/comments/1626hbu/customer_submitted_chargeback_and_won_even_after/"
         },
         {
           "title": "Why They'd Pay",
@@ -336,12 +176,12 @@
           "text": "The source landscape is fragmented, deadlines are rigid, and late discovery kills proposal quality. Teams either over-monitor everything or miss opportunities entirely because there is no clean filtered watchlist across jurisdictions."
         },
         {
-          "title": "Evidence",
-          "text": "PageCrawl's 2026 RFP monitoring guide opens with a missed $2.4M county contract example and explicitly calls out tight response windows, fragmented sources, and manual monitoring failure. Visualping says manual RFP page monitoring is tedious and time consuming, and that businesses whose contracts are up for renewal can miss deadlines entirely. MyGovernmentBids markets its scale by saying it monitors 90,000 public agencies daily, which is strong evidence the discovery burden is real and too broad for manual checking."
+          "title": "Pain Evidence",
+          "text": "Government contracting users are explicitly asking for alternatives to SAM.gov, comparing Deltek to bid alerts, and discussing how they actually find opportunities \u2014 which is much stronger evidence of painful discovery than vendor positioning alone."
         },
         {
-          "title": "Relevant APIs",
-          "text": "SAM.gov APIs/data feeds where available, scheduled scraping for state/local portals, email/Slack alerts, simple classifier for NAICS / keyword / geography relevance scoring."
+          "title": "Direct Evidence Links",
+          "text": "1) I'm looking for Alternatives to sam.gov - suggestions? https://www.reddit.com/r/GovernmentContracting/comments/1al5tdg/im_looking_for_alternatives_to_samgov_suggestions/\n2) Deltek vs bid alerts https://www.reddit.com/r/govcon/comments/iicxj4/deltek_vs_bid_alerts/\n3) How did you find your opportunities to be a Sub ... https://www.reddit.com/r/govcon/comments/13mbjh5/how_did_you_find_your_opportunities_to_be_a_sub/\n4) Can't Find an App or tool for gov contracts? I've Got ... https://www.reddit.com/r/govcon/comments/15ejtbu/cant_find_an_app_or_tool_for_gov_contracts_ive/"
         },
         {
           "title": "Why They'd Pay",
