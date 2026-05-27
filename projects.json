@@ -2,7 +2,7 @@
   "meta": {
     "version": "v2.0",
     "label": "SIGNAL ENGINE",
-    "lastUpdated": "2026-05-26",
+    "lastUpdated": "2026-05-27",
     "stages": [
       {
         "id": "ideas",
@@ -242,6 +242,162 @@
         "lastCheck": "2026-05-26",
         "status": "BACK IN DESIGN"
       }
+    },
+    {
+      "id": "certping",
+      "name": "CertPing",
+      "domain": "certping.com",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Thimble Certificate Manager (free, insurance-led), Avetta / SmartCompliance / TrustLayer (heavier compliance platforms). Clear SMB wedge in renewal chasing + inbox-first workflows.",
+      "pain": "Track subcontractor and vendor certificates of insurance, expirations, and missing endorsements without spreadsheets, surprise lapses, or endless reminder emails.",
+      "tags": [
+        {
+          "text": "Construction / Property Ops",
+          "class": "market"
+        },
+        {
+          "text": "Compliance Tracking"
+        },
+        {
+          "text": "OCR + Email",
+          "class": "api"
+        }
+      ],
+      "score": "8.6/10",
+      "scorePercent": 86,
+      "mvpTime": "~3 days MVP",
+      "pricing": "$39-99/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Operations teams collect COIs by email, save PDFs to folders, key policy dates into spreadsheets, then manually chase subs before expiration. They also verify endorsements and additional insured requirements line by line."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "The pain is recurring and operationally dangerous: expirations get missed, cancellations happen without notice, and every renewal triggers another round of inbox searching, follow-ups, and spreadsheet cleanup across dozens or hundreds of vendors."
+        },
+        {
+          "title": "Evidence",
+          "text": "Multiple vendors market free COI spreadsheets because the default workflow is still manual. Thimble's Certificate Manager literally leads with 'Delete that clunky spreadsheet' and cites users having certificates expire or get cancelled without their knowledge. Search results surface several COI tracking spreadsheet templates and 'why you'll outgrow it' guides, which is a strong signal that spreadsheet-based tracking is common and painful."
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "IMAP/Gmail or Outlook ingestion, OCR/document AI for COI parsing, Resend/Postmark for reminder flows, optional carrier/broker data enrichment later."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "One missed COI or endorsement can stall a job, create compliance exposure, or force last-minute vendor replacement. The ROI is immediate: fewer lapses, less coordinator time, and cleaner audit readiness."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Spreadsheets and calendar reminders dominate the low end. Enterprise tools like Avetta and SmartCompliance are heavier than many GCs, property managers, and service operators need. Thimble is free but tied to its insurance funnel; there is room for a neutral, lightweight tracker."
+        }
+      ]
+    },
+    {
+      "id": "disputedraft",
+      "name": "DisputeDraft",
+      "domain": "disputedraft.com",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Chargeflow, Justt, Midigator, DisputeDesk, Dispute Ready. Many are managed services, rev-share models, or broader enterprise tools rather than lightweight evidence assembly.",
+      "pain": "Assemble reason-code-specific chargeback evidence fast enough to beat Shopify and PSP deadlines without manually hunting through orders, tracking pages, screenshots, and customer emails.",
+      "tags": [
+        {
+          "text": "E-Commerce Ops",
+          "class": "market"
+        },
+        {
+          "text": "Chargeback Ops"
+        },
+        {
+          "text": "Shopify + Stripe",
+          "class": "api"
+        }
+      ],
+      "score": "8.4/10",
+      "scorePercent": 84,
+      "mvpTime": "~3 days MVP",
+      "pricing": "$49-149/mo or usage-based",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Ops teams open the disputed order in Shopify, inspect the reason code and deadline, pull order details, AVS results, fulfillment status, delivery proof, customer communication, and policy screenshots, then manually assemble a PDF or evidence packet for the PSP."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This work is deadline-driven, repetitive, and easy to lose operationally. Evidence often exists but is too generic, late, or poorly organized, which means merchants lose cases they might have won."
+        },
+        {
+          "title": "Evidence",
+          "text": "Shopify's own help docs emphasize submitting the correct evidence for each dispute type. A 2026 Shopify chargeback guide says most lost chargebacks are not because the merchant was wrong, but because evidence was too generic, too late, or poorly organized. DisputeDesk frames most lost disputes as operational losses, and Dispute Ready markets directly against 'spreadsheets, notes, or manual organization,' which strongly confirms the recurring workflow pain."
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API, Stripe/Shopify Payments event data, carrier tracking APIs, Gmail/Helpdesk integrations, PDF generation, optional LLM summarization for reason-code-matched rebuttals."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Every avoided chargeback protects cash, margin, and processor risk. Stores with even modest dispute volume can justify a tool that saves hours and improves win rates without a high-touch managed-service contract."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "At one end: pure manual work in Shopify + inbox + screenshots. At the other: managed chargeback vendors or enterprise dispute software that can be expensive, rev-share based, or overbuilt for smaller Shopify teams."
+        }
+      ]
+    },
+    {
+      "id": "rfpscout",
+      "name": "RFPScout",
+      "domain": "rfpscout.com",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "MyGovernmentBids, GovWin, portal-native alerts, generic page monitors. Strong wedge in SMB watchlists, multi-jurisdiction filtering, and concise first-pass summaries.",
+      "pain": "Monitor fragmented federal, state, local, and enterprise procurement portals so small contractors find relevant RFPs on day one instead of after the response window is already half gone.",
+      "tags": [
+        {
+          "text": "Government Contractors",
+          "class": "market"
+        },
+        {
+          "text": "RFP Monitoring"
+        },
+        {
+          "text": "SAM.gov + Web Monitoring",
+          "class": "api"
+        }
+      ],
+      "score": "8.5/10",
+      "scorePercent": 85,
+      "mvpTime": "~4 days MVP",
+      "pricing": "$59-199/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Small business development teams check SAM.gov, state procurement portals, county sites, school district pages, and enterprise vendor portals manually, then copy relevant bids into spreadsheets or email threads for triage."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "The source landscape is fragmented, deadlines are rigid, and late discovery kills proposal quality. Teams either over-monitor everything or miss opportunities entirely because there is no clean filtered watchlist across jurisdictions."
+        },
+        {
+          "title": "Evidence",
+          "text": "PageCrawl's 2026 RFP monitoring guide opens with a missed $2.4M county contract example and explicitly calls out tight response windows, fragmented sources, and manual monitoring failure. Visualping says manual RFP page monitoring is tedious and time consuming, and that businesses whose contracts are up for renewal can miss deadlines entirely. MyGovernmentBids markets its scale by saying it monitors 90,000 public agencies daily, which is strong evidence the discovery burden is real and too broad for manual checking."
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "SAM.gov APIs/data feeds where available, scheduled scraping for state/local portals, email/Slack alerts, simple classifier for NAICS / keyword / geography relevance scoring."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Discovering the right bid even a few days earlier can be the difference between no submission and a credible submission. For small contractors, one won contract more than pays for a year of monitoring."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Portal-native alerts are incomplete, generic page monitors are noisy, and established bid services can feel broad, expensive, or weakly filtered for smaller contractors that only care about a narrow set of geographies and codes."
+        }
+      ]
     }
   ]
 }
