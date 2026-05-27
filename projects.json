@@ -230,7 +230,7 @@
         "metaPrompt": "newfilings/meta-prompt.md",
         "brandGuide": "newfilings/brand-guide.png",
         "pendingApproval": [
-          "logo"
+          "brandGuide"
         ]
       },
       "validation": {
