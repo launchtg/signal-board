@@ -185,7 +185,10 @@
       cursor: grab;
       transition: all 0.15s ease;
       color: var(--deep-green);
+      position: relative;
     }
+
+    .card.card-clickable { cursor: pointer; }
 
     .card:hover {
       background: #EDE8DF;
@@ -194,6 +197,24 @@
     }
 
     .card:active { cursor: grabbing; }
+
+    .card.card-clickable:after {
+      content: 'VIEW DOSSIER';
+      position: absolute;
+      top: 0.8rem;
+      right: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.05em;
+      color: #8A8377;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      pointer-events: none;
+    }
+
+    .card.card-clickable:hover:after {
+      opacity: 1;
+    }
 
     .card-name {
       font-size: 0.9rem;
@@ -662,6 +683,164 @@
     }
 
     .modal-btn-primary:hover { background: rgba(232, 134, 42, 0.25); }
+
+    .modal-body.dossier {
+      background: linear-gradient(180deg, #FBF8F2 0%, #F6F1E7 100%);
+      color: var(--deep-green);
+      padding: 0;
+    }
+
+    .dossier-shell {
+      padding: 1.5rem;
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .dossier-hero {
+      background: rgba(255,255,255,0.72);
+      border-bottom: 1px solid #E6DED0;
+      padding: 1.5rem 1.5rem 1.25rem;
+    }
+
+    .dossier-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8A8377;
+      margin-bottom: 0.5rem;
+    }
+
+    .dossier-hero h1 {
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--deep-green);
+    }
+
+    .dossier-subhead {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--slate);
+      max-width: 62ch;
+    }
+
+    .dossier-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .dossier-meta-card {
+      background: rgba(11, 61, 46, 0.04);
+      border: 1px solid rgba(11, 61, 46, 0.1);
+      border-radius: 10px;
+      padding: 0.85rem;
+    }
+
+    .dossier-meta-label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #8A8377;
+      margin-bottom: 0.3rem;
+    }
+
+    .dossier-meta-value {
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--deep-green);
+    }
+
+    .dossier-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1rem;
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .dossier-column {
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+    }
+
+    .dossier-section {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid #E6DED0;
+      border-radius: 14px;
+      padding: 1rem 1rem 0.95rem;
+    }
+
+    .dossier-section h3 {
+      margin: 0 0 0.55rem;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+      color: var(--deep-green);
+    }
+
+    .dossier-section p {
+      margin: 0;
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--slate);
+      white-space: pre-wrap;
+    }
+
+    .dossier-links,
+    .dossier-bullets {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.15rem;
+    }
+
+    .dossier-link-item,
+    .dossier-bullet-item {
+      padding: 0.7rem 0.8rem;
+      background: rgba(11, 61, 46, 0.03);
+      border: 1px solid rgba(11, 61, 46, 0.08);
+      border-radius: 10px;
+    }
+
+    .dossier-link-item a {
+      color: var(--deep-green);
+      text-decoration: none;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .dossier-link-item a:hover { text-decoration: underline; }
+
+    .dossier-quote {
+      font-size: 0.8rem;
+      line-height: 1.65;
+      color: var(--slate);
+      padding-left: 0.85rem;
+      border-left: 3px solid rgba(232, 134, 42, 0.55);
+    }
+
+    .dossier-final {
+      border-color: rgba(232, 134, 42, 0.28);
+      background: rgba(232, 134, 42, 0.06);
+    }
+
+    .dossier-empty {
+      font-size: 0.78rem;
+      color: #8A8377;
+      font-style: italic;
+    }
+
+    @media (max-width: 840px) {
+      .dossier-meta-grid,
+      .dossier-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -701,10 +880,11 @@
     const modalBody = document.getElementById('modal-body');
     const modalOpenBtn = document.getElementById('modal-open-external');
     let currentUrl = '';
+    let boardData = null;
 
     fetch('./projects.json')
       .then(r => r.json())
-      .then(data => renderBoard(data))
+      .then(data => { boardData = data; renderBoard(data); })
       .catch(err => {
         console.error(err);
         board.innerHTML = '<div class="empty-state" style="min-width:100%;">Failed to load projects.json</div>';
@@ -736,9 +916,10 @@
     function renderCard(project) {
       const domain = project.domain ? `<span class="card-domain">${escapeHtml(project.domain)}</span>` : '';
       const tags = (project.tags || []).map(tag => `<span class="tag ${tag.class || ''}">${escapeHtml(tag.text)}</span>`).join('');
-      const details = (project.details || []).length
+      const hasDossier = Array.isArray(project.details) && project.details.length > 0;
+      const details = hasDossier
         ? `
-          <button class="expand-btn" onclick="toggleExpand(this)">+ details</button>
+          <button class="expand-btn" onclick="toggleExpand(this); event.stopPropagation();">+ details</button>
           <div class="card-expand">
             ${project.details.map(detail => `<h4>${escapeHtml(detail.title)}</h4>${escapeHtml(detail.text)}`).join('')}
           </div>`
@@ -748,9 +929,12 @@
       const logoPreview = project.assets?.logo
         ? `<img src="${rawUrl(project.assets.logo)}" alt="${escapeHtml(project.name)} logo" class="card-logo-preview">`
         : '';
+      const clickAttrs = hasDossier
+        ? `onclick="openProjectDossier('${escapeJs(project.id)}')" class="card card-clickable"`
+        : `class="card"`;
 
       return `
-        <div class="card" draggable="true" data-id="${escapeHtml(project.id)}">
+        <div ${clickAttrs} draggable="true" data-id="${escapeHtml(project.id)}">
           <div class="card-name">${escapeHtml(project.name)} ${domain}</div>
           <div class="card-pain">${escapeHtml(project.pain)}</div>
           <div class="card-meta">${tags}</div>
@@ -793,6 +977,99 @@
           <div class="validation-item"><span class="validation-label">Last Check</span><span class="validation-value">${escapeHtml(validation.lastCheck || '—')}</span></div>
         </div>
         <div class="validation-status">VALIDATION STATUS: ${escapeHtml(validation.status || 'UNKNOWN')}</div>`;
+    }
+
+    function openProjectDossier(projectId) {
+      if (!boardData) return;
+      const project = boardData.projects.find(p => p.id === projectId);
+      if (!project) return;
+
+      currentUrl = './projects.json';
+      modalTitle.textContent = `${project.name} — Dossier`;
+      modalBody.className = 'modal-body dossier';
+      modalOpenBtn.href = './projects.json';
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      modalBody.innerHTML = renderDossier(project);
+    }
+
+    function renderDossier(project) {
+      const detailMap = Object.fromEntries((project.details || []).map(d => [d.title, d.text]));
+      const directLinks = splitLines(detailMap['Direct Evidence Links']);
+      const quotes = splitLines(detailMap['Exact Quotes / Source Excerpts'] || detailMap['Quoted / Source Excerpts']);
+      const risks = splitLines(detailMap['Risk Flags']);
+      const kill = splitLines(detailMap['Kill Criteria']);
+      const competitors = splitLines(detailMap['Competitors']);
+
+      return `
+        <div class="dossier-hero">
+          <div class="dossier-kicker">Ideas dossier • ${escapeHtml((project.tags || []).map(t => t.text).join(' · ') || project.stage)}</div>
+          <h1>${escapeHtml(project.name)}</h1>
+          <div class="dossier-subhead">${escapeHtml(detailMap['One-Line Opportunity'] || project.pain || '')}</div>
+          <div class="dossier-meta-grid">
+            ${renderMetaCard('Target Buyer', detailMap['Target Buyer'])}
+            ${renderMetaCard('Competition', project.competition)}
+            ${renderMetaCard('MVP', project.mvpTime)}
+            ${renderMetaCard('Pricing', project.pricing)}
+          </div>
+        </div>
+        <div class="dossier-grid">
+          <div class="dossier-column">
+            ${renderSection('Painful Workflow', detailMap['Exact Painful Workflow'] || detailMap['Current Manual Workflow'])}
+            ${renderSection('Why It Recurs', detailMap['Why It Recurs'] || detailMap['Workflow Friction'])}
+            ${renderLinksSection('Direct Evidence Links', directLinks)}
+            ${renderQuotesSection('Exact Quotes / Source Excerpts', quotes)}
+            ${renderSection('Current Workaround', detailMap['Current Workaround'])}
+            ${renderSection('Why The Workaround Is Bad', detailMap['Why Workaround Is Bad'] || detailMap['Existing Bad Solutions'])}
+            ${renderListSection('Competitors', competitors)}
+          </div>
+          <div class="dossier-column">
+            ${renderSection('Competitor Pricing', detailMap['Competitor Pricing'] || detailMap['Competitor Pricing If Findable'])}
+            ${renderSection('Why Now', detailMap['Why Now'])}
+            ${renderSection('Wedge', detailMap['Wedge'])}
+            ${renderSection('Validation Angle', detailMap['Validation Angle'])}
+            ${renderSection('First Traffic Source', detailMap['First Traffic Source'])}
+            ${renderListSection('Risk Flags', risks)}
+            ${renderListSection('Kill Criteria', kill)}
+            ${renderSection('Final Verdict', detailMap['Final Verdict'] || detailMap['Verdict'], 'dossier-final')}
+          </div>
+        </div>`;
+    }
+
+    function renderMetaCard(label, value) {
+      return `<div class="dossier-meta-card"><span class="dossier-meta-label">${escapeHtml(label)}</span><span class="dossier-meta-value">${escapeHtml(value || '—')}</span></div>`;
+    }
+
+    function renderSection(title, text, extraClass = '') {
+      return `<section class="dossier-section ${extraClass}"><h3>${escapeHtml(title)}</h3>${text ? `<p>${escapeHtml(text)}</p>` : `<div class="dossier-empty">Not documented yet.</div>`}</section>`;
+    }
+
+    function renderLinksSection(title, lines) {
+      if (!lines.length) return renderSection(title, '');
+      return `<section class="dossier-section"><h3>${escapeHtml(title)}</h3><div class="dossier-links">${lines.map(line => {
+        const url = extractFirstUrl(line);
+        return `<div class="dossier-link-item">${url ? `<a href="${escapeHtml(url)}" target="_blank">${escapeHtml(line)}</a>` : escapeHtml(line)}</div>`;
+      }).join('')}</div></section>`;
+    }
+
+    function renderQuotesSection(title, lines) {
+      if (!lines.length) return renderSection(title, '');
+      return `<section class="dossier-section"><h3>${escapeHtml(title)}</h3><div class="dossier-bullets">${lines.map(line => `<div class="dossier-bullet-item"><div class="dossier-quote">${escapeHtml(line)}</div></div>`).join('')}</div></section>`;
+    }
+
+    function renderListSection(title, lines) {
+      if (!lines.length) return renderSection(title, '');
+      return `<section class="dossier-section"><h3>${escapeHtml(title)}</h3><div class="dossier-bullets">${lines.map(line => `<div class="dossier-bullet-item">${escapeHtml(line)}</div>`).join('')}</div></section>`;
+    }
+
+    function splitLines(text) {
+      if (!text) return [];
+      return text.split(/\n+/).map(x => x.trim()).filter(Boolean);
+    }
+
+    function extractFirstUrl(text) {
+      const match = text && text.match(/https?:\/\/\S+/);
+      return match ? match[0] : '';
     }
 
     function bindDragAndDrop() {
