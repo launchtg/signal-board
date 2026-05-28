@@ -199,8 +199,8 @@
       "domain": "binslip.app",
       "stage": "ideas",
       "competition": "LOW-MEDIUM",
-      "topCompetitors": "Order Printer template hacks, Shopify Flow workarounds, pick-list apps, and broader warehouse systems. The wedge is brutally narrow: make bin locations and scan-friendly data appear cleanly on packing slips / pick sheets without custom liquid and metafield plumbing.",
-      "pain": "Shopify merchants keep hacking metafields, Flow, and Order Printer templates just to show bin locations and scanable data on packing slips, turning everyday picking into a fragile DIY workflow.",
+      "topCompetitors": "DIY Order Printer template edits, Shopify Flow/metafield workarounds, adjacent pick-list apps like PickPilot, document tools like Order Printer Pro, and broader warehouse systems. The wedge is narrower than all of them: show bin locations and scan-friendly pick data on packing slips without custom Liquid or order-level data copying.",
+      "pain": "Shopify merchants keep hacking metafields, Flow, and Order Printer templates just to show bin locations and pick/scan data on packing slips, turning basic picking into a brittle DIY system.",
       "tags": [
         {
           "text": "Retail Ops",
@@ -221,15 +221,83 @@
       "details": [
         {
           "title": "Current Manual Workflow",
-          "text": "Merchant stores bin-location data on products or variants, then hand-edits packing-slip templates, experiments with Liquid, and sometimes builds Shopify Flow jobs to copy item metadata onto the order so pickers can see where items live when fulfilling orders."
+          "text": "Merchant stores bin data on products or variants, then has to make that data printable by editing Order Printer templates, testing Liquid access to the right metafields, and often adding Flow automations that copy location data onto orders before slips are printed for pickers."
         },
         {
           "title": "Workflow Friction",
-          "text": "This pain shows up on every pick/pack cycle. The warehouse team needs location data at the exact moment they are walking shelves, but Shopify makes operators stitch together metafields, template code, and order-level workarounds. That makes fulfillment slower, brittle, and dependent on whoever originally built the hack."
+          "text": "The picker needs location context at the exact moment they are walking shelves, but Shopify turns that into a multi-layer setup involving data storage, template logic, and automation. The result is brittle fulfillment infrastructure around a very ordinary warehouse need."
         },
         {
           "title": "Evidence",
-          "text": "IDEA NAME: BinSlip\nONE-LINE OPPORTUNITY: A tiny Shopify utility that injects bin locations and scan-friendly line-item data into packing slips and pick sheets without custom template plumbing.\nTARGET BUYER: Shopify merchants with physical inventory, especially small warehouses and retail teams using bin locations.\nEXACT PAINFUL WORKFLOW: maintain bin-location metafields -> copy values onto orders or line items -> edit packing-slip Liquid -> debug Order Printer / Flow every time something changes -> hand paper slips to pickers.\nWHY IT RECURS: Every fulfillment batch needs the same location context, so the pain repeats daily or weekly.\nDIRECT EVIDENCE LINKS:\n1) Copying variant metafield data to order metafield using Shopify Flow \u2014 https://community.shopify.com/t/copying-variant-metafield-data-to-order-metafield-using-shopify-flow/415644\n2) Metafields on Shopify Packing Slip \u2014 https://community.shopify.com/t/metafields-on-shopify-packing-slip/237365\n3) New Order Printer to Show Product line item Meta Fields \u2014 https://community.shopify.com/t/new-order-printer-to-show-product-line-item-meta-fields/323267\nQUOTED / SOURCE EXCERPTS:\n- \"Currently trying to add bin location data to packing slips... the problem is auto-populating it when an order is created\"\n- \"Is there a way for me to add a line on my packing slips for location of items? Example: Bin Location?\"\n- \"We created a packing slip template to show Bin Locations so we can easily find products when picking.\"\n- \"Would love a Location Field on the Product that would carry over to the packing slip. We have 500+ Bin Locations...\"\nCURRENT WORKAROUND: Liquid template edits, product/variant metafields, Shopify Flow copy jobs, or jumping to external pick-list tools.\nWHY WORKAROUND IS BAD: brittle templates, repeated debugging, dependency on technical setup, and lost picking speed if the field breaks.\nCOMPETITORS: Order Printer hacks, pick-list apps, WMS suites, custom Flow setups.\nCOMPETITOR PRICING IF FINDABLE: most alternatives are either free-but-fragile DIY or bundled into broader warehouse software.\nWHY NOW: Shopify keeps shifting print tooling (legacy Order Printer migrations, Stocky sunset pressure), which makes fragile fulfillment hacks more painful.\nWEDGE: do one job well \u2014 make packing slips show the right pick data every time.\nVALIDATION ANGLE: recruit merchants already asking for bin-location packing slips and offer a plug-and-play template + app install.\nFIRST TRAFFIC SOURCE: Shopify Community threads about packing slips, bin locations, and Order Printer migrations.\nRISK FLAGS: some merchants may prefer full pick-list apps; printer/template edge cases exist.\nVERDICT: KEEP"
+          "text": "Primary-source pain appears in multiple Shopify Community threads where merchants explicitly ask how to get bin locations or related scan data onto packing slips and describe Order Printer migrations or Flow copy hacks as part of the workaround. See the dedicated Direct Evidence Links and Exact Quotes sections below."
+        },
+        {
+          "title": "One-line Opportunity",
+          "text": "A tiny Shopify fulfillment utility that makes packing slips and pick sheets reliably show bin locations and scan-friendly line-item data without custom Liquid, metafield copy hacks, or Flow gymnastics."
+        },
+        {
+          "title": "Target Buyer",
+          "text": "Shopify merchants with physical inventory and shelf/bin organization\u2014especially small warehouses, retail backrooms, and founder-led ops teams that still print packing slips or pick sheets during fulfillment."
+        },
+        {
+          "title": "Exact Painful Workflow",
+          "text": "Store bin location on the product or variant -> realize the picker cannot see it on the packing slip by default -> edit Order Printer Liquid -> discover the needed metafield is not available in the right context -> add Shopify Flow to copy variant/product data onto the order -> re-test every template change -> print slips -> hope the field still renders during the next fulfillment batch."
+        },
+        {
+          "title": "Why It Recurs",
+          "text": "This is not a one-time setup annoyance. Every new order needs the same shelf/bin context at pick time, and every template migration, metafield schema change, or Order Printer change can break the workaround again. The pain compounds with SKU count and fulfillment frequency."
+        },
+        {
+          "title": "Direct Evidence Links",
+          "text": "1) Copying variant metafield data to order metafield using Shopify Flow \u2014 https://community.shopify.com/t/copying-variant-metafield-data-to-order-metafield-using-shopify-flow/415644\n2) Metafields on Shopify Packing Slip \u2014 https://community.shopify.com/t/metafields-on-shopify-packing-slip/237365\n3) New Order Printer to Show Product line item Meta Fields \u2014 https://community.shopify.com/t/new-order-printer-to-show-product-line-item-meta-fields/323267"
+        },
+        {
+          "title": "Exact Quotes / Source Excerpts",
+          "text": "- \u201cCurrently trying to add bin location data to packing slips for when I\u2019m shipping products...\u201d\n- \u201c...the problem is auto-populating it when an order is created from variant.metafields.stock.bin.\u201d\n- \u201cIs there a way for me to add a line on my packing slips for location of items? Example: Bin Location?\u201d\n- \u201cAlso is there a way to add barcodes to the packing slips as well? I see other owners scanning packing slips all the time but i can\u2019t seem to figure out how.\u201d\n- \u201cWe created a packing slip template to show Bin Locations so we can easily find products when picking.\u201d\n- \u201cWe Installed the New Order Printer App... But when we migrate our templates, it won\u2019t show the product meta fields anymore.\u201d"
+        },
+        {
+          "title": "Current Workaround",
+          "text": "Merchants use product/variant metafields for bin data, then either hand-edit Order Printer templates or build Shopify Flow automations that copy those values onto order-level fields so the packing slip can render them. Some give up and use a separate pick-list app or a broader warehouse tool."
+        },
+        {
+          "title": "Why Workaround Is Bad",
+          "text": "The workaround is fragile, technical, and easy to regress. It mixes data modeling, template code, and automation logic for a problem that should feel like a checkbox. When it breaks, pickers lose location context immediately, which slows walking, increases search time, and creates hidden dependency on whoever built the hack."
+        },
+        {
+          "title": "Competitors",
+          "text": "- DIY: Order Printer template edits + metafields + Shopify Flow\n- Adjacent app: PickPilot \u2013 Pick List\n- Adjacent document app: Order Printer Pro\n- Broader category: pick/pack apps and WMS suites that include location-aware picking as one feature among many"
+        },
+        {
+          "title": "Competitor Pricing",
+          "text": "Public pricing I could verify: PickPilot \u2013 Pick List lists $4.99/month on the Shopify App Store, and Order Printer Pro lists $10/month. For broader WMS/pick-pack suites, pricing is often bundled, tiered, sales-led, or simply not positioned around this exact use case. There does not appear to be obvious public pricing for a direct \u201cbin locations on packing slips only\u201d competitor, which reinforces the wedge."
+        },
+        {
+          "title": "Why Now",
+          "text": "Shopify merchants are already reworking document workflows because of Order Printer changes and related tooling churn. That makes fragile packing-slip hacks more visible and more annoying right now. At the same time, even small merchants are adopting more organized bin-based fulfillment as SKU counts rise, so the need for location-aware slips shows up earlier than before."
+        },
+        {
+          "title": "Wedge",
+          "text": "Do one thing extremely well: make the printed packing slip or pick sheet always include the right bin/location and scan-friendly line data, without requiring the merchant to understand Liquid, metafield access patterns, or Flow data-copy tricks."
+        },
+        {
+          "title": "Validation Angle",
+          "text": "Start with merchants already asking Shopify Community questions about bin locations and packing slips. Offer a white-glove install that replaces their current template/Flow setup. The validation question is simple: will they pay to stop touching Liquid and stop debugging this workflow?"
+        },
+        {
+          "title": "First Traffic Source",
+          "text": "Shopify Community threads about packing slips, bin locations, barcodes, and Order Printer migration pain. Secondary channel: Shopify App Store search intent around \u201cpacking slip\u201d, \u201cpick list\u201d, \u201cbin location\u201d, and \u201cOrder Printer\u201d."
+        },
+        {
+          "title": "Risk Flags",
+          "text": "- Some merchants may decide a generic pick-list app is \u201cgood enough\u201d\n- Shopify could improve Order Printer/metafield support natively\n- Printer/template edge cases may create support load\n- If the app has to rely on brittle document extension surfaces, maintenance cost could creep up"
+        },
+        {
+          "title": "Kill Criteria",
+          "text": "Kill or demote if: (1) outreach to 10-15 relevant merchants produces little urgency, (2) most merchants are satisfied by a cheap generic pick-list app, (3) Shopify native templating already solves the problem cleanly enough, or (4) implementation requires too much per-store template handholding to stay a small software business."
+        },
+        {
+          "title": "Final Verdict",
+          "text": "KEEP. BinSlip now looks like a legitimate micro-SaaS wedge: the pain is real, recurring, operational, and documented in primary-source threads. It is narrow enough for a fast MVP, distinct from bloated warehouse software, and credible as a paid \u201cremove the hack\u201d utility\u2014provided early validation confirms merchants will pay for reliability, not just ask for free template help."
         },
         {
           "title": "Relevant APIs",
@@ -237,11 +305,11 @@
         },
         {
           "title": "Why They'd Pay",
-          "text": "It saves warehouse time inside a recurring operational loop and removes dependence on fragile template hacks. For a store fulfilling orders every day, even a small reduction in walking/searching/debugging pays back quickly."
+          "text": "It saves time in a recurring pick/pack loop and reduces the chance that fulfillment grinds to a halt because a custom template or Flow broke. For merchants shipping daily, buying back even a few minutes per batch\u2014and removing fragile technical upkeep\u2014has clear ROI."
         },
         {
           "title": "Existing Bad Solutions",
-          "text": "Today the low end is DIY Liquid + Flow hacks; the high end is buying a fuller pick/pack or WMS product just to expose one missing field on a slip. That creates a clean wedge for a small, fulfillment-native utility."
+          "text": "Today the low end is DIY Liquid plus Flow; the middle is cheap adjacent apps that do not cleanly solve the exact packing-slip/location problem; the high end is adopting a broader WMS or pick-pack suite just to expose bin data to pickers. That gap is the opportunity."
         }
       ]
     },
