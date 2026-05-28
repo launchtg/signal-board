@@ -2,7 +2,7 @@
   "meta": {
     "version": "v2.0",
     "label": "SIGNAL ENGINE",
-    "lastUpdated": "2026-05-27",
+    "lastUpdated": "2026-05-28",
     "stages": [
       {
         "id": "ideas",
@@ -73,7 +73,7 @@
         },
         {
           "title": "Evidence",
-          "text": "IDEA NAME: POLabel\nONE-LINE OPPORTUNITY: A tiny Shopify utility that prints barcode labels directly from purchase orders or received quantities.\nTARGET BUYER: Shopify merchants with physical inventory, especially boutiques and multi-SKU retailers receiving stock weekly.\nEXACT PAINFUL WORKFLOW: receive PO -> confirm delivered quantities -> jump to separate barcode flow -> manually find the same items again -> print labels -> walk back to receiving.\nWHY IT RECURS: Every vendor shipment repeats it; the pain scales with SKU count and partial receipts.\nDIRECT EVIDENCE LINKS:\n1) Feature Request: Print Barcode Labels Directly from Purchase Orders (like Stocky) — https://community.shopify.com/t/feature-request-print-barcode-labels-directly-from-purchase-orders-like-stocky/622687\n2) New Purchase Order Process — https://community.shopify.com/t/new-purchase-order-process/629542\n3) Stocky App Going Away after August 31 2026 — https://community.shopify.com/t/stocky-app-going-away-after-august-31-2026/587292\n4) Feature Request: Add Cost/Price/Margin Display to Purchase Order Receiving — https://community.shopify.com/t/feature-request-add-cost-price-margin-display-to-purchase-order-receiving/587455\nQUOTED / SOURCE EXCERPTS:\n- \"One critical feature missing from the new Shopify PO & Transfers experience is the ability to print barcode labels directly from a purchase order.\"\n- \"When receiving inventory, being able to select items from a PO and immediately print labels is a huge time-saver.\"\n- \"Shopify has completely changed the process to receive a purchase order and complicated it for no apparently reason.\"\n- \"I am concerned about hearing that the Stocky App is going away this year... print price labels directly from the PO...\"\n- \"With Stocky being discontinued in August 2026, the native Shopify Purchase Order system needs a critical update to match its functionality.\"\nCURRENT WORKAROUND: open the PO in Shopify, then use a separate barcode app / stock app / manual label run to print labels.\nWHY WORKAROUND IS BAD: duplicate lookup, cross-referencing errors, slower receiving, and lost trust in quantity accuracy.\nCOMPETITORS: FyreTrail, Multi-Label Barcodes, SKUSavvy, Fabrikator/Katana receiving.\nCOMPETITOR PRICING IF FINDABLE: public pricing is inconsistent or buried, and most tools bundle label printing into broader inventory products rather than a single PO-native utility.\nWHY NOW: Stocky sunset plus Shopify PO workflow changes created a fresh migration window in 2026.\nWEDGE: stay brutally narrow — print labels from PO lines and received quantities only.\nVALIDATION ANGLE: recruit 5 stores from the Shopify threads and offer a white-glove pilot that cuts clicks during receiving.\nFIRST TRAFFIC SOURCE: direct outreach to posters in the Shopify Community threads and Shopify app-store keyword traffic around Stocky sunset.\nRISK FLAGS: Shopify could eventually add this natively; hardware/printer variety adds edge cases.\nVERDICT: KEEP"
+          "text": "IDEA NAME: POLabel\nONE-LINE OPPORTUNITY: A tiny Shopify utility that prints barcode labels directly from purchase orders or received quantities.\nTARGET BUYER: Shopify merchants with physical inventory, especially boutiques and multi-SKU retailers receiving stock weekly.\nEXACT PAINFUL WORKFLOW: receive PO -> confirm delivered quantities -> jump to separate barcode flow -> manually find the same items again -> print labels -> walk back to receiving.\nWHY IT RECURS: Every vendor shipment repeats it; the pain scales with SKU count and partial receipts.\nDIRECT EVIDENCE LINKS:\n1) Feature Request: Print Barcode Labels Directly from Purchase Orders (like Stocky) \u2014 https://community.shopify.com/t/feature-request-print-barcode-labels-directly-from-purchase-orders-like-stocky/622687\n2) New Purchase Order Process \u2014 https://community.shopify.com/t/new-purchase-order-process/629542\n3) Stocky App Going Away after August 31 2026 \u2014 https://community.shopify.com/t/stocky-app-going-away-after-august-31-2026/587292\n4) Feature Request: Add Cost/Price/Margin Display to Purchase Order Receiving \u2014 https://community.shopify.com/t/feature-request-add-cost-price-margin-display-to-purchase-order-receiving/587455\nQUOTED / SOURCE EXCERPTS:\n- \"One critical feature missing from the new Shopify PO & Transfers experience is the ability to print barcode labels directly from a purchase order.\"\n- \"When receiving inventory, being able to select items from a PO and immediately print labels is a huge time-saver.\"\n- \"Shopify has completely changed the process to receive a purchase order and complicated it for no apparently reason.\"\n- \"I am concerned about hearing that the Stocky App is going away this year... print price labels directly from the PO...\"\n- \"With Stocky being discontinued in August 2026, the native Shopify Purchase Order system needs a critical update to match its functionality.\"\nCURRENT WORKAROUND: open the PO in Shopify, then use a separate barcode app / stock app / manual label run to print labels.\nWHY WORKAROUND IS BAD: duplicate lookup, cross-referencing errors, slower receiving, and lost trust in quantity accuracy.\nCOMPETITORS: FyreTrail, Multi-Label Barcodes, SKUSavvy, Fabrikator/Katana receiving.\nCOMPETITOR PRICING IF FINDABLE: public pricing is inconsistent or buried, and most tools bundle label printing into broader inventory products rather than a single PO-native utility.\nWHY NOW: Stocky sunset plus Shopify PO workflow changes created a fresh migration window in 2026.\nWEDGE: stay brutally narrow \u2014 print labels from PO lines and received quantities only.\nVALIDATION ANGLE: recruit 5 stores from the Shopify threads and offer a white-glove pilot that cuts clicks during receiving.\nFIRST TRAFFIC SOURCE: direct outreach to posters in the Shopify Community threads and Shopify app-store keyword traffic around Stocky sunset.\nRISK FLAGS: Shopify could eventually add this natively; hardware/printer variety adds edge cases.\nVERDICT: KEEP"
         },
         {
           "title": "Relevant APIs",
@@ -125,7 +125,7 @@
         },
         {
           "title": "Evidence",
-          "text": "IDEA NAME: APForward\nONE-LINE OPPORTUNITY: A tiny Shopify B2B app that stores an alternate A/P email per customer and automatically routes invoice + reminder emails there.\nTARGET BUYER: Shopify Plus / wholesale merchants using net terms with repeat B2B buyers.\nEXACT PAINFUL WORKFLOW: order placed by buyer -> invoice sent to buyer email -> staff checks off-platform sheet for A/P email -> manually forwards invoice -> manually forwards every reminder again.\nWHY IT RECURS: Every net-terms order repeats the same routing mistake because the buyer and payables contact are often different humans.\nDIRECT EVIDENCE LINKS:\n1) How to send automatically invoices and payment reminders to alternate A/P email through Shopify? — https://community.shopify.com/t/how-to-send-automatically-invoices-and-payment-reminders-to-alternate-a-p-email-through-shopify/327432\n2) How can I manage partial payments for wholesale customers on Shopify? — https://community.shopify.com/t/how-can-i-manage-partial-payments-for-wholesale-customers-on-shopify/235601\n3) Tag orders that are 30 days overdue with Flow — https://community.shopify.com/t/tag-orders-that-are-30-days-overdue-with-flow/295506\nQUOTED / SOURCE EXCERPTS:\n- \"Shopify currently sends invoices and payment reminders to the email address used for order placement. However, some customers have a different A/P email address.\"\n- \"We have to track the alternate email addresses with a spreadsheet outside of Shopify and manually send invoices and payment reminders.\"\n- \"They require that I send them statements at month end with the amounts overdue and reflecting the amounts paid.\"\n- \"I want to filter those orders by a tag on the orders page so our accounts receivable team can easily know which are 30 days past due.\"\nCURRENT WORKAROUND: spreadsheet of alternate payables emails, inbox forwarding, manual reminders, or custom scripts/flows.\nWHY WORKAROUND IS BAD: wrong-recipient reminders, duplicated labor, stale contact data, and slower collections.\nCOMPETITORS: Sufio, Order Automator, custom Flow/webhook builds, accounting suite syncs.\nCOMPETITOR PRICING IF FINDABLE: pricing is usually bundled into broader invoicing/automation products rather than sold as a single routing utility; public pricing varies and is not the core wedge here.\nWHY NOW: Shopify B2B adoption is up, but this basic routing gap is still unresolved in core.\nWEDGE: one job only — store the A/P address and send the invoice/reminder to the right inbox every time.\nVALIDATION ANGLE: install for 5 wholesale stores, import current A/P contacts, and measure reduction in manual forwards and payment lag.\nFIRST TRAFFIC SOURCE: Shopify Community B2B threads plus outreach to stores using Wholesale Gorilla or net terms.\nRISK FLAGS: some merchants may solve it in accounting tools; buyer records may need clean customer-company mapping.\nVERDICT: KEEP"
+          "text": "IDEA NAME: APForward\nONE-LINE OPPORTUNITY: A tiny Shopify B2B app that stores an alternate A/P email per customer and automatically routes invoice + reminder emails there.\nTARGET BUYER: Shopify Plus / wholesale merchants using net terms with repeat B2B buyers.\nEXACT PAINFUL WORKFLOW: order placed by buyer -> invoice sent to buyer email -> staff checks off-platform sheet for A/P email -> manually forwards invoice -> manually forwards every reminder again.\nWHY IT RECURS: Every net-terms order repeats the same routing mistake because the buyer and payables contact are often different humans.\nDIRECT EVIDENCE LINKS:\n1) How to send automatically invoices and payment reminders to alternate A/P email through Shopify? \u2014 https://community.shopify.com/t/how-to-send-automatically-invoices-and-payment-reminders-to-alternate-a-p-email-through-shopify/327432\n2) How can I manage partial payments for wholesale customers on Shopify? \u2014 https://community.shopify.com/t/how-can-i-manage-partial-payments-for-wholesale-customers-on-shopify/235601\n3) Tag orders that are 30 days overdue with Flow \u2014 https://community.shopify.com/t/tag-orders-that-are-30-days-overdue-with-flow/295506\nQUOTED / SOURCE EXCERPTS:\n- \"Shopify currently sends invoices and payment reminders to the email address used for order placement. However, some customers have a different A/P email address.\"\n- \"We have to track the alternate email addresses with a spreadsheet outside of Shopify and manually send invoices and payment reminders.\"\n- \"They require that I send them statements at month end with the amounts overdue and reflecting the amounts paid.\"\n- \"I want to filter those orders by a tag on the orders page so our accounts receivable team can easily know which are 30 days past due.\"\nCURRENT WORKAROUND: spreadsheet of alternate payables emails, inbox forwarding, manual reminders, or custom scripts/flows.\nWHY WORKAROUND IS BAD: wrong-recipient reminders, duplicated labor, stale contact data, and slower collections.\nCOMPETITORS: Sufio, Order Automator, custom Flow/webhook builds, accounting suite syncs.\nCOMPETITOR PRICING IF FINDABLE: pricing is usually bundled into broader invoicing/automation products rather than sold as a single routing utility; public pricing varies and is not the core wedge here.\nWHY NOW: Shopify B2B adoption is up, but this basic routing gap is still unresolved in core.\nWEDGE: one job only \u2014 store the A/P address and send the invoice/reminder to the right inbox every time.\nVALIDATION ANGLE: install for 5 wholesale stores, import current A/P contacts, and measure reduction in manual forwards and payment lag.\nFIRST TRAFFIC SOURCE: Shopify Community B2B threads plus outreach to stores using Wholesale Gorilla or net terms.\nRISK FLAGS: some merchants may solve it in accounting tools; buyer records may need clean customer-company mapping.\nVERDICT: KEEP"
         },
         {
           "title": "Relevant APIs",
@@ -177,7 +177,7 @@
         },
         {
           "title": "Evidence",
-          "text": "IDEA NAME: Net30Ping\nONE-LINE OPPORTUNITY: A one-function Shopify utility that tags overdue payment-term orders and sends repeat reminders until paid.\nTARGET BUYER: Wholesale / B2B Shopify merchants extending net terms.\nEXACT PAINFUL WORKFLOW: invoice sent on terms -> due date passes -> staff manually checks or builds Flow chains -> order gets tagged overdue -> reminders are sent inconsistently until payment lands.\nWHY IT RECURS: Every unpaid net-terms invoice creates the same follow-up problem.\nDIRECT EVIDENCE LINKS:\n1) Tag orders that are 30 days overdue with Flow — https://community.shopify.com/t/tag-orders-that-are-30-days-overdue-with-flow/295506\n2) Shopify Flow: daily “until paid” reminders + 5-days-before due loops / scheduled time / order context — https://community.shopify.com/t/shopify-flow-daily-until-paid-reminders-5-days-before-due-loops-scheduled-time-order-context/572816\n3) How can I manage partial payments for wholesale customers on Shopify? — https://community.shopify.com/t/how-can-i-manage-partial-payments-for-wholesale-customers-on-shopify/235601\nQUOTED / SOURCE EXCERPTS:\n- \"Can someone help me configure Flow to tag orders that are past due by 30 days?\"\n- \"I want to filter those orders by a tag on the orders page so our accounts receivable team can easily know which are 30 days past due.\"\n- \"It works, but it's messy. Because Flow doesn't really 'loop,' I had to stack a long chain of steps: wait 1 day -> check if paid -> if not, send reminder -> repeat.\"\n- \"My plan... Scheduled time (daily) -> fetch up to 100 orders with the overdue tag that are still unpaid...\"\n- \"I also sometimes receive partial payments by bank transfer on some of the invoices.\"\nCURRENT WORKAROUND: manual checks, brittle multi-flow recipes, tags, code steps, and generic reminder tools.\nWHY WORKAROUND IS BAD: operator effort, easy breakage, limited visibility, and recurring maintenance for something that should be trivial.\nCOMPETITORS: Shopify Flow DIY, generic dunning apps, accounting tool reminders.\nCOMPETITOR PRICING IF FINDABLE: market alternatives for basic dunning/reminder apps are often low-cost, which supports a small sharp product; differentiation must come from Shopify payment-terms specificity and dead-simple setup.\nWHY NOW: more merchants are using Shopify B2B/payment terms, while forum threads show the native overdue workflow is still awkward.\nWEDGE: no suite, no ledger, no analytics — just detect overdue orders and keep reminders going until paid.\nVALIDATION ANGLE: offer a plug-and-play install to merchants already struggling with Flow; prove they can replace a multi-step automation with one toggle.\nFIRST TRAFFIC SOURCE: Shopify Community posts about overdue orders and Shopify Flow templates for B2B collections.\nRISK FLAGS: could be imitated by Flow templates or invoicing apps; needs clean guardrails for reminder cadence and opt-outs.\nVERDICT: KEEP"
+          "text": "IDEA NAME: Net30Ping\nONE-LINE OPPORTUNITY: A one-function Shopify utility that tags overdue payment-term orders and sends repeat reminders until paid.\nTARGET BUYER: Wholesale / B2B Shopify merchants extending net terms.\nEXACT PAINFUL WORKFLOW: invoice sent on terms -> due date passes -> staff manually checks or builds Flow chains -> order gets tagged overdue -> reminders are sent inconsistently until payment lands.\nWHY IT RECURS: Every unpaid net-terms invoice creates the same follow-up problem.\nDIRECT EVIDENCE LINKS:\n1) Tag orders that are 30 days overdue with Flow \u2014 https://community.shopify.com/t/tag-orders-that-are-30-days-overdue-with-flow/295506\n2) Shopify Flow: daily \u201cuntil paid\u201d reminders + 5-days-before due loops / scheduled time / order context \u2014 https://community.shopify.com/t/shopify-flow-daily-until-paid-reminders-5-days-before-due-loops-scheduled-time-order-context/572816\n3) How can I manage partial payments for wholesale customers on Shopify? \u2014 https://community.shopify.com/t/how-can-i-manage-partial-payments-for-wholesale-customers-on-shopify/235601\nQUOTED / SOURCE EXCERPTS:\n- \"Can someone help me configure Flow to tag orders that are past due by 30 days?\"\n- \"I want to filter those orders by a tag on the orders page so our accounts receivable team can easily know which are 30 days past due.\"\n- \"It works, but it's messy. Because Flow doesn't really 'loop,' I had to stack a long chain of steps: wait 1 day -> check if paid -> if not, send reminder -> repeat.\"\n- \"My plan... Scheduled time (daily) -> fetch up to 100 orders with the overdue tag that are still unpaid...\"\n- \"I also sometimes receive partial payments by bank transfer on some of the invoices.\"\nCURRENT WORKAROUND: manual checks, brittle multi-flow recipes, tags, code steps, and generic reminder tools.\nWHY WORKAROUND IS BAD: operator effort, easy breakage, limited visibility, and recurring maintenance for something that should be trivial.\nCOMPETITORS: Shopify Flow DIY, generic dunning apps, accounting tool reminders.\nCOMPETITOR PRICING IF FINDABLE: market alternatives for basic dunning/reminder apps are often low-cost, which supports a small sharp product; differentiation must come from Shopify payment-terms specificity and dead-simple setup.\nWHY NOW: more merchants are using Shopify B2B/payment terms, while forum threads show the native overdue workflow is still awkward.\nWEDGE: no suite, no ledger, no analytics \u2014 just detect overdue orders and keep reminders going until paid.\nVALIDATION ANGLE: offer a plug-and-play install to merchants already struggling with Flow; prove they can replace a multi-step automation with one toggle.\nFIRST TRAFFIC SOURCE: Shopify Community posts about overdue orders and Shopify Flow templates for B2B collections.\nRISK FLAGS: could be imitated by Flow templates or invoicing apps; needs clean guardrails for reminder cadence and opt-outs.\nVERDICT: KEEP"
         },
         {
           "title": "Relevant APIs",
@@ -190,6 +190,162 @@
         {
           "title": "Existing Bad Solutions",
           "text": "The current options are DIY Flow chains, generic reminder products, or pushing the job into accounting software. None are as simple as a purpose-built overdue tagger + reminder engine inside Shopify."
+        }
+      ]
+    },
+    {
+      "id": "binslip",
+      "name": "BinSlip",
+      "domain": "binslip.app",
+      "stage": "ideas",
+      "competition": "LOW-MEDIUM",
+      "topCompetitors": "Order Printer template hacks, Shopify Flow workarounds, pick-list apps, and broader warehouse systems. The wedge is brutally narrow: make bin locations and scan-friendly data appear cleanly on packing slips / pick sheets without custom liquid and metafield plumbing.",
+      "pain": "Shopify merchants keep hacking metafields, Flow, and Order Printer templates just to show bin locations and scanable data on packing slips, turning everyday picking into a fragile DIY workflow.",
+      "tags": [
+        {
+          "text": "Retail Ops",
+          "class": "market"
+        },
+        {
+          "text": "Pick / Pack"
+        },
+        {
+          "text": "Order Printer + Flow",
+          "class": "api"
+        }
+      ],
+      "score": "8.9/10",
+      "scorePercent": 89,
+      "mvpTime": "~3 days MVP",
+      "pricing": "$19-49/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Merchant stores bin-location data on products or variants, then hand-edits packing-slip templates, experiments with Liquid, and sometimes builds Shopify Flow jobs to copy item metadata onto the order so pickers can see where items live when fulfilling orders."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This pain shows up on every pick/pack cycle. The warehouse team needs location data at the exact moment they are walking shelves, but Shopify makes operators stitch together metafields, template code, and order-level workarounds. That makes fulfillment slower, brittle, and dependent on whoever originally built the hack."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: BinSlip\nONE-LINE OPPORTUNITY: A tiny Shopify utility that injects bin locations and scan-friendly line-item data into packing slips and pick sheets without custom template plumbing.\nTARGET BUYER: Shopify merchants with physical inventory, especially small warehouses and retail teams using bin locations.\nEXACT PAINFUL WORKFLOW: maintain bin-location metafields -> copy values onto orders or line items -> edit packing-slip Liquid -> debug Order Printer / Flow every time something changes -> hand paper slips to pickers.\nWHY IT RECURS: Every fulfillment batch needs the same location context, so the pain repeats daily or weekly.\nDIRECT EVIDENCE LINKS:\n1) Copying variant metafield data to order metafield using Shopify Flow \u2014 https://community.shopify.com/t/copying-variant-metafield-data-to-order-metafield-using-shopify-flow/415644\n2) Metafields on Shopify Packing Slip \u2014 https://community.shopify.com/t/metafields-on-shopify-packing-slip/237365\n3) New Order Printer to Show Product line item Meta Fields \u2014 https://community.shopify.com/t/new-order-printer-to-show-product-line-item-meta-fields/323267\nQUOTED / SOURCE EXCERPTS:\n- \"Currently trying to add bin location data to packing slips... the problem is auto-populating it when an order is created\"\n- \"Is there a way for me to add a line on my packing slips for location of items? Example: Bin Location?\"\n- \"We created a packing slip template to show Bin Locations so we can easily find products when picking.\"\n- \"Would love a Location Field on the Product that would carry over to the packing slip. We have 500+ Bin Locations...\"\nCURRENT WORKAROUND: Liquid template edits, product/variant metafields, Shopify Flow copy jobs, or jumping to external pick-list tools.\nWHY WORKAROUND IS BAD: brittle templates, repeated debugging, dependency on technical setup, and lost picking speed if the field breaks.\nCOMPETITORS: Order Printer hacks, pick-list apps, WMS suites, custom Flow setups.\nCOMPETITOR PRICING IF FINDABLE: most alternatives are either free-but-fragile DIY or bundled into broader warehouse software.\nWHY NOW: Shopify keeps shifting print tooling (legacy Order Printer migrations, Stocky sunset pressure), which makes fragile fulfillment hacks more painful.\nWEDGE: do one job well \u2014 make packing slips show the right pick data every time.\nVALIDATION ANGLE: recruit merchants already asking for bin-location packing slips and offer a plug-and-play template + app install.\nFIRST TRAFFIC SOURCE: Shopify Community threads about packing slips, bin locations, and Order Printer migrations.\nRISK FLAGS: some merchants may prefer full pick-list apps; printer/template edge cases exist.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API / GraphQL for product, variant, order, and metafield data; Order Printer template surface; optional Shopify Flow support for merchants who want sync triggers."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "It saves warehouse time inside a recurring operational loop and removes dependence on fragile template hacks. For a store fulfilling orders every day, even a small reduction in walking/searching/debugging pays back quickly."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Today the low end is DIY Liquid + Flow hacks; the high end is buying a fuller pick/pack or WMS product just to expose one missing field on a slip. That creates a clean wedge for a small, fulfillment-native utility."
+        }
+      ]
+    },
+    {
+      "id": "vendorsku",
+      "name": "VendorSKU",
+      "domain": "vendorsku.app",
+      "stage": "ideas",
+      "competition": "LOW-MEDIUM",
+      "topCompetitors": "Metafield workarounds, spreadsheets, custom private apps, and larger stock-control suites like Pasilobus or FyreTrail. The wedge is focused: keep supplier SKU / cost fields sane and auto-fill them into Shopify purchase orders.",
+      "pain": "Shopify merchants cannot reliably bulk-manage supplier SKUs and related purchasing fields or auto-fill them into purchase orders, so buyers hand-maintain critical vendor data and retype it every PO.",
+      "tags": [
+        {
+          "text": "Retail Ops",
+          "class": "market"
+        },
+        {
+          "text": "Purchase Orders"
+        },
+        {
+          "text": "Shopify Admin",
+          "class": "api"
+        }
+      ],
+      "score": "8.8/10",
+      "scorePercent": 88,
+      "mvpTime": "~3-4 days MVP",
+      "pricing": "$29-79/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Buyer stores supplier SKU, cost, or tax context in ad hoc places, then when creating a PO manually re-enters or cross-checks those values line by line because Shopify does not cleanly pull them through or allow practical bulk upkeep."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This repeats on every vendor order and every catalog update. The exact fields purchasing teams need to make a PO useful are the same fields Shopify merchants say are hardest to bulk maintain, which creates slow PO prep and easy ordering mistakes."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: VendorSKU\nONE-LINE OPPORTUNITY: A focused Shopify purchasing utility that bulk-manages supplier SKUs/cost fields and auto-fills them into POs.\nTARGET BUYER: Shopify merchants with repeat supplier ordering and large enough catalogs that manual PO prep is painful.\nEXACT PAINFUL WORKFLOW: maintain supplier identifiers manually -> create PO -> re-enter or verify supplier SKU and cost fields by hand -> catch errors after suppliers question the PO.\nWHY IT RECURS: Every catalog maintenance cycle and every purchase order repeats the same field-management problem.\nDIRECT EVIDENCE LINKS:\n1) Supplier SKU and Shop SKU in Purchase Orders \u2014 https://community.shopify.com/t/supplier-sku-and-shop-sku-in-purchase-orders/247864\n2) Supplier SKU, Cost, Tax % Bulk Editing \u2014 https://community.shopify.com/t/supplier-sku-cost-tax-bulk-editing/622276\n3) Purchase Orders - Automatically updating cost price & Changing Currency \u2014 https://community.shopify.com/t/purchase-orders-automatically-updating-cost-price-changing-currency/253535\n4) Product Supplier SKU and Shop SKU \u2014 https://community.shopify.com/t/product-supplier-sku-and-shop-sku/8427\n5) Streamline Purchase Orders \u2014 Auto-fill from Catalog & Add to PO at Product Creation \u2014 https://community.shopify.com/t/streamline-purchase-orders-auto-fill-from-catalog-add-to-po-at-product-creation/615592\nQUOTED / SOURCE EXCERPTS:\n- \"surely there is a way for this data to be pulled across from the product inventory\"\n- \"there is still no way to bulk edit Supplier SKU, Cost and Tax percentage information so it all can only be done by hand\"\n- \"Each product has the cost price included on each product page, so was hoping that part would automatically be pulled into the PO\"\n- \"I want to create my own SKU... when placing an order with a supplier I know their SKU for the product\"\n- \"allow me to search and add existing products/variants from my catalog by vendor \u2014 automatically pulling in SKU and unit cost\"\nCURRENT WORKAROUND: metafields, spreadsheets, manual entry, or building a private script/app.\nWHY WORKAROUND IS BAD: stale vendor data, wrong-SKU ordering risk, duplicate data entry, and too much operator time spent on basic purchasing hygiene.\nCOMPETITORS: spreadsheets, private apps, stock-control suites, custom integrations.\nCOMPETITOR PRICING IF FINDABLE: full inventory suites are materially broader than this workflow and often overkill if the merchant only wants sane PO prep.\nWHY NOW: Stocky sunset and Shopify's newer PO workflow are exposing how underbuilt native purchasing still is.\nWEDGE: own the supplier-data layer for Shopify POs, not all of inventory management.\nVALIDATION ANGLE: onboard merchants already complaining about supplier SKU pain and measure PO prep time + ordering accuracy before/after.\nFIRST TRAFFIC SOURCE: Shopify Community PO threads plus app-store keywords around supplier SKU and Stocky replacement.\nRISK FLAGS: some merchants will prefer all-in-one inventory tools; PO API limitations may require a narrow first release.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API / GraphQL for products, variants, inventory metadata, vendor fields, and metafields; CSV import/export surfaces; optional browser-extension style workflow if PO write surfaces stay constrained."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Bad supplier data directly creates ordering mistakes and wasted buyer time. A small tool that keeps the right identifiers/costs ready at PO time can save enough labor and prevent enough errors to justify a modest monthly fee."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "The low end is spreadsheets and manual edits. The high end is adopting a full stock-control suite or commissioning a private app just to fix supplier fields. That gap supports a sharp utility product."
+        }
+      ]
+    },
+    {
+      "id": "poimport",
+      "name": "POImport",
+      "domain": "poimport.app",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Stocky workarounds, spreadsheet sync tools, custom CSV scripts, and broader purchasing/inventory apps. The wedge is simple: ingest supplier or rep CSVs and bulk-build/update Shopify purchase orders without line-by-line entry.",
+      "pain": "Merchants receiving supplier or sales-rep CSVs still key purchase orders into Shopify line by line because native bulk-add and CSV-import workflows are weak or missing.",
+      "tags": [
+        {
+          "text": "Retail Ops",
+          "class": "market"
+        },
+        {
+          "text": "PO Import"
+        },
+        {
+          "text": "CSV + Shopify",
+          "class": "api"
+        }
+      ],
+      "score": "8.7/10",
+      "scorePercent": 87,
+      "mvpTime": "~3 days MVP",
+      "pricing": "$29-99/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Merchant gets a supplier CSV or rep-generated PO list, opens Shopify purchase orders, and then copy-pastes SKUs or manually keys hundreds of lines into the Add Products dialog because there is no clean bulk import path that matches how they already receive order data."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This pain repeats every buying cycle. The data already exists in CSV form, but operators still burn time on re-entry, deal with search popups, and risk missing or mis-keying lines when purchase orders are large or random."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: POImport\nONE-LINE OPPORTUNITY: A Shopify utility that turns supplier / rep CSVs into purchase orders and bulk line updates without manual re-entry.\nTARGET BUYER: Shopify merchants and buyers who regularly place medium-to-large purchase orders from vendor spreadsheets or rep exports.\nEXACT PAINFUL WORKFLOW: receive CSV from rep/supplier -> open PO in Shopify -> paste/search/add products manually -> verify quantities and lines -> sometimes separately update incoming/received state.\nWHY IT RECURS: Every reorder cycle, vendor drop, or replenishment batch can arrive as a file instead of a Shopify-native object.\nDIRECT EVIDENCE LINKS:\n1) [Feature Request] Adding products in bulk on purchase order and collection page \u2014 https://community.shopify.com/t/feature-request-adding-products-in-bulk-on-purchase-order-and-collection-page/369146\n2) Purchase order app that updates the 'Incoming' part of a product \u2014 https://community.shopify.com/t/purchase-order-app-that-updates-the-incoming-part-of-a-product/291774\n3) Creating PO\u2019s using CSV files supplied by reps \u2014 https://community.shopify.com/t/creating-po-s-using-csv-files-supplied-by-reps/252839\n4) How to input received Purchase Orders via CSV file \u2014 https://community.shopify.com/t/how-to-input-received-purchase-orders-via-csv-file/324934\n5) Streamline Purchase Orders \u2014 Auto-fill from Catalog & Add to PO at Product Creation \u2014 https://community.shopify.com/t/streamline-purchase-orders-auto-fill-from-catalog-add-to-po-at-product-creation/615592\nQUOTED / SOURCE EXCERPTS:\n- \"We are frequently adding hundreds of products to the purchase order page, but there is no efficient way to do it\"\n- \"especially when dealing with incoming orders with a high number of products (no CSV import)\"\n- \"My sales reps email me a CSV file of a purchase order created. What is the easy way to upload this file into a PO to save time\"\n- \"I would really like to not input 200+ items on a purchase order line by line\"\n- \"I was wondering if there is a way to upload a file that contains all the updates\"\nCURRENT WORKAROUND: copy-paste SKU lists into dialogs, manual line entry, spreadsheet sync tools that do not cleanly handle POs, or broader purchasing apps.\nWHY WORKAROUND IS BAD: duplicate data entry, missed lines, slow replenishment work, and extra cleanup when incoming/received quantities must be reflected accurately.\nCOMPETITORS: spreadsheet connectors, Stocky workarounds, broad inventory apps, custom scripts.\nCOMPETITOR PRICING IF FINDABLE: alternatives tend to bundle PO import inside broader inventory products or require custom setup rather than solving this one ingest step cleanly.\nWHY NOW: Shopify merchants are actively reassessing PO workflows as Stocky capabilities shift and native PO expectations rise.\nWEDGE: do one small but valuable job \u2014 make existing CSVs usable as clean Shopify PO input.\nVALIDATION ANGLE: import live vendor CSVs for 5 merchants and measure how much PO creation time and re-keying disappears.\nFIRST TRAFFIC SOURCE: Shopify Community PO threads, Stocky replacement searches, and direct outreach to merchants asking about CSV imports.\nRISK FLAGS: write limitations around native POs may constrain depth; some merchants may accept spreadsheet bridges if they are already set up.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API / GraphQL for products, variants, inventory, and incoming quantity context; CSV parsing; optional browser automation or companion import flow if direct PO mutation is constrained."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Buyers already receive structured order data; paying to skip re-entry is rational when every PO burns staff time and creates avoidable mistakes. The ROI is clearest for stores regularly ordering 100+ lines."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Today merchants either re-key everything, abuse spreadsheet apps not built for Shopify POs, or adopt much larger inventory software. A focused importer can win by being faster and narrower."
         }
       ]
     }
