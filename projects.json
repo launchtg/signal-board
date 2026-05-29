@@ -2,7 +2,7 @@
   "meta": {
     "version": "v2.0",
     "label": "SIGNAL ENGINE",
-    "lastUpdated": "2026-05-28",
+    "lastUpdated": "2026-05-29",
     "stages": [
       {
         "id": "ideas",
@@ -414,6 +414,162 @@
         {
           "title": "Existing Bad Solutions",
           "text": "Today merchants either re-key everything, abuse spreadsheet apps not built for Shopify POs, or adopt much larger inventory software. A focused importer can win by being faster and narrower."
+        }
+      ]
+    },
+    {
+      "id": "bufferstock",
+      "name": "BufferStock",
+      "domain": "bufferstock.app",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Merchbees Low Stock Alert, Bundleup, Stocky, and broader inventory suites like Fabrikator/Katana. The wedge is narrower: reserve thresholds plus hidden consumables/components tied to sellable SKUs, without requiring a full ERP-style setup.",
+      "pain": "Shopify merchants repeatedly run out of hidden packaging or safety-stock items because low-stock alerts and reorder rules are split across spreadsheets, generic alert apps, and manual purchase-order work.",
+      "tags": [
+        {
+          "text": "Retail Ops",
+          "class": "market"
+        },
+        {
+          "text": "Inventory Buffers"
+        },
+        {
+          "text": "Shopify Admin",
+          "class": "api"
+        }
+      ],
+      "score": "8.7/10",
+      "scorePercent": 87,
+      "mvpTime": "~3-4 days MVP",
+      "pricing": "$29-79/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Merchant watches stock levels in Shopify, keeps separate mental or spreadsheet buffer targets, manually remembers hidden supplies like envelopes/bands/packaging, then rebuilds purchase orders by hand when something falls below a threshold."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This is not a one-off setup problem. It repeats every week as fast-moving variants, reserve stock, and hidden 1:1 packaging components drift out of sync. The result is stockouts, fulfillment delays, and too many manual reorder decisions for simple replenishment rules."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: BufferStock\nONE-LINE OPPORTUNITY: A lightweight Shopify replenishment app that manages custom reserve thresholds and hidden packaging/component stock tied to sellable SKUs.\nTARGET BUYER: Shopify merchants with physical inventory, especially boutiques, stationery, gift, and specialty retailers that keep safety stock and non-sellable packaging supplies.\nEXACT PAINFUL WORKFLOW: watch low stock manually -> check spreadsheet/tribal knowledge for true minimums -> remember hidden components like envelopes/bands -> build purchase order by hand -> still miss something and delay fulfillment.\nWHY IT RECURS: Every receiving/replenishment cycle repeats it, especially for stores with recurring inbound shipments and non-sellable components.\nDIRECT EVIDENCE LINKS:\n1) App for low stock/stop selling at threshold \u2014 https://community.shopify.com/t/app-for-low-stock-stop-selling-at-threshold/70829\n2) What\u2019s the best inventory app for tracking low stock and custom packaging? \u2014 https://community.shopify.com/t/whats-the-best-inventory-app-for-tracking-low-stock-and-custom-packaging/70860\n3) Setting our own MOH quantities for purchasing Stocky \u2014 https://community.shopify.com/t/setting-our-own-moh-quantities-for-purchasing-stocky/45944\nQUOTED / SOURCE EXCERPTS:\n- \"After warranty service, some products have to be kept in stock for repair purposes. Therefore, when stock falls below the threshold, the product should not be sold any more.\"\n- \"Right now we are doing it all manually, and we are usually too busy to do a good job keeping up we run out of things all the time and it leads to delays.\"\n- \"Looking for recommendations on how to force Stocky to allow us to set our own minimum quantity to keep on hand so we can stop manually having to do every purchase order.\"\n- \"Their random metrics don\u2019t mesh with my reality of what my store needs to have on hand and what quantities I need to order in.\"\n- \"We are having the same issue.\"\nCURRENT WORKAROUND: generic low-stock email apps, hidden products bundled into manual inventory tricks, spreadsheets, and hand-built purchase orders.\nWHY WORKAROUND IS BAD: merchants still have to remember true reserve quantities and hidden components themselves, so the alerting layer and the purchasing layer remain disconnected.\nCOMPETITORS: Merchbees Low Stock Alert, Bundleup, Stocky, Fabrikator, Katana.\nCOMPETITOR PRICING IF FINDABLE: most pricing is bundled into either alerting tools or full inventory suites; the reserve-stock + hidden-component wedge is not sold cleanly as its own utility.\nWHY NOW: Shopify merchants are still dealing with post-Stocky workflow gaps and want simpler, narrower admin tools instead of broad inventory platforms.\nWEDGE: start with custom min/max thresholds, reserve-stock rules, and hidden 1:1 component depletion only.\nVALIDATION ANGLE: onboard 5 stores that currently use spreadsheets for reorder buffers and measure avoided stockouts / fewer manual PO edits.\nFIRST TRAFFIC SOURCE: Shopify Community inventory threads plus keywords around low-stock alerts, Stocky alternatives, and packaging inventory.\nRISK FLAGS: some merchants may prefer broader suites; component modeling can get messy if BOMs become multi-level.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API for products, variants, inventory levels, locations, purchase-order context, and metafields to store reserve thresholds and component mappings."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "This saves merchants from the most annoying part of replenishment: remembering the real minimum, the hidden supply dependencies, and the next purchase decision. Avoiding even a few preventable stockouts or fulfillment delays makes the subscription easy to justify."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "The low end is spreadsheets, sticky-note buffer rules, and generic alerts that stop before action. The high end is buying a larger inventory suite just to solve reserve thresholds and hidden packaging dependencies. That gap is small, painful, and monetizable."
+        }
+      ]
+    },
+    {
+      "id": "restockdate",
+      "name": "RestockDate",
+      "domain": "restockdate.app",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Xeon Back In Stock Date, generic back-in-stock notification apps, Mechanic/custom metafield automations, and bespoke theme work. The wedge is not alerts after restock; it is showing and preserving expected availability dates before the item is back.",
+      "pain": "Shopify merchants that allow backorders or preorders still manually chase and publish expected restock dates across product pages, carts, and order confirmations, creating support load and broken promises when dates shift.",
+      "tags": [
+        {
+          "text": "Ecommerce UX",
+          "class": "market"
+        },
+        {
+          "text": "Restock ETA"
+        },
+        {
+          "text": "Shopify Theme",
+          "class": "api"
+        }
+      ],
+      "score": "8.6/10",
+      "scorePercent": 86,
+      "mvpTime": "~2-4 days MVP",
+      "pricing": "$19-59/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Merchant receives supplier or transfer ETA data, manually adds dates to product pages or metafields, tries to surface them on variant pages and emails, then updates the same date again when shipments slip."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This repeats for every oversold, backordered, or incoming variant. The pain is not just display; it is synchronizing one volatile date across PDPs, carts, and customer comms while keeping a record of what was promised when the order was placed."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: RestockDate\nONE-LINE OPPORTUNITY: A Shopify app that shows expected restock dates on out-of-stock variants and preserves the promised ETA in customer-facing order communication.\nTARGET BUYER: Shopify merchants selling inventory with recurring supplier ETAs, preorders, or allowed overselling/backorders.\nEXACT PAINFUL WORKFLOW: supplier sends ETA -> merchant edits theme/metafield/product text -> customer sees date on product page -> date changes -> merchant updates it again and struggles to reflect the promised date in cart / confirmation / support replies.\nWHY IT RECURS: Every delayed replenishment cycle or incoming transfer repeats it, especially for stores that oversell or preorder.\nDIRECT EVIDENCE LINKS:\n1) Real Time \"expected stock date\" app for products \u2014 https://community.shopify.com/t/real-time-expected-stock-date-app-for-products/81497\n2) Looking for an app to provide an estimated in stock date on the product variant \u2014 https://community.shopify.com/t/looking-for-an-app-to-provide-an-estimated-in-stock-date-on-the-product-variant/81541\n3) Show ETA of out of stock products / Show expected arrival date \u2014 https://community.shopify.com/t/show-eta-of-out-of-stock-products-show-expected-arrival-date/86615\n4) Display incoming transfer date on the new order confirmation \u2014 https://community.shopify.com/t/display-incoming-transfer-date-on-the-new-order-confirmation/20871\nQUOTED / SOURCE EXCERPTS:\n- \"My store has several suppliers which use online inventory tracking and have an expected back in stock date which i would like to display to customers on specific product pages.\"\n- \"We are looking for an app that will be able to put an estimated in stock date next to a product variant so that out customers can see when we estimate that variant will be back in stock.\"\n- \"We would like it to link to our Purchase Orders if at all possible?\"\n- \"Trying to find a solution to show the ETA of out-of-stock products when we allow overselling.\"\n- \"We would like to have some record of what date was displaying at the time a customer purchased.\"\nCURRENT WORKAROUND: custom Liquid, transfer-based next_incoming_date hacks, manual metafields, spreadsheet apps, or paying for one-off theme/dev work.\nWHY WORKAROUND IS BAD: dates drift across surfaces, support has no clean audit trail, and merchants still manually chase each delay.\nCOMPETITORS: Xeon Back In Stock Date, generic back-in-stock apps, Mechanic automations, custom theme development.\nCOMPETITOR PRICING IF FINDABLE: app-store solutions exist, but many focus on notification alerts rather than reliable ETA display + order-time promise capture.\nWHY NOW: more merchants are selling through stock shortages and leaner inventories, so transparent ETA communication is now revenue-protecting, not just nice-to-have.\nWEDGE: start with ETA display on PDP + variant level, cart/order confirmation capture, and simple admin updates from transfer/PO/metafield data.\nVALIDATION ANGLE: install in 5 stores that oversell or preorder and measure support-ticket reduction plus conversion on out-of-stock-but-orderable SKUs.\nFIRST TRAFFIC SOURCE: Shopify Community threads plus app-store search terms around back in stock date, expected arrival date, and preorder ETA.\nRISK FLAGS: some themes can expose next_incoming_date natively; buyer trust depends on merchant date accuracy.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API for products/variants/metafields, transfer/PO-derived incoming dates where available, theme app extensions for display blocks, and email template support for order-time ETA capture."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "A store only needs a handful of delayed SKUs to create repetitive support tickets and abandoned carts. If this app helps merchants keep selling while setting clearer expectations, it pays for itself quickly."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Today the merchant either does manual theme work, buys a broader preorder app, or relies on scattered metafields and staff memory. None cleanly solve the recurring operational task of publishing, updating, and recording promised restock dates."
+        }
+      ]
+    },
+    {
+      "id": "borderpack",
+      "name": "BorderPack",
+      "domain": "borderpack.app",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Order Printer templates, Sufio, Matrixify/Ablestar bulk editors, and custom Liquid/Mechanic workflows. The wedge is narrower: produce customs-ready commercial invoice / packing-slip data for international Shopify orders without merchants hacking templates field by field.",
+      "pain": "Shopify merchants shipping internationally still patch together HS codes, country-of-origin fields, line totals, and printable invoices manually because the exact data needed for customs is fragmented across product data, order data, and printer templates.",
+      "tags": [
+        {
+          "text": "Cross-Border",
+          "class": "market"
+        },
+        {
+          "text": "Shipping Docs"
+        },
+        {
+          "text": "Shopify + Docs",
+          "class": "api"
+        }
+      ],
+      "score": "8.8/10",
+      "scorePercent": 88,
+      "mvpTime": "~3-5 days MVP",
+      "pricing": "$29-99/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Merchant prepares an international order, discovers the default invoice/packing slip is missing customs fields, hacks Order Printer templates, manually fixes HS codes or line totals, and grants extra app permissions so warehouse staff can print the right document."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This repeats on every cross-border shipment. The work is detail-heavy, legally sensitive, and brittle because required fields live in different places and Shopify\u2019s defaults do not map neatly onto customs-ready documents."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: BorderPack\nONE-LINE OPPORTUNITY: A Shopify app that generates customs-ready commercial invoices and packing documents with HS code, COO, line total, and print-routing support for international orders.\nTARGET BUYER: Shopify merchants and 3PL-connected stores shipping internationally, especially teams that rely on warehouse staff or Order Printer templates.\nEXACT PAINFUL WORKFLOW: receive international order -> discover required customs fields are missing -> patch invoice template -> manually fix HS/COO/line totals -> coordinate warehouse printing permissions -> repeat every shipment.\nWHY IT RECURS: Every international order needs compliant paperwork, and every template/data gap becomes repeated ops work.\nDIRECT EVIDENCE LINKS:\n1) Adding HS code and country of origin to packing list \u2014 https://community.shopify.com/t/adding-hs-code-and-country-of-origin-to-packing-list/70819\n2) How to enter 8 digit HS codes in Shopify for European shipping \u2014 https://community.shopify.com/t/how-to-enter-8-digit-hs-codes-in-shopify-for-european-shipping/33988\n3) Trying to add TOTAL line price to an Order Printer invoice that I am converting to a commercial invoice \u2014 https://community.shopify.com/t/trying-to-add-total-line-price-to-an-order-printer-invoice-that-i-am-converting-to-a-commercial-inv/34505\n4) How can I view and print invoices for international orders on Shopify? \u2014 https://community.shopify.com/t/how-can-i-view-and-print-invoices-for-international-orders-on-shopify/45618\n5) How do I access the HS code in the Order API? \u2014 https://community.shopify.com/t/how-do-i-access-the-hs-code-in-the-order-api/46089\nQUOTED / SOURCE EXCERPTS:\n- \"How do I change the packing slip template to add Country of Origin and HS code to the document?\"\n- \"otherwise, we have to manually add codes each time we ship to Europe\u2026such a time waster!\"\n- \"UK carriers are asking for the full 8 digit HS code... I don\u2019t fancy manually updating 8000+ products.\"\n- \"I have managed to work around adding all of the relevant details required for a legal Commercial Invoice except for adding HS CODES...\"\n- \"for international orders they need to print an invoice for customs processes of related countries. They can not print out the invoices on our Shopify admin.\"\n- \"Our Order json just shows an empty value for the 'duties'...\"\nCURRENT WORKAROUND: hacked Order Printer templates, bulk-editor workarounds, staff permission changes, custom scripts, or manual customs field entry.\nWHY WORKAROUND IS BAD: every missing field becomes repeated labor in a compliance-sensitive workflow, and small template mistakes can delay shipments or create customs issues.\nCOMPETITORS: Order Printer templates, Sufio, Matrixify, Ablestar, Mechanic/custom development.\nCOMPETITOR PRICING IF FINDABLE: most tools either focus on invoicing broadly or on bulk product editing; few are positioned as a narrow international-docs ops utility.\nWHY NOW: cross-border shipping complexity remains high while more small merchants rely on 3PLs and staff accounts to handle fulfillment.\nWEDGE: start with one job \u2014 render customs-ready international docs from Shopify order + product data, then make them printable by warehouse staff.\nVALIDATION ANGLE: pilot with stores shipping to EU/UK and track time saved per international order plus reduction in manual doc edits.\nFIRST TRAFFIC SOURCE: Shopify Community shipping threads and app-store terms around commercial invoice, HS code, and international order printer.\nRISK FLAGS: document requirements vary by destination/carrier; some merchants may already solve pieces with 3PL software.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API for orders/products/variants/metafields, duties/HS-related fields where available, theme/app printing surfaces, and PDF generation for commercial invoice / packing slip exports."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Cross-border paperwork is annoying, repeated, and tied directly to whether orders leave the warehouse cleanly. If a merchant ships internationally every week, shaving even a few minutes and reducing customs-risk friction is worth paying for."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "The low end is manual document editing and template hacking. The high end is buying broader invoicing or shipping software that does much more than the merchant needs. A narrow cross-border docs tool fits the gap cleanly."
         }
       ]
     }
