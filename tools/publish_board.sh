@@ -12,7 +12,7 @@ fi
 python3 tools/validate_projects.py
 
 if [[ -z "${1:-}" ]]; then
-  echo "Usage: tools/publish_board.sh "'"'commit message'"'"
+  echo "Usage: tools/publish_board.sh 'commit message'"
   exit 1
 fi
 

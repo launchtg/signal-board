@@ -2,7 +2,7 @@
   "meta": {
     "version": "v2.0",
     "label": "SIGNAL ENGINE",
-    "lastUpdated": "2026-05-29",
+    "lastUpdated": "2026-06-03",
     "stages": [
       {
         "id": "ideas",
@@ -570,6 +570,162 @@
         {
           "title": "Existing Bad Solutions",
           "text": "The low end is manual document editing and template hacking. The high end is buying broader invoicing or shipping software that does much more than the merchant needs. A narrow cross-border docs tool fits the gap cleanly."
+        }
+      ]
+    },
+    {
+      "id": "moqpilot",
+      "name": "MOQPilot",
+      "domain": "moqpilot.app",
+      "stage": "ideas",
+      "competition": "LOW-MEDIUM",
+      "topCompetitors": "Pasilobus Stock Control, FyreTrail, and broader ERP/inventory suites merchants discuss when Shopify POs fall short. The wedge is much narrower: surface vendor MOQ/case-pack rules and auto-round PO quantities inside the ordering workflow instead of making merchants buy a full stock-control stack.",
+      "pain": "Shopify merchants creating supplier purchase orders cannot see or enforce vendor MOQ and case-pack rules in the PO flow, so they round quantities by memory or spreadsheet and still send bad orders.",
+      "tags": [
+        {
+          "text": "Retail Ops",
+          "class": "market"
+        },
+        {
+          "text": "MOQ / Case Pack"
+        },
+        {
+          "text": "Shopify Purchase Orders",
+          "class": "api"
+        }
+      ],
+      "score": "8.9/10",
+      "scorePercent": 89,
+      "mvpTime": "~3 days MVP",
+      "pricing": "$29-79/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Buyer opens a Shopify purchase order, checks vendor rules in a spreadsheet or in their head, manually rounds line quantities to supplier minimums or pack sizes, then double-checks the PO before sending because Shopify does not warn them when a quantity breaks the supplier's ordering rules."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This repeats on every replenishment cycle. MOQ and pack-size mistakes are easy to make, especially when stock is low and the buyer is trying to order quickly. One wrong quantity means supplier back-and-forth, PO edits, or under-ordering the exact item that was supposed to prevent a stockout."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: MOQPilot\nONE-LINE OPPORTUNITY: A Shopify purchasing utility that stores vendor MOQ/case-pack rules and auto-rounds PO quantities correctly.\nTARGET BUYER: Shopify merchants with repeat supplier orders, especially stores buying in cases, inner packs, or fixed supplier minimums.\nEXACT PAINFUL WORKFLOW: create PO -> look up vendor MOQ/case-pack rules somewhere else -> mentally round quantities -> send PO -> discover the supplier won't accept the quantity or the buyer under-ordered.\nWHY IT RECURS: Every supplier reorder repeats it, especially for stores with many SKUs and non-1:1 reorder quantities.\nDIRECT EVIDENCE LINKS:\n1) How can I view vendor minimum order quantities when creating purchase orders? \u2014 https://community.shopify.com/t/how-can-i-view-vendor-minimum-order-quantities-when-creating-purchase-orders/220677\n2) Need for Product MOQ's for Purchase Orders \u2014 https://community.shopify.com/t/need-for-product-moqs-for-purchase-orders/402842\n3) Replacement to Stocky? \u2014 https://community.shopify.com/t/replacement-to-stocky/587141\n4) Streamline Purchase Orders \u2014 Auto-fill from Catalog & Add to PO at Product Creation \u2014 https://community.shopify.com/t/streamline-purchase-orders-auto-fill-from-catalog-add-to-po-at-product-creation/615592\nQUOTED / SOURCE EXCERPTS:\n- \"When i am creating a PO, i need to see the minimum order quantity (MOQ) required by the Vendor when i am adding products.\"\n- \"Most Vendors have an MOQ and it is important to know what it is when ordering.\"\n- \"The supplier may require me to order in 6 units at a time.\"\n- \"There needs to be a field when editing a product for MOQ (Minimum Order Quantity).\"\n- \"there\u2019s no 'fill shelves', order based on last X days sales or other auto purchase order creation options\"\n- \"allow me to search and add existing products/variants from my catalog by vendor \u2014 automatically pulling in SKU and unit cost \u2014 so I only need to enter quantities.\"\nCURRENT WORKAROUND: spreadsheets, tribal knowledge, and broader stock-control suites.\nWHY WORKAROUND IS BAD: the rule lives outside the PO, so the buyer still has to remember or cross-check it on every order.\nWEDGE: own supplier ordering rules only \u2014 MOQ, case pack, and quantity rounding \u2014 without trying to replace the full purchasing stack.\nVALIDATION ANGLE: recruit merchants from these PO threads and offer a pilot that prevents invalid reorder quantities in live buying cycles.\nFIRST TRAFFIC SOURCE: Shopify Community PO threads plus Stocky-replacement search intent.\nRISK FLAGS: some merchants will prefer broader inventory suites; Shopify PO surface limitations may constrain how native the workflow can feel.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API / GraphQL for products, variants, vendors/suppliers, metafields, and PO-adjacent admin context; optional CSV import for bulk MOQ/case-pack rules."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "It removes a repeated purchasing mistake that directly affects in-stock levels and supplier friction. Merchants will pay to stop sending invalid quantities and to shorten the reorder decision loop for buyers."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Today the low end is spreadsheets and memory; the high end is paying for a bigger ERP or stock-control suite mainly to regain one missing PO behavior. That gap supports a sharp utility product."
+        }
+      ]
+    },
+    {
+      "id": "adjustlog",
+      "name": "AdjustLog",
+      "domain": "adjustlog.app",
+      "stage": "ideas",
+      "competition": "LOW-MEDIUM",
+      "topCompetitors": "Inventory History Guardian, spreadsheets, Slack notes, and broader ERP audit-trail tooling. The wedge is not generic inventory history; it is forcing clean reason capture and exportable accountability around manual Shopify inventory adjustments.",
+      "pain": "Teams making manual Shopify inventory adjustments keep losing the reason behind the change, so audit trails end up scattered across spreadsheets, Slack, or nowhere at all.",
+      "tags": [
+        {
+          "text": "Retail Ops",
+          "class": "market"
+        },
+        {
+          "text": "Inventory Audit"
+        },
+        {
+          "text": "Shopify Admin",
+          "class": "api"
+        }
+      ],
+      "score": "8.8/10",
+      "scorePercent": 88,
+      "mvpTime": "~2-3 days MVP",
+      "pricing": "$19-59/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Staff manually adjusts stock in Shopify, then explains the change somewhere else \u2014 maybe Slack, maybe a spreadsheet, maybe not at all. Later, finance, ops, or compliance asks why the quantity changed and nobody can reconstruct the reason cleanly."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This is recurring operational hygiene, not a rare edge case. Every damaged item, recount, warehouse move, return discrepancy, or correction creates another adjustment. The pain compounds because the explanation is most valuable at the moment of change, but Shopify's native workflow does not reliably preserve it where teams need it later."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: AdjustLog\nONE-LINE OPPORTUNITY: A Shopify inventory-adjustment audit layer with required reason codes, notes, user accountability, and export.\nTARGET BUYER: Shopify merchants with physical inventory, multiple staff, regulated categories, or anyone who needs clean inventory audit trails for tax, safety, or operational review.\nEXACT PAINFUL WORKFLOW: manual stock adjustment happens -> reason gets typed into Slack/spreadsheet or not recorded -> later someone asks why stock changed -> team cannot prove or reconstruct it cleanly.\nWHY IT RECURS: Every manual correction, stock write-off, warehouse move, recount, and discrepancy creates the same documentation problem.\nDIRECT EVIDENCE LINKS:\n1) Inventory Control - recording adjustments for legal and tax purposes \u2014 https://community.shopify.com/t/inventory-control-recording-adjustments-for-legal-and-tax-purposes/592447\n2) How are you tracking the reason behind manual inventory adjustments? \u2014 https://community.shopify.com/t/how-are-you-tracking-the-reason-behind-manual-inventory-adjustments/614586\n3) Inventory adjustment history with comments and CSV export \u2014 https://community.shopify.com/t/inventory-adjustment-history-with-comments-and-csv-export/585527\nQUOTED / SOURCE EXCERPTS:\n- \"the 'upgraded' Shopify interface does not have a facility to record the Reason for a manual stock adjustment\"\n- \"This is a real problem, especially for businesses that need an audit trail for tax or safety reasons.\"\n- \"stock gets adjusted manually, but later nobody remembers 'why' it changed or where the explanation lives. Sometimes it is in Slack, sometimes a spreadsheet, sometimes nowhere.\"\n- \"there\u2019s no way to add a comment or reason explaining why the adjustment was made\"\n- \"the inventory history is quite limited\"\nCURRENT WORKAROUND: spreadsheets, Slack, ad hoc notes, and occasional CSV exports.\nWHY WORKAROUND IS BAD: the evidence is fragmented, easy to lose, and not tied tightly enough to the adjustment event or responsible user.\nWEDGE: make reasons mandatory and exportable at adjustment time, with lightweight codes/notes/approvals instead of a full ERP.\nVALIDATION ANGLE: install for stores with multiple warehouse/admin users and measure time saved during reconciliations and month-end review.\nFIRST TRAFFIC SOURCE: Shopify Community inventory-adjustment threads and app-store search intent around audit history / stock adjustment notes.\nRISK FLAGS: a named competitor already exists; differentiation must come from cleaner workflows like required reasons, approvals, and compliance-friendly exports.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API / GraphQL for inventory levels, products/variants, user/app attribution where available, and app-side storage/export of reason codes, notes, and history."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "This pain touches tax, shrinkage, finance, and team accountability. A cheap app that makes manual adjustments explainable is easier to justify than lost time during reconciliations or failed audit trails."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "The low end is spreadsheets and chat messages. The middle is partial Shopify history without enough context. The high end is moving the whole problem into a larger ERP just to get basic adjustment accountability."
+        }
+      ]
+    },
+    {
+      "id": "scanreceive",
+      "name": "ScanReceive",
+      "domain": "scanreceive.app",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "SKUSavvy / StockSavvy, FyreTrail, and broader WMS/ERP mobile receiving tools. The wedge is smaller: mobile barcode receiving and quick stock counting for Shopify teams that need handheld speed without a full warehouse system.",
+      "pain": "Shopify stores receiving inventory daily still struggle to scan products into stock with phones or handheld scanners, so receiving and stock counts stay manual, desktop-bound, or split across awkward apps.",
+      "tags": [
+        {
+          "text": "Retail Ops",
+          "class": "market"
+        },
+        {
+          "text": "Mobile Receiving"
+        },
+        {
+          "text": "Barcode Scanning",
+          "class": "api"
+        }
+      ],
+      "score": "8.7/10",
+      "scorePercent": 87,
+      "mvpTime": "~3-4 days MVP",
+      "pricing": "$29-99/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Inventory arrives, staff receives it on a desktop workflow or in a clunky app, then separately runs stocktakes or corrections because mobile scanning is missing, buried, or incompatible with the scanners they actually want to use on the floor."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This recurs every day in stores receiving physical goods. The person touching the cartons wants to scan right there \u2014 not walk back to a desktop, not force a USB scanner workflow, and not fake it with spreadsheets until later. Slow receiving and delayed counts create the exact inventory drift merchants are already complaining about."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: ScanReceive\nONE-LINE OPPORTUNITY: A mobile-first Shopify receiving/counting utility for phones and handheld scanners that lets staff scan stock directly into inventory.\nTARGET BUYER: Shopify retail and hybrid merchants receiving inventory frequently, especially teams using POS Pro, Stocky replacements, or handheld Android scanners.\nEXACT PAINFUL WORKFLOW: delivery arrives -> staff wants to scan items into stock immediately -> native/legacy workflow is desktop-bound, hidden, or hardware-limited -> counts get delayed or handled manually -> inventory accuracy drifts.\nWHY IT RECURS: Every delivery, transfer, and quick stock count repeats it.\nDIRECT EVIDENCE LINKS:\n1) Add Quick Count as a Smart Grid tile option \u2014 https://community.shopify.com/t/add-quick-count-as-a-smart-grid-tile-option/582064\n2) Why can't I access Stocky from the app for inventory control? \u2014 https://community.shopify.com/t/why-cant-i-access-stocky-from-the-app-for-inventory-control/246288\n3) Scanning Products into Stock on Delivery \u2014 https://community.shopify.com/t/scanning-products-into-stock-on-delivery/418589\n4) Replacement to Stocky? \u2014 https://community.shopify.com/t/replacement-to-stocky/587141\nQUOTED / SOURCE EXCERPTS:\n- \"We receive inventory daily. We need a fast way to scan barcodes and add stock directly from the POS app.\"\n- \"The 'Quick Count' extension is exactly what we need... However, it's only accessible from a product details page\"\n- \"my barcode scanner is not working and i need to do stocktakes for inventory control and i would like to do it with the phone camera\"\n- \"we process them manually once the order is received. This is very time-consuming.\"\n- \"We would like to use the Zebra TC21/TC26 scanner... to be able to scan the delivery into stock at the moment it arrives.\"\n- \"you have to use suppliers not vendors, there\u2019s no 'fill shelves'... or other auto purchase order creation options\"\nCURRENT WORKAROUND: desktop Stocky flows, hidden Quick Count entry points, phone-camera hacks, USB-only scanners, or jumping to broader WMS tools.\nWHY WORKAROUND IS BAD: it adds friction exactly where warehouse speed matters and pushes small teams into software far heavier than the one job they need done.\nWEDGE: do one thing well \u2014 receive and count stock fast on mobile hardware that merchants already carry.\nVALIDATION ANGLE: pilot with daily-receiving stores using POS Pro or Stocky replacements; measure receiving speed and discrepancy reduction.\nFIRST TRAFFIC SOURCE: Shopify Community threads on Quick Count, Stocky mobile gaps, and barcode receiving hardware.\nRISK FLAGS: competition exists in broader WMS tools; differentiation depends on lower setup burden and cleaner Shopify-native receiving flow.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API / GraphQL for inventory levels, products, locations, transfers/receiving context where available, plus mobile camera / handheld barcode input on the client side."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Receiving is repetitive frontline labor. If a store can shave minutes off every delivery and tighten stock accuracy without buying a full WMS, the monthly spend is easy to rationalize."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Today the low end is manual receiving and delayed counts; the high end is paying for a full stock-control or warehouse suite. A focused mobile scanning layer fits the gap for smaller Shopify operations."
         }
       ]
     }
