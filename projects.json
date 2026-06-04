@@ -2,7 +2,7 @@
   "meta": {
     "version": "v2.0",
     "label": "SIGNAL ENGINE",
-    "lastUpdated": "2026-06-03",
+    "lastUpdated": "2026-06-04",
     "stages": [
       {
         "id": "ideas",
@@ -726,6 +726,162 @@
         {
           "title": "Existing Bad Solutions",
           "text": "Today the low end is manual receiving and delayed counts; the high end is paying for a full stock-control or warehouse suite. A focused mobile scanning layer fits the gap for smaller Shopify operations."
+        }
+      ]
+    },
+    {
+      "id": "statementflow",
+      "name": "StatementFlow",
+      "domain": "statementflow.app",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Sufio, Shopify B2B invoicing apps, accounting-system workarounds like Sage/QuickBooks/Xero, and custom draft-order/payment-link processes. The wedge is narrower: send clean end-of-month statements for open invoices and let customers settle multiple invoices without leaving the Shopify workflow.",
+      "pain": "Shopify merchants extending trade credit still cannot send clean monthly customer statements or let buyers settle multiple open invoices easily, so A/R teams stitch together invoices manually from Shopify plus outside accounting tools.",
+      "tags": [
+        {
+          "text": "B2B Commerce",
+          "class": "market"
+        },
+        {
+          "text": "Monthly Statements"
+        },
+        {
+          "text": "Shopify + A/R",
+          "class": "api"
+        }
+      ],
+      "score": "8.9/10",
+      "scorePercent": 89,
+      "mvpTime": "~3-4 days MVP",
+      "pricing": "$29-99/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Merchant sells on account or net terms, sends individual invoices through Shopify or an invoicing app, then at month-end has to summarize open invoices in Sage/QuickBooks/spreadsheets or manually build a statement email because Shopify does not natively produce a clean account statement flow for business customers."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This recurs every month for every trade customer. It also resurfaces whenever a buyer wants to pay several invoices at once or make partial payments. The pain is classic boring back-office work: repetitive, customer-visible, and easy to make look amateurish when finance and commerce data are split across systems."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: StatementFlow\nONE-LINE OPPORTUNITY: A Shopify B2B utility that sends polished monthly account statements for open invoices and makes multi-invoice collection cleaner.\nTARGET BUYER: Shopify merchants selling on account, especially wholesalers, trade suppliers, and local B2B stores carrying customer balances.\nEXACT PAINFUL WORKFLOW: create/send invoices -> customer balance grows across several orders -> month-end arrives -> staff manually summarize open invoices from Shopify plus outside accounting tool -> email an amateur-looking statement or answer balance questions manually.\nWHY IT RECURS: Every month, every account customer, same reconciliation + communication problem.\nDIRECT EVIDENCE LINKS:\n1) How can I create professional monthly customer statements? \u2014 https://community.shopify.com/t/how-can-i-create-professional-monthly-customer-statements/26227\n2) How can I send monthly statements from Shopify? \u2014 https://community.shopify.com/t/how-can-i-send-monthly-statements-from-shopify/43641\n3) How can I manage customer accounts and multiple invoices in Shopify? \u2014 https://community.shopify.com/t/how-can-i-manage-customer-accounts-and-multiple-invoices-in-shopify/301139\nQUOTED / SOURCE EXCERPTS:\n- \"I need to be able to send some of my business customers monthly statements, indicating how many invoices they have open and how much they owe on account.\"\n- \"Now I need to be able to summarise all these invoices in one statement. Should be pretty standard business procedure.\"\n- \"I want to be able to do it all from shopify so I am looking for an app that will allow me to send end of month account statements to customers detailing outstanding invoices.\"\n- \"I\u2019m also trying to find the same, and have been unsuccessful.\"\n- \"It doesn\u2019t seem Shopify has the function to pay multiple invoices at a time or manage customer accounts. (Send monthly statements and make partial payments)\"\nCURRENT WORKAROUND: use Sage/QuickBooks/Xero for statements, manual spreadsheets, one-off email summaries, or forcing customers to deal with invoices one by one.\nWHY WORKAROUND IS BAD: split systems, duplicated reconciliation work, ugly customer communication, and slower collections.\nCOMPETITORS: Sufio, B2B invoicing apps, accounting suites, custom draft-order flows.\nCOMPETITOR PRICING IF FINDABLE: most alternatives bundle statements into broader invoicing/accounting workflows; merchants often adopt a much larger system than they need just to get one clean monthly statement behavior.\nWHY NOW: Shopify B2B is growing, but core trade-account workflows are still underbuilt.\nWEDGE: do one unglamorous but valuable job well \u2014 generate and send clean monthly statements tied to Shopify account balances, with optional pay-multiple-invoices flow.\nVALIDATION ANGLE: install for 5 wholesalers or local trade stores and measure manual statement time removed plus faster collections.\nFIRST TRAFFIC SOURCE: direct outreach to posters in Shopify Community threads and searches around Shopify monthly statements / outstanding invoices / trade account statements.\nRISK FLAGS: some merchants are already anchored to accounting systems; payment-link behavior may need careful Shopify compatibility decisions.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API for customers, companies, draft orders, orders, payment status, and metafields; PDF/email generation; optional hosted payment page for settling multiple open balances."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "This sits directly on cash collection and customer professionalism. If it removes a monthly admin task and gets trade customers a clean statement they can actually act on, the ROI is immediate for even modest B2B volume."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Today the low end is spreadsheets and stitched emails; the middle is using Sage/QuickBooks just for statements while transactions still live in Shopify; the high end is buying broader B2B/invoicing suites. That leaves room for a narrow Shopify-native A/R utility."
+        }
+      ]
+    },
+    {
+      "id": "expiryflow",
+      "name": "ExpiryFlow",
+      "domain": "expiryflow.app",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Spreadsheets, metafield hacks, Flow recipes, stock-control suites, and perishable-focused inventory tools outside Shopify. The wedge is not full WMS batch control; it is lightweight expiry-date tracking, alerts, and pre-expiry action for Shopify merchants already trying to force this through metafields.",
+      "pain": "Shopify merchants selling perishables still track batch expiry dates manually in metafields or spreadsheets, so they miss alerts, lose stock to expiration, and struggle to act before inventory goes bad.",
+      "tags": [
+        {
+          "text": "Retail Ops",
+          "class": "market"
+        },
+        {
+          "text": "Expiry Tracking"
+        },
+        {
+          "text": "Shopify Flow + Metafields",
+          "class": "api"
+        }
+      ],
+      "score": "8.7/10",
+      "scorePercent": 87,
+      "mvpTime": "~3 days MVP",
+      "pricing": "$29-79/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Merchant receives a fresh batch, manually updates an expiry date in product metafields or a spreadsheet, then tries to remember when to alert staff, discount expiring stock, or remove items before they become unsellable."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This repeats on every inbound batch for food, beverages, supplements, cosmetics, and similar products. The pain is not just storing a date \u2014 it is triggering the right action before a loss happens. Manual date upkeep breaks easily, and Shopify\u2019s native tools do not cleanly turn expiry data into operational workflows."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: ExpiryFlow\nONE-LINE OPPORTUNITY: A lightweight Shopify app for tracking product/batch expiry dates, sending pre-expiry alerts, and triggering simple sell-through actions before stock becomes loss.\nTARGET BUYER: Shopify merchants selling perishable or shelf-life-sensitive goods.\nEXACT PAINFUL WORKFLOW: receive new batch -> manually update expiry date in metafield/spreadsheet -> try to remember or automate an alert -> discount or remove inventory too late -> absorb waste or scramble.\nWHY IT RECURS: Every new batch introduces another expiry clock.\nDIRECT EVIDENCE LINKS:\n1) How can I track product expiry dates using Meta Fields? \u2014 https://community.shopify.com/t/how-can-i-track-product-expiry-dates-using-meta-fields/260505\n2) Inventory Management for Perishables - How Are You Handling It? \u2014 https://community.shopify.com/t/inventory-management-for-perishables-how-are-you-handling-it/578662\n3) Can I use metafields to track batch dates and quantities? \u2014 https://community.shopify.com/t/can-i-use-metafields-to-track-batch-dates-and-quantities/104988\nQUOTED / SOURCE EXCERPTS:\n- \"Each time we receive a new batch of stock, the product\u2019s expiration date is manually updated in the product\u2019s Meta Fields.\"\n- \"I want to use the Shopify Flow to keep track of these dates and send a notification to email as soon as a product reaches 10 days before the specified date.\"\n- \"How do you currently track which batch/lot products came from?\"\n- \"How do you manage expiration dates across your inventory?\"\n- \"Have you ever had products expire before selling? How much does that cost you monthly?\"\n- \"Stocky does not have batch tracking.\"\n- \"For simple cases stores using metafield for tracking date.\"\n- \"I am thinking about using metafields to track my batch dates and quantities, along with an expiry date.\"\nCURRENT WORKAROUND: product metafields, spreadsheets, generic reminders, and broader inventory tools.\nWHY WORKAROUND IS BAD: expiry data becomes passive storage instead of an active operational system, which means more spoilage, rushed discounting, and preventable manual checking.\nCOMPETITORS: perishable inventory suites, stock-control apps, spreadsheet templates, and custom Flow hacks.\nCOMPETITOR PRICING IF FINDABLE: strong alternatives often sit inside broader inventory systems, which is too much overhead for merchants who mainly need expiry awareness and simple actioning.\nWHY NOW: Stocky gaps are clearer, Shopify merchants are discussing perishables explicitly, and many want smaller admin-layer tools instead of another full inventory platform.\nWEDGE: start with one tight loop \u2014 capture expiry date, alert before threshold, and support simple downstream actions like tagging, email, or markdown workflows.\nVALIDATION ANGLE: onboard 5 food/supplement/cosmetics merchants and measure expired-inventory reduction or time saved on manual checking.\nFIRST TRAFFIC SOURCE: Shopify Community perishables / expiry threads and app-store searches around expiry date, shelf life, and batch tracking.\nRISK FLAGS: deeper FEFO or lot-level inventory may expand scope fast; some merchants may ultimately need a real WMS.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API / GraphQL for products, variants, inventory, tags, discounts, and metafields; scheduled jobs; Shopify Flow integration points for alerting and simple automation."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Spoilage is direct margin loss. A small tool that helps merchants notice expiring stock sooner and take simple action before it dies can pay for itself with one avoided waste event."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "The low end is spreadsheets and manual metafield updates; the middle is improvised Flow recipes; the high end is adopting a perishable inventory suite. There is room for a focused expiry-ops layer in between."
+        }
+      ]
+    },
+    {
+      "id": "lotproof",
+      "name": "LotProof",
+      "domain": "lotproof.app",
+      "stage": "ideas",
+      "competition": "LOW-MEDIUM",
+      "topCompetitors": "Custom development, generic traceability/ERP systems, spreadsheet logs, and app-store tools that partially cover lot storage but not fulfillment-to-customer proof. The wedge is very specific: capture lot number during fulfillment, attach it to the order/customer, expose it on invoices/emails, and optionally let customers retrieve certificates.",
+      "pain": "Merchants selling regulated or quality-sensitive products cannot easily attach scanned lot numbers to the exact Shopify order and customer after fulfillment, so recall traceability, invoice proof, and certificate lookup turn into custom projects or manual logs.",
+      "tags": [
+        {
+          "text": "Traceability",
+          "class": "market"
+        },
+        {
+          "text": "Lot / Recall"
+        },
+        {
+          "text": "Shopify Fulfillment",
+          "class": "api"
+        }
+      ],
+      "score": "8.8/10",
+      "scorePercent": 88,
+      "mvpTime": "~4 days MVP",
+      "pricing": "$49-149/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Warehouse staff scan or note a product\u2019s lot number during fulfillment, then the business tries to push that lot into invoices, customer profiles, or off-platform records manually because Shopify does not natively bind lot-level fulfillment proof to the order/customer lifecycle."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This recurs on every shipment for medical, grocery, supplements, cosmetics, and other traceability-sensitive products. The pain compounds later: when a customer asks for quality certificates or a batch must be recalled, the merchant needs fast proof of which lot went to which buyer."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: LotProof\nONE-LINE OPPORTUNITY: A Shopify traceability utility that captures lot numbers at fulfillment, stores them against the order/customer, and surfaces them on invoices, emails, and certificate lookup pages.\nTARGET BUYER: Shopify merchants in regulated or quality-sensitive categories that need post-fulfillment traceability.\nEXACT PAINFUL WORKFLOW: warehouse scans item QR/lot -> order ships -> business needs lot on invoice/customer record or needs to prove product provenance later -> no clean native flow exists -> team relies on custom development or manual records.\nWHY IT RECURS: Every fulfilled order in a traceability-sensitive category repeats it.\nDIRECT EVIDENCE LINKS:\n1) How can I add LOT numbers to customer invoices and profiles? \u2014 https://community.shopify.com/t/how-can-i-add-lot-numbers-to-customer-invoices-and-profiles/168230/1\n2) Is there an app for lot number tracking in online stores? \u2014 https://community.shopify.com/t/is-there-an-app-for-lot-number-tracking-in-online-stores/103229\n3) Can customers track product quality with a lot number app? \u2014 https://community.shopify.com/t/can-customers-track-product-quality-with-a-lot-number-app/50601\nQUOTED / SOURCE EXCERPTS:\n- \"our medical devices have a so called LOT Number, this number is unique.\"\n- \"Warehouse starts fulfillment by scanning each item of the order via QR code, in the QR Code also the LOT number is available.\"\n- \"LOT Information goes to the customer invoice and sent out by email to customers email address.\"\n- \"LOT Numbers are as well saved within customers profile in shopify.\"\n- \"Is there any app on shopify store ?\"\n- \"I sell a grocery product and I wonder if is there an app where the customers can put a lot number and download some certificates.\"\n- \"I want to give the ability to customers to trace the product production methods and quality.\"\nCURRENT WORKAROUND: custom development, manual logs, metafields, or no reliable lot-to-customer traceability at all.\nWHY WORKAROUND IS BAD: the evidence chain breaks exactly where recall, compliance, warranty, or quality proof matters most.\nCOMPETITORS: custom ERP/traceability systems, manual spreadsheets, partial lot apps, and bespoke scanner integrations.\nCOMPETITOR PRICING IF FINDABLE: serious traceability tools are often far broader and more expensive than a Shopify merchant needs if the missing job is simply tying lot data to fulfilled orders and customer proof.\nWHY NOW: regulated DTC categories keep growing, and merchants still ask for lot traceability in core Shopify workflows rather than standalone back-office systems.\nWEDGE: own the narrow but painful proof layer from warehouse scan -> order/customer record -> invoice/email/certificate lookup.\nVALIDATION ANGLE: pilot with 3-5 merchants in supplements, grocery, or devices and measure time-to-trace for a mock recall or customer certificate request.\nFIRST TRAFFIC SOURCE: Shopify Community lot-number threads, regulated-category merchants, and app-store search intent around lot tracking / recall / traceability.\nRISK FLAGS: scanner workflow integration can create edge cases; some buyers will eventually want deeper batch inventory controls.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API / GraphQL for orders, customers, fulfillment events, metafields, and documents; QR/barcode scan capture via mobile/web app; optional hosted certificate lookup page."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "When lot proof matters, it matters a lot: recalls, customer trust, compliance, and support speed. A focused traceability layer is easier to justify than either losing proof or buying a full ERP."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "The low end is spreadsheets and warehouse notes; the middle is custom metafield plumbing; the high end is implementing a much larger traceability system. A narrow Shopify-native proof tool fits the gap cleanly."
         }
       ]
     }
