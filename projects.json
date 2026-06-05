@@ -2,7 +2,7 @@
   "meta": {
     "version": "v2.0",
     "label": "SIGNAL ENGINE",
-    "lastUpdated": "2026-06-04",
+    "lastUpdated": "2026-06-05",
     "stages": [
       {
         "id": "ideas",
@@ -882,6 +882,162 @@
         {
           "title": "Existing Bad Solutions",
           "text": "The low end is spreadsheets and warehouse notes; the middle is custom metafield plumbing; the high end is implementing a much larger traceability system. A narrow Shopify-native proof tool fits the gap cleanly."
+        }
+      ]
+    },
+    {
+      "id": "balancecollect",
+      "name": "BalanceCollect",
+      "domain": "balancecollect.app",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Pre-order/deposit apps like Kaktus and STOQ, partial-payment apps, draft-order workarounds, and manual invoice/payment-link chasing. The wedge is narrower: collect the remaining balance cleanly on Shopify special orders, deposits, and pre-orders without turning the merchant into a manual collections clerk.",
+      "pain": "Merchants taking deposits for pre-orders, custom orders, and special orders still struggle to collect the final balance cleanly, so staff manually chase second payments and fulfillment gets blocked by awkward partial-payment workflows.",
+      "tags": [
+        {
+          "text": "B2B / Custom Orders",
+          "class": "market"
+        },
+        {
+          "text": "Deposits + Final Balance"
+        },
+        {
+          "text": "Draft Orders + Payments",
+          "class": "api"
+        }
+      ],
+      "score": "8.8/10",
+      "scorePercent": 88,
+      "mvpTime": "~3 days MVP",
+      "pricing": "$29-89/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Merchant takes a deposit on a pre-order, custom order, or draft order, waits days or weeks while the item is built or arrives, then has to manually contact the customer for the second payment, send a new invoice or payment link, and hold fulfillment until the balance is finally settled."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This recurs every time a merchant sells high-ticket or delayed-fulfillment items with deposits. The pain is not taking the first payment; it is turning the remaining balance into a clean, trackable, customer-friendly step instead of a manual follow-up mess that delays fulfillment and creates reporting confusion."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: BalanceCollect\nONE-LINE OPPORTUNITY: A Shopify utility that automates final-balance collection after a deposit or partial payment for custom orders, pre-orders, and draft orders.\nTARGET BUYER: Shopify merchants selling furniture, custom products, collectibles, pre-orders, or special-order inventory where deposits are common.\nEXACT PAINFUL WORKFLOW: take 30-50% deposit -> wait for stock/build date -> manually request remaining balance -> customer pays through a separate invoice/payment link -> merchant checks payment manually before fulfillment.\nWHY IT RECURS: Every deposit-based order repeats the same second-payment chase.\nDIRECT EVIDENCE LINKS:\n1) Pending & Partial Payments - Issue Fulfilling Orders with Partial Payments \u2014 https://community.shopify.com/t/pending-partial-payments-issue-fulfilling-orders-with-partial-payments/107224\n2) Deposits or partial payments on Draft Orders \u2014 https://community.shopify.com/t/deposits-or-partial-payments-on-draft-orders/278124\n3) How to Collect Remaining Payment for Pre-Orders with Kaktus Preorder App \u2014 https://community.shopify.com/t/how-to-collect-remaining-payment-for-pre-orders-with-kaktus-preorder-app/325934\n4) Accept Partial Payments on Draft Orders or Manual Orders \u2014 https://community.shopify.com/t/accept-partial-payments-on-draft-orders-or-manual-orders/10500\n5) How to handle partial payments & reporting in Shopify \u2014 https://community.shopify.com/t/how-to-handle-partial-payments-reporting-in-shopify/70045\nQUOTED / SOURCE EXCERPTS:\n- \"ISSUE COLLECTING FINAL PARTIAL PAYMENT\" for pre-order and special-order items like custom sofas and furniture pieces.\n- Merchants ask for \"deposits or partial payments on Draft Orders\" because Shopify still makes the second-payment flow awkward.\n- Merchants using pre-order apps still ask how to \"collect remaining payment\" later instead of handling the whole workflow natively.\n- Another merchant notes they use Shopify partial payments for deposits, but when the customer returns to pay the next installment or final balance, the process becomes messy enough to need extra reporting work.\nCURRENT WORKAROUND: draft orders, payment links, invoice apps, preorder apps, spreadsheets, or manual email chasing.\nWHY WORKAROUND IS BAD: merchants lose time, fulfillment waits on manual checks, reporting gets messy, and customers get a fragmented payment experience.\nCOMPETITORS: Kaktus, STOQ, partial-payment apps, invoice apps, manual draft-order workflows.\nCOMPETITOR PRICING IF FINDABLE: pricing usually bundles deposit capture into broader preorder or invoicing products rather than solving the second-payment step as a focused workflow.\nWHY NOW: more Shopify merchants use preorder/custom-order flows, but the final-balance collection step is still awkward in core.\nWEDGE: own one painful step only \u2014 trigger and collect the remaining balance on time, then unlock fulfillment automatically.\nVALIDATION ANGLE: recruit merchants already complaining about deposits and final payment collection; measure reduced manual follow-up and faster fulfillment release.\nFIRST TRAFFIC SOURCE: Shopify Community deposit/partial-payment threads and app-store searches around preorder deposit and partial payment.\nRISK FLAGS: some merchants may tolerate broad preorder apps; payment edge cases vary by gateway and in-person vs online flows.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API for draft orders, orders, payment status, customer messaging, and tags/metafields; hosted payment links or invoice endpoints; optional Flow triggers to release fulfillment once balance is paid."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "This sits directly on cash collection and fulfillment throughput. If a merchant takes deposits every week, a small tool that collects the balance automatically and removes manual chasing can pay for itself quickly."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Today merchants piece this together with preorder apps, draft orders, invoice links, spreadsheets, or one-off manual reminders. The low end is clunky and error-prone; the high end bundles the workflow inside broader apps that still do not make second-payment collection feel native."
+        }
+      ]
+    },
+    {
+      "id": "stockfence",
+      "name": "StockFence",
+      "domain": "stockfence.app",
+      "stage": "ideas",
+      "competition": "LOW-MEDIUM",
+      "topCompetitors": "Shopify Plus B2B catalogs/locations, location hacks, ERP syncs, and custom allocation logic. The wedge is narrower: reserve and segment inventory between wholesale, retail, or tagged customer groups without forcing merchants into Plus or ERP complexity.",
+      "pain": "Merchants selling to both wholesale and retail customers cannot cleanly reserve inventory for the right customer group, so they fake allocation with locations, spreadsheets, or manual order triage and still oversell the wrong stock.",
+      "tags": [
+        {
+          "text": "B2B Commerce",
+          "class": "market"
+        },
+        {
+          "text": "Inventory Allocation"
+        },
+        {
+          "text": "Customer Tags + Locations",
+          "class": "api"
+        }
+      ],
+      "score": "8.9/10",
+      "scorePercent": 89,
+      "mvpTime": "~3-4 days MVP",
+      "pricing": "$39-99/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Merchant holds back inventory mentally or in a spreadsheet for wholesale accounts, then when orders arrive uses customer tags, locations, or manual intervention to decide which orders should consume which stock pool. If the wrong channel buys first, the reserved stock disappears."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This pain repeats every buying cycle for merchants serving both wholesale and retail from the same catalog. The problem is not generic inventory tracking; it is inventory entitlement \u2014 deciding which customer segment should be allowed to touch which stock without buying Shopify Plus or standing up an ERP."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: StockFence\nONE-LINE OPPORTUNITY: A Shopify inventory-reservation layer that earmarks stock for wholesale, retail, or tagged customer groups.\nTARGET BUYER: Shopify merchants running mixed wholesale + retail catalogs, gated B2B programs, or customer-specific stock pools.\nEXACT PAINFUL WORKFLOW: receive shared inventory -> reserve part for wholesale or preferred customers -> retail orders arrive first -> merchant manually reroutes stock using locations/tags/spreadsheets -> someone still gets oversold or shorted.\nWHY IT RECURS: Every replenishment cycle and every shared-SKU order repeats the same allocation problem.\nDIRECT EVIDENCE LINKS:\n1) inventory allocation to various customers \u2014 https://community.shopify.com/t/inventory-allocation-to-various-customers/375720\n2) Allocate an order to a location based on customer tags \u2014 https://community.shopify.com/t/allocate-an-order-to-a-location-based-on-customer-tags/220982\n3) Available and On-Hand Inventory in a multi-website or ERP environment \u2014 https://community.shopify.com/t/available-and-on-hand-inventory-in-a-multi-website-or-erp-environment/222982\nQUOTED / SOURCE EXCERPTS:\n- A merchant asks how to \"allocate stock of the same product to my wholesale customers and retail customers\" because both groups buy from the same catalog on different cadences.\n- Another merchant explicitly wants to \"split stock for our products into two groups or locations\" so some stock is only available to wholesale customers, but says Shopify Plus is too expensive to justify for that one feature.\n- A third thread asks Shopify to improve \"Available and On-Hand Inventory in a multi-website or ERP environment,\" showing broader demand for segmented inventory logic across connected sales contexts.\nCURRENT WORKAROUND: extra locations, customer tags, spreadsheets, manual order review, or upgrading into broader enterprise tooling.\nWHY WORKAROUND IS BAD: inventory pools become opaque, staff have to remember rules manually, and the wrong channel can still consume reserved stock.\nCOMPETITORS: Shopify Plus B2B features, ERP connectors, custom location logic, and inventory suites.\nCOMPETITOR PRICING IF FINDABLE: the cleanest native answer often requires Shopify Plus or larger systems, making the cost disproportionate if the merchant mainly needs stock reservation by customer/channel.\nWHY NOW: more merchants are mixing wholesale and retail on one Shopify stack while trying to avoid enterprise overhead.\nWEDGE: reserve stock by tag/company/channel only \u2014 not a full ERP, just inventory fences and order-routing logic.\nVALIDATION ANGLE: pilot with merchants currently using location hacks or spreadsheets; measure reduced oversells and less manual order triage.\nFIRST TRAFFIC SOURCE: Shopify Community B2B allocation threads plus searches around reserve inventory, wholesale stock, and customer-tag fulfillment.\nRISK FLAGS: some workflows may require deeper fulfillment logic; Plus users may already have partial solutions.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API / GraphQL for orders, customers, companies, locations, inventory levels, and tags/metafields; optional order-routing logic and app-side reservation ledger."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "Overselling the wrong stock damages key customer relationships and creates operational fire drills. A focused reservation layer is much easier to justify than paying for Plus or an ERP just to protect a few inventory pools."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "The low end is spreadsheets and location hacks. The high end is enterprise-grade B2B or ERP software. There is room for a purpose-built middle layer that only handles inventory reservation and channel entitlement."
+        }
+      ]
+    },
+    {
+      "id": "freightquote",
+      "name": "FreightQuote",
+      "domain": "freightquote.app",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Manual draft-order email workflows, carrier portals, 3PL software, and broader B2B quote/invoice apps. The wedge is narrower: let bulky-goods merchants gather manual freight quotes, send a polished proforma, and convert that quote into a paid Shopify order without spreadsheet gymnastics.",
+      "pain": "Merchants selling large or bulky products still calculate shipping manually and email quotes before payment, so the path from carrier comparison to approved customer order is fragmented, slow, and easy to drop.",
+      "tags": [
+        {
+          "text": "B2B Commerce",
+          "class": "market"
+        },
+        {
+          "text": "Manual Freight Quotes"
+        },
+        {
+          "text": "Draft Orders + Shipping",
+          "class": "api"
+        }
+      ],
+      "score": "8.7/10",
+      "scorePercent": 87,
+      "mvpTime": "~4 days MVP",
+      "pricing": "$39-119/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Customer asks for a bulky or multi-item order, merchant compares shipping quotes manually across carriers, prepares a proforma or draft order off-platform or in Shopify, waits for customer approval, then separately chases payment and final order conversion."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This repeats for every order where real freight cost depends on pallet count, dimensions, or destination. The pain is not just shipping calculation; it is keeping the whole quote-to-payment workflow organized when shipping cannot be auto-rated cleanly at checkout."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: FreightQuote\nONE-LINE OPPORTUNITY: A Shopify quote-to-order workflow for merchants who must calculate freight or bulky-order shipping manually before charging customers.\nTARGET BUYER: Shopify merchants selling large, heavy, custom, or B2B orders where shipping is quoted manually.\nEXACT PAINFUL WORKFLOW: customer requests order -> merchant compares freight rates manually -> sends quote/proforma -> waits for approval -> collects payment separately -> converts to live order.\nWHY IT RECURS: Every heavy or custom shipment repeats the same manual shipping and approval loop.\nDIRECT EVIDENCE LINKS:\n1) Shipping cost calculated manually \u2014 https://community.shopify.com/t/shipping-cost-calculated-manually/348539\n2) Bypassing payments for B2B orders \u2014 https://community.shopify.com/t/bypassing-payments-for-b2b-orders/615119\n3) Hey I need to do manual shipping and we don't have a 3PL \u2014 https://community.shopify.com/t/hey-i-need-to-do-manual-shipping-and-we-dont-have-a-3pl/576278\nQUOTED / SOURCE EXCERPTS:\n- One merchant selling large heavy products says shipping costs vary by quantity and destination, so they manually compare multiple carriers and want a \"proforma\" order before collecting payment.\n- Another thread asks about \"bypassing payments for B2B orders,\" which points to the same need: let the order move through an approval or quotation step before checkout/payment.\n- A third merchant says, \"Hey I need to do manual shipping and we don't have a 3PL,\" showing that many teams still handle freight quoting as an operational workaround instead of a smooth Shopify workflow.\nCURRENT WORKAROUND: emails, spreadsheets, draft orders, manual carrier comparison, and separate payment collection after quote approval.\nWHY WORKAROUND IS BAD: quotes fall through cracks, shipping gets re-keyed, customers wait too long, and staff duplicate work across email, carrier tools, and Shopify.\nCOMPETITORS: quote/invoice apps, carrier portals, 3PL systems, and custom draft-order flows.\nCOMPETITOR PRICING IF FINDABLE: many existing tools either focus on checkout rating broadly or on B2B invoicing broadly rather than on the narrow manual-freight quote-to-order workflow.\nWHY NOW: more Shopify merchants run hybrid B2B/DTC catalogs with products too bulky or variable for standard live rates.\nWEDGE: own the manual-freight flow only \u2014 gather quote inputs, store carrier options, issue a polished quote/proforma, then convert to payment-ready order.\nVALIDATION ANGLE: recruit bulky-goods merchants already doing manual freight quotes and measure response time and quote-to-paid-order conversion.\nFIRST TRAFFIC SOURCE: Shopify Community threads about manual shipping, proforma orders, and B2B draft-order workflows.\nRISK FLAGS: some merchants may already live in 3PL systems; carrier-specific quoting complexity can expand scope.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API for draft orders, orders, customer/company records, and invoice/payment-link flows; optional carrier-quote ingestion or manual quote-entry forms; email/PDF quote delivery."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "For heavy goods sellers, every quote is a revenue opportunity and every delay loses deals. A streamlined quote-to-payment flow can pay for itself quickly if it saves staff time and closes just a few extra freight-quoted orders per month."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Today merchants stitch this together with emails, PDFs, draft orders, and carrier portals. Broader apps exist, but the exact problem \u2014 manual freight quote approval inside a Shopify order flow \u2014 is still handled awkwardly."
         }
       ]
     }
