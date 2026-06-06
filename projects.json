@@ -2,7 +2,7 @@
   "meta": {
     "version": "v2.0",
     "label": "SIGNAL ENGINE",
-    "lastUpdated": "2026-06-05",
+    "lastUpdated": "2026-06-06",
     "stages": [
       {
         "id": "ideas",
@@ -1038,6 +1038,162 @@
         {
           "title": "Existing Bad Solutions",
           "text": "Today merchants stitch this together with emails, PDFs, draft orders, and carrier portals. Broader apps exist, but the exact problem \u2014 manual freight quote approval inside a Shopify order flow \u2014 is still handled awkwardly."
+        }
+      ]
+    },
+    {
+      "id": "serialledger",
+      "name": "SerialLedger",
+      "domain": "serialledger.app",
+      "stage": "ideas",
+      "competition": "LOW-MEDIUM",
+      "topCompetitors": "Spreadsheets, order notes, warranty-registration apps, ERP/field-service suites, and custom serial-number tools outside Shopify. The wedge is Shopify-native capture + lookup: scan or enter serials at POS/fulfillment, bind them to the order/customer, then search by serial later.",
+      "pain": "Merchants selling serialized products still hack serial numbers into notes or separate systems because Shopify does not natively capture, print, and search serials cleanly across checkout, fulfillment, invoices, and customer history.",
+      "tags": [
+        {
+          "text": "Traceability",
+          "class": "market"
+        },
+        {
+          "text": "Serial Numbers"
+        },
+        {
+          "text": "POS + Orders",
+          "class": "api"
+        }
+      ],
+      "score": "8.9/10",
+      "scorePercent": 89,
+      "mvpTime": "~3-4 days MVP",
+      "pricing": "$29-99/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Merchant sells or fulfills a serialized item, types the serial into order notes or a separate spreadsheet, then later cannot reliably search which customer received that exact unit or include the serial on packing slips and invoices without more manual work."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This repeats on every sale of electronics, parts, warranty-sensitive goods, or controlled inventory. The pain is not just storage; it is capture at the right moment, lookup later, and keeping the serial tied to the right order and customer without brittle note-field hacks."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: SerialLedger\nONE-LINE OPPORTUNITY: A Shopify serial-number capture and lookup layer that binds each sold unit to the exact order and customer.\nTARGET BUYER: Shopify merchants selling serialized products such as electronics, replacement parts, equipment, limited goods, and warranty-sensitive inventory.\nEXACT PAINFUL WORKFLOW: sell or fulfill serialized item -> type serial into notes or external system -> later need to find which order/customer got that unit -> search fails or documents do not show the serial.\nWHY IT RECURS: Every serialized sale repeats it, especially in POS, warranty, and post-sale support flows.\nDIRECT EVIDENCE LINKS:\n1) In POS, I would like to track the Serial number of certain products at checkout \u2014 https://community.shopify.com/t/305374\n2) Adding serial numbers \u2014 https://community.shopify.com/t/358741\n3) Need an App that Allows us to add serial numbers to an invoice or order # \u2014 https://community.shopify.com/t/59240\n4) Is there an app that connects product serial numbers to customer profiles? \u2014 https://community.shopify.com/t/389437\nQUOTED / SOURCE EXCERPTS:\n- \"I need to track serial numbers at checkout only... in a dream world, a input box would pop up when selling a handful of items to have serial number input by scanner AND I could look up by serial number in the future.\"\n- \"I want to be able to add individual serial numbers for each item I sell to packing slips / invoices.\"\n- \"We have serial numbers for our products, we need to be able to add serial numbers to the order... if I need to search what order number a certain serial number went to, I can not search for that.\"\n- \"Is there an app where we can take a photo of the serial number of a part/item, and it will automatically direct you to the customer\u2019s file?\"\nCURRENT WORKAROUND: order notes, spreadsheets, manual scanner workflows, or off-platform warranty/ERP systems.\nWHY WORKAROUND IS BAD: notes are not structured, search is weak, invoices/packing slips miss the serial, and staff waste time reconstructing ownership later.\nCOMPETITORS: note-field hacks, warranty tools, ERPs, custom serial apps.\nCOMPETITOR PRICING IF FINDABLE: many alternatives are bundled into much broader software or custom workflows rather than sold as a sharp Shopify-native serial capture utility.\nWHY NOW: merchants increasingly need cleaner post-sale traceability, while Shopify\u2019s core workflows still leave serial capture fragmented across POS, fulfillment, and support.\nWEDGE: own one tight loop only \u2014 capture serial, attach to order/customer, print it, and retrieve it later by scan or search.\nVALIDATION ANGLE: recruit merchants from these forum threads and pilot a white-glove install that replaces notes/spreadsheets for serialized SKUs.\nFIRST TRAFFIC SOURCE: Shopify Community serial-number threads plus app-store searches around serial number, warranty registration, and POS traceability.\nRISK FLAGS: some merchants may eventually want deeper RMA/warranty flows; scanner integration and document-printing edge cases can add support load.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API / GraphQL for orders, customers, fulfillments, draft orders, and metafields; POS extension surfaces for capture at checkout; optional scanner/camera input and document rendering for invoices / packing slips."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "When a serial number matters, it usually matters for warranties, support, recalls, fraud checks, or ownership proof. A small app that removes note-hacking and makes serial lookup instant can save enough staff time and customer pain to justify a focused subscription."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "The low end is notes and spreadsheets. The high end is adopting field-service, ERP, or warranty software just to answer a simple question: which customer got serial X? That gap is sharp, recurring, and monetizable."
+        }
+      ]
+    },
+    {
+      "id": "certkeeper",
+      "name": "CertKeeper",
+      "domain": "certkeeper.app",
+      "stage": "ideas",
+      "competition": "LOW-MEDIUM",
+      "topCompetitors": "Manual customer tags, spreadsheets, tax apps, Avalara/Vertex-style broader tax systems, and custom wholesale portals. The wedge is narrower: collect/store resale or tax-exempt certificates, apply exemption rules safely, and track expiration dates so merchants stop managing compliance off-platform.",
+      "pain": "Merchants selling to tax-exempt or reseller customers still track exemption certificates and expiration dates outside Shopify, creating compliance risk and manual customer-by-customer tax handling.",
+      "tags": [
+        {
+          "text": "B2B Commerce",
+          "class": "market"
+        },
+        {
+          "text": "Tax Exemption Certs"
+        },
+        {
+          "text": "Customers + Tax",
+          "class": "api"
+        }
+      ],
+      "score": "8.8/10",
+      "scorePercent": 88,
+      "mvpTime": "~3-4 days MVP",
+      "pricing": "$39-129/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Merchant collects a resale or tax-exemption certificate by email, stores it somewhere outside Shopify, tags or marks the customer tax-exempt manually, then separately remembers when that certificate expires or when tax should still apply to some products."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This recurs every time a wholesale or nonprofit customer is onboarded, renewed, or reviewed. The pain is not just file storage; it is applying the right exemption status safely, tracking expiry dates, and avoiding indefinite exemptions that quietly become compliance problems."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: CertKeeper\nONE-LINE OPPORTUNITY: A Shopify compliance utility for collecting, storing, expiring, and enforcing tax-exemption / resale certificates.\nTARGET BUYER: Shopify merchants selling to resellers, contractors, nonprofits, schools, or government customers with exemption certificates.\nEXACT PAINFUL WORKFLOW: collect certificate -> mark customer tax-exempt manually -> track document/expiry outside Shopify -> remember to re-enable tax or apply mixed taxable/resale logic later.\nWHY IT RECURS: Every exempt customer and every renewal cycle repeats it.\nDIRECT EVIDENCE LINKS:\n1) Not want to charge Sales Tax to B2B customers with Resale Certificate on file \u2014 https://community.shopify.com/t/88537\n2) Tax exempt customer w/ resale exemptions \u2014 https://community.shopify.com/t/371609\n3) Feature Request: Expiration Date for Customer Tax Exemptions \u2014 https://community.shopify.com/t/614318\nQUOTED / SOURCE EXCERPTS:\n- \"for many of those we would get a Resale Certificate from them which means we would NOT need to charge them sales tax as they are resellers.\"\n- \"I need a way to charge tax only on the items they use internally and not on items they will resell.\"\n- \"Currently, when a customer is marked as tax-exempt, that exemption remains active indefinitely and must be manually tracked and removed.\"\n- \"Without a built-in expiration feature, merchants are responsible for manually tracking these dates outside of Shopify, which creates risk of non-compliance if an expired certificate is missed.\"\nCURRENT WORKAROUND: spreadsheets, customer tags, off-platform file storage, manual tax settings, or broader tax systems.\nWHY WORKAROUND IS BAD: expiry dates get missed, exempt status can remain active too long, mixed taxable/resale purchasing is awkward, and compliance evidence lives outside the order/customer workflow.\nCOMPETITORS: spreadsheets, tax apps, Avalara/Vertex-class systems, wholesale customizations.\nCOMPETITOR PRICING IF FINDABLE: many tax tools solve much broader nexus/tax automation problems and are too heavy if the merchant mainly needs certificate collection + expiration controls.\nWHY NOW: Shopify B2B usage is growing, but merchants still surface basic certificate and expiration gaps in core.\nWEDGE: do one boring but valuable job well \u2014 collect the cert, store it against the customer, remind before expiry, and control exemption status safely.\nVALIDATION ANGLE: install for merchants already using email/spreadsheets for exempt customers and measure reduced admin time plus fewer compliance-risk edge cases.\nFIRST TRAFFIC SOURCE: Shopify Community tax-exemption threads plus app-store searches around resale certificate, tax exempt customers, and B2B tax handling.\nRISK FLAGS: tax rules vary by jurisdiction; some merchants will need mixed item-level exemption logic that expands scope.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API for customers, companies, customer tax settings, metafields, files/doc references, tags, and order tax context; email/reminder jobs for expiring certificates; optional customer upload portal."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "This is compliance-flavored operational pain. Merchants will pay to avoid manual tracking, expired certificates, and awkward tax mistakes, especially if they handle repeat wholesale accounts with documentation requirements."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "The low end is inboxes and spreadsheets. The high end is buying a much larger tax stack or custom wholesale build just to manage certificates and expiry. A tight middle-layer compliance utility fits the gap well."
+        }
+      ]
+    },
+    {
+      "id": "casepackgate",
+      "name": "CasePackGate",
+      "domain": "casepackgate.app",
+      "stage": "ideas",
+      "competition": "LOW-MEDIUM",
+      "topCompetitors": "Theme hacks, Script Editor / Shopify Functions customizations, quantity-break apps, B2B/wholesale apps like Wholesale Gorilla, and broader order-rule tools. The wedge is narrower: enforce allowed case-pack / pack-size quantities and defaults on the storefront without merchants cloning SKUs or hand-coding selectors.",
+      "pain": "Merchants selling in fixed pack sizes still fight Shopify to stop customers ordering invalid quantities, so they duplicate SKUs, hard-code selectors, or rely on custom scripts just to enforce case packs.",
+      "tags": [
+        {
+          "text": "Wholesale Ecommerce",
+          "class": "market"
+        },
+        {
+          "text": "Case Pack Rules"
+        },
+        {
+          "text": "Cart + Quantity",
+          "class": "api"
+        }
+      ],
+      "score": "8.7/10",
+      "scorePercent": 87,
+      "mvpTime": "~2-3 days MVP",
+      "pricing": "$19-59/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Merchant sells products only in specific pack or case quantities, then uses duplicate SKUs, custom selectors, scripts, or metafield-driven theme hacks to stop customers ordering quantities that cannot actually be picked, packed, or shipped cleanly."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This repeats on every wholesale or pack-sized order. The problem is simple but constant: the storefront defaults to quantity 1 while the real sellable unit may be 6, 12, 25, 36, or other case intervals. Merchants keep rebuilding the same restrictions in fragile ways."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: CasePackGate\nONE-LINE OPPORTUNITY: A Shopify storefront rule engine that enforces valid case-pack quantities and defaults without SKU duplication or theme-script hacks.\nTARGET BUYER: Shopify merchants selling wholesale, food/beverage packs, master-case goods, or any catalog with fixed sellable pack sizes.\nEXACT PAINFUL WORKFLOW: list product -> customer can still enter invalid quantity -> merchant hacks selector, scripts, or duplicate products -> order or inventory flow still gets messy.\nWHY IT RECURS: Every order for case-based products repeats the same quantity-control problem.\nDIRECT EVIDENCE LINKS:\n1) Best Approach to Enforcing Case Pack Quantities for Inventory \u2014 https://community.shopify.com/t/396298\n2) How do I set up case pack quantities? \u2014 https://community.shopify.com/t/304201\n3) How do I sell each item in a store in case or pack sizes? \u2014 https://community.shopify.com/t/555408\n4) Liquid code in Quantity Selector instead Of \"1\" \u2014 https://community.shopify.com/t/296094\nQUOTED / SOURCE EXCERPTS:\n- \"We\u2019re trying to prevent customers from purchasing leftover inventory that isn\u2019t in case pack quantities.\"\n- \"How do I set up case pack options for individual products?\"\n- \"We ship all of our products in 12pk, 25pk and 36pk boxes.\"\n- \"We need to change the default quantity shown in selector, instead \u20181\u2019, to a product.metafield (related to Master case units).\"\nCURRENT WORKAROUND: duplicate SKUs for retail vs wholesale packs, custom Liquid, Script Editor / Functions, metafields, and quantity-rule apps not built for exact pack logic.\nWHY WORKAROUND IS BAD: merchants maintain brittle storefront logic, customers still find invalid combinations, and ops teams keep cleaning up quantity mistakes downstream.\nCOMPETITORS: quantity apps, wholesale apps, custom scripts, and theme hacks.\nCOMPETITOR PRICING IF FINDABLE: current solutions often solve broader pricing/wholesale problems or require custom code rather than packaging case-pack enforcement as a simple dedicated utility.\nWHY NOW: more mixed retail/wholesale Shopify stores need one catalog to support multiple sellable pack formats without enterprise customization overhead.\nWEDGE: do one thing cleanly \u2014 enforce valid quantity increments, defaults, and messaging by product/variant/customer group.\nVALIDATION ANGLE: pilot with wholesalers and packaged-goods stores currently duplicating SKUs or hand-coding quantity rules; measure fewer invalid orders and less catalog complexity.\nFIRST TRAFFIC SOURCE: Shopify Community threads around case packs, wholesale packs, and quantity-selector customization.\nRISK FLAGS: some stores may solve it with custom themes or larger wholesale apps; variant/customer-group rule complexity can creep upward.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Theme app extensions, Shopify Functions / cart validation surfaces, storefront cart hooks, customer tags/company context for wholesale rules, and metafields for pack-size metadata."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "This is repetitive order-hygiene pain with direct downstream cost: invalid carts, SKU duplication, shipping confusion, and support cleanup. A focused app that makes case rules reliable is easy to justify for wholesale or packaged-goods merchants."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "The low end is duplicate products and awkward quantity messaging. The middle is hand-coded Liquid or Scripts. The high end is adopting a broader wholesale app when the real need is simply valid pack-size enforcement. That is a sharp small-product wedge."
         }
       ]
     }
