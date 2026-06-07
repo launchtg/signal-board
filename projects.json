@@ -2,7 +2,7 @@
   "meta": {
     "version": "v2.0",
     "label": "SIGNAL ENGINE",
-    "lastUpdated": "2026-06-06",
+    "lastUpdated": "2026-06-07",
     "stages": [
       {
         "id": "ideas",
@@ -1194,6 +1194,162 @@
         {
           "title": "Existing Bad Solutions",
           "text": "The low end is duplicate products and awkward quantity messaging. The middle is hand-coded Liquid or Scripts. The high end is adopting a broader wholesale app when the real need is simply valid pack-size enforcement. That is a sharp small-product wedge."
+        }
+      ]
+    },
+    {
+      "id": "approveflow",
+      "name": "ApproveFlow",
+      "domain": "approveflow.app",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "SelfApprove, custom Shopify Flow + email builds, ERP/procurement approval systems, and bespoke agency implementations. The wedge is narrower: add buyer-to-manager approval inside Shopify B2B orders without forcing merchants into a full procurement stack or custom workflow spaghetti.",
+      "pain": "Shopify B2B merchants still cannot cleanly route employee-created orders or POs to a customer-side approver before fulfillment, so teams patch together manual review, order holds, and off-platform emails.",
+      "tags": [
+        {
+          "text": "B2B Commerce",
+          "class": "market"
+        },
+        {
+          "text": "Order Approval"
+        },
+        {
+          "text": "Shopify Flow + Email",
+          "class": "api"
+        }
+      ],
+      "score": "8.9/10",
+      "scorePercent": 89,
+      "mvpTime": "~3-4 days MVP",
+      "pricing": "$49-149/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "An employee or purchaser submits a B2B order in Shopify, but the merchant really needs that order approved by the buyer's manager or another external contact first. Teams end up manually holding the order, emailing someone else for approval, then tagging, releasing, or cancelling it by hand."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This recurs on every company account with delegated purchasing. The pain is not creating the order; it is inserting a real approval step before the merchant processes it. Without that, merchants become the human middleware between the buyer and the approver, which slows fulfillment and creates avoidable mistakes."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: ApproveFlow\nONE-LINE OPPORTUNITY: A Shopify B2B approval layer that routes employee-created orders or POs to the right customer-side approver before the merchant fulfills them.\nTARGET BUYER: Shopify B2B merchants selling to companies with multiple purchasers, approvers, or branch buyers.\nEXACT PAINFUL WORKFLOW: employee places order -> merchant must pause processing -> approver needs email summary + approve/decline action -> merchant manually releases or cancels order.\nWHY IT RECURS: Every delegated B2B purchase repeats the same approval bottleneck.\nDIRECT EVIDENCE LINKS:\n1) B2B purchase order approval flow (employee \u2192 admin) in Shopify Grow plan \u2014 https://community.shopify.com/t/b2b-purchase-order-approval-flow-employee-admin-in-shopify-grow-plan/614684\n2) B2B Company Manage Order approval with API for Shopify Plus? \u2014 https://community.shopify.com/t/b2b-company-manage-order-approval-with-api-for-shopify-plus/352114\n3) Order Approvals from External Customers \u2014 https://community.shopify.com/t/order-approvals-from-external-customers/418632\n4) Let your B2B customers approve their own team orders - SelfApprove just launched \u2014 https://community.shopify.com/t/let-your-b2b-customers-approve-their-own-team-orders-selfapprove-just-launched/622897\nQUOTED / SOURCE EXCERPTS:\n- \"The order should not be finalized immediately... Instead, it should go to their admin/supervisor for approval.\"\n- \"At the moment, Shopify seems to process orders instantly, and I\u2019m not seeing a built-in way to add this approval step in the flow.\"\n- \"The only manual step left is manually approving each and every customer company for ordering.\"\n- \"A customer would like to approve the orders of their colleagues before they are processed.\"\nCURRENT WORKAROUND: order holds, manual approval emails, Shopify Flow chains, tags, or broader procurement software.\nWHY WORKAROUND IS BAD: merchants stay stuck in the approval loop, approvals are easy to lose in email, and fulfillment timing becomes unreliable.\nCOMPETITORS: SelfApprove, custom Flow/email workflows, procurement/ERP systems, bespoke agency builds.\nCOMPETITOR PRICING IF FINDABLE: direct pricing is inconsistent or hidden; existing solutions either look custom, app-fragmented, or far broader than this one approval step.\nWHY NOW: Shopify B2B adoption is rising on lower plans, but approval logic still falls through the cracks between company accounts and real procurement behavior.\nWEDGE: do one thing well \u2014 send the right approval request, capture approve/decline, and release or kill the order automatically.\nVALIDATION ANGLE: recruit merchants already describing this workflow and offer a white-glove pilot that removes merchant-side approval handling.\nFIRST TRAFFIC SOURCE: Shopify Community B2B approval threads and direct outreach to Plus/Grow merchants managing company accounts.\nRISK FLAGS: a focused competitor has already appeared; some larger merchants may expect deeper procurement features later.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Shopify Admin API for orders, companies, customer identity, tags/metafields, and order holds; Shopify Flow triggers or app-side scheduled actions; transactional email + hosted approve/decline endpoints."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "This removes recurring back-and-forth from a revenue-critical workflow. If it shortens approval lag and stops merchants from manually shepherding every company order, the ROI is obvious for B2B teams with repeat buyers."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "The low end is manual email approval and order-note chaos. The middle is custom Flow/tag logic that still needs glue code. The high end is pushing the problem into procurement or ERP software that does much more than most Shopify merchants need."
+        }
+      ]
+    },
+    {
+      "id": "shiplater",
+      "name": "ShipLater",
+      "domain": "shiplater.app",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Zapiet Pickup + Delivery, generic delivery-date picker apps, manual order notes/tags, and custom checkout or POS workarounds. The wedge is specifically future ship dates \u2014 not delivery dates \u2014 across storefront and POS workflows.",
+      "pain": "Merchants that need customers to choose when an order should ship, not just when it might arrive, still fake the workflow with delivery-date apps, notes, or manual scheduling.",
+      "tags": [
+        {
+          "text": "Ecommerce Ops",
+          "class": "market"
+        },
+        {
+          "text": "Future Ship Date"
+        },
+        {
+          "text": "Checkout + POS",
+          "class": "api"
+        }
+      ],
+      "score": "8.7/10",
+      "scorePercent": 87,
+      "mvpTime": "~2-4 days MVP",
+      "pricing": "$19-59/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "Customers want to buy now but have the merchant ship later \u2014 for gifts, event timing, weekly bake/ship cycles, or in-store POS orders. Merchants either use a delivery-date app and relabel it awkwardly, collect the request in order notes, or manually tag and hold the order until someone remembers to release it."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This happens whenever fulfillment timing matters more than checkout timing. The pain recurs because ship date and delivery date are not interchangeable: carriers control delivery, but the merchant controls when the box leaves the warehouse. Existing tools keep forcing merchants into the wrong abstraction."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: ShipLater\nONE-LINE OPPORTUNITY: A Shopify app that lets customers choose a future ship-out date and turns that into a reliable hold/release workflow for ops.\nTARGET BUYER: Gift stores, bakeries, seasonal merchants, subscription-adjacent shops, and stores using POS to arrange future shipments.\nEXACT PAINFUL WORKFLOW: customer places order now -> wants it to leave the shop on a later date -> merchant collects the date in notes or via a delivery-date app -> staff manually holds and releases the order.\nWHY IT RECURS: Every gift order, event-timed order, preorder-like shipment, or scheduled bakery shipment repeats it.\nDIRECT EVIDENCE LINKS:\n1) Apps for scheduling future shipping dates? \u2014 https://community.shopify.com/t/apps-for-scheduling-future-shipping-dates/334269\n2) How can I offer future ship dates for gifts in my online store? \u2014 https://community.shopify.com/t/how-can-i-offer-future-ship-dates-for-gifts-in-my-online-store/248110\n3) Future SHIP date app \u2014 https://community.shopify.com/t/future-ship-date-app/370727\n4) How to set a future ship date using POS? \u2014 https://community.shopify.com/t/how-to-set-a-future-ship-date-using-pos/260334\n5) Need shipping carrier rates calculated by future ship date not order date \u2014 https://community.shopify.com/t/need-shipping-carrier-rates-calculated-by-future-ship-date-not-order-date/370786\nQUOTED / SOURCE EXCERPTS:\n- \"I\u2019m looking to add an app for customers to place an order today and have it delivered at any later date in the future.\"\n- \"I would like to offer a future ship date within our Shopify store.\"\n- \"We are looking for an app the allows our customers to pick a date for their order to SHIP out on, not a delivery date.\"\n- \"It\u2019s common that customers want to set a ship date in the future.\"\n- \"My shipping methods... are only overnight and 2 day... and the quote can change based on when it ships.\"\nCURRENT WORKAROUND: delivery-date apps relabeled as ship-date tools, order notes, manual tags/holds, or customer-service follow-up.\nWHY WORKAROUND IS BAD: ops teams still have to remember the real ship date, customers are shown the wrong concept, and rate/timing logic gets messy fast.\nCOMPETITORS: Zapiet and other delivery-date apps, note fields, custom scripts.\nCOMPETITOR PRICING IF FINDABLE: delivery-date apps exist, but they are not cleanly positioned around ship-out scheduling and release logic.\nWHY NOW: more merchants are selling gifts, timed shipments, and POS-assisted orders where the ship date itself matters.\nWEDGE: own one exact job \u2014 capture ship-out date, hold the order, surface it clearly to ops, and release it on time.\nVALIDATION ANGLE: recruit merchants already asking for ship-date workflows and offer a pilot that eliminates manual hold-and-release handling.\nFIRST TRAFFIC SOURCE: Shopify Community threads around future ship date, gifts, bakery shipping, and POS future shipments.\nRISK FLAGS: some merchants may accept relabeled delivery-date tools; shipping-rate edge cases may expand scope if not kept tight.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Theme/cart attributes or checkout extension surfaces for date capture, Shopify Admin API for order tags/metafields/holds, POS extension surfaces where available, and scheduled release jobs for ops automation."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "It removes a recurring fulfillment memory problem and prevents embarrassing early shipments. For stores where timing is part of the promise, a small monthly fee is cheap compared with reships, customer support, and manual coordination."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "Today the low end is order notes and human memory. The middle is forcing a delivery-date app to mean something else. The high end is custom scheduling logic. None cleanly solve ship-out timing as its own workflow."
+        }
+      ]
+    },
+    {
+      "id": "sheetcart",
+      "name": "SheetCart",
+      "domain": "sheetcart.app",
+      "stage": "ideas",
+      "competition": "MEDIUM",
+      "topCompetitors": "Wholesale Order Form & ReOrder, SparkLayer-style B2B portals, Wishlist/Supply List, and custom CSV/email order intake. The wedge is tighter: let approved wholesale buyers build large repeat orders fast from list view or spreadsheet import, then submit without normal DTC checkout friction.",
+      "pain": "Wholesale buyers placing large repeat orders in Shopify still struggle to order quickly, so merchants fall back to emailed spreadsheets, clunky carts, or broad B2B portal apps.",
+      "tags": [
+        {
+          "text": "Wholesale Ecommerce",
+          "class": "market"
+        },
+        {
+          "text": "Quick Order Form"
+        },
+        {
+          "text": "CSV + Cart",
+          "class": "api"
+        }
+      ],
+      "score": "8.8/10",
+      "scorePercent": 88,
+      "mvpTime": "~3-4 days MVP",
+      "pricing": "$29-99/mo",
+      "details": [
+        {
+          "title": "Current Manual Workflow",
+          "text": "A wholesale customer wants to reorder many SKUs fast, often without standard DTC checkout steps or immediate payment. Instead of a clean grid or spreadsheet import flow, they browse product pages one by one, email CSV files to the merchant, or rely on a broader portal app just to get items into the cart."
+        },
+        {
+          "title": "Workflow Friction",
+          "text": "This repeats every replenishment cycle. The buyer already knows what they need; the bottleneck is turning a SKU list into a valid wholesale order fast. When the interface is slow, merchants become order-entry clerks, and the customer falls back to off-platform spreadsheets."
+        },
+        {
+          "title": "Evidence",
+          "text": "IDEA NAME: SheetCart\nONE-LINE OPPORTUNITY: A Shopify wholesale ordering layer with list-view ordering, CSV/spreadsheet-to-cart import, and invoice-first submission for approved buyers.\nTARGET BUYER: Shopify wholesale merchants, dropship suppliers, and B2B stores with repeat catalog ordering.\nEXACT PAINFUL WORKFLOW: buyer knows SKUs/quantities -> Shopify storefront is too slow for bulk ordering -> customer emails spreadsheet or the merchant manually enters the order -> invoice/payment happens later.\nWHY IT RECURS: Every repeat wholesale order or dropship restock repeats it.\nDIRECT EVIDENCE LINKS:\n1) Wholesale: how a signed customer can place order quickly \u2014 https://community.shopify.com/t/wholesale-how-a-signed-customer-can-place-order-quickly/174285\n2) hi, I need an app that allows customer to upload spread sheet order into shopping cart \u2014 https://community.shopify.com/t/hi-i-need-an-app-that-allows-customer-to-upload-spread-sheet-order-into-shopping-cart/417246\n3) List View / Quick Order Form \u2014 https://community.shopify.com/t/list-view-quick-order-form/337781\nQUOTED / SOURCE EXCERPTS:\n- \"Does anyone know how a sign-in customer could place an order quickly without filling address, choosing shipping and paying?\"\n- \"We don\u2019t want to collect money at this point. We want to send an invoice instead.\"\n- \"I\u2019m looking for an app that will allows customers to import orders in bulk via excel/csv into their shopping carts.\"\n- \"I offer drop shipping and customers are currently emailing me their files.\"\n- \"We are making Wholesale website and I am looking for List View / Quick Order Form, so that customers can buy more quickly.\"\nCURRENT WORKAROUND: emailed spreadsheets, manual order entry, generic quick-order apps, or full B2B portal layers.\nWHY WORKAROUND IS BAD: merchants do duplicate work, buyers cannot reorder efficiently, and the checkout flow is still too retail-shaped for repeat wholesale purchases.\nCOMPETITORS: Wholesale Order Form & ReOrder, SparkLayer, supply-list apps, custom portals.\nCOMPETITOR PRICING IF FINDABLE: existing tools often bundle many broader B2B features or solve only one piece of the workflow.\nWHY NOW: more Shopify merchants are using B2B and supplier-style repeat ordering, but core storefront flows still assume consumer browsing.\nWEDGE: keep it simple \u2014 let approved buyers paste or upload SKUs, build the cart fast, and submit for invoice or review.\nVALIDATION ANGLE: offer a pilot to merchants currently handling wholesale orders by spreadsheet/email and measure time removed from order entry.\nFIRST TRAFFIC SOURCE: Shopify Community wholesale ordering threads plus app-store searches around quick order form, CSV order upload, and reorder tools.\nRISK FLAGS: the category is not empty; differentiation has to come from speed, simplicity, and invoice-first wholesale fit.\nVERDICT: KEEP"
+        },
+        {
+          "title": "Relevant APIs",
+          "text": "Storefront/cart APIs for fast line-item creation, customer/company context for wholesale gating, CSV parsing/import, and optional draft-order or invoice-first workflows through Shopify Admin APIs."
+        },
+        {
+          "title": "Why They'd Pay",
+          "text": "This saves time on every repeat order and reduces merchant-side data entry. If it turns emailed spreadsheets into self-serve orders, the value is immediate for both the buyer and the merchant."
+        },
+        {
+          "title": "Existing Bad Solutions",
+          "text": "The low end is emailed CSVs and manual order entry. The middle is quick-order apps that may not fit invoice-first wholesale flows. The high end is a full B2B portal stack when the merchant mainly needs a fast bulk-order front end."
         }
       ]
     }
