@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Talk to Claude</title>
+  <style>
+    :root {
+      --bg: #0B3D2E;
+      --surface: #0D4A36;
+      --card: #10573F;
+      --border: #1A7A58;
+      --primary: #E8862A;
+      --primary-bright: #F0A050;
+      --text: #F5F0E8;
+      --text-muted: #A8C4B8;
+      --user: #146B4D;
+      --assistant: #0D4A36;
+      --danger: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.9rem 1rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 { font-size: 1.05rem; font-weight: 600; letter-spacing: 0.2px; }
+    .header-actions { display: flex; align-items: center; gap: 0.5rem; }
+    .toggle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.7rem;
+      cursor: pointer;
+    }
+    .toggle[aria-pressed="true"] { color: var(--bg); background: var(--primary); border-color: var(--primary); }
+
+    #status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      padding: 0.35rem 1rem;
+      min-height: 1.4rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    #status.error { color: var(--primary-bright); }
+
+    #chat {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .msg {
+      max-width: 80%;
+      padding: 0.65rem 0.85rem;
+      border-radius: 1rem;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .msg.user { align-self: flex-end; background: var(--user); border-bottom-right-radius: 0.25rem; }
+    .msg.assistant { align-self: flex-start; background: var(--assistant); border: 1px solid var(--border); border-bottom-left-radius: 0.25rem; }
+    .msg .who { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.2rem; }
+    .empty { color: var(--text-muted); text-align: center; margin: auto; font-size: 0.95rem; max-width: 28rem; }
+
+    form {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      align-items: flex-end;
+    }
+    textarea {
+      flex: 1;
+      resize: none;
+      max-height: 8rem;
+      min-height: 2.75rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 0.85rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font: inherit;
+      line-height: 1.4;
+    }
+    textarea:focus { outline: none; border-color: var(--primary); }
+    button.icon {
+      flex: 0 0 auto;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    button.icon:disabled { opacity: 0.5; cursor: default; }
+    button#send { background: var(--primary); color: var(--bg); border-color: var(--primary); }
+    button#mic.listening { background: var(--danger); color: #fff; border-color: var(--danger); animation: pulse 1.2s infinite; }
+    @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.5);} 50% { box-shadow: 0 0 0 8px rgba(239,68,68,0);} }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Talk to Claude</h1>
+    <div class="header-actions">
+      <button class="toggle" id="speakToggle" aria-pressed="true" title="Read replies aloud">🔊 Voice</button>
+      <button class="toggle" id="newChat" title="Start a new conversation">＋ New</button>
+    </div>
+  </header>
+
+  <div id="status">Ready.</div>
+
+  <div id="chat">
+    <div class="empty" id="emptyState">
+      Type a message, or tap the mic and speak. Claude replies in text and reads it aloud.
+      Each conversation is saved to your Dropbox folder automatically.
+    </div>
+  </div>
+
+  <form id="composer">
+    <button type="button" class="icon" id="mic" title="Speak">🎤</button>
+    <textarea id="input" placeholder="Message Claude…" rows="1" autocomplete="off"></textarea>
+    <button type="submit" class="icon" id="send" title="Send">➤</button>
+  </form>
+
+  <script>
+    const chatEl = document.getElementById("chat");
+    const emptyState = document.getElementById("emptyState");
+    const form = document.getElementById("composer");
+    const input = document.getElementById("input");
+    const sendBtn = document.getElementById("send");
+    const micBtn = document.getElementById("mic");
+    const speakToggle = document.getElementById("speakToggle");
+    const newChatBtn = document.getElementById("newChat");
+    const statusEl = document.getElementById("status");
+
+    // Conversation state. `messages` is the exact array sent to the Claude API.
+    let messages = [];
+    let conversationFile = newConversationFile();
+    let speakReplies = true;
+    let busy = false;
+
+    function newConversationFile() {
+      const d = new Date();
+      const p = (n) => String(n).padStart(2, "0");
+      return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}.md`;
+    }
+
+    function setStatus(text, isError = false) {
+      statusEl.textContent = text;
+      statusEl.classList.toggle("error", isError);
+    }
+
+    function renderMessage(role, text) {
+      emptyState.style.display = "none";
+      const el = document.createElement("div");
+      el.className = `msg ${role}`;
+      const who = document.createElement("span");
+      who.className = "who";
+      who.textContent = role === "user" ? "You" : "Claude";
+      el.appendChild(who);
+      el.appendChild(document.createTextNode(text));
+      chatEl.appendChild(el);
+      chatEl.scrollTop = chatEl.scrollHeight;
+    }
+
+    function autoGrow() {
+      input.style.height = "auto";
+      input.style.height = Math.min(input.scrollHeight, 128) + "px";
+    }
+    input.addEventListener("input", autoGrow);
+
+    // ----- Text to speech (browser-native) -----
+    function speak(text) {
+      if (!speakReplies || !("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.rate = 1.0;
+      u.pitch = 1.0;
+      window.speechSynthesis.speak(u);
+    }
+
+    speakToggle.addEventListener("click", () => {
+      speakReplies = !speakReplies;
+      speakToggle.setAttribute("aria-pressed", String(speakReplies));
+      speakToggle.textContent = speakReplies ? "🔊 Voice" : "🔇 Muted";
+      if (!speakReplies) window.speechSynthesis?.cancel();
+    });
+
+    // ----- Speech to text (browser-native) -----
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let recognition = null;
+    let listening = false;
+
+    if (SR) {
+      recognition = new SR();
+      recognition.lang = "en-US";
+      recognition.interimResults = true;
+      recognition.continuous = false;
+
+      recognition.onresult = (event) => {
+        let transcript = "";
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          transcript += event.results[i][0].transcript;
+        }
+        input.value = transcript;
+        autoGrow();
+      };
+      recognition.onend = () => {
+        listening = false;
+        micBtn.classList.remove("listening");
+        // Auto-send what was dictated.
+        if (input.value.trim()) form.requestSubmit();
+      };
+      recognition.onerror = (e) => {
+        listening = false;
+        micBtn.classList.remove("listening");
+        setStatus("Microphone error: " + e.error, true);
+      };
+    } else {
+      micBtn.disabled = true;
+      micBtn.title = "Voice input isn't supported in this browser. Try Chrome, Edge, or Safari.";
+    }
+
+    micBtn.addEventListener("click", () => {
+      if (!recognition || busy) return;
+      if (listening) {
+        recognition.stop();
+        return;
+      }
+      // Speaking and listening at once causes feedback; stop any playback first.
+      window.speechSynthesis?.cancel();
+      input.value = "";
+      autoGrow();
+      try {
+        recognition.start();
+        listening = true;
+        micBtn.classList.add("listening");
+        setStatus("Listening…");
+      } catch (_) { /* start() throws if already started; ignore */ }
+    });
+
+    // ----- Send a turn -----
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (!text || busy) return;
+
+      input.value = "";
+      autoGrow();
+      renderMessage("user", text);
+      messages.push({ role: "user", content: text });
+
+      busy = true;
+      sendBtn.disabled = true;
+      setStatus("Claude is thinking…");
+
+      try {
+        const resp = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ messages }),
+        });
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || `Request failed (${resp.status})`);
+
+        const reply = data.text || "(no response)";
+        renderMessage("assistant", reply);
+        messages.push({ role: "assistant", content: reply });
+        speak(reply);
+        setStatus("Ready.");
+        saveTranscript();
+      } catch (err) {
+        setStatus("Error: " + err.message, true);
+      } finally {
+        busy = false;
+        sendBtn.disabled = false;
+        input.focus();
+      }
+    });
+
+    // Enter sends; Shift+Enter makes a newline.
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        form.requestSubmit();
+      }
+    });
+
+    // ----- Save transcript to Dropbox (one file per conversation, kept current) -----
+    async function saveTranscript() {
+      const lines = [`# Conversation — ${new Date().toLocaleString()}`, ""];
+      for (const m of messages) {
+        lines.push(m.role === "user" ? "**You:**" : "**Claude:**");
+        lines.push("");
+        lines.push(m.content);
+        lines.push("");
+      }
+      try {
+        const resp = await fetch("/api/transcript", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ filename: conversationFile, content: lines.join("\n") }),
+        });
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || `Save failed (${resp.status})`);
+        setStatus("Saved to Dropbox: " + data.path);
+      } catch (err) {
+        setStatus("Couldn't save transcript: " + err.message, true);
+      }
+    }
+
+    newChatBtn.addEventListener("click", () => {
+      window.speechSynthesis?.cancel();
+      messages = [];
+      conversationFile = newConversationFile();
+      chatEl.querySelectorAll(".msg").forEach((n) => n.remove());
+      emptyState.style.display = "";
+      setStatus("New conversation started.");
+      input.focus();
+    });
+
+    input.focus();
+  </script>
+</body>
+</html>

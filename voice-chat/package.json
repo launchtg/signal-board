@@ -1,0 +1,10 @@
+{
+  "name": "voice-chat",
+  "version": "1.0.0",
+  "description": "Voice + text chat with Claude, with transcripts saved to Dropbox.",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.104.1"
+  }
+}
